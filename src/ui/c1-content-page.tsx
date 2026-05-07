@@ -109,9 +109,9 @@ function comparisonRows(path: string) {
 	if (path.startsWith('/lenders/')) {
 		const lenderName = path.replace('/lenders/', '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 		return [
-			[lenderName, 'Speed, online process or specific product focus', 'Compare product fit, repayment rhythm and total cost', 'Check current eligibility, fees and guarantees directly'],
-			['Major bank', 'Established business, security available, relationship banking', 'Potentially lower pricing, wider banking relationship', 'More documentation, slower decisions may apply'],
-			['Specialist finance', 'Invoice, asset, trade or industry-specific need', 'Matches funding to the specific business problem', 'Eligibility depends on asset or receivable quality'],
+			[lenderName, 'Specific lender profile and public product signals', 'Compare product fit, repayment rhythm and total cost', 'Check current eligibility, fees and guarantees directly'],
+			['Online non-bank lender', 'Speed, unsecured or working-capital needs', 'Can be more flexible for some SMEs', 'Pricing and repayment frequency need close review'],
+			['Specialist finance provider', 'Invoice, asset, trade or industry-specific need', 'Matches funding to the specific business problem', 'Eligibility depends on asset or receivable quality'],
 		]
 	}
 	if (path.includes('/compare/')) {
