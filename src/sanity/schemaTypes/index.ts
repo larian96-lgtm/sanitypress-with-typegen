@@ -2,6 +2,8 @@ import type { SchemaPluginOptions } from 'sanity'
 // documents
 import blogCategory from './documents/blog.category'
 import blogPost from './documents/blog.post'
+import c1Homepage from './documents/c1.homepage'
+import c1ContentPage from './documents/c1.content-page'
 import form from './documents/form'
 import globalModule from './documents/global-module'
 import logo from './documents/logo'
@@ -42,6 +44,8 @@ export const schema: SchemaPluginOptions = {
 		// documents
 		site,
 		page,
+		c1Homepage,
+		c1ContentPage,
 		form,
 		globalModule,
 		blogPost,
@@ -86,4 +90,4 @@ export const schema: SchemaPluginOptions = {
 		templates.filter(({ schemaType }) => !singletonTypes.includes(schemaType)),
 }
 
-const singletonTypes = ['site']
+const singletonTypes = ['site', 'c1.homepage']

@@ -17,6 +17,14 @@ export default presentationTool({
 		mainDocuments: defineDocuments([
 			{
 				route: '/',
+				filter: groq`_type == 'c1.homepage'`,
+			},
+			{
+				route: '/:slug',
+				filter: groq`_type == 'c1.contentPage' && path == '/' + $slug`,
+			},
+			{
+				route: '/',
 				filter: groq`_type == 'page' && metadata.slug.current == $slug`,
 				params: { slug: 'index' },
 			},
@@ -62,6 +70,17 @@ export default presentationTool({
 								: `/${ROUTES.blog}`,
 						},
 					],
+				}),
+			}),
+			'c1.homepage': defineLocations({
+				message: 'Used on the Comparison One homepage',
+				tone: 'positive',
+				resolve: () => ({ locations: [{ title: 'Comparison One Homepage', href: '/' }] }),
+			}),
+			'c1.contentPage': defineLocations({
+				select: { title: 'title', path: 'path' },
+				resolve: (doc) => ({
+					locations: [{ title: doc?.title, href: doc?.path || '/' }],
 				}),
 			}),
 		},

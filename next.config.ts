@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
 	reactCompiler: true,
 
 	images: {
-		localPatterns: [{ pathname: '/api/og' }],
+		localPatterns: [{ pathname: '/api/og' }, { pathname: '/finview/**' }, { pathname: '/comparisonone/**' }],
 		remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }],
 	},
 
@@ -18,19 +18,30 @@ const nextConfig: NextConfig = {
 				'destination': select(
 					destination.type == 'internal' =>
 						select(
-							destination.internal->._type == 'blog.post' => $blogDir,
-							''
-						) + select(
-							destination.internal->.metadata.slug.current == 'index' => '/',
-							'/' + destination.internal->.metadata.slug.current
+							destination.internal->metadata.slug.current == 'index' =>
+								'/',
+							'/' + destination.internal->metadata.slug.current
 						),
 					destination.external
 				),
-				'permanent': true
+				permanent
 			}`,
-			{ blogDir: `/${ROUTES.blog}/` },
 		)
 	},
+
+	rewrites: () => ({
+		beforeFiles: [
+			{
+				source: '/',
+				destination: '/finview-home/index.html',
+			},
+			{
+				has: [{ type: 'host', value: 'admin.*' }],
+				source: '/:path*',
+				destination: '/admin/:path*',
+			},
+		],
+	}),
 }
 
 export default nextConfig

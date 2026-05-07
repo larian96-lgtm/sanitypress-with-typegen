@@ -1,13 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 @theme {
-	--font-sans: 'Geist', sans-serif;
+	--font-sans: 'Jost', 'Geist', sans-serif;
 
-	--color-background: var(--color-neutral-100);
-	--color-foreground: var(--color-neutral-900);
-	--color-stroke: var(--color-neutral-200);
+	--color-background: #ffffff;
+	--color-foreground: #222E48;
+	--color-stroke: #DFE0E4;
 
-	--color-primary: LinkText;
+	--color-primary: #074C3E;
+	--color-primary-light: #0a6b57;
+	--color-accent: #FCB650;
+	--color-accent-light: #fcc970;
+	--color-lime: #E0F300;
+	--color-neutral-50: #F5F6F7;
+	--color-neutral-100: #EBECEF;
+	--color-neutral-200: #DFE0E4;
+	--color-neutral-300: #C1C4CC;
+	--color-neutral-400: #6A7283;
+	--color-neutral-500: #404A60;
+	--color-neutral-900: #222E48;
+	--color-dark: #03211B;
 
 	--spacing-lh: 1lh;
 	--spacing-ch: 1ch;

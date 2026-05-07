@@ -13,6 +13,8 @@ export default structureTool({
 				S.documentTypeListItem('global-module').title('Global modules'),
 
 				S.divider().title('Pages'),
+				singleton(S, 'c1.homepage').title('Comparison One Homepage'),
+				S.documentTypeListItem('c1.contentPage').title('Comparison One Pages'),
 				S.documentTypeListItem('page').title('Pages'),
 
 				S.divider().title('Blog'),
