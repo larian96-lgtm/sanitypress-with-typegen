@@ -144,10 +144,12 @@ After `next start`, check representative routes:
 
 Homepage checks should confirm that `/` is React-rendered and contains `Avoid applying blind for business funding`, not the static Finview HTML homepage copy.
 
-## Common pitfalls
+## Common Pitfalls
 
 1. Do not restore the root rewrite to `/finview-home/index.html` unless Ian explicitly asks for the static homepage again.
 2. Do not remove hardcoded fallback content after seeding Sanity. It keeps the public site alive during token, CORS, or dataset issues.
 3. Do not use the read-only token as a write token. Failed mutations are a permission issue, not a script issue, if the response is `projectUserNotFoundError` or `permission create required`.
 4. Do not invent table styling. Keep Finview table rules: light rows, dashed borders, no dark headers.
 5. Do not report a Vercel preview as live until the canonical alias responds with the new content.
+6. If mobile shows gray bars above or below C1 pages, check `src/app/(frontend)/layout.tsx` for the generic SanityPress `Header` and `Footer`. C1 pages render their own `C1Header` and `C1Footer`; double chrome causes the extra gray bars.
+7. Keep the header `Compare now` CTA hidden on small screens so it does not collide with the mobile `Menu` summary.

@@ -208,7 +208,7 @@ export function C1Header({ compact = false }: { compact?: boolean }) {
 							</div>
 						</div>
 					</details>
-					<Link href="/quiz" className="shrink-0 rounded-full bg-[#FCB650] px-4 py-2 text-xs font-semibold text-[#03211B] no-underline transition-colors hover:bg-[#fcc970] md:px-5 md:text-sm">
+					<Link href="/quiz" className="hidden shrink-0 rounded-full bg-[#FCB650] px-4 py-2 text-xs font-semibold text-[#03211B] no-underline transition-colors hover:bg-[#fcc970] md:inline-flex md:px-5 md:text-sm">
 						Compare now
 					</Link>
 				</div>
