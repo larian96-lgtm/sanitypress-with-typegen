@@ -1,6 +1,8 @@
-# ♣️ SanityPress with TypeGen
+# Comparison One SanityPress
 
-> Zero setup stress. 100% type-safe.
+Active documentation for future LLM / operator handoff: [`docs/comparison-one-site-operations.md`](docs/comparison-one-site-operations.md).
+
+> Based on SanityPress with TypeGen. This fork is now the Comparison One Next.js + Sanity site.
 
 An improved successor to the acclaimed Next.js + Sanity.io starter template—now with auto-generated TypeScript types from your Sanity schema and GROQ queries.
 

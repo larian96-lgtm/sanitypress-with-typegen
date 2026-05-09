@@ -236,7 +236,7 @@ const C1_CONTENT_PAGE_QUERY = groq`
 		'primaryCtaHref': coalesce(primaryCtaHref, '/quiz'),
 		'lastReviewed': coalesce(lastReviewed, '2026-05-05'),
 		'proofPoints': coalesce(proofPoints, []),
-		sections[]{ heading, body, bullets },
+		sections[]{ heading, body, bullets, table{ headers, 'rows': rows[].cells } },
 		faqs[]{ question, answer },
 		relatedLinks[]{ label, href }
 	}

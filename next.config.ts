@@ -32,10 +32,6 @@ const nextConfig: NextConfig = {
 	rewrites: () => ({
 		beforeFiles: [
 			{
-				source: '/',
-				destination: '/finview-home/index.html',
-			},
-			{
 				has: [{ type: 'host', value: 'admin.*' }],
 				source: '/:path*',
 				destination: '/admin/:path*',

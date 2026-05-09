@@ -46,6 +46,38 @@ export default defineType({
 						defineField({ name: 'heading', type: 'string', validation: (Rule) => Rule.required() }),
 						defineField({ name: 'body', type: 'text', rows: 8 }),
 						defineField({ name: 'bullets', type: 'array', of: [defineArrayMember({ type: 'string' })] }),
+						defineField({
+							name: 'table',
+							title: 'Comparison table',
+							type: 'object',
+							description: 'Optional Finview-styled table rendered after this section. Keep headers and each row in the same column order.',
+							fields: [
+								defineField({
+									name: 'headers',
+									type: 'array',
+									of: [defineArrayMember({ type: 'string' })],
+									validation: (Rule) => Rule.min(1),
+								}),
+								defineField({
+									name: 'rows',
+									type: 'array',
+									of: [
+										defineArrayMember({
+											type: 'object',
+											fields: [
+												defineField({
+													name: 'cells',
+													type: 'array',
+													of: [defineArrayMember({ type: 'string' })],
+													validation: (Rule) => Rule.min(1),
+												}),
+											],
+											preview: { select: { title: 'cells.0' } },
+										}),
+									],
+								}),
+							],
+						}),
 					],
 					preview: { select: { title: 'heading', subtitle: 'body' } },
 				}),
