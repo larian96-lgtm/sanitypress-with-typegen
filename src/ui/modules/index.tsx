@@ -19,7 +19,6 @@ import LogoList from './logo-list'
 import PersonList from './person-list'
 import Prose from './prose'
 import QuoteList from './quote-list'
-import SearchModule from './search'
 import StatList from './stat-list'
 import StepList from './step-list'
 
@@ -38,7 +37,6 @@ const MODULES_MAP = {
 	'person-list': PersonList,
 	prose: Prose,
 	'quote-list': QuoteList,
-	'search-module': SearchModule,
 	'stat-list': StatList,
 	'step-list': StepList,
 } as const

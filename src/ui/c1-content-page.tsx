@@ -6,30 +6,6 @@ import type { C1PageData, C1Section } from '@/lib/c1-pages'
 import { C1Header, C1Footer } from '@/ui/c1-brand'
 import { C1FundingWidget } from '@/ui/c1-funding-widget'
 
-const sourceUrlMap: Record<string, string> = {
-	'Economic Resilience Program': 'https://business.gov.au/grants-and-programs/economic-resilience-program',
-	'National Reconstruction Fund Corporation': 'https://www.nrf.gov.au/',
-	'NRFC': 'https://www.nrf.gov.au/',
-	'business.gov.au': 'https://business.gov.au/finance/funding/apply-for-a-business-loan',
-	'RBA': 'https://www.rba.gov.au/',
-	'ABA': 'https://www.ausbanking.org.au/',
-	'Australian Banking Association': 'https://www.ausbanking.org.au/',
-	'AFIA': 'https://www.afia.asn.au/',
-	'AFCA': 'https://www.afca.org.au/',
-	'ASIC': 'https://asic.gov.au/',
-	'ATO': 'https://www.ato.gov.au/businesses-and-organisations/',
-	'Export Finance Australia': 'https://www.exportfinance.gov.au/',
-	'CommBank': 'https://www.commbank.com.au/business/loans-and-finance/invoice-finance.html',
-	'ScotPac': 'https://www.scotpac.com.au/',
-	'Westpac': 'https://www.westpac.com.au/business-banking/business-loans/asset-finance/',
-	'NAB': 'https://www.nab.com.au/business/business-loans/asset-finance',
-	'ANZ': 'https://www.anz.com.au/business/loans-finance/asset-finance/',
-	'Prospa': 'https://www.prospa.com/',
-	'Moula': 'https://moula.com.au/',
-	'OnDeck': 'https://www.ondeck.com.au/',
-	'Judo Bank': 'https://www.judo.bank/',
-}
-
 const pageImages = [
 	'/finview/loan_solution.png',
 	'/finview/about_us.png',
@@ -41,7 +17,54 @@ const pageImages = [
 
 function shortSummary(text: string) {
 	const clean = text.replace(/>\s*/g, '').replace(/\s+/g, ' ').trim()
-	return clean.length > 310 ? `${clean.slice(0, 300).replace(/\s+\S*$/, '')}...` : clean
+	return clean
+}
+
+function heroSummary(text: string) {
+	const clean = shortSummary(text)
+	const sentences = clean.match(/[^.!?]+[.!?]+/g)
+	const short = sentences?.slice(0, 2).join(' ').trim() || clean
+	return short.length > 310 ? `${short.slice(0, 307).trim()}...` : short
+}
+
+function FinviewTable({
+	title,
+	headers,
+	rows,
+}: {
+	title?: string
+	headers: string[]
+	rows: string[][]
+}) {
+	return (
+		<div className="overflow-hidden rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-8">
+			{title && <h2 className="mb-8 text-xl font-medium text-[#222E48]">{title}</h2>}
+			<div className="overflow-x-auto [&::-webkit-scrollbar]:h-[0.7vw] [&::-webkit-scrollbar-track]:bg-[rgba(7,76,62,0.06)] [&::-webkit-scrollbar-thumb]:bg-[#074C3E]">
+				<table className="w-full min-w-[720px] border-collapse text-left">
+					<thead>
+						<tr>
+							{headers.map((header) => (
+								<th key={header} className="border-r border-dashed border-[#C1C4CC] px-5 py-3 text-xl font-medium text-[#222E48] last:border-r-0">
+									{header}
+								</th>
+							))}
+						</tr>
+					</thead>
+					<tbody>
+						{rows.map((row, rowIndex) => (
+							<tr key={`${row[0]}-${rowIndex}`} className="odd:bg-[rgba(7,76,62,0.05)]">
+								{row.map((cell, cellIndex) => (
+									<td key={`${cellIndex}-${cell}`} className={`border-r border-dashed border-[#C1C4CC] px-5 py-3 font-medium leading-relaxed last:border-r-0 ${cellIndex === 0 ? 'text-[#074C3E]' : 'text-[#404A60]'}`}>
+										{cell}
+									</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	)
 }
 
 function isSourceSection(section: C1Section) {
@@ -75,13 +98,6 @@ function parseComparisonTable(bullets: string[]): { headers: string[]; rows: str
 		})
 		.filter((r): r is string[] => r !== null)
 	return { headers, rows }
-}
-
-function sourceHref(label: string) {
-	const trimmed = label.replace(/[.;]$/, '').trim()
-	if (/^https?:\/\//i.test(trimmed)) return trimmed
-	const key = Object.keys(sourceUrlMap).find((source) => label.includes(source))
-	return key ? sourceUrlMap[key] : 'https://business.gov.au/finance/funding'
 }
 
 function comparisonRows(path: string) {
@@ -183,10 +199,10 @@ function pageJsonLd(page: C1PageData) {
 }
 
 export default function C1ContentPage({ page }: { page: C1PageData }) {
-	const sourceSection = page.sections?.find(isSourceSection)
 	const editorSection = page.sections?.find(isEditorSection)
 	const contentSections = page.sections?.filter((section) => !isSourceSection(section) && !isEditorSection(section)) ?? []
 	const summary = shortSummary(page.summary)
+	const shortHero = heroSummary(page.summary)
 	const image = pageImage(page.path)
 	const trustPoints = page.proofPoints?.length ? page.proofPoints.slice(0, 3) : ['Start with the funding need', 'Prepare the documents', 'Avoid applying blind']
 	const trustDescriptions = [
@@ -200,26 +216,28 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd(page)) }} />
 			<C1Header compact />
 
-			<section className="bg-[#074C3E] py-14 md:py-16">
-				<div className="mx-auto grid max-w-7xl items-center gap-8 px-4 lg:grid-cols-[1.05fr_0.95fr]">
+			<section className="relative overflow-hidden bg-[#074C3E] py-16 md:py-20">
+				<div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#FCB650] opacity-10" />
+				<div className="absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#E0F300] opacity-10" />
+				<div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr]">
 					<div>
 						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">{page.eyebrow || 'Business finance comparison'}</p>
-						<h1 className="mb-4 text-3xl font-extrabold leading-tight text-white md:text-5xl">{page.headline}</h1>
-						<p className="max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">{summary}</p>
-						<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Start my funding-fit check'} />
+						<h1 className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{page.headline}</h1>
+						<p className="max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">{shortHero}</p>
+						<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Compare now'} />
 					</div>
 					<div className="hidden lg:block">
-						<div className="overflow-hidden rounded-[2rem] bg-white/10 p-3 ring-1 ring-white/10">
+						<div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.12)]">
 							<Image src={image} alt={`${page.title} guide`} width={620} height={420} className="h-auto w-full rounded-[1.5rem] object-cover" priority />
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section className="border-b border-[#DFE0E4] bg-[#F5F6F7] py-5">
+			<section className="bg-[#F5F6F7] py-6">
 				<div className="mx-auto grid max-w-7xl gap-4 px-4 md:grid-cols-3">
 					{trustPoints.map((title, i) => (
-						<div key={title} className="rounded-2xl bg-white p-4 shadow-sm">
+						<div key={title} className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
 							<div className="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-[#074C3E] text-sm font-bold text-white">{i + 1}</div>
 							<h2 className="text-base font-bold text-[#222E48]">{title}</h2>
 							<p className="mt-1 text-sm text-[#6A7283]">{trustDescriptions[i] || 'Check the lender facts, fit variables and current terms before applying.'}</p>
@@ -228,99 +246,54 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 				</div>
 			</section>
 
-			<section className="bg-white py-12">
+			<section className="bg-[#F5F6F7] py-12">
 				<div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,1fr)_330px]">
 					<article className="min-w-0">
-						<div className="mb-10 overflow-hidden rounded-2xl bg-white p-8 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<h2 className="mb-10 text-xl font-medium text-[#222E48]">Compare the main funding paths</h2>
-							<div className="overflow-x-auto [&::-webkit-scrollbar]:h-[0.7vw] [&::-webkit-scrollbar-track]:bg-[rgba(7,76,62,0.06)] [&::-webkit-scrollbar-thumb]:bg-[#074C3E]">
-								<table className="w-full min-w-[720px] border-collapse text-left">
-									<thead>
-										<tr>
-											{['Option', 'May suit', 'Why compare it', 'Watch-outs'].map((h) => <th key={h} className="px-5 py-3 text-xl font-medium text-[#222E48] border-r border-dashed border-[#C1C4CC] last:border-r-0">{h}</th>)}
-										</tr>
-									</thead>
-									<tbody>
-										{comparisonRows(page.path).map((row) => (
-											<tr key={row[0]} className="odd:bg-[rgba(7,76,62,0.05)]">
-												{row.map((cell, i) => <td key={cell} className={`px-5 py-3 font-medium border-r border-dashed border-[#C1C4CC] last:border-r-0 ${i === 0 ? 'text-[#074C3E]' : 'text-[#404A60]'}`}>{cell}</td>)}
-											</tr>
-										))}
-									</tbody>
-								</table>
-							</div>
+						<div className="mb-10 rounded-2xl bg-white p-8 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
+							<p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Overview</p>
+							<h2 className="mb-4 text-2xl font-bold text-[#222E48]">{page.title}</h2>
+							<p className="text-base leading-relaxed text-[#404A60]">{summary}</p>
+						</div>
+						<div className="mb-10">
+							<FinviewTable title="Compare the main funding paths" headers={['Funding path', 'May suit', 'Why compare it', 'Watch-outs']} rows={comparisonRows(page.path)} />
 						</div>
 
 						{contentSections.map((section, i) => (
-							<section key={i} className="mb-10 rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
+							<section key={i} className="mb-10 rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-8">
 								<h2 className="mb-4 text-2xl font-bold text-[#222E48]">{section.heading}</h2>
 								{(section.body || '').split('\n').filter(Boolean).map((para, j) => (
 									<p key={j} className="mb-3 leading-relaxed text-[#404A60]">{para.replace(/^>\s*/, '')}</p>
 								))}
 								{section.table && (
-									<div className="mt-5 overflow-hidden rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-										<div className="overflow-x-auto [&::-webkit-scrollbar]:h-[0.7vw] [&::-webkit-scrollbar-track]:bg-[rgba(7,76,62,0.06)] [&::-webkit-scrollbar-thumb]:bg-[#074C3E]">
-											<table className="w-full min-w-[640px] border-collapse text-left">
-												<thead>
-													<tr>
-														{section.table.headers.map((h) => <th key={h} className="px-5 py-3 text-xl font-medium text-[#222E48] border-r border-dashed border-[#C1C4CC] last:border-r-0">{h}</th>)}
-													</tr>
-												</thead>
-												<tbody>
-													{section.table.rows.map((row, ri) => (
-														<tr key={ri} className="odd:bg-[rgba(7,76,62,0.05)]">
-															{row.map((cell, ci) => (
-																<td key={ci} className={`px-5 py-3 font-medium border-r border-dashed border-[#C1C4CC] last:border-r-0 ${ci === 0 ? 'text-[#074C3E]' : 'text-[#404A60]'}`}>{cell}</td>
-															))}
-														</tr>
-													))}
-												</tbody>
-											</table>
-										</div>
+									<div className="mt-6">
+										<FinviewTable headers={section.table.headers} rows={section.table.rows} />
 									</div>
 								)}
-								{section.bullets && !isComparisonSection(section) && (
+{section.bullets && !isComparisonSection(section) && (
 									<div className="mt-5 grid gap-3 sm:grid-cols-2">
 										{section.bullets.map((b) => (
-											<div key={b} className="rounded-xl bg-[#F5F6F7] p-4 text-sm leading-relaxed text-[#404A60]">
+											<div key={b} className="rounded-xl bg-[rgba(7,76,62,0.05)] p-4 text-sm font-medium leading-relaxed text-[#404A60]">
 												<span className="mr-2 font-bold text-[#074C3E]">✓</span>{b.replace(/[.;]$/, '')}
 											</div>
 										))}
 									</div>
 								)}
-								{section.bullets && isComparisonSection(section) && (() => {
-									const table = parseComparisonTable(section.bullets)
-									return (
-										<div className="mt-5 overflow-hidden rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-											<div className="overflow-x-auto [&::-webkit-scrollbar]:h-[0.7vw] [&::-webkit-scrollbar-track]:bg-[rgba(7,76,62,0.06)] [&::-webkit-scrollbar-thumb]:bg-[#074C3E]">
-												<table className="w-full min-w-[640px] border-collapse text-left">
-													<thead>
-														<tr>
-															{table.headers.map((h) => <th key={h} className="px-5 py-3 text-xl font-medium text-[#222E48] border-r border-dashed border-[#C1C4CC] last:border-r-0">{h}</th>)}
-														</tr>
-													</thead>
-													<tbody>
-														{table.rows.map((row, ri) => (
-															<tr key={ri} className="odd:bg-[rgba(7,76,62,0.05)]">
-																{row.map((cell, ci) => (
-																	<td key={ci} className={`px-5 py-3 font-medium border-r border-dashed border-[#C1C4CC] last:border-r-0 ${ci === 0 ? 'text-[#074C3E]' : 'text-[#404A60]'}`}>{cell}</td>
-																))}
-															</tr>
-														))}
-													</tbody>
-												</table>
-											</div>
-										</div>
-									)
-								})()}
+				{section.bullets && isComparisonSection(section) && (() => {
+					const table = parseComparisonTable(section.bullets)
+					return (
+						<div className="mt-6">
+							<FinviewTable headers={table.headers} rows={table.rows} />
+						</div>
+					)
+				})()}
 							</section>
 						))}
 					</article>
 
 					<aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
-						<div className="rounded-2xl bg-[#074C3E] p-5 text-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<h2 className="mb-3 text-xl font-bold">Check readiness before you apply</h2>
-							<C1FundingWidget buttonLabel="Check funding readiness" />
+						<div className="rounded-2xl bg-[#074C3E] p-5 text-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]">
+							<h2 className="mb-3 text-xl font-bold">Compare before you apply</h2>
+							<C1FundingWidget buttonLabel="Compare now" />
 						</div>
 						<div className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
 							<h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-[#6A7283]">Author</h2>
@@ -328,18 +301,13 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 							<p className="mt-2 text-sm leading-relaxed text-[#6A7283]">Finance editors reviewing Australian SME funding pathways, lender criteria and cash-flow use cases.</p>
 							<p className="mt-3 text-xs text-[#6A7283]">Last reviewed {page.lastReviewed}</p>
 						</div>
-						{editorSection && (
-							<div className="rounded-2xl bg-[#F5F6F7] p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-								<h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-[#6A7283]">Editor note</h2>
-								<p className="text-sm leading-relaxed text-[#404A60]">This page is reviewed for clarity, funding-fit logic and general compliance before publication.</p>
-							</div>
-						)}
+						{editorSection && null}
 						{page.relatedLinks?.length > 0 && (
 							<div className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
 								<h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-[#6A7283]">Related pages</h2>
 								<div className="space-y-2">
 									{page.relatedLinks.map((link) => (
-										<Link key={link.href} href={link.href} className="block rounded-xl bg-[#F5F6F7] px-4 py-3 text-sm font-semibold text-[#222E48] no-underline transition-colors hover:bg-[#074C3E] hover:text-white">
+										<Link key={link.href} href={link.href} className="block rounded-xl bg-[rgba(7,76,62,0.05)] px-4 py-3 text-sm font-semibold text-[#222E48] no-underline transition-colors hover:bg-[#074C3E] hover:text-white">
 											{link.label} →
 										</Link>
 									))}
@@ -351,37 +319,18 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 			</section>
 
 			{page.faqs?.length > 0 && (
-				<section className="bg-[#F5F6F7] py-14">
+				<section className="bg-white py-16">
 					<div className="mx-auto max-w-4xl px-4">
-						<h2 className="mb-8 text-2xl font-bold text-[#222E48]">Frequently asked questions</h2>
+						<h2 className="mb-8 text-3xl font-bold text-[#222E48]">Frequently asked questions</h2>
 						<div className="space-y-3">
 							{page.faqs.map((faq) => (
-								<details key={faq.question} className="group rounded-xl border border-[#DFE0E4] bg-white">
+								<details key={faq.question} className="group rounded-2xl bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
 									<summary className="cursor-pointer px-6 py-4 text-base font-semibold text-[#222E48] transition-colors hover:text-[#074C3E]">
 										{faq.question}
 									</summary>
 									<div className="px-6 pb-4 text-sm leading-relaxed text-[#6A7283]">{faq.answer}</div>
 								</details>
 							))}
-						</div>
-					</div>
-				</section>
-			)}
-
-			{sourceSection?.bullets && (
-				<section className="py-12">
-					<div className="mx-auto max-w-4xl px-4">
-						<div className="rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<h2 className="mb-4 text-xl font-bold text-[#222E48]">Sources</h2>
-							<ul className="space-y-2 text-sm text-[#404A60]">
-								{sourceSection.bullets.map((source) => (
-									<li key={source}>
-										<a href={sourceHref(source)} target="_blank" rel="noreferrer" className="font-medium text-[#074C3E] underline underline-offset-4">
-											{source.replace(/[.;]$/, '')}
-										</a>
-									</li>
-								))}
-							</ul>
 						</div>
 					</div>
 				</section>

@@ -9,9 +9,9 @@ const BASE_QUOTE_PARAMS: Record<string, string> = {
 	application_type: 'commercial',
 	additional_options: '48,49',
 	bs_months: '6_months',
-	brand_colour: '1971c2',
+	brand_colour: '074C3E',
 	text_colour: 'FFFFFF',
-	control_colour: '1971c2',
+	control_colour: 'FCB650',
 	send_type: 'Auto',
 	force_send: '1',
 	utm_source: 'seo',
@@ -40,7 +40,7 @@ type C1FundingWidgetProps = {
 
 export function C1FundingWidget({
 	variant = 'dark',
-	buttonLabel = 'Check funding readiness',
+	buttonLabel = 'Compare now',
 	className = '',
 	defaultAmount = '',
 }: C1FundingWidgetProps) {
@@ -56,9 +56,9 @@ export function C1FundingWidget({
 
 	return (
 		<form className={className} onSubmit={submit}>
-			<div className="flex flex-col gap-3 sm:flex-row">
-				<label className="flex min-h-[54px] flex-1 items-center gap-2 rounded-full bg-white px-5 shadow-sm ring-1 ring-black/5">
-					<span className="text-lg font-bold text-[#074C3E]">$</span>
+			<div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-stretch">
+				<label className="flex min-h-[58px] flex-1 items-center gap-3 rounded-full bg-white px-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] ring-1 ring-black/5">
+					<span className="text-xl font-bold text-[#074C3E]">$</span>
 					<input
 						type="text"
 						inputMode="numeric"
@@ -66,18 +66,18 @@ export function C1FundingWidget({
 						value={amount}
 						onChange={(e) => setAmount(e.target.value)}
 						aria-label="Funding amount"
-						className="w-full border-0 bg-transparent text-base font-medium text-[#222E48] outline-none placeholder:text-[#6A7283]"
+						className="w-full border-0 bg-transparent text-base font-semibold text-[#222E48] outline-none placeholder:text-[#6A7283]"
 					/>
 				</label>
 				<button
 					type="submit"
-					className="inline-flex min-h-[54px] cursor-pointer items-center justify-center rounded-full border-0 bg-[#FCB650] px-7 text-base font-bold text-[#03211B] shadow-sm transition-colors hover:bg-[#fcc970]"
+					className="inline-flex min-h-[58px] min-w-[9rem] cursor-pointer items-center justify-center rounded-full border-0 bg-[#FCB650] px-7 text-base font-bold text-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#fcc970]"
 				>
 					{buttonLabel} <span className="ml-2">→</span>
 				</button>
 			</div>
 			<p className={`mt-3 text-xs ${isDark ? 'text-white/65' : 'text-[#6A7283]'}`}>
-				Takes about 60 seconds. Your amount carries into the quote form.
+				Start with an amount, then continue to the quote form.
 			</p>
 		</form>
 	)
@@ -90,8 +90,8 @@ export function C1EmbeddedQuoteFrame() {
 	const directUrl = useMemo(() => buildC1QuoteUrl(amount, false), [amount])
 
 	return (
-		<div className="overflow-hidden rounded-3xl border border-[#DFE0E4] bg-white shadow-2xl shadow-[#03211B]/10">
-			<div className="flex flex-col gap-2 border-b border-[#DFE0E4] bg-[#F5F6F7] px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
+		<div className="overflow-hidden rounded-3xl bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]">
+			<div className="flex flex-col gap-2 bg-[rgba(7,76,62,0.05)] px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
 				<div>
 					<p className="text-sm font-semibold text-[#222E48]">Secure partner quote form</p>
 					<p className="text-xs text-[#6A7283]">

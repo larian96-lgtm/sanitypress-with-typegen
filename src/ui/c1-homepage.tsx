@@ -55,7 +55,7 @@ export const c1HomepageFallback: Required<C1HomepageData> = {
   heroSubtitle: 'Comparison One helps Australian SME owners check the funding path before the lender. See what lenders may ask for, what documents to prepare, and which product type may fit the cash-flow problem before you send an application.',
   heroImage: '/finview/hero_img.png',
   heroImageAlt: 'Australian business owner reviewing funding readiness before applying',
-  primaryCtaLabel: 'Check funding readiness',
+  primaryCtaLabel: 'Compare now',
   secondaryCtaLabel: 'See document checklist',
   secondaryCtaHref: '/blog/business-loan-requirements-australia',
   trustStrip: 'Documents first • Product fit before lender fit • Bank, non-bank and specialist pathways',

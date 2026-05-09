@@ -67,8 +67,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	}
 	if (path === '/quiz') {
 		return {
-			title: 'Funding Readiness Check | Comparison One',
-			description: 'Start a Comparison One funding readiness check for Australian SME business funding options before applying blind.',
+			title: 'Compare Business Finance Options | Comparison One',
+			description: 'Start a Comparison One enquiry for Australian SME business funding options after checking amount, purpose and document readiness.',
 		}
 	}
 	if (isLegalPath(path)) {
@@ -232,7 +232,7 @@ const C1_CONTENT_PAGE_QUERY = groq`
 		summary,
 		'seoTitle': coalesce(seoTitle, title),
 		'seoDescription': coalesce(seoDescription, summary),
-		'primaryCtaLabel': coalesce(primaryCtaLabel, 'Start my funding-fit check'),
+		'primaryCtaLabel': coalesce(primaryCtaLabel, 'Compare now'),
 		'primaryCtaHref': coalesce(primaryCtaHref, '/quiz'),
 		'lastReviewed': coalesce(lastReviewed, '2026-05-05'),
 		'proofPoints': coalesce(proofPoints, []),

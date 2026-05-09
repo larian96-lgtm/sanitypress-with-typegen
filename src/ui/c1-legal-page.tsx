@@ -41,18 +41,20 @@ export default function C1LegalPage({ path }: { path: keyof typeof legalCopy }) 
 	return (
 		<>
 			<C1Header compact />
-			<main className="bg-white">
-				<section className="bg-[#074C3E] py-14">
-					<div className="mx-auto max-w-4xl px-4">
+			<main className="bg-[#F5F6F7]">
+				<section className="relative overflow-hidden bg-[#074C3E] py-16 md:py-20">
+					<div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#FCB650] opacity-10" />
+					<div className="absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#E0F300] opacity-10" />
+					<div className="relative mx-auto max-w-4xl px-4">
 						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Comparison One</p>
-						<h1 className="text-4xl font-extrabold text-white">{page.title}</h1>
-						<p className="mt-3 text-white/70">Last updated {page.updated}</p>
+						<h1 className="text-4xl font-extrabold leading-tight text-white md:text-5xl">{page.title}</h1>
+						<p className="mt-4 text-white/75">Last updated {page.updated}</p>
 					</div>
 				</section>
-				<section className="py-12">
+				<section className="py-12 md:py-16">
 					<div className="mx-auto max-w-4xl space-y-5 px-4">
 						{page.sections.map(([heading, body]) => (
-							<section key={heading} className="rounded-2xl border border-[#DFE0E4] bg-white p-6 shadow-sm">
+							<section key={heading} className="rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-8">
 								<h2 className="mb-3 text-xl font-bold text-[#222E48]">{heading}</h2>
 								<p className="leading-relaxed text-[#404A60]">{body}</p>
 							</section>

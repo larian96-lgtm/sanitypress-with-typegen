@@ -3,14 +3,66 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const mainNav = [
+type NavItem = { label: string; href: string }
+type NavGroup = { label: string; href?: string; items?: NavItem[] }
+
+const navGroups: NavGroup[] = [
 	{ label: 'Home', href: '/' },
-	{ label: 'Business Loans', href: '/business-loans' },
-	{ label: 'Services', href: '/#services' },
-	{ label: 'Lenders', href: '/lenders' },
-	{ label: 'Non-bank Lenders', href: '/compare/non-bank-business-lenders' },
+	{
+		label: 'Business Loans',
+		items: [
+			{ label: 'Business Loans', href: '/business-loans' },
+			{ label: 'Working Capital', href: '/business-loans/working-capital' },
+			{ label: 'Equipment Finance', href: '/business-loans/equipment-finance' },
+			{ label: 'Invoice Finance', href: '/business-loans/invoice-finance' },
+			{ label: 'Vehicle Finance', href: '/business-loans/vehicle-finance' },
+			{ label: 'Line of Credit', href: '/business-loans/line-of-credit' },
+			{ label: 'Trade Finance', href: '/business-loans/trade-finance' },
+			{ label: 'Tax Debt Funding', href: '/business-loans/tax-debt' },
+			{ label: 'Commercial Fitout', href: '/business-loans/commercial-fitout' },
+			{ label: 'Unsecured Loans', href: '/business-loans/unsecured-business-loans' },
+			{ label: 'Bank Decline Guide', href: '/business-loans/knocked-back-by-bank' },
+		],
+	},
+	{
+		label: 'Lenders',
+		items: [
+			{ label: 'Lender Directory', href: '/lenders' },
+			{ label: 'Prospa', href: '/lenders/prospa' },
+			{ label: 'Moula', href: '/lenders/moula' },
+			{ label: 'OnDeck', href: '/lenders/ondeck' },
+			{ label: 'Lumi', href: '/lenders/lumi' },
+			{ label: 'Banjo Loans', href: '/lenders/banjo-loans' },
+			{ label: 'Moneytech', href: '/lenders/moneytech' },
+			{ label: 'Capify', href: '/lenders/capify' },
+			{ label: 'Shift / GetCapital', href: '/lenders/shift-getcapital' },
+			{ label: 'ScotPac', href: '/lenders/scotpac' },
+			{ label: 'Liberty Business Finance', href: '/lenders/liberty-business-finance' },
+		],
+	},
+	{
+		label: 'Compare',
+		items: [
+			{ label: 'Non-bank Business Lenders', href: '/compare/non-bank-business-lenders' },
+			{ label: 'Prospa vs Moula', href: '/compare/prospa-vs-moula' },
+			{ label: 'Prospa vs OnDeck', href: '/compare/prospa-vs-ondeck' },
+			{ label: 'Moula vs Lumi', href: '/compare/moula-vs-lumi' },
+			{ label: 'ScotPac vs Business Loan', href: '/compare/scotpac-vs-business-loan' },
+		],
+	},
+	{
+		label: 'Guides',
+		items: [
+			{ label: 'Business Loan Requirements', href: '/blog/business-loan-requirements-australia' },
+			{ label: 'How Lenders Assess Applications', href: '/blog/how-business-lenders-assess-applications' },
+			{ label: 'Interest Rates and Fees', href: '/blog/business-loan-interest-rates-and-fees' },
+			{ label: 'Secured vs Unsecured', href: '/blog/secured-vs-unsecured-business-loans' },
+			{ label: 'Bank vs Non-bank Guide', href: '/blog/bank-vs-non-bank-business-lenders' },
+			{ label: 'Zero-interest Loan Access Gap', href: '/advertorial/zero-interest-loan-access-gap' },
+		],
+	},
 	{ label: 'Calculator', href: '/#calculator' },
-	{ label: 'FAQs', href: '/#faq' },
+	{ label: 'FAQs', href: '/#faq' }
 ]
 
 const footerGroups = [
@@ -68,19 +120,9 @@ const footerGroups = [
 		],
 	},
 	{
-		title: 'Bank profiles',
-		links: [
-			{ label: 'ANZ Business Loans', href: '/lenders/anz-business-loans' },
-			{ label: 'NAB Business Loans', href: '/lenders/nab-business-loans' },
-			{ label: 'Westpac Business Loans', href: '/lenders/westpac-business-loans' },
-			{ label: 'CommBank Business Loans', href: '/lenders/commbank-business-loans' },
-			{ label: 'Judo Bank', href: '/lenders/judo-bank' },
-		],
-	},
-	{
 		title: 'Company',
 		links: [
-			{ label: 'Check Readiness', href: '/quiz' },
+			{ label: 'Compare now', href: '/quiz' },
 			{ label: 'Privacy Policy', href: '/privacy-policy' },
 			{ label: 'Terms & Conditions', href: '/terms-and-conditions' },
 			{ label: 'Editorial Policy', href: '/editorial-policy' },
@@ -89,31 +131,88 @@ const footerGroups = [
 	},
 ]
 
+function NavMenuItem({ group }: { group: NavGroup }) {
+	if (group.href) {
+		return (
+			<Link href={group.href} className="whitespace-nowrap text-white/80 no-underline transition-colors hover:text-[#FCB650]">
+				{group.label}
+			</Link>
+		)
+	}
+
+	return (
+		<details className="group relative">
+			<summary className="list-none cursor-pointer whitespace-nowrap text-white/80 transition-colors hover:text-[#FCB650] [&::-webkit-details-marker]:hidden">
+				{group.label}
+			</summary>
+			<div className="absolute left-1/2 top-full z-50 mt-3 hidden w-[min(92vw,24rem)] -translate-x-1/2 rounded-2xl border border-white/10 bg-[#022019] p-3 shadow-2xl group-open:block">
+				<div className="grid gap-1">
+					{group.items?.map((item) => (
+						<Link key={item.href} href={item.href} className="rounded-xl px-3 py-2 text-sm text-white/80 no-underline transition-colors hover:bg-white/8 hover:text-[#FCB650]">
+							{item.label}
+						</Link>
+					))}
+				</div>
+			</div>
+		</details>
+	)
+}
+
+function MobileMenuGroup({ group }: { group: NavGroup }) {
+	if (group.href) {
+		return (
+			<Link href={group.href} className="block rounded-xl bg-white/5 px-4 py-3 text-sm font-semibold text-white/85 no-underline">
+				{group.label}
+			</Link>
+		)
+	}
+
+	return (
+		<details className="rounded-2xl bg-white/5 px-4 py-3 text-white/85">
+			<summary className="cursor-pointer list-none text-sm font-semibold [&::-webkit-details-marker]:hidden">{group.label}</summary>
+			<div className="mt-3 grid gap-2 border-t border-white/10 pt-3">
+				{group.items?.map((item) => (
+					<Link key={item.href} href={item.href} className="rounded-xl px-2 py-1.5 text-sm text-white/75 no-underline">
+						{item.label}
+					</Link>
+				))}
+			</div>
+		</details>
+	)
+}
+
 export function C1Header({ compact = false }: { compact?: boolean }) {
 	return (
-		<header className="sticky top-0 z-50 bg-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.10)]">
+		<header className="sticky top-0 z-50 border-b border-white/10 bg-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.10)] backdrop-blur">
 			<div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 ${compact ? 'py-2.5' : 'py-3'}`}>
 				<Link href="/" className="flex shrink-0 items-center rounded-xl bg-white px-3 py-1.5 no-underline" aria-label="Comparison One home">
 					<Image src="/comparisonone/logo.png" alt="Comparison One" width={186} height={40} className="h-auto w-[145px] md:w-[174px]" priority />
 				</Link>
-				<nav className="hidden items-center gap-5 text-sm font-medium xl:flex" aria-label="Primary navigation">
-					{mainNav.map((link) => (
-						<Link key={link.href} href={link.href} className="whitespace-nowrap text-white/80 no-underline transition-colors hover:text-[#FCB650]">
-							{link.label}
-						</Link>
+
+				<nav className="hidden items-center gap-4 text-sm font-medium xl:flex" aria-label="Primary navigation">
+					{navGroups.map((group) => (
+						<NavMenuItem key={group.label} group={group} />
 					))}
 				</nav>
-				<Link href="/quiz" className="shrink-0 rounded-full bg-[#FCB650] px-4 py-2 text-xs font-semibold text-[#03211B] no-underline transition-colors hover:bg-[#fcc970] md:px-5 md:text-sm">
-					Check Readiness
-				</Link>
-			</div>
-			<nav className="mx-auto flex max-w-7xl gap-4 overflow-x-auto px-4 pb-3 text-sm font-medium xl:hidden" aria-label="Mobile navigation">
-				{mainNav.map((link) => (
-					<Link key={link.href} href={link.href} className="shrink-0 whitespace-nowrap text-white/75 no-underline transition-colors hover:text-[#FCB650]">
-						{link.label}
+
+				<div className="flex items-center gap-2">
+					<details className="group relative xl:hidden">
+						<summary className="cursor-pointer list-none rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-white/85 [&::-webkit-details-marker]:hidden">
+							Menu
+						</summary>
+						<div className="absolute right-0 top-full z-50 mt-3 w-[min(92vw,24rem)] rounded-3xl border border-white/10 bg-[#03211B] p-3 shadow-2xl">
+							<div className="grid gap-3 rounded-3xl bg-white/5 p-3 text-sm font-medium text-white/85">
+								{navGroups.map((group) => (
+									<MobileMenuGroup key={group.label} group={group} />
+								))}
+							</div>
+						</div>
+					</details>
+					<Link href="/quiz" className="shrink-0 rounded-full bg-[#FCB650] px-4 py-2 text-xs font-semibold text-[#03211B] no-underline transition-colors hover:bg-[#fcc970] md:px-5 md:text-sm">
+						Compare now
 					</Link>
-				))}
-			</nav>
+				</div>
+			</div>
 		</header>
 	)
 }
@@ -128,7 +227,7 @@ export function C1Footer() {
 							<Image src="/comparisonone/logo.png" alt="Comparison One" width={186} height={40} className="h-auto w-[170px]" />
 						</div>
 						<p className="max-w-md text-sm leading-relaxed text-white/60">
-							Helping Australian SMEs avoid applying blind by checking the funding path, document requirements and lender-fit factors before they apply.
+							Helping Australian SMEs move from a vague loan search to the right funding path, the right documents and the right lender type.
 						</p>
 					</div>
 					{footerGroups.map((group) => (
