@@ -204,13 +204,6 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 	const summary = shortSummary(page.summary)
 	const shortHero = heroSummary(page.summary)
 	const image = pageImage(page.path)
-	const trustPoints = page.proofPoints?.length ? page.proofPoints.slice(0, 3) : ['Start with the funding need', 'Prepare the documents', 'Avoid applying blind']
-	const trustDescriptions = [
-		'Amount, timing, purpose and repayment source.',
-		'Statements, BAS, invoices, contracts or asset quotes where relevant.',
-		'Compare the path before sending an application to the wrong lender type.',
-	]
-
 	return (
 		<>
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd(page)) }} />
@@ -231,18 +224,6 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 							<Image src={image} alt={`${page.title} guide`} width={620} height={420} className="h-auto w-full rounded-[1.5rem] object-cover" priority />
 						</div>
 					</div>
-				</div>
-			</section>
-
-			<section className="bg-[#F5F6F7] py-6">
-				<div className="mx-auto grid max-w-7xl gap-4 px-4 md:grid-cols-3">
-					{trustPoints.map((title, i) => (
-						<div key={title} className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<div className="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-[#074C3E] text-sm font-bold text-white">{i + 1}</div>
-							<h2 className="text-base font-bold text-[#222E48]">{title}</h2>
-							<p className="mt-1 text-sm text-[#6A7283]">{trustDescriptions[i] || 'Check the lender facts, fit variables and current terms before applying.'}</p>
-						</div>
-					))}
 				</div>
 			</section>
 
