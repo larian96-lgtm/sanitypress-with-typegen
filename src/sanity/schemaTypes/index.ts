@@ -38,6 +38,8 @@ import linkList from './objects/link.list'
 import megamenu from './objects/megamenu'
 import metadata from './objects/metadata'
 import moduleAttributes from './objects/module-attributes'
+import rateSnapshot from './objects/rate-snapshot'
+import rateComparisonTable from './objects/rate-comparison-table'
 
 export const schema: SchemaPluginOptions = {
 	types: [
@@ -65,6 +67,8 @@ export const schema: SchemaPluginOptions = {
 		megamenu,
 		metadata,
 		moduleAttributes,
+		rateSnapshot,
+		rateComparisonTable,
 
 		// modules
 		accordionList,

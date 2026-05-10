@@ -5,6 +5,7 @@ import Link from 'next/link'
 import type { C1PageData, C1Section } from '@/lib/c1-pages'
 import { C1Header, C1Footer } from '@/ui/c1-brand'
 import { C1FundingWidget } from '@/ui/c1-funding-widget'
+import { C1RateSnapshot } from '@/ui/c1-rate-snapshot'
 
 const pageImages = [
 	'/finview/loan_solution.png',
@@ -228,6 +229,11 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 			</section>
 
 			<section className="bg-[#F5F6F7] py-12">
+\t\t\t\t{page.rateSnapshot && page.rateSnapshot.length > 0 && (
+					<div className="mx-auto mb-10 max-w-7xl px-4">
+\t\t\t\t\t\t<C1RateSnapshot items={page.rateSnapshot!} updatedAt={page.lastReviewed} />
+					</div>
+				)}
 				<div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,1fr)_330px]">
 					<article className="min-w-0">
 						<div className="mb-10 rounded-2xl bg-white p-8 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">

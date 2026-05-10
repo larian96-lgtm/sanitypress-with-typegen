@@ -36,6 +36,21 @@ export default defineType({
 		defineField({ name: 'primaryCtaHref', title: 'Primary CTA href', type: 'string', group: 'content', initialValue: '/quiz' }),
 		defineField({ name: 'proofPoints', title: 'Proof points', type: 'array', group: 'content', of: [defineArrayMember({ type: 'string' })] }),
 		defineField({
+			name: 'rateSnapshot',
+			title: 'Rate Snapshot',
+			type: 'array',
+			description: 'Rate band cards shown at top of page (e.g. "Secured finance from 7.49%")',
+			group: 'content',
+			of: [defineArrayMember({ type: 'rateSnapshot' })],
+		}),
+		defineField({
+			name: 'rateComparisonTable',
+			title: 'Rate Comparison Table',
+			type: 'rateComparisonTable',
+			group: 'content',
+			description: 'Configures the live filterable rate comparison widget on this page',
+		}),
+		defineField({
 			name: 'sections',
 			type: 'array',
 			group: 'content',

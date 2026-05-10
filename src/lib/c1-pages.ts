@@ -23,6 +23,7 @@ export interface C1PageData {
   sections: C1Section[]
   faqs: C1Faq[]
   relatedLinks: C1Link[]
+  rateSnapshot?: { label: string; rate: string; sublabel?: string; linkHref?: string; linkLabel?: string }[]
 }
 
 const c1_business_loans: C1PageData = {
@@ -32,14 +33,42 @@ const c1_business_loans: C1PageData = {
   path: "/business-loans",
   eyebrow: "Business finance comparison",
   headline: "Avoid applying blind for business funding",
-  summary: "Before you compare lenders, check what funding path fits the business problem. A business loan is not one product. It can mean a fixed-term loan, a line of credit, invoice finance, equipment finance, vehicle finance, trade finance, an overdraft, a merchant-style facility, a secured bank loan or an unsecured non-bank loan. The right option depends on what the money needs to do. A business buying machinery may need a different product from a business waiting on invoices. A business funding a bigger job may need a different structure from a business smoothing out seasonal revenue. A business knocked back by a bank may need to understand why the bank said no before applying elsewhere. This guide explains business loan options in Australia and how to think about funding fit before you apply.",
-  seoTitle: "Business Funding Readiness Australia | Comparison One",
-  seoDescription: "Check business funding readiness before applying. Learn what lenders may ask for and compare working capital, invoice finance, equipment finance and unsecured loans by fit.",
+  summary: "Before you compare lenders, check what funding path fits the business problem. A business loan is not one product. See current rates from 7.49% p.a. for secured finance, compare real lenders, then use the funding-fit check to find the right path before you apply.",
+  seoTitle: "Compare Business Loans Australia | Real Rates & Lender Comparison | Comparison One",
+  seoDescription: "Compare business loans in Australia. See current rates starting from 7.49% p.a. (secured) and compare real lenders side by side. Use the funding-fit check to find the right path before you apply.",
   primaryCtaLabel: "Start my funding-fit check",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-05",
-  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a government agency"],
+  rateSnapshot: [
+    { label: "Secured finance from", rate: "7.49%", sublabel: "Per annum", linkHref: "/business-loans/equipment-finance", linkLabel: "View equipment finance" },
+    { label: "Unsecured loans from", rate: "14.45%", sublabel: "Per annum", linkHref: "/business-loans/unsecured-business-loans", linkLabel: "View unsecured loans" },
+    { label: "Line of credit from", rate: "14.55%", sublabel: "Per annum", linkHref: "/business-loans/line-of-credit", linkLabel: "View line of credit" },
+    { label: "Equipment loans from", rate: "7.49%", sublabel: "Per annum", linkHref: "/business-loans/equipment-finance", linkLabel: "View equipment finance" },
+    { label: "Invoice finance from", rate: "2.5%", sublabel: "Of invoice amount", linkHref: "/business-loans/invoice-finance", linkLabel: "View invoice finance" },
+    { label: "Vehicle finance from", rate: "7.99%", sublabel: "Per annum", linkHref: "/business-loans/vehicle-finance", linkLabel: "View vehicle finance" },
+  ],
+  lastReviewed: "2026-05-10",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Rates updated 10 May 2026", "General information only"],
   sections: [
+    {
+      heading: "Current business loan rates — May 2026",
+      body: "Business loan rates vary widely by lender, product type and business profile. Below is a snapshot of indicative starting rates across common funding categories.\n\n**Rates updated 10 May 2026.**\n\n> Secured finance from 7.49% p.a.\n> Unsecured loans from 14.45% p.a.\n> Line of credit from 14.55% p.a.\n> Equipment loans from 7.49% p.a.\n> Invoice finance from 2.5% of invoice amount\n> Vehicle finance from 7.99% p.a.\n\nThese are starting rates from lender panels as of 10 May 2026. Your actual rate depends on the lender, the product, and your business circumstances. Use the funding-fit check below to see which products and lenders may suit your situation.",
+    },
+    {
+      heading: "Compare business lenders side by side",
+      body: "The table below shows current business loan offerings from active lenders in the Australian SME market. Compare rates, amounts and terms before deciding where to apply.",
+      table: {
+        headers: ["Lender", "Interest rate (p.a.)", "Loan amount", "Term", "Best for"],
+        rows: [
+          ["BOQ Business Loan", "7.50%", "Up to $250,000", "Quoted on application", "Established businesses, strong financials"],
+          ["Liberty Business Loan", "7.95% - 17.45%", "Up to $350,000", "1 - 7 years", "Sole traders, flexible criteria"],
+          ["Moneytech Business Loan", "7.99% - 9.56%", "$25,000 - $2,000,000", "Quoted on application", "Larger equipment or asset finance"],
+          ["Dynamoney Business Loan", "8.10% - 19.40%", "$2,000 - $1,000,000", "6 months - 7 years", "Smaller amounts, fast access"],
+          ["Group And General", "8.29% - 8.89%", "$10,000 - $350,000", "1 - 5 years", "Medium-term business lending"],
+          ["Multipli Business Loan", "8.49%", "$30,000 - $1,000,000", "Quoted on application", "Digital-first, streamlined process"],
+          ["TruePillars Business Loan", "9.90% - 20.90%", "$25,000 - $300,000", "1 - 7 years", "Broader criteria, most SME profiles"],
+        ],
+      },
+    },
     { heading: "What is a business loan?", body: "A business loan is money borrowed by a business and repaid over time, usually with interest and fees.\n\nSome loans are paid as a lump sum. Others let the business draw funds when needed. Some are secured against property, vehicles, equipment, invoices or other assets. Others are unsecured, although directors may still be asked to provide personal guarantees.\n\nThe word \u201cloan\u201d can make different products sound similar, but the repayment shape and risk can vary significantly.\n\nA term loan may give the business one amount upfront with set repayments. A line of credit may allow repeated drawdowns up to an approved limit. Invoice finance may advance money against eligible unpaid invoices. Equipment finance may be tied to a specific asset. Unsecured funding may be faster in some cases but can carry higher pricing or tighter repayments.\n\nThe goal is not to find the most popular loan type. The goal is to match the funding to the business problem." },
     { heading: "Common reasons Australian SMEs seek funding", body: "Business owners usually look for finance because something needs to happen before cash is available.\n\nCommon reasons include:\n\nThe stronger funding applications usually have a clear purpose. \u201cI need money\u201d is less useful than \u201cI need $45,000 to buy materials and pay mobilisation costs for a confirmed job that pays in stages.\u201d", bullets: ["buying equipment, machinery, tools or technology;", "purchasing a vehicle, van, ute or truck;", "funding materials or labour before a bigger job;", "buying stock before seasonal demand;", "covering short-term cash-flow gaps;", "paying suppliers before customer payments arrive;", "bridging unpaid invoices;", "fitting out a new shop, clinic, warehouse or office;", "dealing with BAS, GST, PAYG or other tax timing pressure;", "expanding capacity;"] },
     { heading: "The cash-before-growth gap", body: "Many SME funding needs come from the same pattern: cash has to leave before the return comes back.\n\nThat is the cash-before-growth gap.\n\nIt can happen in businesses that are otherwise active and viable. A business may have customers, work, invoices, contracts and demand, but still feel squeezed because costs and revenue do not land in the right order.\n\nExamples:\n\nFunding fit starts by identifying the exact timing gap.", bullets: ["A builder wins a larger project but must pay for materials before the first progress payment.", "A retailer needs inventory before the busy season begins.", "A transport business needs repairs or vehicle upgrades before it can service a contract.", "A clinic needs fitout before the new room can generate billings.", "A B2B service firm waits 30, 60 or 90 days for invoices while wages are due weekly or fortnightly."] },
@@ -50,8 +79,8 @@ const c1_business_loans: C1PageData = {
     { heading: "Rates, fees and repayment terms", body: "Business loan cost is not only the interest rate.\n\nCheck:\n\nA lower advertised rate may not be the best fit if the facility is too slow, too rigid or mismatched to cash flow. A faster facility may not be suitable if frequent repayments strain the account.", bullets: ["interest rate or factor rate;", "establishment fee;", "monthly fee;", "line fee;", "drawdown fee;", "early repayment rules;", "late payment fee;", "default interest;", "broker or referral fees;", "repayment frequency;"] },
     { heading: "When a business loan may not be the right fit", body: "Borrowing is not always the right answer.\n\nA business loan may be risky if:\n\nDebt should never feel casual. Good funding supports a specific business move. Bad funding can turn a temporary gap into a heavier problem.", bullets: ["there is no clear repayment path;", "the funding is only covering ongoing losses;", "the loan has no specific business purpose;", "repayments depend on unrealistic future revenue;", "tax, legal or insolvency issues need professional advice first;", "the owner is using debt to avoid making a hard business decision;", "the funding product is mismatched to the use of funds."] },
     { heading: "How Comparison One helps", body: "Comparison One helps business owners narrow the starting point.\n\nInstead of applying lender by lender, use the funding-fit check to identify which category may fit:\n\nThen you can move forward with a clearer view of what to compare and what to avoid.", bullets: ["working capital;", "invoice finance;", "equipment finance;", "unsecured business loan;", "bank pathway;", "non-bank pathway;", "bank-decline alternative;", "government-program alternative;", "preparation before applying."] },
-    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Choose your funding.", "RBA: Small Business Economic and Financial Conditions, October 2025.", "ABA: 2025 Banking Code of Practice.", "AFIA: Online Small Business Lenders Code.", "ASIC: Unfair contract term protections for small businesses."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 5 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed." },
+    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Choose your funding.", "RBA: Small Business Economic and Financial Conditions, October 2025.", "Money.com.au: Business loans comparison panel rates, May 2026.", "ABA: 2025 Banking Code of Practice.", "AFIA: Online Small Business Lenders Code.", "ASIC: Unfair contract term protections for small businesses."] },
+    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 10 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Rates and loan terms are indicative and sourced from publicly available lender information as of May 2026. They are subject to change without notice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed." },
   ],
   faqs: [
     { question: "What is the easiest business loan to get in Australia?", answer: "There is no single easiest loan for every business. Some lenders may offer faster or simpler assessment for established businesses with strong revenue and clean bank statements, while other products depend on invoices, assets or security. Suitability depends on lender criteria." },
