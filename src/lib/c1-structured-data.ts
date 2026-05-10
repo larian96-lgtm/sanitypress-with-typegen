@@ -1,5 +1,14 @@
 import type { C1PageData } from '@/lib/c1-pages'
 import type { C1LenderRateRow } from '@/lib/c1-rate-table'
+import {
+	C1_AUTHOR_ID,
+	C1_ORGANIZATION_ID,
+	C1_WEBSITE_ID,
+	buildC1AuthorSchema,
+	buildC1FaqSchema,
+	buildC1OrganizationSchema,
+	c1CanonicalUrl,
+} from '@/lib/c1-seo'
 
 function asTitle(part: string) {
 	return part
@@ -15,8 +24,8 @@ function rateLabel(row: C1LenderRateRow) {
 }
 
 export function buildC1StructuredData(page: C1PageData, rateRows: C1LenderRateRow[] = []) {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://comparison-one-sanitypress.vercel.app'
-	const url = `${baseUrl}${page.path}`
+	const url = c1CanonicalUrl(page.path)
+	const baseUrl = c1CanonicalUrl('/')
 	const breadcrumbs = page.path.split('/').filter(Boolean)
 	const breadcrumbItems = [
 		{ '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
@@ -48,39 +57,32 @@ export function buildC1StructuredData(page: C1PageData, rateRows: C1LenderRateRo
 			'Rates shown are advertised starting rates. Lender fees and assessment criteria apply.',
 	}))
 
+	const faqSchema = buildC1FaqSchema(page.faqs, url)
+
 	return {
 		'@context': 'https://schema.org',
 		'@graph': [
+			buildC1OrganizationSchema(),
+			buildC1AuthorSchema(),
 			{
-				'@type': page.type === 'lender' ? 'Article' : 'WebPage',
+				'@type': page.type === 'lender' || page.type === 'blog' ? 'Article' : 'WebPage',
 				'@id': `${url}#webpage`,
 				url,
 				name: page.seoTitle || page.title,
 				headline: page.headline,
 				description: page.seoDescription || page.summary,
 				dateModified: page.lastReviewed,
+				isPartOf: { '@id': C1_WEBSITE_ID },
 				isAccessibleForFree: true,
-				author: { '@type': 'Organization', name: 'Comparison One SME Finance Editorial Team' },
-				publisher: { '@type': 'Organization', name: 'Comparison One' },
+				author: { '@id': C1_AUTHOR_ID },
+				publisher: { '@id': C1_ORGANIZATION_ID },
 			},
 			{
 				'@type': 'BreadcrumbList',
 				'@id': `${url}#breadcrumbs`,
 				itemListElement: breadcrumbItems,
 			},
-			...(page.faqs?.length
-				? [
-						{
-							'@type': 'FAQPage',
-							'@id': `${url}#faq`,
-							mainEntity: page.faqs.map((faq) => ({
-								'@type': 'Question',
-								name: faq.question,
-								acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-							})),
-						},
-					]
-				: []),
+			...(faqSchema ? [faqSchema] : []),
 			...(financialProducts.length
 				? [
 						{

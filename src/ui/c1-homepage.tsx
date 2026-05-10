@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { buildC1HomepageStructuredData } from '@/lib/c1-seo'
 import { C1Header, C1Footer } from '@/ui/c1-brand'
 import { C1FundingWidget } from '@/ui/c1-funding-widget'
 
@@ -134,9 +135,11 @@ function mergeHomepage(data?: C1HomepageData | null) {
 
 export default function C1Homepage({ data }: { data?: C1HomepageData | null }) {
   const page = mergeHomepage(data)
+  const jsonLd = buildC1HomepageStructuredData(page)
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <C1Header />
       <section className="relative overflow-hidden bg-[#074C3E]">
         <div className="absolute inset-0 opacity-10">

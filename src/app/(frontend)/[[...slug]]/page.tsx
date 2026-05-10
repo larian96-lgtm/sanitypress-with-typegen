@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { groq } from 'next-sanity'
 import { notFound } from 'next/navigation'
 import { c1PageLookup, type C1PageData } from '@/lib/c1-pages'
+import { buildC1Metadata, c1OgImageUrl } from '@/lib/c1-seo'
 import { c1FallbackRateTable, type C1RateTableData } from '@/lib/c1-rate-table'
 import { ROUTES } from '@/lib/env'
 import { client } from '@/sanity/lib/client'
@@ -15,7 +16,7 @@ import {
 } from '@/sanity/lib/queries'
 import type { PAGE_QUERY_RESULT } from '@/sanity/types'
 import C1ContentPage from '@/ui/c1-content-page'
-import C1Homepage, { c1HomepageFallback, type C1HomepageData } from '@/ui/c1-homepage'
+import C1Homepage, { type C1HomepageData } from '@/ui/c1-homepage'
 import C1LegalPage from '@/ui/c1-legal-page'
 import C1QuotePage from '@/ui/c1-quote-page'
 import ModulesResolver from '@/ui/modules'
@@ -25,6 +26,10 @@ type Props = {
 }
 
 export const dynamic = 'force-dynamic'
+
+
+const C1_HOMEPAGE_SEO_TITLE = 'Avoid Applying Blind for Business Funding | Comparison One'
+const C1_HOMEPAGE_SEO_DESCRIPTION = 'Check business funding readiness before applying. See what documents lenders may ask for and compare bank, non-bank and specialist funding paths by fit.'
 
 export default async function Page({ params }: Props) {
 	const { slug } = await params
@@ -62,64 +67,72 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const path = slugStr === 'index' ? '/' : `/${slugStr}`
 	if (path === '/') {
 		const homepage = await getC1Homepage()
-		return {
-			title: homepage?.seoTitle || c1HomepageFallback.seoTitle,
-			description: homepage?.seoDescription || c1HomepageFallback.seoDescription,
-		}
+		return buildC1Metadata({
+			path,
+			title: homepage?.seoTitle || C1_HOMEPAGE_SEO_TITLE,
+			description: homepage?.seoDescription || C1_HOMEPAGE_SEO_DESCRIPTION,
+		})
 	}
 	if (path === '/quiz') {
-		return {
+		return buildC1Metadata({
+			path,
 			title: 'Compare Business Finance Options | Comparison One',
 			description: 'Start a Comparison One enquiry for Australian SME business funding options after checking amount, purpose and document readiness.',
-		}
+		})
 	}
 	if (isLegalPath(path)) {
 		const title = path === '/privacy-policy' ? 'Privacy Policy' : path === '/terms-and-conditions' ? 'Terms & Conditions' : 'Editorial Policy'
-		return { title: `${title} | Comparison One`, description: `${title} for Comparison One.` }
+		return buildC1Metadata({ path, title: `${title} | Comparison One`, description: `${title} for Comparison One.` })
 	}
 	const cmsC1Page = await getC1CmsPage(path)
 	if (cmsC1Page) {
-		return { title: cmsC1Page.seoTitle, description: cmsC1Page.seoDescription }
+		return buildC1Metadata({
+			path,
+			title: cmsC1Page.seoTitle,
+			description: cmsC1Page.seoDescription,
+			type: cmsC1Page.type === 'blog' || cmsC1Page.type === 'lender' ? 'article' : 'website',
+		})
 	}
 	const c1Page = c1PageLookup[path]
 
 	if (c1Page) {
-		return {
+		return buildC1Metadata({
+			path,
 			title: c1Page.seoTitle,
 			description: c1Page.seoDescription,
-			openGraph: {
-				title: c1Page.seoTitle,
-				description: c1Page.seoDescription,
-			},
-		}
+			type: c1Page.type === 'blog' || c1Page.type === 'lender' ? 'article' : 'website',
+		})
 	}
 
 	try {
 		const [page, site] = await Promise.all([getPage(slug), getSite()])
 		const { title, description, image, noIndex } = page?.metadata ?? {}
+		const pageTitle = title || 'Comparison One'
+		const pageDescription = description || 'Australian SME business funding comparison.'
+		const baseMetadata = buildC1Metadata({ path, title: pageTitle, description: pageDescription, noIndex: Boolean(noIndex) })
+		const fallbackImage = c1OgImageUrl(path)
 		return {
-			title,
-			description,
+			...baseMetadata,
 			openGraph: {
-				title,
-				description,
-				url: [process.env.NEXT_PUBLIC_BASE_URL, slug?.join('/')]
-					.filter(Boolean)
-					.join('/'),
+				...baseMetadata.openGraph,
+				title: pageTitle,
+				description: pageDescription,
 				images: [
 					image
 						? urlFor(image).width(1200).url()
 						: site?.ogimage
 							? urlFor(site.ogimage).width(1200).url()
-							: `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?slug=${slug?.join('/')}`,
+							: fallbackImage,
 				],
 			},
-			robots: { index: noIndex ? false : undefined },
-			alternates: { types: { 'application/rss+xml': `/${ROUTES.blog}/rss.xml` } },
+			alternates: {
+				...baseMetadata.alternates,
+				types: { 'application/rss+xml': `/${ROUTES.blog}/rss.xml` },
+			},
 			generator: `SanityPress v${pkg.version}`,
 		}
 	} catch {
-		return { title: 'Comparison One', description: 'Australian SME business funding comparison.' }
+		return buildC1Metadata({ path, title: 'Comparison One', description: 'Australian SME business funding comparison.' })
 	}
 }
 
