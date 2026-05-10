@@ -1,4 +1,3 @@
-import type { Get } from '@sanity/codegen'
 import { createDataAttribute, stegaClean } from 'next-sanity'
 import type {
 	BLOG_POST_QUERY_RESULT,
@@ -48,7 +47,7 @@ export default function ({
 	page?: PAGE_QUERY_RESULT
 	post?: BLOG_POST_QUERY_RESULT
 }) {
-	const modules = [page, post].flatMap((item) => item?.modules ?? [])
+	const modules = [page, post].flatMap((item) => (item?.modules as ModuleProps[] | undefined) ?? [])
 
 	const moduleSpecificProps = (module: ModuleProps) => {
 		switch (module._type) {
@@ -84,13 +83,16 @@ export default function ({
 	)
 }
 
-export type ModuleProps = Partial<
-	Get<PAGE_QUERY_RESULT | BLOG_POST_QUERY_RESULT, 'modules', 0>
-> & { attributes?: ModuleAttributes }
+export type ModuleProps = {
+	_key?: string
+	_type?: string
+	attributes?: ModuleAttributes
+	[key: string]: unknown
+}
 
 export function moduleAttributes({ _key, _type, attributes }: ModuleProps) {
 	return {
-		id: stegaClean(attributes?.uid) || `module-${_key}`,
+		id: stegaClean(attributes?.uid) || `module-${_key || 'unknown'}`,
 		'data-module': _type,
 		hidden: attributes?.hidden,
 	}

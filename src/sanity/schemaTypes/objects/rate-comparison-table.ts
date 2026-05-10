@@ -19,6 +19,12 @@ export default defineType({
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: 'rateTableSlug',
+			type: 'string',
+			description: 'Defaults to business-loans-rates when empty',
+			initialValue: 'business-loans-rates',
+		}),
+		defineField({
 			name: 'showFilters',
 			type: 'boolean',
 			initialValue: true,
@@ -27,6 +33,17 @@ export default defineType({
 			name: 'sortable',
 			type: 'boolean',
 			initialValue: true,
+		}),
+		defineField({
+			name: 'defaultProductTypes',
+			type: 'array',
+			of: [{type: 'string'}],
+			description: 'Optional list like secured, unsecured, invoice, equipment',
+		}),
+		defineField({
+			name: 'defaultLenderSlug',
+			type: 'string',
+			description: 'Optional pre-filtered lender (e.g. prospa)',
 		}),
 		defineField({
 			name: 'methodologyNote',

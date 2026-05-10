@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { groq } from 'next-sanity'
 import { notFound } from 'next/navigation'
 import { c1PageLookup, type C1PageData } from '@/lib/c1-pages'
+import { c1FallbackRateTable, type C1RateTableData } from '@/lib/c1-rate-table'
 import { ROUTES } from '@/lib/env'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
@@ -34,12 +35,13 @@ export default async function Page({ params }: Props) {
 	if (path === '/quiz') return <C1QuotePage />
 	if (isLegalPath(path)) return <C1LegalPage path={path} />
 	const cmsC1Page = await getC1CmsPage(path)
-	if (cmsC1Page) return <C1ContentPage page={cmsC1Page} />
+	const rateTable = await getC1RateTable(cmsC1Page?.rateComparisonTable?.rateTableSlug || 'business-loans-rates')
+	if (cmsC1Page) return <C1ContentPage page={cmsC1Page} rateTable={rateTable} />
 	const c1Page = c1PageLookup[path]
 
 	if (c1Page) {
 		if (path === '/') return <C1Homepage data={await getC1Homepage()} />
-		return <C1ContentPage page={c1Page} />
+		return <C1ContentPage page={c1Page} rateTable={rateTable} />
 	}
 
 	// Try Sanity
@@ -221,6 +223,44 @@ async function getC1CmsPage(path: string): Promise<C1PageData | null> {
 	}
 }
 
+async function getC1RateTable(slug: string): Promise<C1RateTableData> {
+	try {
+		const table = await client.fetch<C1RateTableData | null>(C1_RATE_TABLE_QUERY, { slug })
+		if (!table || !table.rows?.length) return c1FallbackRateTable
+		return table
+	} catch {
+		return c1FallbackRateTable
+	}
+}
+
+const C1_RATE_TABLE_QUERY = groq`
+	*[_type == 'c1.rateTable' && slug.current == $slug][0]{
+		'slug': slug.current,
+		title,
+		updatedAt,
+		methodologyNote,
+		'rows': rows[coalesce(isActive, true) == true]{
+			'id': coalesce(_key, lenderSlug + '-' + productType),
+			lenderSlug,
+			lenderName,
+			productName,
+			productType,
+			rateFrom,
+			rateTo,
+			comparisonRate,
+			minAmount,
+			maxAmount,
+			minTermMonths,
+			maxTermMonths,
+			fundingSpeed,
+			securityType,
+			bestFor,
+			updatedAt,
+			'isActive': coalesce(isActive, true)
+		}
+	}
+`
+
 const C1_CONTENT_PAGE_QUERY = groq`
 	*[_type == 'c1.contentPage' && path == $path][0]{
 		type,
@@ -237,6 +277,7 @@ const C1_CONTENT_PAGE_QUERY = groq`
 		'lastReviewed': coalesce(lastReviewed, '2026-05-05'),
 		'proofPoints': coalesce(proofPoints, []),
 		rateSnapshot[]{ label, rate, sublabel, linkHref, linkLabel },
+		rateComparisonTable{ headline, updatedAt, rateTableSlug, showFilters, sortable, defaultProductTypes, defaultLenderSlug, methodologyNote },
 		sections[]{ heading, body, bullets, table{ headers, 'rows': rows[].cells } },
 		faqs[]{ question, answer },
 		relatedLinks[]{ label, href }

@@ -4,6 +4,7 @@ import blogCategory from './documents/blog.category'
 import blogPost from './documents/blog.post'
 import c1Homepage from './documents/c1.homepage'
 import c1ContentPage from './documents/c1.content-page'
+import c1RateTable from './documents/c1.rate-table'
 import form from './documents/form'
 import globalModule from './documents/global-module'
 import logo from './documents/logo'
@@ -40,6 +41,7 @@ import metadata from './objects/metadata'
 import moduleAttributes from './objects/module-attributes'
 import rateSnapshot from './objects/rate-snapshot'
 import rateComparisonTable from './objects/rate-comparison-table'
+import c1LenderRateRow from './objects/c1.lender-rate-row'
 
 export const schema: SchemaPluginOptions = {
 	types: [
@@ -48,6 +50,7 @@ export const schema: SchemaPluginOptions = {
 		page,
 		c1Homepage,
 		c1ContentPage,
+		c1RateTable,
 		form,
 		globalModule,
 		blogPost,
@@ -69,6 +72,7 @@ export const schema: SchemaPluginOptions = {
 		moduleAttributes,
 		rateSnapshot,
 		rateComparisonTable,
+		c1LenderRateRow,
 
 		// modules
 		accordionList,

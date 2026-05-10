@@ -726,6 +726,54 @@ export type AccordionList = {
 	layout?: 'vertical' | 'horizontal'
 }
 
+export type C1LenderRateRow = {
+	_type: 'c1.lenderRateRow'
+	lenderSlug?: string
+	lenderName?: string
+	productName?: string
+	productType?:
+		| 'secured'
+		| 'unsecured'
+		| 'lineOfCredit'
+		| 'equipment'
+		| 'invoice'
+		| 'vehicle'
+		| 'workingCapital'
+	rateFrom?: number
+	rateTo?: number
+	comparisonRate?: number
+	minAmount?: number
+	maxAmount?: number
+	minTermMonths?: number
+	maxTermMonths?: number
+	fundingSpeed?: string
+	securityType?: 'secured' | 'unsecured' | 'asset-backed'
+	bestFor?: string
+	updatedAt?: string
+	isActive?: boolean
+}
+
+export type RateComparisonTable = {
+	_type: 'rateComparisonTable'
+	headline?: string
+	updatedAt?: string
+	rateTableSlug?: string
+	showFilters?: boolean
+	sortable?: boolean
+	defaultProductTypes?: Array<string>
+	defaultLenderSlug?: string
+	methodologyNote?: string
+}
+
+export type RateSnapshot = {
+	_type: 'rateSnapshot'
+	label?: string
+	rate?: string
+	sublabel?: string
+	linkHref?: string
+	linkLabel?: string
+}
+
 export type ModuleAttributes = {
 	_type: 'module-attributes'
 	uid?: string
@@ -1096,6 +1144,143 @@ export type Form = {
 	_rev: string
 	identifier?: string
 	endpoint?: string
+}
+
+export type C1RateTable = {
+	_id: string
+	_type: 'c1.rateTable'
+	_createdAt: string
+	_updatedAt: string
+	_rev: string
+	title?: string
+	slug?: Slug
+	updatedAt?: string
+	methodologyNote?: string
+	rows?: Array<
+		{
+			_key: string
+		} & C1LenderRateRow
+	>
+}
+
+export type C1ContentPage = {
+	_id: string
+	_type: 'c1.contentPage'
+	_createdAt: string
+	_updatedAt: string
+	_rev: string
+	title?: string
+	type?: 'finance' | 'blog' | 'lender' | 'advertorial'
+	path?: string
+	slug?: Slug
+	eyebrow?: string
+	headline?: string
+	summary?: string
+	primaryCtaLabel?: string
+	primaryCtaHref?: string
+	proofPoints?: Array<string>
+	rateSnapshot?: Array<
+		{
+			_key: string
+		} & RateSnapshot
+	>
+	rateComparisonTable?: RateComparisonTable
+	sections?: Array<{
+		heading?: string
+		body?: string
+		bullets?: Array<string>
+		table?: {
+			headers?: Array<string>
+			rows?: Array<{
+				cells?: Array<string>
+				_key: string
+			}>
+		}
+		_key: string
+	}>
+	faqs?: Array<{
+		question?: string
+		answer?: string
+		_key: string
+	}>
+	relatedLinks?: Array<{
+		label?: string
+		href?: string
+		_key: string
+	}>
+	seoTitle?: string
+	seoDescription?: string
+	targetQuery?: string
+	answerSummary?: string
+	schemaType?: 'Article' | 'FAQPage' | 'FinancialService'
+	lastReviewed?: string
+	authorTitle?: string
+	editorNote?: string
+}
+
+export type C1Homepage = {
+	_id: string
+	_type: 'c1.homepage'
+	_createdAt: string
+	_updatedAt: string
+	_rev: string
+	title?: string
+	heroEyebrow?: string
+	heroHeadline?: string
+	heroSubtitle?: string
+	heroImage?: string
+	heroImageAlt?: string
+	primaryCtaLabel?: string
+	secondaryCtaLabel?: string
+	secondaryCtaHref?: string
+	trustStrip?: string
+	whyEyebrow?: string
+	whyHeading?: string
+	whyBody?: string
+	whyCards?: Array<{
+		title?: string
+		description?: string
+		_key: string
+	}>
+	docEyebrow?: string
+	docHeading?: string
+	docBody?: string
+	docCtaLabel?: string
+	docCtaHref?: string
+	checklist?: Array<string>
+	pathwayEyebrow?: string
+	pathwayHeading?: string
+	pathwayCards?: Array<{
+		title?: string
+		description?: string
+		href?: string
+		linkLabel?: string
+		_key: string
+	}>
+	declineHeading?: string
+	declineBody?: string
+	declineCtaLabel?: string
+	declineCtaHref?: string
+	guideHeading?: string
+	guideCards?: Array<{
+		title?: string
+		description?: string
+		href?: string
+		linkLabel?: string
+		_key: string
+	}>
+	finalHeading?: string
+	finalBody?: string
+	finalCtaLabel?: string
+	finalCtaHref?: string
+	faqHeading?: string
+	faqs?: Array<{
+		question?: string
+		answer?: string
+		_key: string
+	}>
+	seoTitle?: string
+	seoDescription?: string
 }
 
 export type Page = {
@@ -1532,6 +1717,9 @@ export type AllSanitySchemaTypes =
 	| BlogPostContent
 	| BlogIndex
 	| AccordionList
+	| C1LenderRateRow
+	| RateComparisonTable
+	| RateSnapshot
 	| ModuleAttributes
 	| Metadata
 	| Megamenu
@@ -1551,6 +1739,9 @@ export type AllSanitySchemaTypes =
 	| SanityImageHotspot
 	| GlobalModule
 	| Form
+	| C1RateTable
+	| C1ContentPage
+	| C1Homepage
 	| Page
 	| Code
 	| NavigationReference
@@ -1580,8 +1771,157 @@ export type AllSanitySchemaTypes =
 	| Geopoint
 
 // Source: src/app/(frontend)/[[...slug]]/page.tsx
+// Variable: C1_HOMEPAGE_QUERY
+// Query: *[_type == 'c1.homepage'][0]{		title,		heroEyebrow,		heroHeadline,		heroSubtitle,		heroImage,		heroImageAlt,		primaryCtaLabel,		secondaryCtaLabel,		secondaryCtaHref,		trustStrip,		whyEyebrow,		whyHeading,		whyBody,		whyCards[]{ title, description },		docEyebrow,		docHeading,		docBody,		docCtaLabel,		docCtaHref,		checklist,		pathwayEyebrow,		pathwayHeading,		pathwayCards[]{ title, description, href, linkLabel },		declineHeading,		declineBody,		declineCtaLabel,		declineCtaHref,		guideHeading,		guideCards[]{ title, description, href, linkLabel },		faqHeading,		faqs[]{ question, answer },		finalHeading,		finalBody,		finalCtaLabel,		finalCtaHref,		seoTitle,		seoDescription	}
+export type C1_HOMEPAGE_QUERY_RESULT = {
+	title: string | null
+	heroEyebrow: string | null
+	heroHeadline: string | null
+	heroSubtitle: string | null
+	heroImage: string | null
+	heroImageAlt: string | null
+	primaryCtaLabel: string | null
+	secondaryCtaLabel: string | null
+	secondaryCtaHref: string | null
+	trustStrip: string | null
+	whyEyebrow: string | null
+	whyHeading: string | null
+	whyBody: string | null
+	whyCards: Array<{
+		title: string | null
+		description: string | null
+	}> | null
+	docEyebrow: string | null
+	docHeading: string | null
+	docBody: string | null
+	docCtaLabel: string | null
+	docCtaHref: string | null
+	checklist: Array<string> | null
+	pathwayEyebrow: string | null
+	pathwayHeading: string | null
+	pathwayCards: Array<{
+		title: string | null
+		description: string | null
+		href: string | null
+		linkLabel: string | null
+	}> | null
+	declineHeading: string | null
+	declineBody: string | null
+	declineCtaLabel: string | null
+	declineCtaHref: string | null
+	guideHeading: string | null
+	guideCards: Array<{
+		title: string | null
+		description: string | null
+		href: string | null
+		linkLabel: string | null
+	}> | null
+	faqHeading: string | null
+	faqs: Array<{
+		question: string | null
+		answer: string | null
+	}> | null
+	finalHeading: string | null
+	finalBody: string | null
+	finalCtaLabel: string | null
+	finalCtaHref: string | null
+	seoTitle: string | null
+	seoDescription: string | null
+} | null
+
+// Source: src/app/(frontend)/[[...slug]]/page.tsx
+// Variable: C1_RATE_TABLE_QUERY
+// Query: *[_type == 'c1.rateTable' && slug.current == $slug][0]{		'slug': slug.current,		title,		updatedAt,		methodologyNote,		'rows': rows[coalesce(isActive, true) == true]{			'id': coalesce(_key, lenderSlug + '-' + productType),			lenderSlug,			lenderName,			productName,			productType,			rateFrom,			rateTo,			comparisonRate,			minAmount,			maxAmount,			minTermMonths,			maxTermMonths,			fundingSpeed,			securityType,			bestFor,			updatedAt,			'isActive': coalesce(isActive, true)		}	}
+export type C1_RATE_TABLE_QUERY_RESULT = {
+	slug: string | null
+	title: string | null
+	updatedAt: string | null
+	methodologyNote: string | null
+	rows: Array<{
+		id: string
+		lenderSlug: string | null
+		lenderName: string | null
+		productName: string | null
+		productType:
+			| 'equipment'
+			| 'invoice'
+			| 'lineOfCredit'
+			| 'secured'
+			| 'unsecured'
+			| 'vehicle'
+			| 'workingCapital'
+			| null
+		rateFrom: number | null
+		rateTo: number | null
+		comparisonRate: number | null
+		minAmount: number | null
+		maxAmount: number | null
+		minTermMonths: number | null
+		maxTermMonths: number | null
+		fundingSpeed: string | null
+		securityType: 'asset-backed' | 'secured' | 'unsecured' | null
+		bestFor: string | null
+		updatedAt: string | null
+		isActive: boolean | true
+	}> | null
+} | null
+
+// Source: src/app/(frontend)/[[...slug]]/page.tsx
+// Variable: C1_CONTENT_PAGE_QUERY
+// Query: *[_type == 'c1.contentPage' && path == $path][0]{		type,		title,		'slug': coalesce(slug.current, path),		path,		eyebrow,		headline,		summary,		'seoTitle': coalesce(seoTitle, title),		'seoDescription': coalesce(seoDescription, summary),		'primaryCtaLabel': coalesce(primaryCtaLabel, 'Compare now'),		'primaryCtaHref': coalesce(primaryCtaHref, '/quiz'),		'lastReviewed': coalesce(lastReviewed, '2026-05-05'),		'proofPoints': coalesce(proofPoints, []),		rateSnapshot[]{ label, rate, sublabel, linkHref, linkLabel },		rateComparisonTable{ headline, updatedAt, rateTableSlug, showFilters, sortable, defaultProductTypes, defaultLenderSlug, methodologyNote },		sections[]{ heading, body, bullets, table{ headers, 'rows': rows[].cells } },		faqs[]{ question, answer },		relatedLinks[]{ label, href }	}
+export type C1_CONTENT_PAGE_QUERY_RESULT = {
+	type: 'advertorial' | 'blog' | 'finance' | 'lender' | null
+	title: string | null
+	slug: string | null
+	path: string | null
+	eyebrow: string | null
+	headline: string | null
+	summary: string | null
+	seoTitle: string | null
+	seoDescription: string | null
+	primaryCtaLabel: string | 'Compare now'
+	primaryCtaHref: string | '/quiz'
+	lastReviewed: string | '2026-05-05'
+	proofPoints: Array<string> | Array<never>
+	rateSnapshot: Array<{
+		label: string | null
+		rate: string | null
+		sublabel: string | null
+		linkHref: string | null
+		linkLabel: string | null
+	}> | null
+	rateComparisonTable: {
+		headline: string | null
+		updatedAt: string | null
+		rateTableSlug: string | null
+		showFilters: boolean | null
+		sortable: boolean | null
+		defaultProductTypes: Array<string> | null
+		defaultLenderSlug: string | null
+		methodologyNote: string | null
+	} | null
+	sections: Array<{
+		heading: string | null
+		body: string | null
+		bullets: Array<string> | null
+		table: {
+			headers: Array<string> | null
+			rows: Array<Array<string> | null> | null
+		} | null
+	}> | null
+	faqs: Array<{
+		question: string | null
+		answer: string | null
+	}> | null
+	relatedLinks: Array<{
+		label: string | null
+		href: string | null
+	}> | null
+} | null
+
+// Source: src/app/(frontend)/[[...slug]]/page.tsx
 // Variable: PAGE_QUERY
-// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{		...,		'modules': (			// global moddules (before)			*[_type == 'global-module' && path == '*'].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			// path modules (before)			+ *[_type == 'global-module' && path != '*' && 	string::startsWith($slug, path)	&& select(		defined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,		true	)].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			// page modules			+ modules[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			// path modules (after)			+ *[_type == 'global-module' && path != '*' && 	string::startsWith($slug, path)	&& select(		defined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,		true	)].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			// global moddules (after)			+ *[_type == 'global-module' && path == '*'].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		)	}
+// Query: *[_type == 'page' && metadata.slug.current == $slug][0]{		...,		'modules': (			*[_type == 'global-module' && path == '*'].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			+ *[_type == 'global-module' && path != '*' && 	string::startsWith($slug, path)	&& select(		defined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,		true	)].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			+ modules[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			+ *[_type == 'global-module' && path != '*' && 	string::startsWith($slug, path)	&& select(		defined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,		true	)].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }			+ *[_type == 'global-module' && path == '*'].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		)	}
 export type PAGE_QUERY_RESULT = {
 	_id: string
 	_type: 'page'
@@ -2655,7 +2995,7 @@ export type OG_QUERY_RESULT =
 
 // Source: src/app/(frontend)/blog/[slug]/page.tsx
 // Variable: BLOG_POST_QUERY
-// Query: *[_type == 'blog.post' && metadata.slug.current == $slug][0]{	...,	content[]{		...,		_type == 'image' => {			...,			asset->		}	},	'contentPlainText': pt::text(content),	'readTime': length(string::split(pt::text(content), ' ')) / 200,	'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{		style,		'text': pt::text(@)	},	categories[]->{		title,		slug	},	author->{		name,		image{			...,			asset->		}	},	'modules': (		// global modules (before)		*[_type == 'global-module' && path == '*'].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		// path modules (before)		+ *[_type == 'global-module' && path == $blogDir].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		// path modules (after)		+ *[_type == 'global-module' && path == $blogDir].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		// global modules (after)		+ *[_type == 'global-module' && path == '*'].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }	)}
+// Query: *[_type == 'blog.post' && metadata.slug.current == $slug][0]{	...,	content[]{		...,		_type == 'image' => { ..., asset-> }	},	'contentPlainText': pt::text(content),	'readTime': length(string::split(pt::text(content), ' ')) / 200,	'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{		style,		'text': pt::text(@)	},	'modules': ([		*[_type == 'global-module' && path == '*'].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		+ *[_type == 'global-module' && path == $blogDir].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		+ *[_type == 'global-module' && _id == 'global-module-blog-post'].before[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		+ *[_type == 'global-module' && path == $blogDir].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }		+ *[_type == 'global-module' && path == '*'].after[]{ 	...,	ctas[]{		...,		link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'form-module' => {		form->	},	_type == 'breadcrumbs' => {		crumbs[]{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }	},	_type == 'card-list' => {		cards[]{			...,			ctas[]{				...,				link{ 	...,	type == 'internal' => {		internal->{			_type,			title,			'slug': select(				metadata.slug.current == 'index' => '/',				'/' + metadata.slug.current			)		}	} }			}		}	},	_type == 'logo-list' => {		logos[]{			...,			_type == 'reference' => @->		}	},	_type == 'person-list' => {		people[]{			...,			_type == 'reference' => @->		}	},	_type == 'prose' => {		content[]{			...,			_type == 'image' => {				...,				asset->{					...,					metadata				}			}		},		'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{			style,			'text': pt::text(@)		}	},	_type == 'quote-list' => {		testimonials[]{			...,			_type == 'reference' => @->		}	}, }	])}
 export type BLOG_POST_QUERY_RESULT = {
 	_id: string
 	_type: 'blog.post'
@@ -2756,41 +3096,12 @@ export type BLOG_POST_QUERY_RESULT = {
 		  }
 	> | null
 	publishDate?: string
-	categories: Array<{
-		title: string | null
-		slug: Slug | null
-	}> | null
-	author: {
-		name: string | null
-		image: {
-			asset: {
-				_id: string
-				_type: 'sanity.imageAsset'
-				_createdAt: string
-				_updatedAt: string
-				_rev: string
-				originalFilename?: string
-				label?: string
-				title?: string
-				description?: string
-				altText?: string
-				sha1hash?: string
-				extension?: string
-				mimeType?: string
-				size?: number
-				assetId?: string
-				uploadId?: string
-				path?: string
-				url?: string
-				metadata?: SanityImageMetadata
-				source?: SanityAssetSourceData
-			} | null
-			media?: unknown
-			hotspot?: SanityImageHotspot
-			crop?: SanityImageCrop
-			_type: 'image'
-		} | null
-	} | null
+	categories?: Array<
+		{
+			_key: string
+		} & BlogCategoryReference
+	>
+	author?: PersonReference
 	metadata?: Metadata
 	contentPlainText: string
 	readTime: number
@@ -2808,66 +3119,12 @@ export type BLOG_POST_QUERY_RESULT = {
 		text: string
 	}> | null
 	modules: Array<
-		| {
-				_key: string
-				_type: 'accordion-list'
-				attributes?: ModuleAttributes
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
-						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
+		Array<
+			| {
 					_key: string
-				}>
-				ctas: Array<{
-					_key: string
-					_type: 'cta'
-					link:
-						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal?: PageReference
-								external?: string
-								params?: string
-						  }
-						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal: {
-									_type: 'page'
-									title: string | null
-									slug: string | '/' | null
-								} | null
-								external?: string
-								params?: string
-						  }
-						| null
-					theme?: 'action-outline' | 'action' | 'ghost' | 'link'
-				}> | null
-				accordions?: Array<{
-					summary?: string
-					content?: Array<{
+					_type: 'accordion-list'
+					attributes?: ModuleAttributes
+					intro?: Array<{
 						children?: Array<{
 							marks?: Array<string>
 							text?: string
@@ -2893,89 +3150,176 @@ export type BLOG_POST_QUERY_RESULT = {
 						_type: 'block'
 						_key: string
 					}>
-					open?: boolean
-					_type: 'accordion'
-					_key: string
-				}>
-				exclusive?: boolean
-				enableSchema?: boolean
-				layout?: 'horizontal' | 'vertical'
-		  }
-		| {
-				_key: string
-				_type: 'blog-index'
-				attributes?: ModuleAttributes
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
+					ctas: Array<{
+						_key: string
+						_type: 'cta'
+						link:
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal?: PageReference
+									external?: string
+									params?: string
+							  }
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal: {
+										_type: 'page'
+										title: string | null
+										slug: string | '/' | null
+									} | null
+									external?: string
+									params?: string
+							  }
+							| null
+						theme?: 'action-outline' | 'action' | 'ghost' | 'link'
+					}> | null
+					accordions?: Array<{
+						summary?: string
+						content?: Array<{
+							children?: Array<{
+								marks?: Array<string>
+								text?: string
+								_type: 'span'
+								_key: string
+							}>
+							style?:
+								| 'blockquote'
+								| 'h1'
+								| 'h2'
+								| 'h3'
+								| 'h4'
+								| 'h5'
+								| 'h6'
+								| 'normal'
+							listItem?: 'bullet' | 'number'
+							markDefs?: Array<{
+								href?: string
+								_type: 'link'
+								_key: string
+							}>
+							level?: number
+							_type: 'block'
+							_key: string
+						}>
+						open?: boolean
+						_type: 'accordion'
 						_key: string
 					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
+					exclusive?: boolean
+					enableSchema?: boolean
+					layout?: 'horizontal' | 'vertical'
+			  }
+			| {
+					_key: string
+					_type: 'blog-index'
+					attributes?: ModuleAttributes
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
 						_key: string
 					}>
-					level?: number
-					_type: 'block'
+					postsPerPage?: number
+					ctas: null
+			  }
+			| {
 					_key: string
-				}>
-				postsPerPage?: number
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'blog-post-content'
-				attributes?: ModuleAttributes
-				tableOfContents?: 'left' | 'right'
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'blog-post-list'
-				attributes?: ModuleAttributes
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
+					_type: 'blog-post-content'
+					attributes?: ModuleAttributes
+					tableOfContents?: 'left' | 'right'
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'blog-post-list'
+					attributes?: ModuleAttributes
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
 						_key: string
 					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
+					ctas: Array<{
 						_key: string
-					}>
-					level?: number
-					_type: 'block'
+						_type: 'cta'
+						link:
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal?: PageReference
+									external?: string
+									params?: string
+							  }
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal: {
+										_type: 'page'
+										title: string | null
+										slug: string | '/' | null
+									} | null
+									external?: string
+									params?: string
+							  }
+							| null
+						theme?: 'action-outline' | 'action' | 'ghost' | 'link'
+					}> | null
+					limit?: number
+			  }
+			| {
 					_key: string
-				}>
-				ctas: Array<{
-					_key: string
-					_type: 'cta'
-					link:
+					_type: 'breadcrumbs'
+					attributes?: ModuleAttributes
+					structuredDataOnly?: boolean
+					crumbs: Array<
 						| {
+								_key: string
 								_type: 'link'
 								label?: string
 								type?: 'external' | 'internal'
@@ -2984,6 +3328,7 @@ export type BLOG_POST_QUERY_RESULT = {
 								params?: string
 						  }
 						| {
+								_key: string
 								_type: 'link'
 								label?: string
 								type?: 'external' | 'internal'
@@ -2995,135 +3340,243 @@ export type BLOG_POST_QUERY_RESULT = {
 								external?: string
 								params?: string
 						  }
-						| null
-					theme?: 'action-outline' | 'action' | 'ghost' | 'link'
-				}> | null
-				limit?: number
-		  }
-		| {
-				_key: string
-				_type: 'breadcrumbs'
-				attributes?: ModuleAttributes
-				structuredDataOnly?: boolean
-				crumbs: Array<
-					| {
+					> | null
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'callout'
+					attributes?: ModuleAttributes
+					overline?: string
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
 							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
 							_type: 'link'
-							label?: string
-							type?: 'external' | 'internal'
-							internal?: PageReference
-							external?: string
-							params?: string
-					  }
-					| {
 							_key: string
+						}>
+						level?: number
+						_type: 'block'
+						_key: string
+					}>
+					ctas: Array<{
+						_key: string
+						_type: 'cta'
+						link:
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal?: PageReference
+									external?: string
+									params?: string
+							  }
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal: {
+										_type: 'page'
+										title: string | null
+										slug: string | '/' | null
+									} | null
+									external?: string
+									params?: string
+							  }
+							| null
+						theme?: 'action-outline' | 'action' | 'ghost' | 'link'
+					}> | null
+			  }
+			| {
+					_key: string
+					_type: 'card-list'
+					attributes?: ModuleAttributes
+					overline?: string
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
 							_type: 'link'
-							label?: string
-							type?: 'external' | 'internal'
-							internal: {
-								_type: 'page'
-								title: string | null
-								slug: string | '/' | null
-							} | null
-							external?: string
-							params?: string
-					  }
-				> | null
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'callout'
-				attributes?: ModuleAttributes
-				overline?: string
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
 						_key: string
 					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				ctas: Array<{
-					_key: string
-					_type: 'cta'
-					link:
-						| {
+					cards: Array<{
+						image?: CardImage
+						icon?: Icon
+						content?: Array<{
+							children?: Array<{
+								marks?: Array<string>
+								text?: string
+								_type: 'span'
+								_key: string
+							}>
+							style?:
+								| 'blockquote'
+								| 'h1'
+								| 'h2'
+								| 'h3'
+								| 'h4'
+								| 'h5'
+								| 'h6'
+								| 'normal'
+							listItem?: 'bullet' | 'number'
+							markDefs?: Array<{
+								href?: string
 								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal?: PageReference
-								external?: string
-								params?: string
-						  }
-						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal: {
-									_type: 'page'
-									title: string | null
-									slug: string | '/' | null
-								} | null
-								external?: string
-								params?: string
-						  }
-						| null
-					theme?: 'action-outline' | 'action' | 'ghost' | 'link'
-				}> | null
-		  }
-		| {
-				_key: string
-				_type: 'card-list'
-				attributes?: ModuleAttributes
-				overline?: string
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
+								_key: string
+							}>
+							level?: number
+							_type: 'block'
+							_key: string
+						}>
+						ctas: Array<{
+							_key: string
+							_type: 'cta'
+							link:
+								| {
+										_type: 'link'
+										label?: string
+										type?: 'external' | 'internal'
+										internal?: PageReference
+										external?: string
+										params?: string
+								  }
+								| {
+										_type: 'link'
+										label?: string
+										type?: 'external' | 'internal'
+										internal: {
+											_type: 'page'
+											title: string | null
+											slug: string | '/' | null
+										} | null
+										external?: string
+										params?: string
+								  }
+								| null
+							theme?: 'action-outline' | 'action' | 'ghost' | 'link'
+						}> | null
+						_type: 'card'
 						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
+					}> | null
+					ctas: Array<{
 						_key: string
-					}>
-					level?: number
-					_type: 'block'
+						_type: 'cta'
+						link:
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal?: PageReference
+									external?: string
+									params?: string
+							  }
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal: {
+										_type: 'page'
+										title: string | null
+										slug: string | '/' | null
+									} | null
+									external?: string
+									params?: string
+							  }
+							| null
+						theme?: 'action-outline' | 'action' | 'ghost' | 'link'
+					}> | null
+					columns?: number
+			  }
+			| {
 					_key: string
-				}>
-				cards: Array<{
-					image?: CardImage
-					icon?: Icon
+					_type: 'custom-html'
+					attributes?: ModuleAttributes
+					className?: string
+					html?: Code
+					css?: Code
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'form-module'
+					attributes?: ModuleAttributes
+					overline?: string
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
+						_key: string
+					}>
+					form: {
+						_id: string
+						_type: 'form'
+						_createdAt: string
+						_updatedAt: string
+						_rev: string
+						identifier?: string
+						endpoint?: string
+					} | null
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'hero.split'
+					attributes?: ModuleAttributes
+					overline?: string
 					content?: Array<{
 						children?: Array<{
 							marks?: Array<string>
@@ -3177,285 +3630,420 @@ export type BLOG_POST_QUERY_RESULT = {
 							| null
 						theme?: 'action-outline' | 'action' | 'ghost' | 'link'
 					}> | null
-					_type: 'card'
+					image?: {
+						asset?: SanityImageAssetReference
+						media?: unknown
+						hotspot?: SanityImageHotspot
+						crop?: SanityImageCrop
+						alt?: string
+						loading?: 'eager' | 'lazy'
+						onRight?: boolean
+						afterContent?: boolean
+						_type: 'image'
+					}
+			  }
+			| {
 					_key: string
-				}> | null
-				ctas: Array<{
-					_key: string
-					_type: 'cta'
-					link:
+					_type: 'logo-list'
+					attributes?: ModuleAttributes
+					overline?: string
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
+						_key: string
+					}>
+					logos: Array<
 						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal?: PageReference
-								external?: string
-								params?: string
+								_key: string
+								_ref: string
+								_type: 'logo'
+								_weak?: boolean
+								_id: string
+								_createdAt: string
+								_updatedAt: string
+								_rev: string
+								title?: string
+								image?: LogoImage
 						  }
 						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal: {
-									_type: 'page'
-									title: string | null
-									slug: string | '/' | null
+								title?: string
+								image?: LogoImage
+								_type: 'logo'
+								_key: string
+						  }
+					> | null
+					logoType?: 'dark' | 'default' | 'light'
+					autoScroll?: boolean
+					duration?: number
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'person-list'
+					attributes?: ModuleAttributes
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
+						_key: string
+					}>
+					people: Array<
+						| {
+								_key: string
+								_ref: string
+								_type: 'person'
+								_weak?: boolean
+								_id: string
+								_createdAt: string
+								_updatedAt: string
+								_rev: string
+								name?: string
+								image?: {
+									asset?: SanityImageAssetReference
+									media?: unknown
+									hotspot?: SanityImageHotspot
+									crop?: SanityImageCrop
+									_type: 'image'
+								}
+						  }
+						| {
+								name?: string
+								image?: {
+									asset?: SanityImageAssetReference
+									media?: unknown
+									hotspot?: SanityImageHotspot
+									crop?: SanityImageCrop
+									_type: 'image'
+								}
+								_type: 'person'
+								_key: string
+						  }
+					> | null
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'prose'
+					attributes?: ModuleAttributes
+					content: Array<
+						| {
+								children?: Array<{
+									marks?: Array<string>
+									text?: string
+									_type: 'span'
+									_key: string
+								}>
+								style?:
+									| 'blockquote'
+									| 'h1'
+									| 'h2'
+									| 'h3'
+									| 'h4'
+									| 'h5'
+									| 'h6'
+									| 'normal'
+								listItem?: 'bullet' | 'number'
+								markDefs?: Array<{
+									href?: string
+									_type: 'link'
+									_key: string
+								}>
+								level?: number
+								_type: 'block'
+								_key: string
+						  }
+						| {
+								_key: string
+								_type: 'code'
+								language?: string
+								filename?: string
+								code?: string
+								highlightedLines?: Array<number>
+						  }
+						| {
+								_key: string
+								_type: 'custom-html'
+								attributes?: ModuleAttributes
+								className?: string
+								html?: Code
+								css?: Code
+						  }
+						| {
+								asset: {
+									_id: string
+									_type: 'sanity.imageAsset'
+									_createdAt: string
+									_updatedAt: string
+									_rev: string
+									originalFilename?: string
+									label?: string
+									title?: string
+									description?: string
+									altText?: string
+									sha1hash?: string
+									extension?: string
+									mimeType?: string
+									size?: number
+									assetId?: string
+									uploadId?: string
+									path?: string
+									url?: string
+									metadata: SanityImageMetadata | null
+									source?: SanityAssetSourceData
 								} | null
-								external?: string
-								params?: string
-						  }
-						| null
-					theme?: 'action-outline' | 'action' | 'ghost' | 'link'
-				}> | null
-				columns?: number
-		  }
-		| {
-				_key: string
-				_type: 'custom-html'
-				attributes?: ModuleAttributes
-				className?: string
-				html?: Code
-				css?: Code
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'form-module'
-				attributes?: ModuleAttributes
-				overline?: string
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
-						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				form: {
-					_id: string
-					_type: 'form'
-					_createdAt: string
-					_updatedAt: string
-					_rev: string
-					identifier?: string
-					endpoint?: string
-				} | null
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'hero.split'
-				attributes?: ModuleAttributes
-				overline?: string
-				content?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
-						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				ctas: Array<{
-					_key: string
-					_type: 'cta'
-					link:
-						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal?: PageReference
-								external?: string
-								params?: string
-						  }
-						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal: {
-									_type: 'page'
-									title: string | null
-									slug: string | '/' | null
-								} | null
-								external?: string
-								params?: string
-						  }
-						| null
-					theme?: 'action-outline' | 'action' | 'ghost' | 'link'
-				}> | null
-				image?: {
-					asset?: SanityImageAssetReference
-					media?: unknown
-					hotspot?: SanityImageHotspot
-					crop?: SanityImageCrop
-					alt?: string
-					loading?: 'eager' | 'lazy'
-					onRight?: boolean
-					afterContent?: boolean
-					_type: 'image'
-				}
-		  }
-		| {
-				_key: string
-				_type: 'logo-list'
-				attributes?: ModuleAttributes
-				overline?: string
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
-						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				logos: Array<
-					| {
-							_key: string
-							_ref: string
-							_type: 'logo'
-							_weak?: boolean
-							_id: string
-							_createdAt: string
-							_updatedAt: string
-							_rev: string
-							title?: string
-							image?: LogoImage
-					  }
-					| {
-							title?: string
-							image?: LogoImage
-							_type: 'logo'
-							_key: string
-					  }
-				> | null
-				logoType?: 'dark' | 'default' | 'light'
-				autoScroll?: boolean
-				duration?: number
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'person-list'
-				attributes?: ModuleAttributes
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
-						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				people: Array<
-					| {
-							_key: string
-							_ref: string
-							_type: 'person'
-							_weak?: boolean
-							_id: string
-							_createdAt: string
-							_updatedAt: string
-							_rev: string
-							name?: string
-							image?: {
-								asset?: SanityImageAssetReference
 								media?: unknown
 								hotspot?: SanityImageHotspot
 								crop?: SanityImageCrop
+								alt?: string
+								figcaption?: Array<{
+									children?: Array<{
+										marks?: Array<string>
+										text?: string
+										_type: 'span'
+										_key: string
+									}>
+									style?: 'normal'
+									listItem?: 'bullet' | 'number'
+									markDefs?: Array<{
+										href?: string
+										_type: 'link'
+										_key: string
+									}>
+									level?: number
+									_type: 'block'
+									_key: string
+								}>
 								_type: 'image'
-							}
-					  }
-					| {
-							name?: string
-							image?: {
-								asset?: SanityImageAssetReference
-								media?: unknown
-								hotspot?: SanityImageHotspot
-								crop?: SanityImageCrop
-								_type: 'image'
-							}
-							_type: 'person'
+								_key: string
+						  }
+					> | null
+					tableOfContents?: 'left' | 'right'
+					ctas: null
+					headings: Array<{
+						style:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+							| null
+						text: string
+					}> | null
+			  }
+			| {
+					_key: string
+					_type: 'quote-list'
+					attributes?: ModuleAttributes
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
 							_key: string
-					  }
-				> | null
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'prose'
-				attributes?: ModuleAttributes
-				content: Array<
-					| {
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
+						_key: string
+					}>
+					testimonials: Array<
+						| {
+								_key: string
+								_ref: string
+								_type: 'quote'
+								_weak?: boolean
+								_id: string
+								_createdAt: string
+								_updatedAt: string
+								_rev: string
+								quote?: Array<{
+									children?: Array<{
+										marks?: Array<string>
+										text?: string
+										_type: 'span'
+										_key: string
+									}>
+									style?:
+										| 'blockquote'
+										| 'h1'
+										| 'h2'
+										| 'h3'
+										| 'h4'
+										| 'h5'
+										| 'h6'
+										| 'normal'
+									listItem?: 'bullet' | 'number'
+									markDefs?: Array<{
+										href?: string
+										_type: 'link'
+										_key: string
+									}>
+									level?: number
+									_type: 'block'
+									_key: string
+								}>
+								author?: Author
+						  }
+						| {
+								quote?: Array<{
+									children?: Array<{
+										marks?: Array<string>
+										text?: string
+										_type: 'span'
+										_key: string
+									}>
+									style?:
+										| 'blockquote'
+										| 'h1'
+										| 'h2'
+										| 'h3'
+										| 'h4'
+										| 'h5'
+										| 'h6'
+										| 'normal'
+									listItem?: 'bullet' | 'number'
+									markDefs?: Array<{
+										href?: string
+										_type: 'link'
+										_key: string
+									}>
+									level?: number
+									_type: 'block'
+									_key: string
+								}>
+								author?: Author
+								_type: 'quote'
+								_key: string
+						  }
+					> | null
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'search-module'
+					attributes?: ModuleAttributes
+					overline?: string
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
+						_key: string
+					}>
+					scope?: 'all' | 'blog posts' | 'pages'
+					ctas: null
+			  }
+			| {
+					_key: string
+					_type: 'stat-list'
+					attributes?: ModuleAttributes
+					intro?: Array<{
+						children?: Array<{
+							marks?: Array<string>
+							text?: string
+							_type: 'span'
+							_key: string
+						}>
+						style?:
+							| 'blockquote'
+							| 'h1'
+							| 'h2'
+							| 'h3'
+							| 'h4'
+							| 'h5'
+							| 'h6'
+							| 'normal'
+						listItem?: 'bullet' | 'number'
+						markDefs?: Array<{
+							href?: string
+							_type: 'link'
+							_key: string
+						}>
+						level?: number
+						_type: 'block'
+						_key: string
+					}>
+					stats?: Array<{
+						value?: string
+						suffix?: string
+						content?: Array<{
 							children?: Array<{
 								marks?: Array<string>
 								text?: string
@@ -3480,258 +4068,17 @@ export type BLOG_POST_QUERY_RESULT = {
 							level?: number
 							_type: 'block'
 							_key: string
-					  }
-					| {
-							_key: string
-							_type: 'code'
-							language?: string
-							filename?: string
-							code?: string
-							highlightedLines?: Array<number>
-					  }
-					| {
-							_key: string
-							_type: 'custom-html'
-							attributes?: ModuleAttributes
-							className?: string
-							html?: Code
-							css?: Code
-					  }
-					| {
-							asset: {
-								_id: string
-								_type: 'sanity.imageAsset'
-								_createdAt: string
-								_updatedAt: string
-								_rev: string
-								originalFilename?: string
-								label?: string
-								title?: string
-								description?: string
-								altText?: string
-								sha1hash?: string
-								extension?: string
-								mimeType?: string
-								size?: number
-								assetId?: string
-								uploadId?: string
-								path?: string
-								url?: string
-								metadata: SanityImageMetadata | null
-								source?: SanityAssetSourceData
-							} | null
-							media?: unknown
-							hotspot?: SanityImageHotspot
-							crop?: SanityImageCrop
-							alt?: string
-							figcaption?: Array<{
-								children?: Array<{
-									marks?: Array<string>
-									text?: string
-									_type: 'span'
-									_key: string
-								}>
-								style?: 'normal'
-								listItem?: 'bullet' | 'number'
-								markDefs?: Array<{
-									href?: string
-									_type: 'link'
-									_key: string
-								}>
-								level?: number
-								_type: 'block'
-								_key: string
-							}>
-							_type: 'image'
-							_key: string
-					  }
-				> | null
-				tableOfContents?: 'left' | 'right'
-				ctas: null
-				headings: Array<{
-					style:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-						| null
-					text: string
-				}> | null
-		  }
-		| {
-				_key: string
-				_type: 'quote-list'
-				attributes?: ModuleAttributes
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
+						}>
+						_type: 'stat'
 						_key: string
 					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
+					ctas: null
+			  }
+			| {
 					_key: string
-				}>
-				testimonials: Array<
-					| {
-							_key: string
-							_ref: string
-							_type: 'quote'
-							_weak?: boolean
-							_id: string
-							_createdAt: string
-							_updatedAt: string
-							_rev: string
-							quote?: Array<{
-								children?: Array<{
-									marks?: Array<string>
-									text?: string
-									_type: 'span'
-									_key: string
-								}>
-								style?:
-									| 'blockquote'
-									| 'h1'
-									| 'h2'
-									| 'h3'
-									| 'h4'
-									| 'h5'
-									| 'h6'
-									| 'normal'
-								listItem?: 'bullet' | 'number'
-								markDefs?: Array<{
-									href?: string
-									_type: 'link'
-									_key: string
-								}>
-								level?: number
-								_type: 'block'
-								_key: string
-							}>
-							author?: Author
-					  }
-					| {
-							quote?: Array<{
-								children?: Array<{
-									marks?: Array<string>
-									text?: string
-									_type: 'span'
-									_key: string
-								}>
-								style?:
-									| 'blockquote'
-									| 'h1'
-									| 'h2'
-									| 'h3'
-									| 'h4'
-									| 'h5'
-									| 'h6'
-									| 'normal'
-								listItem?: 'bullet' | 'number'
-								markDefs?: Array<{
-									href?: string
-									_type: 'link'
-									_key: string
-								}>
-								level?: number
-								_type: 'block'
-								_key: string
-							}>
-							author?: Author
-							_type: 'quote'
-							_key: string
-					  }
-				> | null
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'search-module'
-				attributes?: ModuleAttributes
-				overline?: string
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
-						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				scope?: 'all' | 'blog posts' | 'pages'
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'stat-list'
-				attributes?: ModuleAttributes
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
-						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				stats?: Array<{
-					value?: string
-					suffix?: string
-					content?: Array<{
+					_type: 'step-list'
+					attributes?: ModuleAttributes
+					intro?: Array<{
 						children?: Array<{
 							marks?: Array<string>
 							text?: string
@@ -3757,101 +4104,67 @@ export type BLOG_POST_QUERY_RESULT = {
 						_type: 'block'
 						_key: string
 					}>
-					_type: 'stat'
-					_key: string
-				}>
-				ctas: null
-		  }
-		| {
-				_key: string
-				_type: 'step-list'
-				attributes?: ModuleAttributes
-				intro?: Array<{
-					children?: Array<{
-						marks?: Array<string>
-						text?: string
-						_type: 'span'
+					ctas: Array<{
 						_key: string
-					}>
-					style?:
-						| 'blockquote'
-						| 'h1'
-						| 'h2'
-						| 'h3'
-						| 'h4'
-						| 'h5'
-						| 'h6'
-						| 'normal'
-					listItem?: 'bullet' | 'number'
-					markDefs?: Array<{
-						href?: string
-						_type: 'link'
-						_key: string
-					}>
-					level?: number
-					_type: 'block'
-					_key: string
-				}>
-				ctas: Array<{
-					_key: string
-					_type: 'cta'
-					link:
-						| {
+						_type: 'cta'
+						link:
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal?: PageReference
+									external?: string
+									params?: string
+							  }
+							| {
+									_type: 'link'
+									label?: string
+									type?: 'external' | 'internal'
+									internal: {
+										_type: 'page'
+										title: string | null
+										slug: string | '/' | null
+									} | null
+									external?: string
+									params?: string
+							  }
+							| null
+						theme?: 'action-outline' | 'action' | 'ghost' | 'link'
+					}> | null
+					steps?: Array<{
+						content?: Array<{
+							children?: Array<{
+								marks?: Array<string>
+								text?: string
+								_type: 'span'
+								_key: string
+							}>
+							style?:
+								| 'blockquote'
+								| 'h1'
+								| 'h2'
+								| 'h3'
+								| 'h4'
+								| 'h5'
+								| 'h6'
+								| 'normal'
+							listItem?: 'bullet' | 'number'
+							markDefs?: Array<{
+								href?: string
 								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal?: PageReference
-								external?: string
-								params?: string
-						  }
-						| {
-								_type: 'link'
-								label?: string
-								type?: 'external' | 'internal'
-								internal: {
-									_type: 'page'
-									title: string | null
-									slug: string | '/' | null
-								} | null
-								external?: string
-								params?: string
-						  }
-						| null
-					theme?: 'action-outline' | 'action' | 'ghost' | 'link'
-				}> | null
-				steps?: Array<{
-					content?: Array<{
-						children?: Array<{
-							marks?: Array<string>
-							text?: string
-							_type: 'span'
+								_key: string
+							}>
+							level?: number
+							_type: 'block'
 							_key: string
 						}>
-						style?:
-							| 'blockquote'
-							| 'h1'
-							| 'h2'
-							| 'h3'
-							| 'h4'
-							| 'h5'
-							| 'h6'
-							| 'normal'
-						listItem?: 'bullet' | 'number'
-						markDefs?: Array<{
-							href?: string
-							_type: 'link'
-							_key: string
-						}>
-						level?: number
-						_type: 'block'
+						_type: 'step'
 						_key: string
 					}>
-					_type: 'step'
-					_key: string
-				}>
-				enableSchema?: boolean
-		  }
-		| null
+					enableSchema?: boolean
+			  }
+			| null
+		>
 	>
 } | null
 
@@ -6697,9 +7010,12 @@ export type SEARCH_QUERY_RESULT = Array<
 
 declare module '@sanity/client' {
 	interface SanityQueries {
-		"\n\t*[_type == 'page' && metadata.slug.current == $slug][0]{\n\t\t...,\n\t\t'modules': (\n\t\t\t// global moddules (before)\n\t\t\t*[_type == 'global-module' && path == '*'].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t// path modules (before)\n\t\t\t+ *[_type == 'global-module' && path != '*' && \n\tstring::startsWith($slug, path)\n\t&& select(\n\t\tdefined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,\n\t\ttrue\n\t)\n].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t// page modules\n\t\t\t+ modules[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t// path modules (after)\n\t\t\t+ *[_type == 'global-module' && path != '*' && \n\tstring::startsWith($slug, path)\n\t&& select(\n\t\tdefined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,\n\t\ttrue\n\t)\n].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t// global moddules (after)\n\t\t\t+ *[_type == 'global-module' && path == '*'].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t)\n\t}\n": PAGE_QUERY_RESULT
+		"\n\t*[_type == 'c1.homepage'][0]{\n\t\ttitle,\n\t\theroEyebrow,\n\t\theroHeadline,\n\t\theroSubtitle,\n\t\theroImage,\n\t\theroImageAlt,\n\t\tprimaryCtaLabel,\n\t\tsecondaryCtaLabel,\n\t\tsecondaryCtaHref,\n\t\ttrustStrip,\n\t\twhyEyebrow,\n\t\twhyHeading,\n\t\twhyBody,\n\t\twhyCards[]{ title, description },\n\t\tdocEyebrow,\n\t\tdocHeading,\n\t\tdocBody,\n\t\tdocCtaLabel,\n\t\tdocCtaHref,\n\t\tchecklist,\n\t\tpathwayEyebrow,\n\t\tpathwayHeading,\n\t\tpathwayCards[]{ title, description, href, linkLabel },\n\t\tdeclineHeading,\n\t\tdeclineBody,\n\t\tdeclineCtaLabel,\n\t\tdeclineCtaHref,\n\t\tguideHeading,\n\t\tguideCards[]{ title, description, href, linkLabel },\n\t\tfaqHeading,\n\t\tfaqs[]{ question, answer },\n\t\tfinalHeading,\n\t\tfinalBody,\n\t\tfinalCtaLabel,\n\t\tfinalCtaHref,\n\t\tseoTitle,\n\t\tseoDescription\n\t}\n": C1_HOMEPAGE_QUERY_RESULT
+		"\n\t*[_type == 'c1.rateTable' && slug.current == $slug][0]{\n\t\t'slug': slug.current,\n\t\ttitle,\n\t\tupdatedAt,\n\t\tmethodologyNote,\n\t\t'rows': rows[coalesce(isActive, true) == true]{\n\t\t\t'id': coalesce(_key, lenderSlug + '-' + productType),\n\t\t\tlenderSlug,\n\t\t\tlenderName,\n\t\t\tproductName,\n\t\t\tproductType,\n\t\t\trateFrom,\n\t\t\trateTo,\n\t\t\tcomparisonRate,\n\t\t\tminAmount,\n\t\t\tmaxAmount,\n\t\t\tminTermMonths,\n\t\t\tmaxTermMonths,\n\t\t\tfundingSpeed,\n\t\t\tsecurityType,\n\t\t\tbestFor,\n\t\t\tupdatedAt,\n\t\t\t'isActive': coalesce(isActive, true)\n\t\t}\n\t}\n": C1_RATE_TABLE_QUERY_RESULT
+		"\n\t*[_type == 'c1.contentPage' && path == $path][0]{\n\t\ttype,\n\t\ttitle,\n\t\t'slug': coalesce(slug.current, path),\n\t\tpath,\n\t\teyebrow,\n\t\theadline,\n\t\tsummary,\n\t\t'seoTitle': coalesce(seoTitle, title),\n\t\t'seoDescription': coalesce(seoDescription, summary),\n\t\t'primaryCtaLabel': coalesce(primaryCtaLabel, 'Compare now'),\n\t\t'primaryCtaHref': coalesce(primaryCtaHref, '/quiz'),\n\t\t'lastReviewed': coalesce(lastReviewed, '2026-05-05'),\n\t\t'proofPoints': coalesce(proofPoints, []),\n\t\trateSnapshot[]{ label, rate, sublabel, linkHref, linkLabel },\n\t\trateComparisonTable{ headline, updatedAt, rateTableSlug, showFilters, sortable, defaultProductTypes, defaultLenderSlug, methodologyNote },\n\t\tsections[]{ heading, body, bullets, table{ headers, 'rows': rows[].cells } },\n\t\tfaqs[]{ question, answer },\n\t\trelatedLinks[]{ label, href }\n\t}\n": C1_CONTENT_PAGE_QUERY_RESULT
+		"\n\t*[_type == 'page' && metadata.slug.current == $slug][0]{\n\t\t...,\n\t\t'modules': (\n\t\t\t*[_type == 'global-module' && path == '*'].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t+ *[_type == 'global-module' && path != '*' && \n\tstring::startsWith($slug, path)\n\t&& select(\n\t\tdefined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,\n\t\ttrue\n\t)\n].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t+ modules[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t+ *[_type == 'global-module' && path != '*' && \n\tstring::startsWith($slug, path)\n\t&& select(\n\t\tdefined(excludePaths) => count(excludePaths[string::startsWith($slug, @)]) == 0,\n\t\ttrue\n\t)\n].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t\t+ *[_type == 'global-module' && path == '*'].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t)\n\t}\n": PAGE_QUERY_RESULT
 		"*[_type == $type && metadata.slug.current == $slug][0]{\n\t'title': coalesce(metadata.title, title),\n}": OG_QUERY_RESULT
-		"*[_type == 'blog.post' && metadata.slug.current == $slug][0]{\n\t...,\n\tcontent[]{\n\t\t...,\n\t\t_type == 'image' => {\n\t\t\t...,\n\t\t\tasset->\n\t\t}\n\t},\n\t'contentPlainText': pt::text(content),\n\t'readTime': length(string::split(pt::text(content), ' ')) / 200,\n\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\tstyle,\n\t\t'text': pt::text(@)\n\t},\n\tcategories[]->{\n\t\ttitle,\n\t\tslug\n\t},\n\tauthor->{\n\t\tname,\n\t\timage{\n\t\t\t...,\n\t\t\tasset->\n\t\t}\n\t},\n\t'modules': (\n\t\t// global modules (before)\n\t\t*[_type == 'global-module' && path == '*'].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t// path modules (before)\n\t\t+ *[_type == 'global-module' && path == $blogDir].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t// path modules (after)\n\t\t+ *[_type == 'global-module' && path == $blogDir].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t// global modules (after)\n\t\t+ *[_type == 'global-module' && path == '*'].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t)\n}": BLOG_POST_QUERY_RESULT
+		"*[_type == 'blog.post' && metadata.slug.current == $slug][0]{\n\t...,\n\tcontent[]{\n\t\t...,\n\t\t_type == 'image' => { ..., asset-> }\n\t},\n\t'contentPlainText': pt::text(content),\n\t'readTime': length(string::split(pt::text(content), ' ')) / 200,\n\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\tstyle,\n\t\t'text': pt::text(@)\n\t},\n\t'modules': ([\n\t\t*[_type == 'global-module' && path == '*'].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t+ *[_type == 'global-module' && path == $blogDir].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t+ *[_type == 'global-module' && _id == 'global-module-blog-post'].before[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t+ *[_type == 'global-module' && path == $blogDir].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t\t+ *[_type == 'global-module' && path == '*'].after[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t])\n}\n": BLOG_POST_QUERY_RESULT
 		"{\n\t'blog': *[_type == 'page' && metadata.slug.current == $blogDir][0]{\n\t\tmetadata\n\t},\n\t'posts': *[_type == 'blog.post' && metadata.noIndex != true]|order(publishDate desc){\n\t\ttitle,\n\t\tcontent,\n\t\tpublishDate,\n\t\tcategories[]->{ title },\n\t\tauthor->{ name },\n\t\tmetadata\n\t}\n}": BLOG_RSS_QUERY_RESULT
 		"\n\t*[_type == 'page' && metadata.slug.current == '404'][0]{\n\t\t...,\n\t\tmodules[]{ \n\t...,\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'form-module' => {\n\t\tform->\n\t},\n\t_type == 'breadcrumbs' => {\n\t\tcrumbs[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\t_type == 'card-list' => {\n\t\tcards[]{\n\t\t\t...,\n\t\t\tctas[]{\n\t\t\t\t...,\n\t\t\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t}\n\t\t}\n\t},\n\t_type == 'logo-list' => {\n\t\tlogos[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'person-list' => {\n\t\tpeople[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n\t_type == 'prose' => {\n\t\tcontent[]{\n\t\t\t...,\n\t\t\t_type == 'image' => {\n\t\t\t\t...,\n\t\t\t\tasset->{\n\t\t\t\t\t...,\n\t\t\t\t\tmetadata\n\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t'headings': content[style in ['h2', 'h3', 'h4', 'h5', 'h6']]{\n\t\t\tstyle,\n\t\t\t'text': pt::text(@)\n\t\t}\n\t},\n\t_type == 'quote-list' => {\n\t\ttestimonials[]{\n\t\t\t...,\n\t\t\t_type == 'reference' => @->\n\t\t}\n\t},\n }\n\t}\n": NOT_FOUND_QUERY_RESULT
 		"*[_type == 'site'][0]{\n\t...,\n\theader->{ \n\titems[]{\n\t\t\n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n,\n\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\tdefined(links[]) => { links[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t_type == 'megamenu' => {\n\t\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t\titems[]{\n\t\t\t\t...,\n\t\t\t\t_type == 'link' => { \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n },\n\t\t\t\t_type == 'link.list' => {\n\t\t\t\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t\t\t\tlinks[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n },\n\tctas[]{\n\t\t...,\n\t\tlink{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t},\n\tfooter->{ \n\titems[]{\n\t\t\n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n,\n\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\tdefined(links[]) => { links[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t_type == 'megamenu' => {\n\t\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t\titems[]{\n\t\t\t\t...,\n\t\t\t\t_type == 'link' => { \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n },\n\t\t\t\t_type == 'link.list' => {\n\t\t\t\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t\t\t\tlinks[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n },\n\tsocial->{ \n\titems[]{\n\t\t\n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n,\n\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\tdefined(links[]) => { links[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t_type == 'megamenu' => {\n\t\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t\titems[]{\n\t\t\t\t...,\n\t\t\t\t_type == 'link' => { \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n },\n\t\t\t\t_type == 'link.list' => {\n\t\t\t\t\tdefined(link) => { link{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n } },\n\t\t\t\t\tlinks[]{ \n\t...,\n\ttype == 'internal' => {\n\t\tinternal->{\n\t\t\t_type,\n\t\t\ttitle,\n\t\t\t'slug': select(\n\t\t\t\tmetadata.slug.current == 'index' => '/',\n\t\t\t\t'/' + metadata.slug.current\n\t\t\t)\n\t\t}\n\t}\n }\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n },\n}": SITE_QUERY_RESULT

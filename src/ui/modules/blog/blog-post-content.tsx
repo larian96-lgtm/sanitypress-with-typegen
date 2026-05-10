@@ -50,7 +50,7 @@ export default function ({
 						<div className="gap-x-lh gap-y-ch flex flex-wrap items-center justify-center">
 							<Byline author={post.author as unknown as Person} />
 							<Categories
-								categories={post.categories as BlogCategory[]}
+								categories={post.categories as unknown as BlogCategory[]}
 								linked
 							/>
 							<Date date={post.publishDate} />

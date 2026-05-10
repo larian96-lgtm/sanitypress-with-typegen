@@ -3,9 +3,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { C1PageData, C1Section } from '@/lib/c1-pages'
+import type { C1RateTableData } from '@/lib/c1-rate-table'
+import { buildC1StructuredData } from '@/lib/c1-structured-data'
+import {
+	c1FallbackRateTable,
+	inferDefaultProductTypes,
+	inferPreferredLenderSlug,
+	shouldShowCalculator,
+	shouldShowRateWidget,
+} from '@/lib/c1-rate-table'
 import { C1Header, C1Footer } from '@/ui/c1-brand'
 import { C1FundingWidget } from '@/ui/c1-funding-widget'
 import { C1RateSnapshot } from '@/ui/c1-rate-snapshot'
+import { C1RateComparisonWidget } from '@/ui/c1-rate-comparison-widget'
+import { C1RepaymentCalculator } from '@/ui/c1-repayment-calculator'
 
 const pageImages = [
 	'/finview/loan_solution.png',
@@ -150,64 +161,34 @@ function pageImage(path: string) {
 	return pageImages[idx]
 }
 
-function pageJsonLd(page: C1PageData) {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://comparison-one-sanitypress.vercel.app'
-	const url = `${baseUrl}${page.path}`
-	const breadcrumbs = page.path.split('/').filter(Boolean)
-	const breadcrumbItems = [
-		{ '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-		...breadcrumbs.map((part, index) => ({
-			'@type': 'ListItem',
-			position: index + 2,
-			name: part.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
-			item: `${baseUrl}/${breadcrumbs.slice(0, index + 1).join('/')}`,
-		})),
-	]
 
-	return {
-		'@context': 'https://schema.org',
-		'@graph': [
-			{
-				'@type': page.type === 'lender' ? 'Article' : 'WebPage',
-				'@id': `${url}#webpage`,
-				url,
-				name: page.seoTitle || page.title,
-				headline: page.headline,
-				description: page.seoDescription || page.summary,
-				dateModified: page.lastReviewed,
-				isAccessibleForFree: true,
-				author: { '@type': 'Organization', name: 'Comparison One SME Finance Editorial Team' },
-				publisher: { '@type': 'Organization', name: 'Comparison One' },
-			},
-			{
-				'@type': 'BreadcrumbList',
-				'@id': `${url}#breadcrumbs`,
-				itemListElement: breadcrumbItems,
-			},
-			...(page.faqs?.length
-				? [{
-					'@type': 'FAQPage',
-					'@id': `${url}#faq`,
-					mainEntity: page.faqs.map((faq) => ({
-						'@type': 'Question',
-						name: faq.question,
-						acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-					})),
-				}]
-				: []),
-		],
-	}
-}
-
-export default function C1ContentPage({ page }: { page: C1PageData }) {
+export default function C1ContentPage({
+	page,
+	rateTable,
+}: {
+	page: C1PageData
+	rateTable?: C1RateTableData
+}) {
+	const activeRateTable = rateTable ?? c1FallbackRateTable
 	const editorSection = page.sections?.find(isEditorSection)
 	const contentSections = page.sections?.filter((section) => !isSourceSection(section) && !isEditorSection(section)) ?? []
 	const summary = shortSummary(page.summary)
 	const shortHero = heroSummary(page.summary)
 	const image = pageImage(page.path)
+	const showRates = shouldShowRateWidget(page.path)
+	const inferredProductTypes = inferDefaultProductTypes(page.path)
+	const configuredProductTypes = (page.rateComparisonTable?.defaultProductTypes as typeof inferredProductTypes | undefined)
+	const defaultProductTypes = configuredProductTypes && configuredProductTypes.length > 0 ? configuredProductTypes : inferredProductTypes
+	const defaultLenderSlug = page.rateComparisonTable?.defaultLenderSlug || inferPreferredLenderSlug(page.path)
+	const structuredRateRows = activeRateTable.rows.filter((row) => {
+		const productMatch = defaultProductTypes.includes(row.productType)
+		const lenderMatch = defaultLenderSlug ? row.lenderSlug === defaultLenderSlug : true
+		return productMatch && lenderMatch
+	})
+	const jsonLd = buildC1StructuredData(page, structuredRateRows)
 	return (
 		<>
-			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageJsonLd(page)) }} />
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 			<C1Header compact />
 
 			<section className="relative overflow-hidden bg-[#074C3E] py-16 md:py-20">
@@ -229,9 +210,28 @@ export default function C1ContentPage({ page }: { page: C1PageData }) {
 			</section>
 
 			<section className="bg-[#F5F6F7] py-12">
-\t\t\t\t{page.rateSnapshot && page.rateSnapshot.length > 0 && (
+				{page.rateSnapshot && page.rateSnapshot.length > 0 && (
 					<div className="mx-auto mb-10 max-w-7xl px-4">
-\t\t\t\t\t\t<C1RateSnapshot items={page.rateSnapshot!} updatedAt={page.lastReviewed} />
+						<C1RateSnapshot items={page.rateSnapshot} updatedAt={page.lastReviewed} />
+					</div>
+				)}
+				{showRates && (
+					<div className="mx-auto mb-10 max-w-7xl px-4">
+						<C1RateComparisonWidget
+							title={page.rateComparisonTable?.headline || activeRateTable.title}
+							updatedAt={page.rateComparisonTable?.updatedAt || activeRateTable.updatedAt}
+							methodologyNote={page.rateComparisonTable?.methodologyNote || activeRateTable.methodologyNote}
+							showFilters={page.rateComparisonTable?.showFilters ?? true}
+							sortable={page.rateComparisonTable?.sortable ?? true}
+							defaultProductTypes={defaultProductTypes}
+							defaultLenderSlug={defaultLenderSlug}
+							rows={activeRateTable.rows}
+						/>
+					</div>
+				)}
+				{shouldShowCalculator(page.path) && (
+					<div className="mx-auto mb-10 max-w-7xl px-4">
+						<C1RepaymentCalculator defaultRate={11.5} />
 					</div>
 				)}
 				<div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,1fr)_330px]">

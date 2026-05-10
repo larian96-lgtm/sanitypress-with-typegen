@@ -24,6 +24,16 @@ export interface C1PageData {
   faqs: C1Faq[]
   relatedLinks: C1Link[]
   rateSnapshot?: { label: string; rate: string; sublabel?: string; linkHref?: string; linkLabel?: string }[]
+  rateComparisonTable?: {
+    headline?: string
+    updatedAt?: string
+    rateTableSlug?: string
+    showFilters?: boolean
+    sortable?: boolean
+    defaultProductTypes?: string[]
+    defaultLenderSlug?: string
+    methodologyNote?: string
+  }
 }
 
 const c1_business_loans: C1PageData = {
@@ -46,6 +56,14 @@ const c1_business_loans: C1PageData = {
     { label: "Invoice finance from", rate: "2.5%", sublabel: "Of invoice amount", linkHref: "/business-loans/invoice-finance", linkLabel: "View invoice finance" },
     { label: "Vehicle finance from", rate: "7.99%", sublabel: "Per annum", linkHref: "/business-loans/vehicle-finance", linkLabel: "View vehicle finance" },
   ],
+  rateComparisonTable: {
+    headline: "Compare business loans and rates in Australia",
+    updatedAt: "2026-05-10",
+    rateTableSlug: "business-loans-rates",
+    showFilters: true,
+    sortable: true,
+    methodologyNote: "Rates shown are advertised starting rates from public lender information. Your actual rate depends on lender assessment and product fit.",
+  },
   lastReviewed: "2026-05-10",
   proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Rates updated 10 May 2026", "General information only"],
   sections: [

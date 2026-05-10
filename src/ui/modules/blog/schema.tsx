@@ -12,6 +12,9 @@ export default function BlogPostSchema({
 
 	const { slug, image } = post.metadata
 
+	const author = post.author as any
+	const categories = post.categories as any[] | undefined
+
 	const schema = {
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
@@ -23,15 +26,15 @@ export default function BlogPostSchema({
 			? urlFor(image).width(1200).url()
 			: `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?slug=${ROUTES.blog}/${slug?.current}`,
 		keywords:
-			post.categories?.map((category) => category.title).join(', ') ||
+			categories?.map((category) => category?.title).filter(Boolean).join(', ') ||
 			undefined,
 		articleBody: post.contentPlainText ?? undefined,
-		...(post.author && {
+		...(author && {
 			author: {
 				'@type': 'Person',
-				name: post.author.name || 'No author',
-				...(post.author.image && {
-					image: urlFor(post.author.image).width(200).url(),
+				name: author.name || 'No author',
+				...(author.image && {
+					image: urlFor(author.image).width(200).url(),
 				}),
 			},
 		}),
