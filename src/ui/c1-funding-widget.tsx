@@ -5,27 +5,19 @@ import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 const BASE_QUOTE_PARAMS: Record<string, string> = {
-	commercial_list: '2,3,5,6,7,9,11,16,13,14',
-	application_type: 'commercial',
-	additional_options: '48,49',
-	bs_months: '6_months',
-	brand_colour: '074C3E',
-	text_colour: 'FFFFFF',
-	control_colour: 'FCB650',
+	af: '00ixgSU',
 	send_type: 'Auto',
 	force_send: '1',
-	utm_source: 'seo',
-	utm_medium: 'organic',
-	utm_campaign: 'small-business-loans',
-	campaign: 'small-business-loans',
-	af: '00TGtEC',
+	application_type: 'undefined',
 }
+
+const QUOTE_IFRAME_BASE_URL = 'https://application.lend.com.au/quote/iframe'
 
 export function buildC1QuoteUrl(amount?: string | number, iframe = false) {
 	const params = new URLSearchParams(BASE_QUOTE_PARAMS)
 	const cleanAmount = String(amount ?? '').replace(/[^0-9]/g, '')
 	if (cleanAmount) params.set('amount', cleanAmount)
-	return `https://apply.lend.com.au/?${params.toString()}`
+	return `${QUOTE_IFRAME_BASE_URL}?${params.toString()}`
 }
 
 export const C1_QUOTE_URL = buildC1QuoteUrl()
