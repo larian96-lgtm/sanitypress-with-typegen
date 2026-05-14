@@ -85,14 +85,7 @@ export default function ({
 						<PortableText
 							value={post.content ?? []}
 							components={{
-								block: {
-									h1: (node) => <AnchoredHeading as="h1" {...node} />,
-									h2: (node) => <AnchoredHeading as="h2" {...node} />,
-									h3: (node) => <AnchoredHeading as="h3" {...node} />,
-									h4: (node) => <AnchoredHeading as="h4" {...node} />,
-									h5: (node) => <AnchoredHeading as="h5" {...node} />,
-									h6: (node) => <AnchoredHeading as="h6" {...node} />,
-								},
+								block: headingComponents,
 								types: {
 									image: Image,
 									code: Code,
