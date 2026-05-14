@@ -210,7 +210,7 @@ export function C1Header({ compact = false }: { compact?: boolean }) {
 		<header className="sticky top-0 z-50 border-b border-white/10 bg-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.10)] backdrop-blur">
 			<div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 ${compact ? 'py-2.5' : 'py-3'}`}>
 				<Link href="/" className="flex shrink-0 items-center no-underline" aria-label="Comparison One home">
-					<Image src="/comparisonone/logo.png?v=5" alt="Comparison One" width={186} height={40} className="h-auto w-[145px] md:w-[174px]" priority />
+					<Image src="/comparisonone/logo.png?v=6" alt="Comparison One" width={186} height={40} className="h-auto w-[145px] md:w-[174px]" priority />
 				</Link>
 
 				<nav className="hidden items-center gap-4 text-sm font-medium xl:flex" aria-label="Primary navigation">
@@ -248,7 +248,7 @@ export function C1Footer() {
 				<div className="grid gap-9 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
 					<div className="xl:col-span-2">
 						<div className="mb-4 inline-flex">
-							<Image src="/comparisonone/logo.png?v=5" alt="Comparison One" width={186} height={40} className="h-auto w-[170px]" />
+							<Image src="/comparisonone/logo.png?v=6" alt="Comparison One" width={186} height={40} className="h-auto w-[170px]" />
 						</div>
 						<p className="max-w-md text-sm leading-relaxed text-white/60">
 							Helping Australian SMEs move from a vague loan search to the right funding path, the right documents and the right lender type.

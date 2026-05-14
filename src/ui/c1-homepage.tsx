@@ -180,7 +180,7 @@ function mergeHomepage(data?: C1HomepageData | null) {
 // ------------------------------------------------------------------
 function HeroSection({ page }: { page: Required<C1HomepageData> }) {
   return (
-    <section className="relative overflow-hidden bg-[#074C3E]">
+    <section className="relative overflow-visible bg-[#074C3E]">
       {/* Decorative background circles */}
       <div className="absolute inset-0 opacity-[0.07]">
         <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#FCB650]" />
@@ -234,7 +234,7 @@ function HeroSection({ page }: { page: Required<C1HomepageData> }) {
         </div>
 
         {/* Pathway cards row — sits on same dark green bg, floats as light cards */}
-        <div className="relative -mb-6 mt-8 pb-4 md:mt-4 md:pb-2">
+        <div className="relative mt-8 pb-12 md:mt-6 md:pb-14">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {page.pathwayCards.map((card, i) => (
               <Link
@@ -265,7 +265,7 @@ function HeroSection({ page }: { page: Required<C1HomepageData> }) {
 // ------------------------------------------------------------------
 function TrustStrip({ text }: { text: string }) {
   return (
-    <section className="border-b border-[#DFE0E4] bg-[#F5F6F7] pb-5 pt-12 md:pt-10">
+    <section className="border-b border-[#DFE0E4] bg-[#F5F6F7] py-6">
       <div className="mx-auto max-w-7xl px-4 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6A7283]">
           {cleanHomepageText(text)}

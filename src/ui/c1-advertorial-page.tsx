@@ -144,7 +144,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
       <main className="min-h-screen bg-white text-[#111827]">
         <header className="bg-white shadow-[0_3px_18px_rgba(3,33,27,0.07)]">
           <div className="mx-auto flex max-w-[900px] items-center justify-between gap-4 px-4 py-3">
-            <img src="/comparisonone/logo.png?v=uploaded" alt="Comparison One" className="h-10 w-auto md:h-12" />
+            <img src="/comparisonone/logo.png?v=6" alt="Comparison One" className="h-10 w-auto md:h-12" />
             <span className="hidden text-sm font-semibold text-[#6B7280] sm:inline">Business funding news</span>
           </div>
         </header>
