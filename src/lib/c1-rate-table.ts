@@ -373,5 +373,5 @@ export function shouldShowRateWidget(path: string): boolean {
 }
 
 export function shouldShowCalculator(path: string): boolean {
-	return path.startsWith('/business-loans/')
+	return path.startsWith('/business-loans/') || path === '/business-loan-calculator'
 }

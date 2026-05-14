@@ -11,7 +11,7 @@ const legalCopy = {
 			['How information is used', 'Information may be used to respond to enquiries, route applications to relevant third-party lending partners, improve the site and comply with legal obligations.'],
 			['Third-party partners', 'Some forms and funding pathways are provided by external application partners. Their own privacy terms may also apply when you continue through their form.'],
 			['Security', 'We use reasonable technical and operational controls and work with partners that support secure application handling. No online system can be guaranteed risk-free.'],
-			['Contact', 'For privacy questions, contact Comparison One through the details provided on the main site.'],
+			['Contact', 'For privacy requests, corrections, complaints or data questions, use the Contact page at /contact and include your business name, ABN and the email or phone used in your enquiry so we can locate records quickly.'],
 		],
 	},
 	'/terms-and-conditions': {
@@ -24,9 +24,30 @@ const legalCopy = {
 			['Accuracy', 'We aim to keep content current, but lending criteria and product availability can change. Check details before relying on any information.'],
 		],
 	},
+
+	'/about': {
+		title: 'About',
+		updated: '14 May 2026',
+		sections: [
+			['Who we are', 'Comparison One is an Australian SME funding comparison and education site. We help business owners compare funding pathways before applying.'],
+			['What we do', 'We publish lender-fit guides, comparison pages and funding explainers so owners can narrow product type, document readiness and next steps before sending an enquiry.'],
+			['What we are not', 'Comparison One is not a lender, not a credit provider and does not make lending decisions. Content is general information, not financial, legal, tax or accounting advice.'],
+			['Commercial relationships', 'Some pathways may involve referral or partner compensation when a user proceeds with a partner application. This does not guarantee approval, rate or funding speed.'],
+		],
+	},
+	'/contact': {
+		title: 'Contact',
+		updated: '14 May 2026',
+		sections: [
+			['General enquiries', 'Use the funding form on /quiz for application pathway questions. For site, privacy or correction requests, send details through the Contact form process and include your business name and ABN where relevant.'],
+			['Privacy requests', 'For access, correction or deletion requests, provide enough detail to identify your enquiry record, including name, business name, ABN, and approximate submission date.'],
+			['Complaints', 'If you have a complaint about site content, referral handling or data use, include the page URL, what happened and the preferred resolution so it can be reviewed and logged.'],
+			['Response timing', 'We aim to acknowledge contact and complaint requests promptly. Complex matters may require verification and extra time before final response.'],
+		],
+	},
 	'/editorial-policy': {
 		title: 'Editorial Policy',
-		updated: '5 May 2026',
+		updated: '14 May 2026',
 		sections: [
 			['Purpose', 'Comparison One publishes finance explainers to help Australian SME owners understand funding pathways before applying.'],
 			['Review method', 'Pages are reviewed for clarity, lender-fit logic, source quality, internal links and claims that could imply guaranteed approval.'],

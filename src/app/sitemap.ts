@@ -6,9 +6,17 @@ import { sanityFetchLive } from '@/sanity/lib/live'
 
 export const dynamic = 'force-dynamic'
 
-const CANONICAL_BASE_URL = 'https://comparison-one-sanitypress.vercel.app'
+const CANONICAL_BASE_URL = 'https://www.comparisonone.com'
 
 const STATIC_C1_PATHS = ['/', '/quiz', '/privacy-policy', '/terms-and-conditions', '/editorial-policy']
+const STATIC_LAST_MODIFIED = new Date('2026-05-13T00:00:00.000Z')
+
+function normaliseLastModified(value?: string) {
+	if (!value) return STATIC_LAST_MODIFIED
+	const parsed = new Date(value)
+	if (Number.isNaN(parsed.getTime())) return STATIC_LAST_MODIFIED
+	return parsed
+}
 
 function c1Priority(path: string) {
 	if (path === '/') return 1
@@ -66,12 +74,12 @@ export default async function (): Promise<MetadataRoute.Sitemap> {
 	const baseUrl = CANONICAL_BASE_URL
 	const staticUrls: MetadataRoute.Sitemap = STATIC_C1_PATHS.map((path) => ({
 		url: `${baseUrl}${path === '/' ? '' : path}`,
-		lastModified: new Date(),
+		lastModified: STATIC_LAST_MODIFIED,
 		priority: c1Priority(path),
 	}))
 	const c1Urls: MetadataRoute.Sitemap = c1AllPages.map((page) => ({
 		url: `${baseUrl}${page.path}`,
-		lastModified: page.lastReviewed,
+		lastModified: normaliseLastModified(page.lastReviewed),
 		priority: c1Priority(page.path),
 	}))
 

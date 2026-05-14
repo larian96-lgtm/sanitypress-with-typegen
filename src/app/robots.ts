@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const CANONICAL_BASE_URL = 'https://comparison-one-sanitypress.vercel.app'
+const CANONICAL_BASE_URL = 'https://www.comparisonone.com'
 
 export default function robots(): MetadataRoute.Robots {
 	const baseUrl = CANONICAL_BASE_URL

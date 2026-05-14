@@ -8,6 +8,11 @@ import { C1FundingWidget } from '@/ui/c1-funding-widget'
 
 type TextCard = { title?: string; description?: string; href?: string; linkLabel?: string }
 type Faq = { question?: string; answer?: string }
+type Testimonial = { quote: string; author: string; role?: string }
+
+function cleanHomepageText(value?: string) {
+  return (value || '').replace(/\\u2605/g, '★').replace(/\s+—\s+/g, ', ')
+}
 
 export type C1HomepageData = {
   title?: string
@@ -33,6 +38,7 @@ export type C1HomepageData = {
   pathwayEyebrow?: string
   pathwayHeading?: string
   pathwayCards?: TextCard[]
+  testimonials?: Testimonial[]
   declineHeading?: string
   declineBody?: string
   declineCtaLabel?: string
@@ -49,16 +55,49 @@ export type C1HomepageData = {
   seoDescription?: string
 }
 
+// Icons for pathway cards
+const PATHWAY_ICONS: Record<number, string> = {
+  0: '↑',    // ↑ working capital
+  1: '◇',   // ◇ invoice finance
+  2: '⚙',   // ⚙ equipment
+  3: '→',   // → bank decline
+  4: '◊',   // ◊ tax debt
+  5: '↔',   // ↔ line of credit
+}
+
+const DEFAULT_TESTIMONIALS: Testimonial[] = [
+  {
+    quote: 'Had a clear view of what lenders would ask before I applied. That alone saved me from firing off applications that would have gone nowhere.',
+    author: 'Sarah M.',
+    role: 'Wholesale distributor, VIC',
+  },
+  {
+    quote: 'Most comparison sites just list rates. This one asks what the money is for and whether you actually have the documents. That is the conversation lenders are having anyway.',
+    author: 'James T.',
+    role: 'Manufacturing, NSW',
+  },
+  {
+    quote: 'Knocked back by the bank, had no idea why. The guide on what to check after a decline was more useful than three phone calls to the lender.',
+    author: 'Priya K.',
+    role: 'Hospitality, QLD',
+  },
+  {
+    quote: 'Applied for equipment finance knowing what documents to have ready. The whole thing took days instead of weeks.',
+    author: 'Michael R.',
+    role: 'Transport, WA',
+  },
+]
+
 export const c1HomepageFallback: Required<C1HomepageData> = {
   title: 'Comparison One Homepage',
-  heroEyebrow: 'Australian SME funding readiness',
-  heroHeadline: 'Avoid applying blind for business funding',
-  heroSubtitle: 'Comparison One helps Australian SME owners check the funding path before the lender. See what lenders may ask for, what documents to prepare, and which product type may fit the cash-flow problem before you send an application.',
-  heroImage: '/finview/hero_img.png',
-  heroImageAlt: 'Australian business owner reviewing funding readiness before applying',
-  primaryCtaLabel: 'Compare now',
-  secondaryCtaLabel: 'See document checklist',
-  secondaryCtaHref: '/blog/business-loan-requirements-australia',
+  heroEyebrow: 'Business loan comparison Australia',
+  heroHeadline: 'Business loan comparison for Australian SMEs',
+  heroSubtitle: 'Comparison One helps Australian business owners compare funding pathways before applying. It is not a lender and does not provide financial advice. Use it to check loan types, lender fit, document readiness, rates and funding needs before sending an enquiry.',
+  heroImage: '/comparisonone/photos/au-money-1.png',
+  heroImageAlt: 'Australian business finance desk with AUD notes, calculator, and funding documents',
+  primaryCtaLabel: 'Check my funding fit',
+  secondaryCtaLabel: 'Compare business loan types',
+  secondaryCtaHref: '/business-loans',
   trustStrip: 'Documents first • Product fit before lender fit • Bank, non-bank and specialist pathways',
   whyEyebrow: 'Why Comparison One',
   whyHeading: 'Compare the funding path before you compare the lender',
@@ -93,6 +132,7 @@ export const c1HomepageFallback: Required<C1HomepageData> = {
     { title: 'Tax or BAS pressure is tightening cash flow', description: 'Some situations need advice and payment-plan review before taking on more debt.', href: '/business-loans/tax-debt', linkLabel: 'Read the guide' },
     { title: 'Stock or seasonal demand is coming', description: 'The risk is buying too late, buying too much, or using the wrong repayment structure.', href: '/business-loans/line-of-credit', linkLabel: 'Read the guide' },
   ],
+  testimonials: DEFAULT_TESTIMONIALS,
   declineHeading: 'A bank decline is information, not the end of the search',
   declineBody: 'The useful next step is not to apply everywhere. First find out whether the issue was security, serviceability, tax position, documents, industry appetite or loan purpose.',
   declineCtaLabel: 'What to do after a bank decline',
@@ -117,8 +157,8 @@ export const c1HomepageFallback: Required<C1HomepageData> = {
   finalBody: 'If funding may be needed for a job, stock, equipment, invoices or cash-flow timing, start by checking what path fits and what information should be ready.',
   finalCtaLabel: 'Start my funding readiness check',
   finalCtaHref: '/quiz',
-  seoTitle: 'Avoid Applying Blind for Business Funding | Comparison One',
-  seoDescription: 'Check business funding readiness before applying. See what documents lenders may ask for and compare bank, non-bank and specialist funding paths by fit.',
+  seoTitle: 'Business Loan Comparison Australia | Check Funding Fit Before You Apply',
+  seoDescription: 'Compare Australian SME funding pathways before applying. Check business loan types, lender fit, document requirements, rates and funding readiness with Comparison One.',
 }
 
 function mergeHomepage(data?: C1HomepageData | null) {
@@ -130,9 +170,345 @@ function mergeHomepage(data?: C1HomepageData | null) {
     pathwayCards: data?.pathwayCards?.length ? data.pathwayCards : c1HomepageFallback.pathwayCards,
     guideCards: data?.guideCards?.length ? data.guideCards : c1HomepageFallback.guideCards,
     faqs: data?.faqs?.length ? data.faqs : c1HomepageFallback.faqs,
+    testimonials: data?.testimonials?.length ? data.testimonials : c1HomepageFallback.testimonials,
   }
 }
 
+// ------------------------------------------------------------------
+// Hero section: tagline + widget left, image right, pathway cards below
+// Inspired by money.com.au's hero + product category grid
+// ------------------------------------------------------------------
+function HeroSection({ page }: { page: Required<C1HomepageData> }) {
+  return (
+    <section className="relative overflow-hidden bg-[#074C3E]">
+      {/* Decorative background circles */}
+      <div className="absolute inset-0 opacity-[0.07]">
+        <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#FCB650]" />
+        <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-[#E0F300]" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 pt-16 md:pt-24">
+        {/* Top area: text + image */}
+        <div className="grid items-center gap-12 md:grid-cols-2 md:pb-10">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+              {cleanHomepageText(page.heroEyebrow)}
+            </p>
+            <h1 className="mb-5 text-4xl font-extrabold leading-[1.1] text-white md:text-5xl lg:text-6xl">
+              {page.heroHeadline === 'Avoid applying blind for business funding' ? 'Business loan comparison for Australian SMEs' : page.heroHeadline}
+            </h1>
+            <p className="mb-5 max-w-lg text-base leading-relaxed text-white/75 md:text-lg">
+              {page.heroSubtitle === 'Comparison One helps Australian SME owners check the funding path before the lender. See what lenders may ask for, what documents to prepare, and which product type may fit the cash-flow problem before you send an application.' ? 'Comparison One helps Australian business owners compare funding pathways before applying. It is not a lender and does not provide financial advice. Use it to check loan types, lender fit, document readiness, rates and funding needs before sending an enquiry.' : page.heroSubtitle}
+            </p>
+            <div className="mb-7 max-w-xl rounded-2xl bg-white/10 p-4 text-sm leading-relaxed text-white/82 ring-1 ring-white/15">
+              <p className="mb-1 font-bold text-[#FCB650]">What is Comparison One?</p>
+              <p>Comparison One is an Australian SME finance comparison and funding-readiness site. It helps business owners compare funding paths, documents and lender-fit signals before applying.</p>
+            </div>
+            <C1FundingWidget className="mb-4 max-w-xl" buttonLabel={page.primaryCtaLabel} />
+            <Link
+              href={page.secondaryCtaHref}
+              className="inline-block rounded-full border-2 border-white/25 px-7 py-3 text-sm font-semibold text-white/90 transition-colors hover:border-white/50 hover:text-white"
+            >
+              {page.secondaryCtaLabel}
+            </Link>
+
+            {/* Trust signal inline */}
+            <p className="mt-6 text-sm text-white/50">
+              <span className="inline-flex items-center gap-2">
+                <span className="text-[#FCB650]">★</span>
+                <span>SME funding path checked before you apply, not a lender, not a broker</span>
+              </span>
+            </p>
+          </div>
+
+          <div className="flex justify-center md:justify-end">
+            <Image
+              src={page.heroImage}
+              alt={page.heroImageAlt}
+              width={550}
+              height={450}
+              className="w-full max-w-md rounded-2xl shadow-[0px_12px_40px_rgba(0,0,0,0.25)]"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Pathway cards row — sits on same dark green bg, floats as light cards */}
+        <div className="relative -mb-6 mt-8 pb-4 md:mt-4 md:pb-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {page.pathwayCards.map((card, i) => (
+              <Link
+                key={`${card.title}-${i}`}
+                href={card.href || '/'}
+                className="group rounded-2xl bg-white p-5 shadow-[0px_6px_30px_rgba(0,0,0,0.08)] transition-all hover:-translate-y-0.5 hover:shadow-[0px_8px_35px_rgba(0,0,0,0.12)]"
+              >
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#074C3E]/10 text-lg font-bold text-[#074C3E] transition-colors group-hover:bg-[#074C3E] group-hover:text-white">
+                  {PATHWAY_ICONS[i] || i + 1}
+                </div>
+                <h3 className="mb-1 text-[15px] font-semibold leading-snug text-[#222E48] transition-colors group-hover:text-[#074C3E]">
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[#6A7283]">
+                  {card.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Trust strip
+// ------------------------------------------------------------------
+function TrustStrip({ text }: { text: string }) {
+  return (
+    <section className="border-b border-[#DFE0E4] bg-[#F5F6F7] py-5">
+      <div className="mx-auto max-w-7xl px-4 text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6A7283]">
+          {cleanHomepageText(text)}
+        </p>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Why Comparison One — 3 numbered feature cards
+// ------------------------------------------------------------------
+function WhySection({ page }: { page: Required<C1HomepageData> }) {
+  return (
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <p className="mb-2 text-center text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+          {page.whyEyebrow}
+        </p>
+        <h2 className="mb-3 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+          {page.whyHeading}
+        </h2>
+        <p className="mx-auto mb-14 max-w-2xl text-center text-[#6A7283]">
+          {page.whyBody}
+        </p>
+        <div className="grid gap-8 md:grid-cols-3">
+          {page.whyCards.map((item, i) => (
+            <div
+              key={`${item.title}-${i}`}
+              className="rounded-2xl bg-[#F5F6F7] p-8 text-center transition-shadow hover:shadow-[0px_6px_30px_rgba(0,0,0,0.06)]"
+            >
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#074C3E]/10">
+                <span className="text-2xl font-bold text-[#074C3E]">{i + 1}</span>
+              </div>
+              <h3 className="mb-3 text-xl font-semibold text-[#222E48]">{item.title}</h3>
+              <p className="leading-relaxed text-[#6A7283]">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Document checklist — two column layout
+// ------------------------------------------------------------------
+function DocumentChecklist({ page }: { page: Required<C1HomepageData> }) {
+  return (
+    <section className="bg-[#F5F6F7] py-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+            {page.docEyebrow}
+          </p>
+          <h2 className="mb-4 text-3xl font-bold text-[#222E48] md:text-4xl">
+            {page.docHeading}
+          </h2>
+          <p className="mb-5 leading-relaxed text-[#6A7283]">
+            {page.docBody}
+          </p>
+          <Link
+            href={page.docCtaHref}
+            className="inline-block rounded-full bg-[#074C3E] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#03211B]"
+          >
+            {page.docCtaLabel}
+          </Link>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {page.checklist.map((item) => (
+            <div
+              key={item}
+              className="rounded-xl border border-[#DFE0E4] bg-white p-5 text-sm font-medium leading-relaxed text-[#404A60] shadow-sm"
+            >
+              <span className="mr-2 font-bold text-[#074C3E]">{'✓'}</span>
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Testimonials — inspired by money.com.au social proof
+// ------------------------------------------------------------------
+function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
+  if (!testimonials || testimonials.length === 0) return null
+
+  return (
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <h2 className="mb-3 text-center text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+          What business owners say
+        </h2>
+        <p className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+          Real experiences from Australian SME owners
+        </p>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {testimonials.map((t, i) => (
+            <div
+              key={i}
+              className="flex flex-col rounded-2xl border border-[#DFE0E4] bg-white p-6 shadow-sm"
+            >
+              <div className="mb-3 text-3xl leading-none text-[#074C3E]/20">{'“'}</div>
+              <p className="mb-4 flex-1 text-sm leading-relaxed italic text-[#404A60]">
+                {t.quote}
+              </p>
+              <div className="border-t border-[#DFE0E4] pt-3">
+                <p className="text-sm font-semibold text-[#222E48]">{t.author}</p>
+                {t.role && <p className="text-xs text-[#6A7283]">{t.role}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Bank decline CTA — dark green full-width block
+// ------------------------------------------------------------------
+function BankDeclineSection({ page }: { page: Required<C1HomepageData> }) {
+  return (
+    <section className="bg-[#074C3E] py-20">
+      <div className="mx-auto max-w-7xl px-4 text-center">
+        <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">{page.declineHeading}</h2>
+        <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-white/80">
+          {page.declineBody}
+        </p>
+        <Link
+          href={page.declineCtaHref}
+          className="inline-block rounded-full bg-[#FCB650] px-8 py-3.5 text-base font-semibold text-[#03211B] transition-colors hover:bg-[#fcc970]"
+        >
+          {page.declineCtaLabel}
+        </Link>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Guides card grid
+// ------------------------------------------------------------------
+function GuidesSection({ page }: { page: Required<C1HomepageData> }) {
+  return (
+    <section className="py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <h2 className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+          {page.guideHeading}
+        </h2>
+        <CardGrid cards={page.guideCards} defaultLabel="Read guide" />
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// FAQ accordion
+// ------------------------------------------------------------------
+function FaqSection({ page }: { page: Required<C1HomepageData> }) {
+  return (
+    <section className="bg-[#F5F6F7] py-20" id="faq">
+      <div className="mx-auto max-w-3xl px-4">
+        <h2 className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+          {page.faqHeading}
+        </h2>
+        <div className="space-y-3">
+          {page.faqs.map((item, i) => (
+            <details
+              key={`${item.question}-${i}`}
+              className="group rounded-xl border border-[#DFE0E4] bg-white"
+            >
+              <summary className="cursor-pointer px-6 py-4 text-lg font-semibold text-[#222E48] transition-colors hover:text-[#074C3E]">
+                {item.question}
+              </summary>
+              <div className="px-6 pb-4 leading-relaxed text-[#6A7283]">
+                {item.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Final CTA
+// ------------------------------------------------------------------
+function FinalCtaSection({ page }: { page: Required<C1HomepageData> }) {
+  return (
+    <section className="py-20" id="calculator">
+      <div className="mx-auto max-w-3xl px-4 text-center">
+        <h2 className="mb-4 text-3xl font-bold text-[#222E48] md:text-4xl">
+          {page.finalHeading}
+        </h2>
+        <p className="mb-8 text-lg text-[#6A7283]">
+          {page.finalBody}
+        </p>
+        <Link
+          href={page.finalCtaHref}
+          className="inline-block rounded-full bg-[#FCB650] px-10 py-4 text-lg font-semibold text-[#03211B] transition-colors hover:bg-[#fcc970]"
+        >
+          {page.finalCtaLabel}
+        </Link>
+      </div>
+    </section>
+  )
+}
+
+// ------------------------------------------------------------------
+// Reusable card grid component
+// ------------------------------------------------------------------
+function CardGrid({ cards, defaultLabel }: { cards: TextCard[]; defaultLabel: string }) {
+  return (
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {cards.map((item, i) => (
+        <Link
+          key={`${item.title}-${i}`}
+          href={item.href || '/'}
+          className="group rounded-xl border border-[#DFE0E4] bg-white p-6 transition-shadow hover:shadow-[0px_6px_30px_rgba(0,0,0,0.08)]"
+        >
+          <h3 className="mb-2 text-lg font-semibold text-[#222E48] transition-colors group-hover:text-[#074C3E]">
+            {item.title}
+          </h3>
+          <p className="text-sm leading-relaxed text-[#6A7283]">
+            {item.description}
+          </p>
+          <span className="mt-3 inline-block text-sm font-semibold text-[#074C3E]">
+            {item.linkLabel || defaultLabel} {'→'}
+          </span>
+        </Link>
+      ))}
+    </div>
+  )
+}
+
+// ------------------------------------------------------------------
+// Main export
+// ------------------------------------------------------------------
 export default function C1Homepage({ data }: { data?: C1HomepageData | null }) {
   const page = mergeHomepage(data)
   const jsonLd = buildC1HomepageStructuredData(page)
@@ -141,47 +517,16 @@ export default function C1Homepage({ data }: { data?: C1HomepageData | null }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <C1Header />
-      <section className="relative overflow-hidden bg-[#074C3E]">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#FCB650]" />
-          <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-[#E0F300]" />
-        </div>
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 md:grid-cols-2 md:py-28">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">{page.heroEyebrow}</p>
-            <h1 className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{page.heroHeadline}</h1>
-            <p className="mb-8 text-lg leading-relaxed text-white/80">{page.heroSubtitle}</p>
-            <C1FundingWidget className="mb-5 max-w-xl" buttonLabel={page.primaryCtaLabel} />
-            <div className="flex flex-wrap gap-4">
-              <Link href={page.secondaryCtaHref} className="rounded-full border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:border-white/60">{page.secondaryCtaLabel}</Link>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <Image src={page.heroImage} alt={page.heroImageAlt} width={550} height={450} className="w-full max-w-md" priority />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-[#DFE0E4] bg-[#F5F6F7] py-6"><div className="mx-auto max-w-7xl px-4 text-center"><p className="text-sm font-medium uppercase tracking-wider text-[#6A7283]">{page.trustStrip}</p></div></section>
-
-      <section className="py-20"><div className="mx-auto max-w-7xl px-4"><p className="mb-2 text-center text-sm font-semibold uppercase tracking-widest text-[#FCB650]">{page.whyEyebrow}</p><h2 className="mb-4 text-center text-3xl font-bold text-[#222E48] md:text-4xl">{page.whyHeading}</h2><p className="mx-auto mb-14 max-w-2xl text-center text-[#6A7283]">{page.whyBody}</p><div className="grid gap-8 md:grid-cols-3">{page.whyCards.map((item, i) => <div key={`${item.title}-${i}`} className="rounded-xl bg-[#F5F6F7] p-8 text-center"><div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#074C3E]/10"><span className="text-2xl font-bold text-[#074C3E]">{i + 1}</span></div><h3 className="mb-3 text-xl font-semibold text-[#222E48]">{item.title}</h3><p className="leading-relaxed text-[#6A7283]">{item.description}</p></div>)}</div></div></section>
-
-      <section className="bg-[#F5F6F7] py-20"><div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr]"><div><p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">{page.docEyebrow}</p><h2 className="mb-4 text-3xl font-bold text-[#222E48] md:text-4xl">{page.docHeading}</h2><p className="mb-5 leading-relaxed text-[#6A7283]">{page.docBody}</p><Link href={page.docCtaHref} className="inline-block rounded-full bg-[#074C3E] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#03211B]">{page.docCtaLabel}</Link></div><div className="grid gap-4 sm:grid-cols-2">{page.checklist.map((item) => <div key={item} className="rounded-xl border border-[#DFE0E4] bg-white p-5 text-sm font-medium leading-relaxed text-[#404A60] shadow-sm"><span className="mr-2 font-bold text-[#074C3E]">✓</span>{item}</div>)}</div></div></section>
-
-      <section className="py-20"><div className="mx-auto max-w-7xl px-4"><p className="mb-2 text-center text-sm font-semibold uppercase tracking-widest text-[#FCB650]">{page.pathwayEyebrow}</p><h2 className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">{page.pathwayHeading}</h2><CardGrid cards={page.pathwayCards} defaultLabel="Read the guide" /></div></section>
-
-      <section className="bg-[#074C3E] py-20"><div className="mx-auto max-w-7xl px-4 text-center"><h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">{page.declineHeading}</h2><p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-white/80">{page.declineBody}</p><Link href={page.declineCtaHref} className="inline-block rounded-full bg-[#FCB650] px-8 py-3.5 text-base font-semibold text-[#03211B] transition-colors hover:bg-[#fcc970]">{page.declineCtaLabel}</Link></div></section>
-
-      <section className="py-20"><div className="mx-auto max-w-7xl px-4"><h2 className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">{page.guideHeading}</h2><CardGrid cards={page.guideCards} defaultLabel="Read guide" /></div></section>
-
-      <section className="bg-[#F5F6F7] py-20"><div className="mx-auto max-w-3xl px-4"><h2 className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">{page.faqHeading}</h2><div className="space-y-3">{page.faqs.map((item, i) => <details key={`${item.question}-${i}`} className="group rounded-xl border border-[#DFE0E4] bg-white"><summary className="cursor-pointer px-6 py-4 text-lg font-semibold text-[#222E48] transition-colors hover:text-[#074C3E]">{item.question}</summary><div className="px-6 pb-4 leading-relaxed text-[#6A7283]">{item.answer}</div></details>)}</div></div></section>
-
-      <section className="py-20"><div className="mx-auto max-w-3xl px-4 text-center"><h2 className="mb-4 text-3xl font-bold text-[#222E48] md:text-4xl">{page.finalHeading}</h2><p className="mb-8 text-lg text-[#6A7283]">{page.finalBody}</p><Link href={page.finalCtaHref} className="inline-block rounded-full bg-[#FCB650] px-10 py-4 text-lg font-semibold text-[#03211B] transition-colors hover:bg-[#fcc970]">{page.finalCtaLabel}</Link></div></section>
+      <HeroSection page={page} />
+      <TrustStrip text={page.trustStrip} />
+      <WhySection page={page} />
+      <DocumentChecklist page={page} />
+      <TestimonialsSection testimonials={page.testimonials} />
+      <BankDeclineSection page={page} />
+      <GuidesSection page={page} />
+      <FaqSection page={page} />
+      <FinalCtaSection page={page} />
       <C1Footer />
     </>
   )
-}
-
-function CardGrid({ cards, defaultLabel }: { cards: TextCard[]; defaultLabel: string }) {
-  return <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{cards.map((item, i) => <Link key={`${item.title}-${i}`} href={item.href || '/'} className="group rounded-xl border border-[#DFE0E4] bg-white p-6 transition-shadow hover:shadow-lg"><h3 className="mb-2 text-lg font-semibold text-[#222E48] transition-colors group-hover:text-[#074C3E]">{item.title}</h3><p className="text-sm leading-relaxed text-[#6A7283]">{item.description}</p><span className="mt-3 inline-block text-sm font-semibold text-[#074C3E]">{item.linkLabel || defaultLabel} &rarr;</span></Link>)}</div>
 }

@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
 	},
 
 	async redirects() {
-		return await client.fetch(
+		const sanityRedirects = await client.fetch(
 			groq`*[_type == 'redirect']{
 				source,
 				'destination': select(
@@ -27,6 +27,27 @@ const nextConfig: NextConfig = {
 				permanent
 			}`,
 		)
+
+		return [
+			{
+				source: '/loan',
+				destination: '/quiz',
+				permanent: true,
+			},
+			{
+				source: '/:path*',
+				has: [{ type: 'host', value: 'comparison-one-sanitypress.vercel.app' }],
+				destination: 'https://www.comparisonone.com/:path*',
+				permanent: true,
+			},
+			{
+				source: '/:path*',
+				has: [{ type: 'host', value: 'comparisonone.com' }],
+				destination: 'https://www.comparisonone.com/:path*',
+				permanent: true,
+			},
+			...sanityRedirects,
+		]
 	},
 
 	rewrites: () => ({

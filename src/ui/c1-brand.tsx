@@ -51,9 +51,24 @@ const navGroups: NavGroup[] = [
 		],
 	},
 	{
+		label: 'Industries',
+		items: [
+			{ label: 'Finance for Tradies', href: '/business-loans/industry/tradies' },
+			{ label: 'Transport & Logistics', href: '/business-loans/industry/transport-logistics' },
+			{ label: 'Construction Subcontractors', href: '/business-loans/industry/construction-subcontractors' },
+			{ label: 'Hospitality', href: '/business-loans/industry/hospitality' },
+			{ label: 'Retail & Ecommerce', href: '/business-loans/industry/retail-ecommerce' },
+			{ label: 'Medical & Allied Health', href: '/business-loans/industry/medical-allied-health' },
+			{ label: 'Manufacturing', href: '/business-loans/industry/manufacturing' },
+			{ label: 'Professional Services', href: '/business-loans/industry/professional-services' },
+		],
+	},
+	{
 		label: 'Guides',
 		items: [
 			{ label: 'Business Loan Requirements', href: '/blog/business-loan-requirements-australia' },
+			{ label: 'Business Loan Calculator', href: '/business-loan-calculator' },
+			{ label: 'Business Loan FAQs', href: '/business-loan-faq' },
 			{ label: 'How Lenders Assess Applications', href: '/blog/how-business-lenders-assess-applications' },
 			{ label: 'Interest Rates and Fees', href: '/blog/business-loan-interest-rates-and-fees' },
 			{ label: 'Secured vs Unsecured', href: '/blog/secured-vs-unsecured-business-loans' },
@@ -96,6 +111,11 @@ const footerGroups = [
 			{ label: 'Shift / GetCapital', href: '/lenders/shift-getcapital' },
 			{ label: 'ScotPac', href: '/lenders/scotpac' },
 			{ label: 'Liberty Business Finance', href: '/lenders/liberty-business-finance' },
+			{ label: 'Bizcap', href: '/lenders/bizcap' },
+			{ label: 'Boost Business Loans', href: '/lenders/boost-business-loans' },
+			{ label: 'Fifo Capital', href: '/lenders/fifo-capital' },
+			{ label: 'Pepper Money Commercial', href: '/lenders/pepper-money-commercial' },
+			{ label: 'Plenti Commercial', href: '/lenders/plenti-commercial' },
 		],
 	},
 	{
@@ -109,9 +129,24 @@ const footerGroups = [
 		],
 	},
 	{
+		title: 'Industries',
+		links: [
+			{ label: 'Finance for Tradies', href: '/business-loans/industry/tradies' },
+			{ label: 'Transport & Logistics', href: '/business-loans/industry/transport-logistics' },
+			{ label: 'Construction Subcontractors', href: '/business-loans/industry/construction-subcontractors' },
+			{ label: 'Hospitality', href: '/business-loans/industry/hospitality' },
+			{ label: 'Retail & Ecommerce', href: '/business-loans/industry/retail-ecommerce' },
+			{ label: 'Medical & Allied Health', href: '/business-loans/industry/medical-allied-health' },
+			{ label: 'Manufacturing', href: '/business-loans/industry/manufacturing' },
+			{ label: 'Professional Services', href: '/business-loans/industry/professional-services' },
+		],
+	},
+	{
 		title: 'Guides',
 		links: [
 			{ label: 'Business Loan Requirements', href: '/blog/business-loan-requirements-australia' },
+			{ label: 'Business Loan Calculator', href: '/business-loan-calculator' },
+			{ label: 'Business Loan FAQs', href: '/business-loan-faq' },
 			{ label: 'How Lenders Assess Applications', href: '/blog/how-business-lenders-assess-applications' },
 			{ label: 'Interest Rates and Fees', href: '/blog/business-loan-interest-rates-and-fees' },
 			{ label: 'Secured vs Unsecured', href: '/blog/secured-vs-unsecured-business-loans' },
@@ -119,18 +154,7 @@ const footerGroups = [
 			{ label: 'Zero-interest Loan Access Gap', href: '/advertorial/zero-interest-loan-access-gap' },
 		],
 	},
-	{
-		title: 'Company',
-		links: [
-			{ label: 'Compare now', href: '/quiz' },
-			{ label: 'Privacy Policy', href: '/privacy-policy' },
-			{ label: 'Terms & Conditions', href: '/terms-and-conditions' },
-			{ label: 'Editorial Policy', href: '/editorial-policy' },
-			{ label: 'XML Sitemap', href: '/sitemap.xml' },
-		],
-	},
 ]
-
 function NavMenuItem({ group }: { group: NavGroup }) {
 	if (group.href) {
 		return (
@@ -141,7 +165,7 @@ function NavMenuItem({ group }: { group: NavGroup }) {
 	}
 
 	return (
-		<details className="group relative">
+		<details className="group relative" name="c1-desktop-nav">
 			<summary className="list-none cursor-pointer whitespace-nowrap text-white/80 transition-colors hover:text-[#FCB650] [&::-webkit-details-marker]:hidden">
 				{group.label}
 			</summary>
@@ -168,7 +192,7 @@ function MobileMenuGroup({ group }: { group: NavGroup }) {
 	}
 
 	return (
-		<details className="rounded-2xl bg-white/5 px-4 py-3 text-white/85">
+		<details className="rounded-2xl bg-white/5 px-4 py-3 text-white/85" name="c1-mobile-nav">
 			<summary className="cursor-pointer list-none text-sm font-semibold [&::-webkit-details-marker]:hidden">{group.label}</summary>
 			<div className="mt-3 grid gap-2 border-t border-white/10 pt-3">
 				{group.items?.map((item) => (
@@ -186,7 +210,7 @@ export function C1Header({ compact = false }: { compact?: boolean }) {
 		<header className="sticky top-0 z-50 border-b border-white/10 bg-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.10)] backdrop-blur">
 			<div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 ${compact ? 'py-2.5' : 'py-3'}`}>
 				<Link href="/" className="flex shrink-0 items-center no-underline" aria-label="Comparison One home">
-					<Image src="/comparisonone/logo.png?v=2" alt="Comparison One" width={186} height={40} className="h-auto w-[145px] md:w-[174px]" priority />
+					<Image src="/comparisonone/logo.png?v=4" alt="Comparison One" width={186} height={40} className="h-auto w-[145px] md:w-[174px]" priority />
 				</Link>
 
 				<nav className="hidden items-center gap-4 text-sm font-medium xl:flex" aria-label="Primary navigation">
@@ -224,7 +248,7 @@ export function C1Footer() {
 				<div className="grid gap-9 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
 					<div className="xl:col-span-2">
 						<div className="mb-4 inline-flex">
-							<Image src="/comparisonone/logo.png?v=2" alt="Comparison One" width={186} height={40} className="h-auto w-[170px]" />
+							<Image src="/comparisonone/logo.png?v=4" alt="Comparison One" width={186} height={40} className="h-auto w-[170px]" />
 						</div>
 						<p className="max-w-md text-sm leading-relaxed text-white/60">
 							Helping Australian SMEs move from a vague loan search to the right funding path, the right documents and the right lender type.
@@ -244,7 +268,7 @@ export function C1Footer() {
 					))}
 				</div>
 				<div className="mt-10 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/45">
-					Comparison One provides general information and online enquiry pathways for Australian SME funding. Comparison One is not a lender and does not provide financial, credit, legal, tax or accounting advice. Approval, rates, terms, settlement timing and availability depend on lender criteria and business circumstances. <Link href="/sitemap.xml" className="font-semibold text-white/60 underline underline-offset-4 hover:text-[#FCB650]">XML sitemap</Link>. © {new Date().getFullYear()} Comparison One.
+					Comparison One provides general information and online enquiry pathways for Australian SME funding. Comparison One is not a lender and does not provide financial, credit, legal, tax or accounting advice. Approval, rates, terms, settlement timing and availability depend on lender criteria and business circumstances. <Link href="/about" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">About</Link> | <Link href="/contact" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Contact</Link> | <Link href="/privacy-policy" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Terms</Link> | <Link href="/editorial-policy" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Editorial Policy</Link> | <Link href="/sitemap.xml" className="font-semibold text-white/60 underline underline-offset-4 hover:text-[#FCB650]">XML sitemap</Link>. &copy; {new Date().getFullYear()} Comparison One.
 				</div>
 			</div>
 		</footer>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { groq } from 'next-sanity'
 import { notFound } from 'next/navigation'
 import { c1PageLookup } from '@/lib/c1-pages'
+import { buildC1Metadata } from '@/lib/c1-seo'
 import { ROUTES } from '@/lib/env'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
@@ -40,29 +41,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const c1Page = c1PageLookup[c1Key]
 
 	if (c1Page) {
-		return {
+		return buildC1Metadata({
+			path: c1Key,
 			title: c1Page.seoTitle,
 			description: c1Page.seoDescription,
-		}
+			type: c1Page.type === 'blog' || c1Page.type === 'lender' || c1Page.type === 'advertorial' ? 'article' : 'website',
+			noIndex: c1Page.type === 'advertorial',
+		})
 	}
 
 	try {
 		const post = await getPost(slug)
 		const { title, description, image, noIndex } = post?.metadata ?? {}
+		const path = `/${ROUTES.blog}/${slug}`
+		const pageTitle = title || 'Comparison One Blog'
+		const pageDescription = description || 'Australian SME funding guides.'
+		const baseMetadata = buildC1Metadata({
+			path,
+			title: pageTitle,
+			description: pageDescription,
+			type: 'article',
+			noIndex: Boolean(noIndex),
+		})
 		return {
-			title,
-			description,
+			...baseMetadata,
 			openGraph: {
-				title,
-				description,
-				url: `${process.env.NEXT_PUBLIC_BASE_URL}/${ROUTES.blog}/${slug}`,
-				images: [image ? urlFor(image).width(1200).url() : `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?slug=${ROUTES.blog}/${slug}`],
+				...baseMetadata.openGraph,
+				images: [image ? urlFor(image).width(1200).url() : `https://www.comparisonone.com/api/og?slug=${ROUTES.blog}/${slug}`],
 			},
-			robots: { index: noIndex ? false : undefined },
-			alternates: { types: { 'application/rss+xml': `/${ROUTES.blog}/rss.xml` } },
+			alternates: {
+				...baseMetadata.alternates,
+				types: { 'application/rss+xml': `/${ROUTES.blog}/rss.xml` },
+			},
 		}
 	} catch {
-		return { title: 'Comparison One Blog', description: 'Australian SME funding guides.' }
+		return buildC1Metadata({
+			path: `/${ROUTES.blog}/${slug}`,
+			title: 'Comparison One Blog',
+			description: 'Australian SME funding guides.',
+			type: 'article',
+		})
 	}
 }
 

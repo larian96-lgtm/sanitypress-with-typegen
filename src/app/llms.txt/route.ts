@@ -3,7 +3,7 @@ import { c1AllPages } from '@/lib/c1-pages'
 export const dynamic = 'force-dynamic'
 
 export function GET() {
-	const baseUrl = 'https://comparison-one-sanitypress.vercel.app'
+	const baseUrl = 'https://www.comparisonone.com'
 	const lines = [
 		'# Comparison One',
 		'',

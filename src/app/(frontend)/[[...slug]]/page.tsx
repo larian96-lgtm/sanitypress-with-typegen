@@ -15,6 +15,7 @@ import {
 	MODULES_QUERY,
 } from '@/sanity/lib/queries'
 import type { PAGE_QUERY_RESULT } from '@/sanity/types'
+import C1AdvertorialPage from '@/ui/c1-advertorial-page'
 import C1ContentPage from '@/ui/c1-content-page'
 import C1Homepage, { type C1HomepageData } from '@/ui/c1-homepage'
 import C1LegalPage from '@/ui/c1-legal-page'
@@ -28,7 +29,7 @@ type Props = {
 export const dynamic = 'force-dynamic'
 
 
-const C1_HOMEPAGE_SEO_TITLE = 'Avoid Applying Blind for Business Funding | Comparison One'
+const C1_HOMEPAGE_SEO_TITLE = 'Business Loan Comparison Australia | Funding Fit Check | Comparison One'
 const C1_HOMEPAGE_SEO_DESCRIPTION = 'Check business funding readiness before applying. See what documents lenders may ask for and compare bank, non-bank and specialist funding paths by fit.'
 
 export default async function Page({ params }: Props) {
@@ -39,10 +40,15 @@ export default async function Page({ params }: Props) {
 	const path = slugStr === 'index' ? '/' : `/${slugStr}`
 	if (path === '/quiz') return <C1QuotePage />
 	if (isLegalPath(path)) return <C1LegalPage path={path} />
+	const c1Page = c1PageLookup[path]
+	if (c1Page?.type === 'advertorial') return <C1AdvertorialPage page={c1Page} />
+
 	const cmsC1Page = await getC1CmsPage(path)
 	const rateTable = await getC1RateTable(cmsC1Page?.rateComparisonTable?.rateTableSlug || 'business-loans-rates')
-	if (cmsC1Page) return <C1ContentPage page={cmsC1Page} rateTable={rateTable} />
-	const c1Page = c1PageLookup[path]
+	if (cmsC1Page) {
+		if (cmsC1Page.type === 'advertorial') return <C1AdvertorialPage page={cmsC1Page} />
+		return <C1ContentPage page={cmsC1Page} rateTable={rateTable} />
+	}
 
 	if (c1Page) {
 		if (path === '/') return <C1Homepage data={await getC1Homepage()} />
@@ -78,29 +84,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 			path,
 			title: 'Compare Business Finance Options | Comparison One',
 			description: 'Start a Comparison One enquiry for Australian SME business funding options after checking amount, purpose and document readiness.',
+			noIndex: true,
 		})
 	}
 	if (isLegalPath(path)) {
-		const title = path === '/privacy-policy' ? 'Privacy Policy' : path === '/terms-and-conditions' ? 'Terms & Conditions' : 'Editorial Policy'
+		const title = path === '/privacy-policy'
+			? 'Privacy Policy'
+			: path === '/terms-and-conditions'
+				? 'Terms & Conditions'
+				: path === '/editorial-policy'
+					? 'Editorial Policy'
+					: path === '/contact'
+						? 'Contact'
+						: 'About'
 		return buildC1Metadata({ path, title: `${title} | Comparison One`, description: `${title} for Comparison One.` })
 	}
+	const c1Page = c1PageLookup[path]
+	if (c1Page?.type === 'advertorial') {
+		return buildC1Metadata({
+			path,
+			title: c1Page.seoTitle,
+			description: c1Page.seoDescription,
+			type: 'article',
+			noIndex: true,
+		})
+	}
+
 	const cmsC1Page = await getC1CmsPage(path)
 	if (cmsC1Page) {
 		return buildC1Metadata({
 			path,
 			title: cmsC1Page.seoTitle,
 			description: cmsC1Page.seoDescription,
-			type: cmsC1Page.type === 'blog' || cmsC1Page.type === 'lender' ? 'article' : 'website',
+			type: cmsC1Page.type === 'blog' || cmsC1Page.type === 'lender' || cmsC1Page.type === 'advertorial' ? 'article' : 'website',
+			noIndex: cmsC1Page.type === 'advertorial',
 		})
 	}
-	const c1Page = c1PageLookup[path]
 
 	if (c1Page) {
 		return buildC1Metadata({
 			path,
 			title: c1Page.seoTitle,
 			description: c1Page.seoDescription,
-			type: c1Page.type === 'blog' || c1Page.type === 'lender' ? 'article' : 'website',
+			type: c1Page.type === 'blog' || c1Page.type === 'lender' || c1Page.type === 'advertorial' ? 'article' : 'website',
+			noIndex: c1Page.type === 'advertorial',
 		})
 	}
 
@@ -146,6 +173,8 @@ export async function generateStaticParams() {
 		{ slug: ['privacy-policy'] },
 		{ slug: ['terms-and-conditions'] },
 		{ slug: ['editorial-policy'] },
+		{ slug: ['about'] },
+		{ slug: ['contact'] },
 	]
 
 	try {
@@ -172,10 +201,10 @@ async function getPage(slug?: string[]) {
 	})
 }
 
-type LegalPath = '/privacy-policy' | '/terms-and-conditions' | '/editorial-policy'
+type LegalPath = '/privacy-policy' | '/terms-and-conditions' | '/editorial-policy' | '/about' | '/contact'
 
 function isLegalPath(path: string): path is LegalPath {
-	return path === '/privacy-policy' || path === '/terms-and-conditions' || path === '/editorial-policy'
+	return path === '/privacy-policy' || path === '/terms-and-conditions' || path === '/editorial-policy' || path === '/about' || path === '/contact'
 }
 
 async function getC1Homepage(): Promise<C1HomepageData | null> {
@@ -219,6 +248,7 @@ const C1_HOMEPAGE_QUERY = groq`
 		guideCards[]{ title, description, href, linkLabel },
 		faqHeading,
 		faqs[]{ question, answer },
+		testimonials[]{ quote, author, role },
 		finalHeading,
 		finalBody,
 		finalCtaLabel,

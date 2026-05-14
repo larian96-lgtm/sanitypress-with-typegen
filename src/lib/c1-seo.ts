@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-export const C1_CANONICAL_BASE_URL = 'https://comparison-one-sanitypress.vercel.app'
+export const C1_CANONICAL_BASE_URL = 'https://www.comparisonone.com'
 export const C1_SITE_NAME = 'Comparison One'
 export const C1_ORGANIZATION_ID = `${C1_CANONICAL_BASE_URL}/#organization`
 export const C1_WEBSITE_ID = `${C1_CANONICAL_BASE_URL}/#website`
@@ -60,7 +60,7 @@ export function buildC1Metadata({
 			description,
 			images: [image],
 		},
-		robots: noIndex ? { index: false, follow: false } : undefined,
+		robots: noIndex ? { index: false, follow: true } : undefined,
 	}
 }
 
@@ -70,7 +70,7 @@ export function buildC1OrganizationSchema() {
 		'@id': C1_ORGANIZATION_ID,
 		name: C1_SITE_NAME,
 		url: C1_CANONICAL_BASE_URL,
-		logo: `${C1_CANONICAL_BASE_URL}/comparisonone/logo.png?v=2`,
+		logo: `${C1_CANONICAL_BASE_URL}/comparisonone/logo.png?v=4`,
 		description: 'Australian SME finance comparison resource focused on funding fit, lender criteria and document readiness.',
 	}
 }
@@ -139,7 +139,7 @@ export function buildC1HomepageStructuredData(page: {
 				'@type': 'WebPage',
 				'@id': `${url}#webpage`,
 				url,
-				name: page.seoTitle || 'Avoid Applying Blind for Business Funding | Comparison One',
+				name: page.seoTitle || 'Business Loan Comparison Australia | Funding Fit Check | Comparison One',
 				headline: page.heroHeadline || 'Avoid applying blind for business funding',
 				description: page.seoDescription || page.heroSubtitle,
 				isPartOf: { '@id': C1_WEBSITE_ID },

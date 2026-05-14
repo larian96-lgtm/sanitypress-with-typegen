@@ -19,12 +19,12 @@ import { C1RateComparisonWidget } from '@/ui/c1-rate-comparison-widget'
 import { C1RepaymentCalculator } from '@/ui/c1-repayment-calculator'
 
 const pageImages = [
-	'/finview/loan_solution.png',
-	'/finview/about_us.png',
-	'/finview/blog.png',
-	'/finview/blog2.png',
-	'/finview/blog3.png',
-	'/finview/working_process.png',
+	'/comparisonone/photos/au-money-2.png',
+	'/comparisonone/photos/au-money-3.png',
+	'/comparisonone/photos/au-money-4.png',
+	'/comparisonone/photos/au-money-5.png',
+	'/comparisonone/photos/au-money-6.png',
+	'/comparisonone/photos/au-money-7.png',
 ]
 
 function shortSummary(text: string) {
@@ -156,6 +156,102 @@ function comparisonRows(path: string) {
 	]
 }
 
+
+function directAnswer(page: C1PageData) {
+	const title = page.title.replace(/\s+\|\s+Comparison One$/i, '')
+	if (page.type === 'lender') {
+		return `${title} is profiled as an Australian business finance option. It may be relevant when its product type, amount range, documents, repayment rhythm and security settings match the business need. It may not suit businesses that need a different product structure, cannot evidence repayment capacity, or need terms the lender does not currently offer.`
+	}
+	if (page.type === 'compare') {
+		return `${title} is a funding-fit comparison, not a single recommendation. The better starting point depends on product type, funding amount, repayment rhythm, eligibility signals, speed, documents and total cost. Compare the situation first, then check current lender terms before applying.`
+	}
+	if (page.path.includes('/industry/')) {
+		return `${title} helps Australian business owners compare finance options around the cash-flow cycle, documents and lender questions common to this industry. It may suit specific timing gaps or asset needs. It may not suit ongoing losses, disputed revenue or unclear repayment sources.`
+	}
+	if (page.type === 'blog') {
+		return `${title} explains the practical checks Australian SMEs should understand before applying for finance. The right next step depends on loan purpose, business evidence, repayment capacity, security, documents and current lender criteria.`
+	}
+	if (page.path === '/business-loans') {
+		return 'Business loans in Australia can fund working capital, equipment, vehicles, invoices, tax timing or growth. The right option depends on use of funds, security, documents, repayment capacity, speed and total cost. Comparison One helps compare the funding path before the lender.'
+	}
+	return `${title} is a business funding pathway for Australian SMEs. It may suit businesses with a clear use of funds, current trading evidence and a realistic repayment source. It may not suit businesses using debt to cover unresolved losses or applying without documents.`
+}
+
+function keyFacts(page: C1PageData) {
+	if (page.type === 'lender') {
+		return [
+			['Page type', 'Lender profile'],
+			['Common use', 'Checking product fit, documents, rates and alternatives before applying'],
+			['Main checks', 'Amount, term, fees, repayment rhythm, security, guarantees and eligibility'],
+			['Main risk', 'Relying on brand name before checking current lender criteria'],
+			['Commercial note', 'Comparison One may receive referral or partner compensation where users proceed through partner pathways'],
+		]
+	}
+	if (page.type === 'compare') {
+		return [
+			['Page type', 'Lender or product comparison'],
+			['Best use', 'Shortlisting the better starting point by situation'],
+			['Compare first', 'Product type, amount, rates, fees, speed, documents and repayment structure'],
+			['Main risk', 'Choosing a lender before checking whether the structure fits the business problem'],
+			['Decision rule', 'No lender is automatically better for every business'],
+		]
+	}
+	if (page.path.includes('/industry/')) {
+		return [
+			['Page type', 'Industry finance guide'],
+			['Common use', 'Matching funding type to industry cash-flow timing'],
+			['Typical documents', 'ABN, bank statements, invoices, quotes, contracts and industry-specific evidence'],
+			['Main risk', 'Borrowing against revenue that is delayed, disputed or uncertain'],
+			['Alternatives', 'Working capital, line of credit, invoice finance, equipment finance or bank funding depending on fit'],
+		]
+	}
+	return [
+		['Page type', page.type === 'blog' ? 'Editorial guide' : 'Funding guide'],
+		['Common use', 'Comparing funding fit before applying'],
+		['Typical documents', 'ABN, bank statements, revenue evidence, tax position, loan purpose and identity details'],
+		['Main risk', 'Applying without matching product type, repayment source and lender criteria'],
+		['Commercial note', 'General information only; approval, rates and terms depend on lender assessment'],
+	]
+}
+
+function decisionRows(page: C1PageData) {
+	if (page.path.includes('invoice-finance')) return [
+		['Unpaid B2B invoices', 'Invoice finance', 'Uses eligible receivables as the funding base'],
+		['Repeat seasonal stock gaps', 'Line of credit', 'Reusable access may fit repeated drawdowns'],
+		['General cash-flow gap without invoices', 'Working capital loan', 'May be simpler when invoices are not eligible'],
+	]
+	if (page.path.includes('equipment') || page.path.includes('vehicle')) return [
+		['Machinery, ute, truck or productive asset', 'Equipment or vehicle finance', 'Asset-backed structure may match asset life'],
+		['Short-term wages or supplier gap', 'Working capital finance', 'The need is operational rather than asset-backed'],
+		['Unpaid B2B invoices', 'Invoice finance', 'Receivables may be the cleaner funding base'],
+	]
+	if (page.path.includes('tax') || page.path.includes('bas')) return [
+		['Tax or BAS debt with viable cash flow', 'ATO payment plan or tax funding comparison', 'Check accountant and ATO options before borrowing'],
+		['Tax debt caused by structural losses', 'Professional advice first', 'Debt may worsen the problem without a recovery plan'],
+		['Short timing gap before receivables arrive', 'Invoice finance or line of credit', 'May match the repayment source more closely'],
+	]
+	return [
+		['Clear one-off purchase', 'Asset or term finance', 'Match repayments to the use of funds'],
+		['Repeat cash-flow timing gaps', 'Line of credit or working capital finance', 'Compare reusable access against fixed repayments'],
+		['Bank declined or documents are incomplete', 'Check funding fit before applying again', 'Avoid repeated applications without fixing the reason'],
+	]
+}
+
+function displayHeadline(page: C1PageData) {
+	if (page.path === '/business-loans') return 'Compare business loans in Australia'
+	return page.headline
+}
+
+function sourcesRows(page: C1PageData) {
+	return [
+		['Last reviewed', page.lastReviewed || 'Scheduled review pending'],
+		['Sources checked', 'Public lender pages, product pages, government or regulatory sources where relevant, and Comparison One rate-table inputs'],
+		['How data is ordered', page.type === 'lender' ? 'By lender-specific relevance and related alternatives' : 'By funding-fit relevance, product type and editorial grouping'],
+		['Limits', 'Rates, limits, terms, fees and eligibility can change without notice and depend on lender assessment'],
+		['Commercial disclosure', 'Comparison One may receive referral or partner compensation, but this does not guarantee approval or mean a product is suitable'],
+	]
+}
+
 function pageImage(path: string) {
 	const idx = Math.abs(path.split('').reduce((sum, ch) => sum + ch.charCodeAt(0), 0)) % pageImages.length
 	return pageImages[idx]
@@ -186,6 +282,7 @@ export default function C1ContentPage({
 		return productMatch && lenderMatch
 	})
 	const jsonLd = buildC1StructuredData(page, structuredRateRows)
+	const ratesAboveOverview = page.path === '/business-loans'
 	return (
 		<>
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -197,7 +294,7 @@ export default function C1ContentPage({
 				<div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr]">
 					<div>
 						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">{page.eyebrow || 'Business finance comparison'}</p>
-						<h1 className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{page.headline}</h1>
+						<h1 className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{displayHeadline(page)}</h1>
 						<p className="max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">{shortHero}</p>
 						<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Compare now'} />
 					</div>
@@ -215,7 +312,7 @@ export default function C1ContentPage({
 						<C1RateSnapshot items={page.rateSnapshot} updatedAt={page.lastReviewed} />
 					</div>
 				)}
-				{showRates && (
+				{showRates && ratesAboveOverview && (
 					<div className="mx-auto mb-10 max-w-7xl px-4">
 						<C1RateComparisonWidget
 							title={page.rateComparisonTable?.headline || activeRateTable.title}
@@ -237,9 +334,36 @@ export default function C1ContentPage({
 				<div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,1fr)_330px]">
 					<article className="min-w-0">
 						<div className="mb-10 rounded-2xl bg-white p-8 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Overview</p>
+							<p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Direct answer</p>
 							<h2 className="mb-4 text-2xl font-bold text-[#222E48]">{page.title}</h2>
+							<p className="text-base leading-relaxed text-[#404A60]">{directAnswer(page)}</p>
+						</div>
+						<div className="mb-10">
+							<FinviewTable title="Key facts" headers={['Field', 'What to know']} rows={keyFacts(page)} />
+						</div>
+						<div className="mb-10 rounded-2xl bg-white p-8 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
+							<p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Overview</p>
 							<p className="text-base leading-relaxed text-[#404A60]">{summary}</p>
+						</div>
+						{showRates && !ratesAboveOverview && (
+							<div className="mb-10">
+								<C1RateComparisonWidget
+									title={page.rateComparisonTable?.headline || activeRateTable.title}
+									updatedAt={page.rateComparisonTable?.updatedAt || activeRateTable.updatedAt}
+									methodologyNote={page.rateComparisonTable?.methodologyNote || activeRateTable.methodologyNote}
+									showFilters={page.rateComparisonTable?.showFilters ?? true}
+									sortable={page.rateComparisonTable?.sortable ?? true}
+									defaultProductTypes={defaultProductTypes}
+									defaultLenderSlug={defaultLenderSlug}
+									rows={activeRateTable.rows}
+								/>
+							</div>
+						)}
+						<div className="mb-10">
+							<FinviewTable title="Decision guide" headers={['Situation', 'Better starting point', 'Why']} rows={decisionRows(page)} />
+						</div>
+						<div className="mb-10">
+							<FinviewTable title="How this page is reviewed" headers={['Field', 'Method']} rows={sourcesRows(page)} />
 						</div>
 						<div className="mb-10">
 							<FinviewTable title="Compare the main funding paths" headers={['Funding path', 'May suit', 'Why compare it', 'Watch-outs']} rows={comparisonRows(page.path)} />
@@ -280,7 +404,7 @@ export default function C1ContentPage({
 					<aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
 						<div className="rounded-2xl bg-[#074C3E] p-5 text-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]">
 							<h2 className="mb-3 text-xl font-bold">Compare before you apply</h2>
-							<C1FundingWidget buttonLabel="Compare now" />
+							<C1FundingWidget buttonLabel="Compare now" compact />
 						</div>
 						<div className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
 							<h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-[#6A7283]">Author</h2>

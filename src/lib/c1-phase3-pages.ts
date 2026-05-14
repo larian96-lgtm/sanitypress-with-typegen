@@ -1,6 +1,6 @@
 import type { C1PageData } from './c1-pages'
 
-/* Phase 3 lender trust layer pages — research production copy, May 2026. */
+/* Phase 3 lender trust layer pages: research production copy, May 2026. */
 
 export const c1Phase3Pages: C1PageData[] = [
   {
@@ -15,16 +15,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Prospa offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Prospa is an online non-bank SME lender in Australia. Products: Small Business Loan, Business Loan Plus, Business Line of Credit, Prospa Business Account. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Prospa in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Prospa good?” The useful question is “Does Prospa appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Prospa in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Prospa good?” The useful question is “Does Prospa appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -37,8 +37,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Prospa appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Small Business Loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Loan Plus", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Line of Credit", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Prospa Business Account", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -105,16 +104,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Moula offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Moula is an online non-bank business lender in Australia. Products: Unsecured small business loans. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Moula in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Moula good?” The useful question is “Does Moula appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Moula in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Moula good?” The useful question is “Does Moula appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -127,8 +126,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Moula appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Unsecured small business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -191,20 +189,20 @@ export const c1Phase3Pages: C1PageData[] = [
     "eyebrow": "Lender profile",
     "headline": "OnDeck Australia Business Loans Profile",
     "summary": "OnDeck Australia is an online non-bank small business lender in Australia. Products: Short-term business loans, Unsecured business loans. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria.\nCompare le",
-    "seoTitle": "OnDeck Australia Business Loans Australia | Comparison One",
+    "seoTitle": "OnDeck business loans: products, rates and fit checks | Comparison One",
     "seoDescription": "Learn what OnDeck Australia offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "OnDeck Australia is an online non-bank small business lender in Australia. Products: Short-term business loans, Unsecured business loans. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places OnDeck Australia in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is OnDeck Australia good?” The useful question is “Does OnDeck Australia appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places OnDeck Australia in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is OnDeck Australia good?” The useful question is “Does OnDeck Australia appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -217,8 +215,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does OnDeck Australia appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Short-term business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Unsecured business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -285,16 +282,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what ScotPac offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "ScotPac is a specialist non-bank business finance and working-capital provider in Australia. Products: Invoice finance, Debtor finance, Invoice factoring, Trade finance, Asset finance, Business loan, Line of credit, Corporate finance / asset-based finance. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places ScotPac in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is ScotPac good?” The useful question is “Does ScotPac appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places ScotPac in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is ScotPac good?” The useful question is “Does ScotPac appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -307,8 +304,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does ScotPac appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Invoice finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Debtor finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Invoice factoring", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Trade finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Asset finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Line of credit", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Corporate finance / asset-based finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -375,16 +371,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Judo Bank offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Judo Bank is a SME-focused bank in Australia. Products: Business lending, Growth loan, Acquisition loan, Agribusiness lending, Hospitality lending, Professional services lending, Term deposits. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Judo Bank in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Judo Bank good?” The useful question is “Does Judo Bank appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Judo Bank in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Judo Bank good?” The useful question is “Does Judo Bank appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -397,8 +393,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Judo Bank appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Business lending", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Growth loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Acquisition loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Agribusiness lending", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Hospitality lending", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Professional services lending", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Term deposits", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -465,16 +460,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Moneytech offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Moneytech is a specialist business finance provider / non-bank lender in Australia. Products: Invoice finance, Debtor finance, Trade finance, Equipment finance, Business loans, Line of credit, Secured loans, Commercial property funding. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Moneytech in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Moneytech good?” The useful question is “Does Moneytech appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Moneytech in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Moneytech good?” The useful question is “Does Moneytech appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -487,8 +482,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Moneytech appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Invoice finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Debtor finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Trade finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Equipment finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Line of credit", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Secured loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Commercial property funding", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -555,16 +549,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Banjo Loans offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Banjo Loans is a non-bank SME lender in Australia. Products: Business Loan Excel, Business Loan Express, Business Loan Flexi, Business Loan Bridge, Asset Finance Excel, Asset Finance Express. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Banjo Loans in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Banjo Loans good?” The useful question is “Does Banjo Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Banjo Loans in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Banjo Loans good?” The useful question is “Does Banjo Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -577,8 +571,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Banjo Loans appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Business Loan Excel", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Loan Express", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Loan Flexi", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Loan Bridge", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Asset Finance Excel", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Asset Finance Express", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -645,16 +638,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Capify offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Capify is a alternative / non-bank business lender in Australia. Products: Fast business loans, Secured business loans, Unsecured business loans, Small business loans, Merchant cash advance style historical context. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Capify in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Capify good?” The useful question is “Does Capify appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Capify in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Capify good?” The useful question is “Does Capify appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -667,8 +660,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Capify appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Fast business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Secured business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Unsecured business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Small business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Merchant cash advance style historical context", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -730,21 +722,21 @@ export const c1Phase3Pages: C1PageData[] = [
     "path": "/lenders/lumi",
     "eyebrow": "Lender profile",
     "headline": "Lumi Business Loans Profile",
-    "summary": "Lumi is a online SME lender / fintech lender in Australia. Products: Small Business Loans, Business Line of Credit, Rate Ease, Payment Pause, Payment Holiday, Embedded Finance for platforms. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit ",
+    "summary": "Lumi is an online SME lender / fintech lender in Australia. Products: Small Business Loans, Business Line of Credit, Rate Ease, Payment Pause, Payment Holiday, Embedded Finance for platforms. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit ",
     "seoTitle": "Lumi Business Loans Australia | Comparison One",
     "seoDescription": "Learn what Lumi offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
-        "body": "Lumi is a online SME lender / fintech lender in Australia. Products: Small Business Loans, Business Line of Credit, Rate Ease, Payment Pause, Payment Holiday, Embedded Finance for platforms. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
+        "body": "Lumi is an online SME lender / fintech lender in Australia. Products: Small Business Loans, Business Line of Credit, Rate Ease, Payment Pause, Payment Holiday, Embedded Finance for platforms. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Lumi in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Lumi good?” The useful question is “Does Lumi appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Lumi in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Lumi good?” The useful question is “Does Lumi appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -757,8 +749,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Lumi appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Small Business Loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Line of Credit", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Rate Ease", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Payment Pause", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Payment Holiday", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Embedded Finance for platforms", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -802,7 +793,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
     ],
     "faqs": [
-      { "question": "Is Lumi a bank or non-bank lender?", "answer": "Lumi is a online SME lender / fintech lender. Always check the lender’s legal documents, credit guide and product information before treating that classification as final for a specific product." },
+      { "question": "Is Lumi a bank or non-bank lender?", "answer": "Lumi is an online SME lender / fintech lender. Always check the lender’s legal documents, credit guide and product information before treating that classification as final for a specific product." },
       { "question": "What business finance products does Lumi offer?", "answer": "Products: Small Business Loans, Business Line of Credit, Rate Ease, Payment Pause, Payment Holiday, Embedded Finance for platforms. Product availability, limits and eligibility can change, so check the current lender page before applying." },
       { "question": "Does Lumi publish interest rates?", "answer": "Lumi’s official pages checked did not display a simple public rate card in the snippet. Third-party and industry sources discuss rate-reducing features such as Rate Ease, but final rates should be treated as personalised and quote-based." },
       { "question": "Is Lumi suitable after a bank decline?", "answer": "Possibly, but only after the business understands why the bank declined. A decline caused by missing documents, poor serviceability, tax arrears, industry appetite, security or loan purpose points to different next steps. Applying everywhere after a decline can waste time and make the owner feel less in control." },
@@ -825,16 +816,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Shift / GetCapital offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Shift / GetCapital is a business credit and payment platform / former getcapital in Australia. Products: Business credit products, Payment products, Facilities to trade, pay and access funds, Asset-purchase and cash-flow support products. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Shift / GetCapital in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Shift / GetCapital good?” The useful question is “Does Shift / GetCapital appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Shift / GetCapital in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Shift / GetCapital good?” The useful question is “Does Shift / GetCapital appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -847,8 +838,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Shift / GetCapital appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Business credit products", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Payment products", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Facilities to trade, pay and access funds", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Asset-purchase and cash-flow support products", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -911,20 +901,20 @@ export const c1Phase3Pages: C1PageData[] = [
     "eyebrow": "Lender profile",
     "headline": "Liberty Business Finance Business Loans Profile",
     "summary": "Liberty Business Finance is a broad specialist finance provider in Australia. Products: Business loans, Secured business loans, Low-doc business loans, Flexible business loans, Business lines of credit, Commercial property loans, SMSF commercial property loans. Whether it fits a business depends on the funding purpose",
-    "seoTitle": "Liberty Business Finance Business Loans Australia | Comparison One",
+    "seoTitle": "Liberty business finance: products and fit checks | Comparison One",
     "seoDescription": "Learn what Liberty Business Finance offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Liberty Business Finance is a broad specialist finance provider in Australia. Products: Business loans, Secured business loans, Low-doc business loans, Flexible business loans, Business lines of credit, Commercial property loans, SMSF commercial property loans. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Liberty Business Finance in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Liberty Business Finance good?” The useful question is “Does Liberty Business Finance appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Liberty Business Finance in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Liberty Business Finance good?” The useful question is “Does Liberty Business Finance appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -937,8 +927,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Liberty Business Finance appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Secured business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Low-doc business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Flexible business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business lines of credit", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Commercial property loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["SMSF commercial property loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -1005,16 +994,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what Westpac Business Loans offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "Westpac Business Loans is a major bank business lender in Australia. Products: Secured business loans, Unsecured business loans, Business overdrafts, Equipment finance and other business banking finance products. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places Westpac Business Loans in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Westpac Business Loans good?” The useful question is “Does Westpac Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places Westpac Business Loans in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is Westpac Business Loans good?” The useful question is “Does Westpac Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -1027,8 +1016,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does Westpac Business Loans appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Secured business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Unsecured business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business overdrafts", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Equipment finance and other business banking finance products", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -1095,16 +1083,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what CommBank Business Loans offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "CommBank Business Loans is a major bank business lender in Australia. Products: BetterBusiness Loan, Business overdraft, Asset finance, Bank guarantee, Car and equipment finance, Business banking loans and finance suite. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places CommBank Business Loans in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is CommBank Business Loans good?” The useful question is “Does CommBank Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places CommBank Business Loans in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is CommBank Business Loans good?” The useful question is “Does CommBank Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -1117,8 +1105,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does CommBank Business Loans appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["BetterBusiness Loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business overdraft", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Asset finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Bank guarantee", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Car and equipment finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business banking loans and finance suite", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -1185,16 +1172,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what NAB Business Loans offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "NAB Business Loans is a major bank business lender in Australia. Products: Business loans, Secured and unsecured loans, NAB QuickBiz unsecured business loan, NAB QuickBiz unsecured overdraft, Business Options Loan, Business Markets Loan, Equipment finance, Commercial loans, Green finance. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places NAB Business Loans in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is NAB Business Loans good?” The useful question is “Does NAB Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places NAB Business Loans in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is NAB Business Loans good?” The useful question is “Does NAB Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -1207,8 +1194,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does NAB Business Loans appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["Business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Secured and unsecured loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["NAB QuickBiz unsecured business loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["NAB QuickBiz unsecured overdraft", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Options Loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business Markets Loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Equipment finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Commercial loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Green finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -1275,16 +1261,16 @@ export const c1Phase3Pages: C1PageData[] = [
     "seoDescription": "Learn what ANZ Business Loans offers, rates and review signals to check, who it may suit, and how to compare lender fit before applying.",
     "primaryCtaLabel": "Compare lender fit before applying",
     "primaryCtaHref": "/quiz",
-    "lastReviewed": "7 May 2026",
-    "proofPoints": ["Profile, not recommendation", "Check current lender terms directly", "General information only", "Compare fit before applying"],
+    "lastReviewed": "2026-05-07",
+    "proofPoints": ["Useful lender information", "Rates and fees vary by quote", "Check current lender terms directly", "Compare fit before applying"],
     "sections": [
       {
         "heading": "Direct answer",
         "body": "ANZ Business Loans is a major bank business lender in Australia. Products: ANZ Business Loan, ANZ GoBiz unsecured business loans, Business overdrafts, Unsecured overdrafts, Vehicle and equipment finance, Business finance suite. Whether it fits a business depends on the funding purpose, amount, timing, repayment source, revenue, security position, credit profile, documents and lender criteria."
       },
       {
-        "heading": "Profile, not recommendation",
-        "body": "This page places ANZ Business Loans in the wider lender market. It is not a lender recommendation, review score, broker endorsement or guarantee of approval. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is ANZ Business Loans good?” The useful question is “Does ANZ Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
+        "heading": "Lender overview",
+        "body": "This page places ANZ Business Loans in the wider lender market. A lender can look familiar and still be the wrong starting point if the product does not match the cash-flow problem.\nComparison One’s working rule is simple: compare the funding path before you compare the lender. A bigger job, an invoice gap, a vehicle purchase, tax timing, equipment replacement, fitout cost and seasonal stock run may each call for a different finance structure. The useful question is not only “Is ANZ Business Loans good?” The useful question is “Does ANZ Business Loans appear to offer a product that fits this business, this use of funds, this repayment source and this timing problem?”"
       },
       {
         "heading": "Snapshot: key facts to check",
@@ -1297,8 +1283,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "What products does ANZ Business Loans appear to offer?",
-        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to.",
-        "table": {"headers": ["Product / facility", "Publicly described?", "May be relevant when", "What to verify before applying"], "rows": [["ANZ Business Loan", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["ANZ GoBiz unsecured business loans", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business overdrafts", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Unsecured overdrafts", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Vehicle and equipment finance", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"], ["Business finance suite", "Check current lender page", "May be relevant if the use of funds matches", "Verify amount, term, rate, fees, security and documents"]]}
+        "body": "The product list matters because many business owners search a lender name before they understand the product type. A borrower may think “business loan” when the better fit could be a line of credit, invoice finance, trade finance, asset finance, overdraft, secured facility or a government/ATO pathway.\nA business owner should not apply just because the lender offers “business finance”. The product should match the purpose. A one-off vehicle purchase, a repeat invoice-timing gap and a seasonal stock order have different repayment patterns. The wrong structure can make a good business feel tighter than it needs to."
       },
       {
         "heading": "Interest rates, pricing and fees",
@@ -1451,12 +1436,12 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "Editorial disclaimer",
-        "body": "This a lender directory, not a recommendation or ranking. Product details can change. Check the lender latest terms, fees, eligibility criteria and credit guide before applying. General information only. Comparison One is not a lender and does not provide financial, tax or legal advice."
+        "body": "This lender directory is designed to help borrowers compare product fit, pricing signals, fees, eligibility and timing. Product details can change. Check the lender latest terms, fees, eligibility criteria and credit guide before applying. General information only. Comparison One is not a lender and does not provide financial, tax or legal advice."
       }
     ],
     "faqs": [
       {
-        "question": "Are these lender recommendations?",
+        "question": "How should I use this lender directory?",
         "answer": "No. They are profiles for research and internal comparison. Comparison One does not rank these lenders or claim a best lender for every business."
       },
       {
@@ -1492,6 +1477,891 @@ export const c1Phase3Pages: C1PageData[] = [
   },
 
   {
+    "type": "lender",
+    "title": "Bizcap Business Loans Profile",
+    "slug": "bizcap",
+    "path": "/lenders/bizcap",
+    "eyebrow": "Lender profile",
+    "headline": "Bizcap Business Loans Profile",
+    "summary": "Bizcap appears in Australian SME finance research for fast small business loans and secured business loans. This public profile uses product-sheet context only at a high level and avoids internal product-sheet details. Borrowers should verify current terms directly before applying.",
+    "seoTitle": "Bizcap Business Loans Australia | Comparison One",
+    "seoDescription": "Learn what Bizcap appears to offer, public borrower checks, possible fit scenarios and what to verify before applying.",
+    "primaryCtaLabel": "Compare lender fit before applying",
+    "primaryCtaHref": "/quiz",
+    "lastReviewed": "2026-05-13",
+    "proofPoints": [
+      "Useful lender information",
+      "Internal product-sheet details excluded",
+      "Check current lender terms directly",
+      "General information only"
+    ],
+    "sections": [
+      {
+        "heading": "Direct answer",
+        "body": "Bizcap is profiled here as a specialist non-bank business lender. Products to check include fast small business loans and secured business loans. The useful starting point is whether the product type matches the business problem, repayment source, amount, timing and documents available."
+      },
+      {
+        "heading": "Lender overview",
+        "body": "This page places Bizcap in the wider Australian SME lending market. Product details can change and some source material is intended for non-public finance partners, so Comparison One only uses it to understand high-level product categories and borrower-facing checks.\nThe working rule is simple: compare the funding path before comparing the lender. A stock purchase, unpaid invoice gap, equipment purchase, tax timing issue, larger job or seasonal cash-flow need may each point to a different finance structure."
+      },
+      {
+        "heading": "Snapshot: key facts to check",
+        "body": "",
+        "table": {
+          "headers": [
+            "Field",
+            "What to check"
+          ],
+          "rows": [
+            [
+              "Lender / provider",
+              "Bizcap"
+            ],
+            [
+              "Lender type",
+              "specialist non-bank business lender"
+            ],
+            [
+              "Products to check",
+              "fast small business loans and secured business loans"
+            ],
+            [
+              "Product-sheet context used",
+              "The product guide includes fast/small-business and secured business-loan pathways. Internal criteria and pricing are not reproduced."
+            ],
+            [
+              "Public cross-reference",
+              "Lend.com.au lists Bizcap in bad-credit and unsecured business-loan comparison contexts, including quoted-on-application pricing in some snippets."
+            ],
+            [
+              "Rate information",
+              "Public Lend snippets list Bizcap as quoted on application, with example borrowing from $5k to $4m and terms up to 1 year. Treat these as public comparison signals only; confirm the current quote, fees and repayment schedule directly before applying."
+            ],
+            [
+              "Funding range",
+              "Public comparison snippets show example Bizcap borrowing from $5k to $4m; confirm the current available range directly"
+            ],
+            [
+              "Term notes",
+              "Public comparison snippets refer to terms up to 1 year for some Bizcap products; secured or structured facilities may differ"
+            ],
+            [
+              "Eligibility and documents",
+              "Check ABN/ACN, trading history, revenue, bank statements, ATO/tax position, existing debt, security, guarantees and repayment capacity. Do not rely on internal criteria as public eligibility."
+            ],
+            [
+              "Specialises in",
+              "Fast working-capital or larger secured-business-loan needs where the business can document revenue and repayment source"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What products does Bizcap appear to offer?",
+        "body": "The associated product sheet points to fast small business loans and secured business loans. That helps identify which funding problem the lender may be relevant for, but it should not be treated as a public offer or current approval policy. Borrowers should use the lender’s current public website, credit guide and quote documents before relying on any amount, term, fee or security detail."
+      },
+      {
+        "heading": "Interest rates, pricing and fees",
+        "body": "Public Lend snippets list Bizcap as quoted on application, with example borrowing from $5k to $4m and terms up to 1 year. Treat these as public comparison signals only; confirm the current quote, fees and repayment schedule directly before applying.\nFor a public borrower page, the safer approach is to explain what to verify rather than publishing internal pricing detail. Check interest rate or factor/pricing method, establishment fees, monthly or line fees, late fees, early repayment terms, brokerage/referral costs if any, repayment frequency, security and guarantee exposure."
+      },
+      {
+        "heading": "Loan amounts and terms",
+        "body": "Public comparison snippets show example Bizcap borrowing from $5k to $4m; confirm the current available range directly\nPublic comparison snippets refer to terms up to 1 year for some Bizcap products; secured or structured facilities may differ\nRanges are not a reason to borrow the maximum. The amount should be tied to the actual business move: stock, materials, equipment, a vehicle, fitout, invoice timing, tax pressure or working capital buffer."
+      },
+      {
+        "heading": "Eligibility, credit profile and lender appetite",
+        "body": "A product sheet can show how a lender thinks about files, but public copy should not expose internal appetite settings. For borrowers, the practical checks are simpler: trading history, recent revenue, bank-statement conduct, tax position, existing debts, security, director credit history, use of funds and serviceability. Approval, rates and terms depend on the lender’s current assessment."
+      },
+      {
+        "heading": "Possible fit scenarios",
+        "body": "These are situations where this lender category may be worth researching.",
+        "bullets": [
+          "Fast working-capital or larger secured-business-loan needs where the business can document revenue and repayment source",
+          "Businesses that can clearly explain the use of funds and repayment source",
+          "Owners comparing product fit before sending a formal application",
+          "Businesses with current documents ready for lender assessment"
+        ]
+      },
+      {
+        "heading": "Possible mismatch scenarios",
+        "body": "Some lending paths are simply the wrong fit.",
+        "bullets": [
+          "Businesses wanting invoice finance, asset-specific finance or a major-bank relationship loan",
+          "Businesses seeking the cheapest possible long-term bank-style pricing where speed is less important",
+          "Owners who have not checked total cost, repayment rhythm, security or guarantees",
+          "Businesses without a clear repayment source or with unresolved cash-flow stress"
+        ]
+      },
+      {
+        "heading": "What to check before applying",
+        "body": "Before applying directly, answer these questions first:",
+        "bullets": [
+          "What is the exact use of funds?",
+          "Is this a one-off purchase, repeat cash-flow gap or longer-term growth need?",
+          "How much is needed and why that amount?",
+          "What documents will the lender ask for?",
+          "Are there establishment, line, monthly, late or early repayment fees?",
+          "Is security, a caveat, mortgage, asset backing or a personal guarantee involved?",
+          "What happens to working-capital buffer after repayments begin?",
+          "Has the current public lender page been checked for updated terms?"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How should I use this Bizcap page?",
+        "answer": "Use this page to understand the lender category, typical product checks and public pricing signals before comparing options or requesting a quote."
+      },
+      {
+        "question": "Did Comparison One publish internal product-sheet details?",
+        "answer": "No. Product sheets were used only to understand high-level product categories and borrower-facing checks. Internal pricing, partner and policy details are intentionally excluded."
+      },
+      {
+        "question": "What should I verify before applying with Bizcap?",
+        "answer": "Verify current products, loan amount, term, pricing, fees, repayment frequency, security, guarantees, documents and eligibility on the lender’s current public material or quote documents."
+      },
+      {
+        "question": "Is Comparison One a lender?",
+        "answer": "No. Comparison One provides general information and enquiry pathways. It is not a lender and does not make credit decisions."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Business loans hub",
+        "href": "/business-loans"
+      },
+      {
+        "label": "Unsecured business loans",
+        "href": "/business-loans/unsecured-business-loans"
+      },
+      {
+        "label": "Equipment finance",
+        "href": "/business-loans/equipment-finance"
+      },
+      {
+        "label": "Invoice finance",
+        "href": "/business-loans/invoice-finance"
+      },
+      {
+        "label": "Non-bank lender comparison",
+        "href": "/compare/non-bank-business-lenders"
+      },
+      {
+        "label": "Check funding readiness",
+        "href": "/quiz"
+      }
+    ]
+  },
+
+  {
+    "type": "lender",
+    "title": "Boost Business Loans Profile",
+    "slug": "boost-business-loans",
+    "path": "/lenders/boost-business-loans",
+    "eyebrow": "Lender profile",
+    "headline": "Boost Business Loans Profile",
+    "summary": "Boost Business Loans appears in Australian SME finance research for business loans assessed using bank-statement and business-performance data. This public profile uses product-sheet context only at a high level and avoids internal product-sheet details. Borrowers should verify current terms directly before applying.",
+    "seoTitle": "Boost Business Loans Australia | Comparison One",
+    "seoDescription": "Learn what Boost Business Loans appears to offer, public borrower checks, possible fit scenarios and what to verify before applying.",
+    "primaryCtaLabel": "Compare lender fit before applying",
+    "primaryCtaHref": "/quiz",
+    "lastReviewed": "2026-05-13",
+    "proofPoints": [
+      "Useful lender information",
+      "Internal product-sheet details excluded",
+      "Check current lender terms directly",
+      "General information only"
+    ],
+    "sections": [
+      {
+        "heading": "Direct answer",
+        "body": "Boost Business Loans is profiled here as a non-bank business finance provider. Products to check include business loans assessed using bank-statement and business-performance data. The useful starting point is whether the product type matches the business problem, repayment source, amount, timing and documents available."
+      },
+      {
+        "heading": "Lender overview",
+        "body": "This page places Boost Business Loans in the wider Australian SME lending market. Product details can change and some source material is intended for non-public finance partners, so Comparison One only uses it to understand high-level product categories and borrower-facing checks.\nThe working rule is simple: compare the funding path before comparing the lender. A stock purchase, unpaid invoice gap, equipment purchase, tax timing issue, larger job or seasonal cash-flow need may each point to a different finance structure."
+      },
+      {
+        "heading": "Snapshot: key facts to check",
+        "body": "",
+        "table": {
+          "headers": [
+            "Field",
+            "What to check"
+          ],
+          "rows": [
+            [
+              "Lender / provider",
+              "Boost Business Loans"
+            ],
+            [
+              "Lender type",
+              "non-bank business finance provider"
+            ],
+            [
+              "Products to check",
+              "business loans assessed using bank-statement and business-performance data"
+            ],
+            [
+              "Product-sheet context used",
+              "The product sheet describes digital bank-statement assessment and business-loan criteria. Internal credit settings are not reproduced."
+            ],
+            [
+              "Public cross-reference",
+              "Boost appears in small-business-loan comparison search contexts rather than a dedicated public profile in the material checked."
+            ],
+            [
+              "Rate information",
+              "Boost’s public site promotes fixed-term business loans from $10k to $500k and a line of credit from $50k to $500k. Pricing is quote-based, so compare the interest rate or factor rate, establishment fee, ongoing fees and repayment frequency in the actual offer."
+            ],
+            [
+              "Funding range",
+              "Boost’s public site lists fixed-term business loans from $10k to $500k and line of credit limits from $50k to $500k"
+            ],
+            [
+              "Term notes",
+              "Boost publishes funding within 24 hours after approval in some cases; confirm current term, repayment frequency, fees and security in the quote"
+            ],
+            [
+              "Eligibility and documents",
+              "Check ABN/ACN, trading history, revenue, bank statements, ATO/tax position, existing debt, security, guarantees and repayment capacity. Do not rely on internal criteria as public eligibility."
+            ],
+            [
+              "Specialises in",
+              "SMEs seeking a business-loan pathway where recent bank-statement conduct and turnover can support the application"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What products does Boost Business Loans appear to offer?",
+        "body": "The associated product sheet points to business loans assessed using bank-statement and business-performance data. That helps identify which funding problem the lender may be relevant for, but it should not be treated as a public offer or current approval policy. Borrowers should use the lender’s current public website, credit guide and quote documents before relying on any amount, term, fee or security detail."
+      },
+      {
+        "heading": "Interest rates, pricing and fees",
+        "body": "Boost’s public site promotes fixed-term business loans from $10k to $500k and a line of credit from $50k to $500k. Pricing is quote-based, so compare the interest rate or factor rate, establishment fee, ongoing fees and repayment frequency in the actual offer.\nFor a public borrower page, the safer approach is to explain what to verify rather than publishing internal pricing detail. Check interest rate or factor/pricing method, establishment fees, monthly or line fees, late fees, early repayment terms, brokerage/referral costs if any, repayment frequency, security and guarantee exposure."
+      },
+      {
+        "heading": "Loan amounts and terms",
+        "body": "Boost’s public site lists fixed-term business loans from $10k to $500k and line of credit limits from $50k to $500k\nBoost publishes funding within 24 hours after approval in some cases; confirm current term, repayment frequency, fees and security in the quote\nRanges are not a reason to borrow the maximum. The amount should be tied to the actual business move: stock, materials, equipment, a vehicle, fitout, invoice timing, tax pressure or working capital buffer."
+      },
+      {
+        "heading": "Eligibility, credit profile and lender appetite",
+        "body": "A product sheet can show how a lender thinks about files, but public copy should not expose internal appetite settings. For borrowers, the practical checks are simpler: trading history, recent revenue, bank-statement conduct, tax position, existing debts, security, director credit history, use of funds and serviceability. Approval, rates and terms depend on the lender’s current assessment."
+      },
+      {
+        "heading": "Possible fit scenarios",
+        "body": "These are situations where this lender category may be worth researching.",
+        "bullets": [
+          "SMEs seeking a business-loan pathway where recent bank-statement conduct and turnover can support the application",
+          "Businesses that can clearly explain the use of funds and repayment source",
+          "Owners comparing product fit before sending a formal application",
+          "Businesses with current documents ready for lender assessment"
+        ]
+      },
+      {
+        "heading": "Possible mismatch scenarios",
+        "body": "Some lending paths are simply the wrong fit.",
+        "bullets": [
+          "Businesses needing asset-specific, invoice-backed or long-term secured bank funding",
+          "Businesses seeking the cheapest possible long-term bank-style pricing where speed is less important",
+          "Owners who have not checked total cost, repayment rhythm, security or guarantees",
+          "Businesses without a clear repayment source or with unresolved cash-flow stress"
+        ]
+      },
+      {
+        "heading": "What to check before applying",
+        "body": "Before applying directly, answer these questions first:",
+        "bullets": [
+          "What is the exact use of funds?",
+          "Is this a one-off purchase, repeat cash-flow gap or longer-term growth need?",
+          "How much is needed and why that amount?",
+          "What documents will the lender ask for?",
+          "Are there establishment, line, monthly, late or early repayment fees?",
+          "Is security, a caveat, mortgage, asset backing or a personal guarantee involved?",
+          "What happens to working-capital buffer after repayments begin?",
+          "Has the current public lender page been checked for updated terms?"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How should I use this Boost Business Loans page?",
+        "answer": "Use this page to understand the lender category, typical product checks and public pricing signals before comparing options or requesting a quote."
+      },
+      {
+        "question": "Did Comparison One publish internal product-sheet details?",
+        "answer": "No. Product sheets were used only to understand high-level product categories and borrower-facing checks. Internal pricing, partner and policy details are intentionally excluded."
+      },
+      {
+        "question": "What should I verify before applying with Boost Business Loans?",
+        "answer": "Verify current products, loan amount, term, pricing, fees, repayment frequency, security, guarantees, documents and eligibility on the lender’s current public material or quote documents."
+      },
+      {
+        "question": "Is Comparison One a lender?",
+        "answer": "No. Comparison One provides general information and enquiry pathways. It is not a lender and does not make credit decisions."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Business loans hub",
+        "href": "/business-loans"
+      },
+      {
+        "label": "Unsecured business loans",
+        "href": "/business-loans/unsecured-business-loans"
+      },
+      {
+        "label": "Equipment finance",
+        "href": "/business-loans/equipment-finance"
+      },
+      {
+        "label": "Invoice finance",
+        "href": "/business-loans/invoice-finance"
+      },
+      {
+        "label": "Non-bank lender comparison",
+        "href": "/compare/non-bank-business-lenders"
+      },
+      {
+        "label": "Check funding readiness",
+        "href": "/quiz"
+      }
+    ]
+  },
+
+  {
+    "type": "lender",
+    "title": "Fifo Capital Business Loans Profile",
+    "slug": "fifo-capital",
+    "path": "/lenders/fifo-capital",
+    "eyebrow": "Lender profile",
+    "headline": "Fifo Capital Business Loans Profile",
+    "summary": "Fifo Capital appears in Australian SME finance research for business loans, trade finance and invoice finance. This public profile uses product-sheet context only at a high level and avoids internal product-sheet details. Borrowers should verify current terms directly before applying.",
+    "seoTitle": "Fifo Capital Business Loans Australia | Comparison One",
+    "seoDescription": "Learn what Fifo Capital appears to offer, public borrower checks, possible fit scenarios and what to verify before applying.",
+    "primaryCtaLabel": "Compare lender fit before applying",
+    "primaryCtaHref": "/quiz",
+    "lastReviewed": "2026-05-13",
+    "proofPoints": [
+      "Useful lender information",
+      "Internal product-sheet details excluded",
+      "Check current lender terms directly",
+      "General information only"
+    ],
+    "sections": [
+      {
+        "heading": "Direct answer",
+        "body": "Fifo Capital is profiled here as a specialist working-capital and secured business finance provider. Products to check include business loans, trade finance and invoice finance. The useful starting point is whether the product type matches the business problem, repayment source, amount, timing and documents available."
+      },
+      {
+        "heading": "Lender overview",
+        "body": "This page places Fifo Capital in the wider Australian SME lending market. Product details can change and some source material is intended for non-public finance partners, so Comparison One only uses it to understand high-level product categories and borrower-facing checks.\nThe working rule is simple: compare the funding path before comparing the lender. A stock purchase, unpaid invoice gap, equipment purchase, tax timing issue, larger job or seasonal cash-flow need may each point to a different finance structure."
+      },
+      {
+        "heading": "Snapshot: key facts to check",
+        "body": "",
+        "table": {
+          "headers": [
+            "Field",
+            "What to check"
+          ],
+          "rows": [
+            [
+              "Lender / provider",
+              "Fifo Capital"
+            ],
+            [
+              "Lender type",
+              "specialist working-capital and secured business finance provider"
+            ],
+            [
+              "Products to check",
+              "business loans, trade finance and invoice finance"
+            ],
+            [
+              "Product-sheet context used",
+              "The product sheets describe secured business loans, trade finance and invoice finance at a high level. Non-public partner details are excluded."
+            ],
+            [
+              "Public cross-reference",
+              "Public comparison material commonly groups Fifo Capital with working-capital, invoice and business-loan options."
+            ],
+            [
+              "Rate information",
+              "Fifo publishes fixed-interest business loans, funding up to $5m, terms up to 36 months, interest-only options up to 12 months and no early repayment penalties in public material. Confirm the actual rate, fees, security and repayment structure in the offer."
+            ],
+            [
+              "Funding range",
+              "Public Fifo material refers to funding up to $5m, with business loans commonly positioned around $500k to $5m for larger secured needs"
+            ],
+            [
+              "Term notes",
+              "Public Fifo material refers to business-loan terms up to 36 months, interest-only options up to 12 months, and weekly, fortnightly or monthly repayment options"
+            ],
+            [
+              "Eligibility and documents",
+              "Check ABN/ACN, trading history, revenue, bank statements, ATO/tax position, existing debt, security, guarantees and repayment capacity. Do not rely on internal criteria as public eligibility."
+            ],
+            [
+              "Specialises in",
+              "Businesses comparing secured working-capital, trade finance or invoice finance for a specific cash-flow gap"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What products does Fifo Capital appear to offer?",
+        "body": "The associated product sheet points to business loans, trade finance and invoice finance. That helps identify which funding problem the lender may be relevant for, but it should not be treated as a public offer or current approval policy. Borrowers should use the lender’s current public website, credit guide and quote documents before relying on any amount, term, fee or security detail."
+      },
+      {
+        "heading": "Interest rates, pricing and fees",
+        "body": "Fifo publishes fixed-interest business loans, funding up to $5m, terms up to 36 months, interest-only options up to 12 months and no early repayment penalties in public material. Confirm the actual rate, fees, security and repayment structure in the offer.\nFor a public borrower page, the safer approach is to explain what to verify rather than publishing internal pricing detail. Check interest rate or factor/pricing method, establishment fees, monthly or line fees, late fees, early repayment terms, brokerage/referral costs if any, repayment frequency, security and guarantee exposure."
+      },
+      {
+        "heading": "Loan amounts and terms",
+        "body": "Public Fifo material refers to funding up to $5m, with business loans commonly positioned around $500k to $5m for larger secured needs\nPublic Fifo material refers to business-loan terms up to 36 months, interest-only options up to 12 months, and weekly, fortnightly or monthly repayment options\nRanges are not a reason to borrow the maximum. The amount should be tied to the actual business move: stock, materials, equipment, a vehicle, fitout, invoice timing, tax pressure or working capital buffer."
+      },
+      {
+        "heading": "Eligibility, credit profile and lender appetite",
+        "body": "A product sheet can show how a lender thinks about files, but public copy should not expose internal appetite settings. For borrowers, the practical checks are simpler: trading history, recent revenue, bank-statement conduct, tax position, existing debts, security, director credit history, use of funds and serviceability. Approval, rates and terms depend on the lender’s current assessment."
+      },
+      {
+        "heading": "Possible fit scenarios",
+        "body": "These are situations where this lender category may be worth researching.",
+        "bullets": [
+          "Businesses comparing secured working-capital, trade finance or invoice finance for a specific cash-flow gap",
+          "Businesses that can clearly explain the use of funds and repayment source",
+          "Owners comparing product fit before sending a formal application",
+          "Businesses with current documents ready for lender assessment"
+        ]
+      },
+      {
+        "heading": "Possible mismatch scenarios",
+        "body": "Some lending paths are simply the wrong fit.",
+        "bullets": [
+          "Businesses that need a simple unsecured loan and do not have invoices, supplier purchases or security to support the facility",
+          "Businesses seeking the cheapest possible long-term bank-style pricing where speed is less important",
+          "Owners who have not checked total cost, repayment rhythm, security or guarantees",
+          "Businesses without a clear repayment source or with unresolved cash-flow stress"
+        ]
+      },
+      {
+        "heading": "What to check before applying",
+        "body": "Before applying directly, answer these questions first:",
+        "bullets": [
+          "What is the exact use of funds?",
+          "Is this a one-off purchase, repeat cash-flow gap or longer-term growth need?",
+          "How much is needed and why that amount?",
+          "What documents will the lender ask for?",
+          "Are there establishment, line, monthly, late or early repayment fees?",
+          "Is security, a caveat, mortgage, asset backing or a personal guarantee involved?",
+          "What happens to working-capital buffer after repayments begin?",
+          "Has the current public lender page been checked for updated terms?"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How should I use this Fifo Capital page?",
+        "answer": "Use this page to understand the lender category, typical product checks and public pricing signals before comparing options or requesting a quote."
+      },
+      {
+        "question": "Did Comparison One publish internal product-sheet details?",
+        "answer": "No. Product sheets were used only to understand high-level product categories and borrower-facing checks. Internal pricing, partner and policy details are intentionally excluded."
+      },
+      {
+        "question": "What should I verify before applying with Fifo Capital?",
+        "answer": "Verify current products, loan amount, term, pricing, fees, repayment frequency, security, guarantees, documents and eligibility on the lender’s current public material or quote documents."
+      },
+      {
+        "question": "Is Comparison One a lender?",
+        "answer": "No. Comparison One provides general information and enquiry pathways. It is not a lender and does not make credit decisions."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Business loans hub",
+        "href": "/business-loans"
+      },
+      {
+        "label": "Unsecured business loans",
+        "href": "/business-loans/unsecured-business-loans"
+      },
+      {
+        "label": "Equipment finance",
+        "href": "/business-loans/equipment-finance"
+      },
+      {
+        "label": "Invoice finance",
+        "href": "/business-loans/invoice-finance"
+      },
+      {
+        "label": "Non-bank lender comparison",
+        "href": "/compare/non-bank-business-lenders"
+      },
+      {
+        "label": "Check funding readiness",
+        "href": "/quiz"
+      }
+    ]
+  },
+
+  {
+    "type": "lender",
+    "title": "Pepper Money Commercial Business Loans Profile",
+    "slug": "pepper-money-commercial",
+    "path": "/lenders/pepper-money-commercial",
+    "eyebrow": "Lender profile",
+    "headline": "Pepper Money Commercial Business Loans Profile",
+    "summary": "Pepper Money Commercial appears in Australian SME finance research for commercial asset finance, motor vehicle/equipment finance and commercial lending. This public profile uses product-sheet context only at a high level and avoids internal product-sheet details. Borrowers should verify current terms directly before applying.",
+    "seoTitle": "Pepper Money Commercial Business Loans Australia | Comparison One",
+    "seoDescription": "Learn what Pepper Money Commercial appears to offer, public borrower checks, possible fit scenarios and what to verify before applying.",
+    "primaryCtaLabel": "Compare lender fit before applying",
+    "primaryCtaHref": "/quiz",
+    "lastReviewed": "2026-05-13",
+    "proofPoints": [
+      "Useful lender information",
+      "Internal product-sheet details excluded",
+      "Check current lender terms directly",
+      "General information only"
+    ],
+    "sections": [
+      {
+        "heading": "Direct answer",
+        "body": "Pepper Money Commercial is profiled here as a commercial and asset finance provider. Products to check include commercial asset finance, motor vehicle/equipment finance and commercial lending. The useful starting point is whether the product type matches the business problem, repayment source, amount, timing and documents available."
+      },
+      {
+        "heading": "Lender overview",
+        "body": "This page places Pepper Money Commercial in the wider Australian SME lending market. Product details can change and some source material is intended for non-public finance partners, so Comparison One only uses it to understand high-level product categories and borrower-facing checks.\nThe working rule is simple: compare the funding path before comparing the lender. A stock purchase, unpaid invoice gap, equipment purchase, tax timing issue, larger job or seasonal cash-flow need may each point to a different finance structure."
+      },
+      {
+        "heading": "Snapshot: key facts to check",
+        "body": "",
+        "table": {
+          "headers": [
+            "Field",
+            "What to check"
+          ],
+          "rows": [
+            [
+              "Lender / provider",
+              "Pepper Money Commercial"
+            ],
+            [
+              "Lender type",
+              "commercial and asset finance provider"
+            ],
+            [
+              "Products to check",
+              "commercial asset finance, motor vehicle/equipment finance and commercial lending"
+            ],
+            [
+              "Product-sheet context used",
+              "The supplied material is used only to identify asset and commercial finance categories. Public figures should come from Pepper’s current public pages or quote documents."
+            ],
+            [
+              "Public cross-reference",
+              "Lend.com.au asset and commercial-property finance pages list Pepper Money/Pepper among commercial or asset finance lender options."
+            ],
+            [
+              "Rate information",
+              "Pepper’s public commercial-lending material lists commercial property loans up to $5m, terms from 1–30 years, up to 80% LVR for commercial security, up to 90% for residential security, and interest-only options up to 5 years. Pricing depends on document type, security, LVR, credit profile and loan purpose."
+            ],
+            [
+              "Funding range",
+              "Public Pepper material refers to commercial lending up to $5m, with maximums depending on security type, document type and credit assessment"
+            ],
+            [
+              "Term notes",
+              "Public Pepper material refers to 1–30 year terms, interest-only options up to 5 years, and LVRs up to 80% for commercial security or up to 90% for residential security"
+            ],
+            [
+              "Eligibility and documents",
+              "Check ABN/ACN, trading history, revenue, bank statements, ATO/tax position, existing debt, security, guarantees and repayment capacity. Do not rely on internal criteria as public eligibility."
+            ],
+            [
+              "Specialises in",
+              "Businesses comparing asset-backed, vehicle/equipment or commercial finance rather than a general unsecured working-capital loan"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What products does Pepper Money Commercial appear to offer?",
+        "body": "The associated product sheet points to commercial asset finance, motor vehicle/equipment finance and commercial lending. That helps identify which funding problem the lender may be relevant for, but it should not be treated as a public offer or current approval policy. Borrowers should use the lender’s current public website, credit guide and quote documents before relying on any amount, term, fee or security detail."
+      },
+      {
+        "heading": "Interest rates, pricing and fees",
+        "body": "Pepper’s public commercial-lending material lists commercial property loans up to $5m, terms from 1–30 years, up to 80% LVR for commercial security, up to 90% for residential security, and interest-only options up to 5 years. Pricing depends on document type, security, LVR, credit profile and loan purpose.\nFor a public borrower page, the safer approach is to explain what to verify rather than publishing internal pricing detail. Check interest rate or factor/pricing method, establishment fees, monthly or line fees, late fees, early repayment terms, brokerage/referral costs if any, repayment frequency, security and guarantee exposure."
+      },
+      {
+        "heading": "Loan amounts and terms",
+        "body": "Public Pepper material refers to commercial lending up to $5m, with maximums depending on security type, document type and credit assessment\nPublic Pepper material refers to 1–30 year terms, interest-only options up to 5 years, and LVRs up to 80% for commercial security or up to 90% for residential security\nRanges are not a reason to borrow the maximum. The amount should be tied to the actual business move: stock, materials, equipment, a vehicle, fitout, invoice timing, tax pressure or working capital buffer."
+      },
+      {
+        "heading": "Eligibility, credit profile and lender appetite",
+        "body": "A product sheet can show how a lender thinks about files, but public copy should not expose internal appetite settings. For borrowers, the practical checks are simpler: trading history, recent revenue, bank-statement conduct, tax position, existing debts, security, director credit history, use of funds and serviceability. Approval, rates and terms depend on the lender’s current assessment."
+      },
+      {
+        "heading": "Possible fit scenarios",
+        "body": "These are situations where this lender category may be worth researching.",
+        "bullets": [
+          "Businesses comparing asset-backed, vehicle/equipment or commercial finance rather than a general unsecured working-capital loan",
+          "Businesses that can clearly explain the use of funds and repayment source",
+          "Owners comparing product fit before sending a formal application",
+          "Businesses with current documents ready for lender assessment"
+        ]
+      },
+      {
+        "heading": "Possible mismatch scenarios",
+        "body": "Some lending paths are simply the wrong fit.",
+        "bullets": [
+          "Businesses seeking unsecured short-term working capital without an asset or commercial security angle",
+          "Businesses seeking the cheapest possible long-term bank-style pricing where speed is less important",
+          "Owners who have not checked total cost, repayment rhythm, security or guarantees",
+          "Businesses without a clear repayment source or with unresolved cash-flow stress"
+        ]
+      },
+      {
+        "heading": "What to check before applying",
+        "body": "Before applying directly, answer these questions first:",
+        "bullets": [
+          "What is the exact use of funds?",
+          "Is this a one-off purchase, repeat cash-flow gap or longer-term growth need?",
+          "How much is needed and why that amount?",
+          "What documents will the lender ask for?",
+          "Are there establishment, line, monthly, late or early repayment fees?",
+          "Is security, a caveat, mortgage, asset backing or a personal guarantee involved?",
+          "What happens to working-capital buffer after repayments begin?",
+          "Has the current public lender page been checked for updated terms?"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How should I use this Pepper Money Commercial page?",
+        "answer": "Use this page to understand the lender category, typical product checks and public pricing signals before comparing options or requesting a quote."
+      },
+      {
+        "question": "Did Comparison One publish internal product-sheet details?",
+        "answer": "No. Product sheets were used only to understand high-level product categories and borrower-facing checks. Internal pricing, partner and policy details are intentionally excluded."
+      },
+      {
+        "question": "What should I verify before applying with Pepper Money Commercial?",
+        "answer": "Verify current products, loan amount, term, pricing, fees, repayment frequency, security, guarantees, documents and eligibility on the lender’s current public material or quote documents."
+      },
+      {
+        "question": "Is Comparison One a lender?",
+        "answer": "No. Comparison One provides general information and enquiry pathways. It is not a lender and does not make credit decisions."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Business loans hub",
+        "href": "/business-loans"
+      },
+      {
+        "label": "Unsecured business loans",
+        "href": "/business-loans/unsecured-business-loans"
+      },
+      {
+        "label": "Equipment finance",
+        "href": "/business-loans/equipment-finance"
+      },
+      {
+        "label": "Invoice finance",
+        "href": "/business-loans/invoice-finance"
+      },
+      {
+        "label": "Non-bank lender comparison",
+        "href": "/compare/non-bank-business-lenders"
+      },
+      {
+        "label": "Check funding readiness",
+        "href": "/quiz"
+      }
+    ]
+  },
+
+  {
+    "type": "lender",
+    "title": "Plenti Commercial Business Loans Profile",
+    "slug": "plenti-commercial",
+    "path": "/lenders/plenti-commercial",
+    "eyebrow": "Lender profile",
+    "headline": "Plenti Commercial Business Loans Profile",
+    "summary": "Plenti Commercial appears in Australian SME finance research for commercial auto loans and asset-backed finance. This public profile uses product-sheet context only at a high level and avoids internal product-sheet details. Borrowers should verify current terms directly before applying.",
+    "seoTitle": "Plenti Commercial Business Loans Australia | Comparison One",
+    "seoDescription": "Learn what Plenti Commercial appears to offer, public borrower checks, possible fit scenarios and what to verify before applying.",
+    "primaryCtaLabel": "Compare lender fit before applying",
+    "primaryCtaHref": "/quiz",
+    "lastReviewed": "2026-05-13",
+    "proofPoints": [
+      "Useful lender information",
+      "Internal product-sheet details excluded",
+      "Check current lender terms directly",
+      "General information only"
+    ],
+    "sections": [
+      {
+        "heading": "Direct answer",
+        "body": "Plenti Commercial is profiled here as a commercial asset finance provider. Products to check include commercial auto loans and asset-backed finance. The useful starting point is whether the product type matches the business problem, repayment source, amount, timing and documents available."
+      },
+      {
+        "heading": "Lender overview",
+        "body": "This page places Plenti Commercial in the wider Australian SME lending market. Product details can change and some source material is intended for non-public finance partners, so Comparison One only uses it to understand high-level product categories and borrower-facing checks.\nThe working rule is simple: compare the funding path before comparing the lender. A stock purchase, unpaid invoice gap, equipment purchase, tax timing issue, larger job or seasonal cash-flow need may each point to a different finance structure."
+      },
+      {
+        "heading": "Snapshot: key facts to check",
+        "body": "",
+        "table": {
+          "headers": [
+            "Field",
+            "What to check"
+          ],
+          "rows": [
+            [
+              "Lender / provider",
+              "Plenti Commercial"
+            ],
+            [
+              "Lender type",
+              "commercial asset finance provider"
+            ],
+            [
+              "Products to check",
+              "commercial auto loans and asset-backed finance"
+            ],
+            [
+              "Product-sheet context used",
+              "The supplied material is used only to identify the commercial auto and asset-finance category. Public figures should come from Plenti’s current public pages or quote documents."
+            ],
+            [
+              "Public cross-reference",
+              "Lend.com.au equipment and asset finance pages list Plenti among equipment-finance companies/lenders."
+            ],
+            [
+              "Rate information",
+              "Plenti publishes public rate signals for consumer lending and Tesla commercial loans, but commercial rates depend on the asset, borrower profile and quote. Public Tesla commercial-loan material lists borrowing up to $100k and terms from 3–7 years; check the current interest rate, comparison rate, fees and security in the live quote."
+            ],
+            [
+              "Funding range",
+              "Public Plenti material for Tesla commercial loans refers to borrowing up to $100k; broader commercial asset-finance limits should be checked directly"
+            ],
+            [
+              "Term notes",
+              "Public Tesla commercial-loan material refers to 3–7 year terms; commercial asset terms vary by product, asset and borrower profile"
+            ],
+            [
+              "Eligibility and documents",
+              "Check ABN/ACN, trading history, revenue, bank statements, ATO/tax position, existing debt, security, guarantees and repayment capacity. Do not rely on internal criteria as public eligibility."
+            ],
+            [
+              "Specialises in",
+              "Businesses financing vehicles or productive assets where asset-backed repayments match the business use"
+            ]
+          ]
+        }
+      },
+      {
+        "heading": "What products does Plenti Commercial appear to offer?",
+        "body": "The associated product sheet points to commercial auto loans and asset-backed finance. That helps identify which funding problem the lender may be relevant for, but it should not be treated as a public offer or current approval policy. Borrowers should use the lender’s current public website, credit guide and quote documents before relying on any amount, term, fee or security detail."
+      },
+      {
+        "heading": "Interest rates, pricing and fees",
+        "body": "Plenti publishes public rate signals for consumer lending and Tesla commercial loans, but commercial rates depend on the asset, borrower profile and quote. Public Tesla commercial-loan material lists borrowing up to $100k and terms from 3–7 years; check the current interest rate, comparison rate, fees and security in the live quote.\nFor a public borrower page, the safer approach is to explain what to verify rather than publishing internal pricing detail. Check interest rate or factor/pricing method, establishment fees, monthly or line fees, late fees, early repayment terms, brokerage/referral costs if any, repayment frequency, security and guarantee exposure."
+      },
+      {
+        "heading": "Loan amounts and terms",
+        "body": "Public Plenti material for Tesla commercial loans refers to borrowing up to $100k; broader commercial asset-finance limits should be checked directly\nPublic Tesla commercial-loan material refers to 3–7 year terms; commercial asset terms vary by product, asset and borrower profile\nRanges are not a reason to borrow the maximum. The amount should be tied to the actual business move: stock, materials, equipment, a vehicle, fitout, invoice timing, tax pressure or working capital buffer."
+      },
+      {
+        "heading": "Eligibility, credit profile and lender appetite",
+        "body": "A product sheet can show how a lender thinks about files, but public copy should not expose internal appetite settings. For borrowers, the practical checks are simpler: trading history, recent revenue, bank-statement conduct, tax position, existing debts, security, director credit history, use of funds and serviceability. Approval, rates and terms depend on the lender’s current assessment."
+      },
+      {
+        "heading": "Possible fit scenarios",
+        "body": "These are situations where this lender category may be worth researching.",
+        "bullets": [
+          "Businesses financing vehicles or productive assets where asset-backed repayments match the business use",
+          "Businesses that can clearly explain the use of funds and repayment source",
+          "Owners comparing product fit before sending a formal application",
+          "Businesses with current documents ready for lender assessment"
+        ]
+      },
+      {
+        "heading": "Possible mismatch scenarios",
+        "body": "Some lending paths are simply the wrong fit.",
+        "bullets": [
+          "Businesses needing general unsecured working capital, invoice finance or trade finance instead of asset finance",
+          "Businesses seeking the cheapest possible long-term bank-style pricing where speed is less important",
+          "Owners who have not checked total cost, repayment rhythm, security or guarantees",
+          "Businesses without a clear repayment source or with unresolved cash-flow stress"
+        ]
+      },
+      {
+        "heading": "What to check before applying",
+        "body": "Before applying directly, answer these questions first:",
+        "bullets": [
+          "What is the exact use of funds?",
+          "Is this a one-off purchase, repeat cash-flow gap or longer-term growth need?",
+          "How much is needed and why that amount?",
+          "What documents will the lender ask for?",
+          "Are there establishment, line, monthly, late or early repayment fees?",
+          "Is security, a caveat, mortgage, asset backing or a personal guarantee involved?",
+          "What happens to working-capital buffer after repayments begin?",
+          "Has the current public lender page been checked for updated terms?"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How should I use this Plenti Commercial page?",
+        "answer": "Use this page to understand the lender category, typical product checks and public pricing signals before comparing options or requesting a quote."
+      },
+      {
+        "question": "Did Comparison One publish internal product-sheet details?",
+        "answer": "No. Product sheets were used only to understand high-level product categories and borrower-facing checks. Internal pricing, partner and policy details are intentionally excluded."
+      },
+      {
+        "question": "What should I verify before applying with Plenti Commercial?",
+        "answer": "Verify current products, loan amount, term, pricing, fees, repayment frequency, security, guarantees, documents and eligibility on the lender’s current public material or quote documents."
+      },
+      {
+        "question": "Is Comparison One a lender?",
+        "answer": "No. Comparison One provides general information and enquiry pathways. It is not a lender and does not make credit decisions."
+      }
+    ],
+    "relatedLinks": [
+      {
+        "label": "Business loans hub",
+        "href": "/business-loans"
+      },
+      {
+        "label": "Unsecured business loans",
+        "href": "/business-loans/unsecured-business-loans"
+      },
+      {
+        "label": "Equipment finance",
+        "href": "/business-loans/equipment-finance"
+      },
+      {
+        "label": "Invoice finance",
+        "href": "/business-loans/invoice-finance"
+      },
+      {
+        "label": "Non-bank lender comparison",
+        "href": "/compare/non-bank-business-lenders"
+      },
+      {
+        "label": "Check funding readiness",
+        "href": "/quiz"
+      }
+    ]
+  },
+
+  {
     "type": "compare",
     "title": "Non-Bank Business Lenders Comparison",
     "slug": "non-bank-business-lenders",
@@ -1522,7 +2392,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "Editorial disclaimer",
-        "body": "This a category comparison, not a recommendation or ranking. Product details can change. Check the lender latest terms, fees, eligibility criteria and credit guide before applying. General information only. Comparison One is not a lender and does not provide financial, tax or legal advice."
+        "body": "This category comparison is designed to help borrowers compare product fit, rate signals, fees, security, eligibility and timing. Product details can change. Check the lender latest terms, fees, eligibility criteria and credit guide before applying. General information only. Comparison One is not a lender and does not provide financial, tax or legal advice."
       }
     ],
     "faqs": [
@@ -1566,7 +2436,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "Editorial disclaimer",
-        "body": "This a category comparison, not a recommendation. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
+        "body": "This category comparison is designed to help borrowers compare product fit, rate signals, fees, eligibility and timing. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
       }
     ],
     "faqs": [
@@ -1608,7 +2478,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "Editorial disclaimer",
-        "body": "This a category comparison, not a recommendation. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
+        "body": "This category comparison is designed to help borrowers compare product fit, rate signals, fees, eligibility and timing. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
       }
     ],
     "faqs": [
@@ -1650,7 +2520,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "Editorial disclaimer",
-        "body": "This a category comparison, not a recommendation. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
+        "body": "This category comparison is designed to help borrowers compare product fit, rate signals, fees, eligibility and timing. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
       }
     ],
     "faqs": [
@@ -1692,7 +2562,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "Editorial disclaimer",
-        "body": "This a category comparison, not a recommendation. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
+        "body": "This category comparison is designed to help borrowers compare product fit, rate signals, fees, eligibility and timing. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
       }
     ],
     "faqs": [
@@ -1734,7 +2604,7 @@ export const c1Phase3Pages: C1PageData[] = [
       },
       {
         "heading": "Editorial disclaimer",
-        "body": "This a category comparison, not a recommendation. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
+        "body": "This category comparison is designed to help borrowers compare product fit, rate signals, fees, eligibility and timing. Product details can change. Check lender latest terms, fees and eligibility before applying. General information only. Comparison One is not a lender."
       }
     ],
     "faqs": [

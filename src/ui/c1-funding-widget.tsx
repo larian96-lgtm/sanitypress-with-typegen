@@ -28,6 +28,7 @@ type C1FundingWidgetProps = {
 	buttonLabel?: string
 	className?: string
 	defaultAmount?: string
+	compact?: boolean
 }
 
 export function C1FundingWidget({
@@ -35,6 +36,7 @@ export function C1FundingWidget({
 	buttonLabel = 'Compare now',
 	className = '',
 	defaultAmount = '',
+	compact = false,
 }: C1FundingWidgetProps) {
 	const router = useRouter()
 	const [amount, setAmount] = useState(defaultAmount)
@@ -48,7 +50,7 @@ export function C1FundingWidget({
 
 	return (
 		<form className={className} onSubmit={submit}>
-			<div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-stretch">
+			<div className={`grid gap-3 ${compact ? 'grid-cols-1' : 'sm:grid-cols-[minmax(0,1fr)_auto] sm:items-stretch'}`}>
 				<label className="flex min-h-[58px] flex-1 items-center gap-3 rounded-full bg-white px-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] ring-1 ring-black/5">
 					<span className="text-xl font-bold text-[#074C3E]">$</span>
 					<input
@@ -63,7 +65,7 @@ export function C1FundingWidget({
 				</label>
 				<button
 					type="submit"
-					className="inline-flex min-h-[58px] min-w-[9rem] cursor-pointer items-center justify-center rounded-full border-0 bg-[#FCB650] px-7 text-base font-bold text-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#fcc970]"
+					className={`inline-flex min-h-[58px] ${compact ? 'w-full' : 'min-w-[9rem]'} cursor-pointer items-center justify-center rounded-full border-0 bg-[#FCB650] px-7 text-base font-bold text-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#fcc970]`}
 				>
 					{buttonLabel} <span className="ml-2">→</span>
 				</button>
@@ -75,7 +77,7 @@ export function C1FundingWidget({
 	)
 }
 
-export function C1EmbeddedQuoteFrame() {
+export function C1EmbeddedQuoteFrame({ showDirectLink = true }: { showDirectLink?: boolean } = {}) {
 	const searchParams = useSearchParams()
 	const amount = searchParams.get('amount') ?? ''
 	const iframeUrl = useMemo(() => buildC1QuoteUrl(amount, true), [amount])
@@ -90,9 +92,11 @@ export function C1EmbeddedQuoteFrame() {
 						{amount ? `Starting amount: $${Number(amount).toLocaleString('en-AU')}` : 'Enter an amount on any page or continue below.'}
 					</p>
 				</div>
-				<Link href={directUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[#074C3E] underline underline-offset-4">
-					Open in new tab
-				</Link>
+				{showDirectLink && (
+					<Link href={directUrl} target="_blank" rel="noopener noreferrer nofollow sponsored" className="text-xs font-semibold text-[#074C3E] underline underline-offset-4">
+						Open in new tab
+					</Link>
+				)}
 			</div>
 			<iframe
 				src={iframeUrl}

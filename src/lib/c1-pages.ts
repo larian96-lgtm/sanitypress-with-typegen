@@ -1,6 +1,7 @@
 /* Phase 1 C1 page content */
 
 import { c1Phase3PageLookup, c1Phase3Pages } from './c1-phase3-pages'
+import { c1Phase4PageLookup, c1Phase4Pages } from './c1-phase4-pages'
 
 export type C1Section = { heading: string; body: string; bullets?: string[]; table?: { headers: string[]; rows: string[][] } }
 export type C1Faq = { question: string; answer: string }
@@ -68,8 +69,8 @@ const c1_business_loans: C1PageData = {
   proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Rates updated 10 May 2026", "General information only"],
   sections: [
     {
-      heading: "Current business loan rates — May 2026",
-      body: "Business loan rates vary widely by lender, product type and business profile. Below is a snapshot of indicative starting rates across common funding categories.\n\n**Rates updated 10 May 2026.**\n\n> Secured finance from 7.49% p.a.\n> Unsecured loans from 14.45% p.a.\n> Line of credit from 14.55% p.a.\n> Equipment loans from 7.49% p.a.\n> Invoice finance from 2.5% of invoice amount\n> Vehicle finance from 7.99% p.a.\n\nThese are starting rates from lender panels as of 10 May 2026. Your actual rate depends on the lender, the product, and your business circumstances. Use the funding-fit check below to see which products and lenders may suit your situation.",
+      heading: "Current business loan rates, May 2026",
+      body: "Business loan rates vary widely by lender, product type and business profile. Below is a snapshot of indicative starting rates across common funding categories.\n\nRates updated 10 May 2026.\n\n> Secured finance from 7.49% p.a.\n> Unsecured loans from 14.45% p.a.\n> Line of credit from 14.55% p.a.\n> Equipment loans from 7.49% p.a.\n> Invoice finance from 2.5% of invoice amount\n> Vehicle finance from 7.99% p.a.\n\nThese are starting rates from lender panels as of 10 May 2026. Your actual rate depends on the lender, the product, and your business circumstances. Use the funding-fit check below to see which products and lenders may suit your situation.",
     },
     {
       heading: "Compare business lenders side by side",
@@ -627,6 +628,53 @@ const c1_scotpac: C1PageData = {
   ],
 }
 
+const c1_zero_interest_loan_access_gap: C1PageData = {
+  type: "advertorial",
+  title: "Zero Interest Loan Scheme",
+  slug: "zero-interest-loan-scheme",
+  path: "/advertorial/zero-interest-loan-scheme",
+  eyebrow: "Business funding update",
+  headline: "REVEALED: Are you eligible for the government backed zero interest loan program?",
+  summary: "Learn how your business may be able to access a zero interest loan through the government backed program before demand rises.\n\nAs we know, small businesses are some of the hardest hit when fuel, freight, supplier costs and cash flow pressure move at the same time. Thankfully, the Government has opened a zero interest loan pathway to support eligible businesses during this difficult period.\n\nIf you run a small business, read on to find out how you may be able to benefit.",
+  seoTitle: "Are You Eligible For The Government Backed Zero Interest Loan Program? | Comparison One",
+  seoDescription: "Australian small businesses may be checking the government backed zero interest loan program. Find out what the scheme is, who may be eligible and how to check funding fit.",
+  primaryCtaLabel: "Check eligibility",
+  primaryCtaHref: "#funding-check",
+  lastReviewed: "2026-05-14",
+  proofPoints: ["SSL secure connection", "No credit pull for the initial check", "90-second funding-fit check"],
+  sections: [
+    {
+      heading: "What is the government backed zero interest loan program?",
+      body: "To support eligible businesses facing serious supply chain and cost pressure, the Government has opened a zero interest loan pathway for small and medium businesses that fit the program criteria.\n\nThe program is aimed at businesses in affected sectors, including manufacturing, logistics and critical supply chain activity linked to fuel, freight, fertiliser and plastics. Under the scheme, eligible businesses may be able to access a loan with zero interest payable.\n\nWhat does this mean for small businesses?\n\nIt means some businesses may be able to tap into a lower cost funding pathway at a time when cash flow is tight. The money may help with business costs such as supplier payments, stock, transport, equipment, payroll pressure or other operating needs connected to the disruption.\n\nBut zero interest does not mean automatic approval. The loan still has to be repaid. Banks and program administrators still assess applications. Your business still has to fit the rules. That is why the first step is checking whether the scheme, or another funding path, actually fits your situation."
+    },
+    {
+      heading: "Who is eligible for the scheme?",
+      body: "To be eligible for the scheme, your business generally needs to be operating in an affected industry or supply chain activity covered by the program. Official information points to businesses in manufacturing and logistics, especially those exposed to fuel, freight, fertiliser and plastics disruption.\n\nBut it is not that simple. Eligibility can depend on the business activity, turnover, funding amount, evidence of disruption, repayment capacity and the lender or program pathway used.\n\nA business may be in a relevant industry and still need to pass assessment. Another business may be under real pressure but sit outside the target sector list. A third may need funds faster than the program process can move.\n\nThat is why it is worth checking before you spend time on the wrong application.",
+      bullets: ["Active ABN and current trading history", "Business activity connected to an eligible sector or supply chain", "Evidence of cash flow or cost pressure linked to the disruption", "Loan purpose that fits business use", "Repayment capacity even though the interest rate is zero", "Documentation the lender or program pathway can assess"]
+    },
+    {
+      heading: "If the zero interest loan does not fit",
+      body: "The biggest catch right now is how the program is being delivered. Unlike the Coronavirus SME Guarantee Scheme, this zero interest pathway is not broadly open through non-bank lenders. At the moment, access is mainly through major bank-style assessment pathways.\n\nThat can make the program harder to use than the headline suggests. Banks usually want clean documentation, strong trading evidence, clear repayment capacity and a business profile that fits their rules. Processing can be slow. Requirements can be strict. Many businesses with real cash-flow pressure may still fall outside the criteria.\n\nThat means the program may be underutilized, not because businesses do not need it, but because the pathway is hard to fit. If the program changes or opens up to more lenders, Comparison One will update the page. For now, if you have already been declined by a major lender, or you know your documentation will not pass a bank-style process, you may need to compare non-bank business funding options instead."
+    },
+    {
+      heading: "The simple way to see if you may be eligible",
+      body: "To make it easier, Comparison One has created a quick process that helps narrow the starting point before you apply blind.\n\nThe check looks at your business profile, funding purpose, timing and basic eligibility signals. From there, you can see whether the zero interest pathway may be worth exploring, or whether another business funding option may fit better.\n\nIt only takes a few minutes to find out.\n\nOf course, it is obligation free and nothing goes on your credit report without permission.\n\nStart the process below to find out more."
+    },
+    {
+      heading: "How Comparison One can help you access funding",
+      body: "Comparison One helps Australian business owners check funding fit before applying.\n\nInstead of guessing which lender, bank or program path might work, the quick check starts with the basics: what the money is for, how soon it is needed, how the business trades and what evidence may support the application.\n\nThat can help you avoid wasting time on a pathway that does not match your situation. It can also help you compare alternatives if the government backed zero interest loan program is not the right fit."
+    },
+  ],
+  faqs: [
+    { question: "Is the government backed zero interest loan program real?", answer: "Yes. The program is a real pathway for eligible Australian businesses in targeted sectors. The key question is whether your business fits the eligibility rules and assessment pathway." },
+    { question: "Does zero interest mean free money?", answer: "No. The principal still has to be repaid and fees or other conditions may apply depending on the pathway." },
+    { question: "Can Comparison One decide if I am eligible?", answer: "No. Comparison One is not a government agency or lender. It helps you check funding fit and understand possible pathways before a lender or program administrator assesses the business." },
+    { question: "Will the check affect my credit file?", answer: "No credit pull is made for the initial funding-fit check." },
+    { question: "What if my business does not qualify?", answer: "Other funding pathways may still be worth comparing, including working capital finance, invoice finance, equipment finance, line of credit or unsecured business loans." },
+  ],
+  relatedLinks: [],
+}
+
 const c1_zero_interest_business_loans_australia: C1PageData = {
   type: "advertorial",
   title: "Government-Backed Zero-Interest Business Loans Advertorial",
@@ -666,53 +714,6 @@ const c1_zero_interest_business_loans_australia: C1PageData = {
     { label: "Equipment finance", href: "/business-loans/equipment-finance" },
     { label: "Unsecured business loans", href: "/business-loans/unsecured-business-loans" },
     { label: "Start funding-fit check", href: "/quiz" },
-  ],
-}
-
-const c1_zero_interest_loan_access_gap: C1PageData = {
-  type: "advertorial",
-  title: "Zero-Interest Loan Access Gap Advertorial",
-  slug: "zero-interest-loan-access-gap",
-  path: "/advertorial/zero-interest-loan-access-gap",
-  eyebrow: "Advertorial",
-  headline: "Zero-interest loans are open - but who gets shut out?",
-  summary: "A zero-interest business loan sounds like the obvious first choice. For eligible Australian businesses dealing with fuel, freight, plastics, fertiliser or manufacturing supply-chain pressure, the Economic Resilience Program may be worth checking. But there is a catch that many SME owners will recognise immediately: Not every business fits the program.\nNot every affected business is in the target sectors.\nNot every owner has time to wait.\nAnd even when a loan is backed by a government program, bank-administered applications still involve eligibility rules, assessment and repayment obligations. For businesses that are delayed, declined, outside the criteria or unsure where to go next, the real question becomes: >",
-  seoTitle: "Zero-Interest Business Loans Are Open - But Who Gets Shut Out?",
-  seoDescription: "Australia\u2019s zero-interest Economic Resilience Program may help eligible logistics and manufacturing businesses, but some SMEs may still need alternative funding pathways.",
-  primaryCtaLabel: "Start my funding-fit check",
-  primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-05",
-  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a government agency"],
-  sections: [
-    { heading: "Important disclaimer", body: "This page is general information only. Comparison One is not a government agency, not a participating bank and not a lender. We do not determine eligibility for the Economic Resilience Program and we do not provide financial, legal, tax or credit advice. Check official program information and speak with qualified advisers before applying for any finance." },
-    { heading: "What changed?", body: "The Australian Government\u2019s Economic Resilience Program provides access to zero-interest loans for eligible businesses materially impacted by market disruptions linked to current conflicts.\n\nAccording to official business.gov.au and National Reconstruction Fund Corporation information, the program is aimed at manufacturing and logistics businesses, particularly businesses in freight, fuel, fertiliser and plastics critical supply-chain sectors.\n\nThe program has two pathways:\n\nApplications for the program opened on 20 April 2026.\n\nThat matters for businesses facing fuel and supply-chain disruption.\n\nBut it does not mean every SME with cash-flow pressure will qualify.", bullets: ["bank-administered loans for businesses seeking up to $5 million and with turnover below the relevant threshold;", "NRFC-administered loans for larger businesses or larger loan needs."] },
-    { heading: "Why zero interest does not mean zero decision", body: "A zero-interest loan still has to be repaid.\n\nOfficial program information notes that while zero interest is payable, the principal must be repaid in full and standard bank fees may apply.\n\nThat means an owner still needs to ask:\n\nZero interest can reduce cost, but it does not remove the need for funding fit.", bullets: ["Can the business repay the principal?", "What fees apply?", "What term applies?", "Which bank is participating?", "What evidence is required?", "Does the business fit the eligible sector list?", "Does the disruption meet the program test?", "What happens if the business needs funds faster?", "What if the bank says no?"] },
-    { heading: "Who may be in the access gap?", body: "Several groups may need a second pathway.\n\nBusinesses outside the target sectors:\n\nA cafe dealing with wage pressure, a retailer waiting on stock revenue, a tradie needing a vehicle or a clinic funding fitout may have genuine cash-flow issues but not fit a manufacturing or logistics program.\n\nBusinesses too small or too undocumented:\n\nSome SMEs may struggle to provide the evidence a bank wants quickly, even if the pressure is real.\n\nBusinesses impacted indirectly:\n\nA business may be affected by higher fuel, freight or input costs but not directly fall into the target industry codes.\n\nBusinesses that need funds faster than the process allows:\n\nEven a useful program can be too slow for payroll, stock, supplier or job-mobilisation deadlines.\n\nBusinesses declined by the administering bank:\n\nA government program delivered through banks can still involve bank assessment. A decline should be understood before applying elsewhere.\n\nBusinesses needing a different structure:\n\nA zero-interest loan may not fit if the business actually needs invoice finance, equipment finance, a line of credit, trade finance or a short-term working-capital facility." },
-    { heading: "The bank-only bottleneck problem", body: "Many business owners assume government-supported funding is automatically easier.\n\nIn practice, some programs are delivered through financial institutions, and those institutions still assess applications.\n\nThat can create a familiar bottleneck:\n\nThis is not a reason to ignore the program. Eligible businesses should check it.\n\nIt is a reason not to rely on one pathway without understanding alternatives.", bullets: ["the business is under timing pressure;", "the owner hopes the program will solve it;", "eligibility or bank assessment takes time;", "the business still needs to fund the week in front of it;", "Plan B is unclear."] },
-    { heading: "What to compare before looking elsewhere", body: "If the zero-interest program is not available, not suitable or not fast enough, compare alternative funding based on fit.\n\nWorking capital finance:\n\nMay help with operating costs, supplier payments, materials or short-term timing gaps.\n\nInvoice finance:\n\nMay help if the business has eligible B2B invoices waiting to be paid.\n\nEquipment or vehicle finance:\n\nMay help if the funding need is linked to productive assets.\n\nUnsecured business loans:\n\nMay be worth comparing for urgent, clear-use funding where no specific asset security is available.\n\nBank or non-bank lender alternatives:\n\nA bank may still be suitable for some needs. A non-bank lender may suit others. The lender type should match the problem." },
-    { heading: "Do not turn a grant/program disappointment into a bad loan", body: "The emotional risk is real.\n\nA business owner sees \u201czero interest\u201d, hopes it is the solution, then discovers they may not qualify or may need to wait. That disappointment can make the first available private funding offer feel more attractive than it should.\n\nPause before applying.\n\nAsk:", bullets: ["What exact gap am I solving?", "Is the cash needed for a short-term timing gap or a longer-term structural issue?", "Do I need a lump sum or flexible access?", "Do I have invoices, assets or contracts that support the application?", "Can the business afford repayments if the disruption lasts longer?", "Would advice from an accountant or finance specialist help?"] },
-    { heading: "When to seek advice before borrowing", body: "Seek qualified advice if:", bullets: ["the business is behind on tax, super or wages;", "creditors are threatening action;", "directors may be personally exposed;", "there is no clear repayment source;", "the business is considering borrowing to cover ongoing losses;", "the funding terms are hard to understand;", "the loan involves security over property or important assets."] },
-    { heading: "The Comparison One angle", body: "Comparison One is not here to say government programs are bad.\n\nGovernment-backed programs can be useful for eligible businesses.\n\nThe point is that SMEs need more than headlines.\n\nThey need to know:\n\nThat is what the funding-fit check is designed to clarify.", bullets: ["whether they fit the program;", "whether the program fits the timing;", "whether the bank-administered path is realistic;", "whether another product type is more relevant;", "whether the repayment shape works;", "where to start if they are excluded, delayed or declined."] },
-    { heading: "Sources", body: "", bullets: ["business.gov.au: Economic Resilience Program.", "National Reconstruction Fund Corporation: Economic Resilience Program.", "Official participating bank pages, if linking to bank-specific program pages.", "Comparison One bank-decline page."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 5 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed." },
-  ],
-  faqs: [
-    { question: "What is the Economic Resilience Program?", answer: "It is an Australian Government program delivered through the National Reconstruction Fund framework that provides access to zero-interest loans for eligible businesses in targeted sectors affected by market disruptions." },
-    { question: "Who is it for?", answer: "Official information says it is aimed at manufacturing and logistics businesses, particularly freight, fuel, fertiliser and plastics critical supply-chain sectors. Eligibility should be checked on official government and NRFC pages." },
-    { question: "Is Comparison One part of the program?", answer: "No. Comparison One is not a government agency, participating bank or lender." },
-    { question: "Does zero interest mean free money?", answer: "No. The principal still has to be repaid and standard bank fees may apply under the bank-administered part of the program." },
-    { question: "What if my business does not qualify?", answer: "You may need to compare other funding pathways, such as working capital finance, invoice finance, equipment finance or unsecured business loans. Suitability and approval are not guaranteed." },
-    { question: "What if my bank declines the program loan?", answer: "Ask why the application was declined before applying elsewhere. The reason will help determine whether another lender type may fit." },
-    { question: "Is Comparison One a lender?", answer: "No. Comparison One is not a lender and does not make credit decisions. It helps Australian business owners compare possible funding pathways and move toward a realistic next step." },
-    { question: "Does Comparison One guarantee approval?", answer: "No. Approval, rates, terms, fees and timing depend on lender criteria and the business circumstances. The site provides General information only." },
-  ],
-  relatedLinks: [
-    { label: "Business loans hub", href: "/business-loans" },
-    { label: "Working capital finance", href: "/business-loans/working-capital" },
-    { label: "Invoice finance", href: "/business-loans/invoice-finance" },
-    { label: "Equipment finance", href: "/business-loans/equipment-finance" },
-    { label: "Unsecured business loans", href: "/business-loans/unsecured-business-loans" },
-    { label: "Bank vs non-bank guide", href: "/blog/bank-vs-non-bank-business-lenders" },
   ],
 }
 
@@ -961,7 +962,7 @@ const c1_business_loan_requirements: C1PageData = {
   eyebrow: "SME funding guide",
   headline: "Business loan requirements in Australia",
   summary: "Business loan requirements vary by lender, product and business situation. Most lenders look for a clear use of funds, trading evidence, repayment capacity, credit conduct, identity checks and documents that support the amount requested.",
-  seoTitle: "Business Loan Requirements in Australia Australia | Funding Fit Guide | Comparison One",
+  seoTitle: "Business Loan Requirements Australia | Documents and Lender Checks | Comparison One",
   seoDescription: "Business loan requirements vary by lender, product and business situation. Most lenders look for a clear use of funds, trading evidence, repayment capacity",
   primaryCtaLabel: "Start my funding-fit check",
   primaryCtaHref: "/quiz",
@@ -1141,7 +1142,82 @@ const c1_secured_vs_unsecured: C1PageData = {
   ],
 }
 
+
+const c1_business_loan_calculator: C1PageData = {
+  type: "finance",
+  title: "Business Loan Repayment Calculator",
+  slug: "business-loan-calculator",
+  path: "/business-loan-calculator",
+  eyebrow: "Business loan calculator",
+  headline: "Business loan repayment calculator",
+  summary: "Use this guide to estimate business loan repayments in Australia and understand the assumptions behind the calculation. The result is a guide only. Lender fees, repayment frequency, factor rates, balloon payments, redraw charges, line fees and invoice discount fees can change the final cost.",
+  seoTitle: "Business Loan Calculator Australia | Estimate Repayments | Comparison One",
+  seoDescription: "Estimate monthly business loan repayments in Australia. Compare loan amount, rate, term and total interest. Guide only; lender fees and repayment frequency can change final cost.",
+  primaryCtaLabel: "Estimate funding fit",
+  primaryCtaHref: "/quiz",
+  lastReviewed: "2026-05-14",
+  proofPoints: ["Calculator assumptions explained", "General information only", "Comparison One is not a lender"],
+  sections: [
+    { heading: "How to use this calculator", body: "Enter a loan amount, estimated rate and term to see an indicative repayment. Use the estimate to compare repayment pressure, not as a lender quote. The actual repayment can change once fees, repayment frequency, security, credit profile, product type and lender criteria are assessed." },
+    { heading: "What the calculator does not include", body: "The calculator does not include every possible cost or structure. Some business finance products use daily or weekly repayments, factor rates, balloon payments, line fees, unused-limit fees, invoice discount fees, service fees or security-related costs.", bullets: ["establishment, monthly or line fees", "daily or weekly repayment structures", "factor rates or revenue-linked repayments", "balloon or residual payments", "invoice discount and service fees", "security registration, valuation or legal costs"] },
+    { heading: "How to compare repayment estimates", body: "A lower repayment is not automatically the better option. Compare total cost, term, speed, document burden, security, flexibility and whether the repayment rhythm matches the cash-flow cycle." },
+    { heading: "When to be cautious", body: "Borrowing can create a second problem if the business does not have a clear repayment source. If the estimate only works under optimistic sales assumptions, speak with qualified advisers before applying." },
+  ],
+  faqs: [
+    { question: "Is this a business loan quote?", answer: "No. The calculator is an educational estimate only and is not a quote, approval or lender offer." },
+    { question: "Why can my real repayment be different?", answer: "Fees, product type, repayment frequency, credit profile, security, term, lender criteria and timing can all change the final repayment." },
+    { question: "Should I compare monthly, weekly or daily repayments?", answer: "Yes. Repayment rhythm matters because many SME cash-flow cycles are uneven. A weekly or daily repayment can feel different from a monthly estimate." },
+  ],
+  relatedLinks: [
+    { label: "Compare business loans in Australia", href: "/business-loans" },
+    { label: "Business loan interest rates and fees", href: "/blog/business-loan-interest-rates-and-fees" },
+    { label: "Business loan requirements in Australia", href: "/blog/business-loan-requirements-australia" },
+    { label: "Check funding readiness", href: "/quiz" },
+  ],
+}
+
+const c1_business_loan_faq: C1PageData = {
+  type: "blog",
+  title: "Business Loan FAQs Australia",
+  slug: "business-loan-faq",
+  path: "/business-loan-faq",
+  eyebrow: "Business funding FAQ",
+  headline: "Business loan FAQs for Australian SMEs",
+  summary: "Business loan questions usually come down to product fit, documents, repayment capacity, security, lender criteria and timing. These answers explain the common starting points before an Australian SME compares lenders or applies.",
+  seoTitle: "Business Loan FAQs Australia | SME Funding Questions | Comparison One",
+  seoDescription: "Answers to common Australian SME business loan questions: what lenders check, documents, bank declines, non-bank lenders, invoice finance and funding fit.",
+  primaryCtaLabel: "Check funding fit",
+  primaryCtaHref: "/quiz",
+  lastReviewed: "2026-05-14",
+  proofPoints: ["Concise SME funding answers", "General information only", "Comparison One is not a lender"],
+  sections: [
+    { heading: "How to use these FAQs", body: "Use these answers as a starting point before comparing products or lenders. They do not consider your objectives, financial situation or needs. Approval, rates, fees and terms depend on lender assessment." },
+    { heading: "Common application questions", body: "Most lender questions are about identity, trading history, revenue, cash flow, loan purpose, security, existing debts and repayment capacity. Preparing those answers first can prevent weak applications." },
+    { heading: "Common product questions", body: "Working capital, line of credit, invoice finance, equipment finance and unsecured business loans solve different problems. The best starting point is the cash-flow problem, not the lender name." },
+  ],
+  faqs: [
+    { question: "What is a business loan?", answer: "A business loan is finance used for business purposes such as working capital, equipment, vehicles, stock, invoices, tax timing or growth. The structure and cost depend on lender assessment." },
+    { question: "What do lenders check?", answer: "Lenders may check ABN details, trading history, revenue, bank statements, tax position, credit conduct, existing debts, use of funds, security and repayment capacity." },
+    { question: "Can I get a business loan after a bank decline?", answer: "Sometimes, but the decline reason matters. Check whether the issue was security, serviceability, tax arrears, short trading history, documents, industry appetite or unclear loan purpose before applying again." },
+    { question: "What documents do I need?", answer: "Common documents include business bank statements, ABN details, identification, BAS or financials, tax information, invoices, contracts, asset quotes and details of existing debts." },
+    { question: "Are non-bank lenders safe?", answer: "Non-bank lenders can be legitimate funding providers, but costs, repayment frequency, guarantees, fees and suitability vary. Check current public information, terms and dispute pathways before proceeding." },
+    { question: "What is the difference between working capital and a line of credit?", answer: "Working capital finance is often a lump-sum or short-term facility for operating needs. A line of credit is usually reusable up to an approved limit, with costs depending on the facility terms." },
+    { question: "What is invoice finance?", answer: "Invoice finance uses eligible unpaid B2B invoices as the funding base. Debtor quality, invoice age, disputes and concentration risk can affect eligibility." },
+    { question: "Is Comparison One a lender?", answer: "No. Comparison One is a comparison and enquiry pathway. It is not a lender and does not make credit decisions." },
+    { question: "Does Comparison One guarantee approval?", answer: "No. Approval, rates, terms, speed and availability depend on lender criteria and business circumstances." },
+  ],
+  relatedLinks: [
+    { label: "Compare business loans in Australia", href: "/business-loans" },
+    { label: "Business loan requirements in Australia", href: "/blog/business-loan-requirements-australia" },
+    { label: "Bank declined business loan guide", href: "/business-loans/knocked-back-by-bank" },
+    { label: "Business loan calculator", href: "/business-loan-calculator" },
+  ],
+}
+
 const c1BasePageLookup: Record<string, C1PageData> = {
+  "/business-loan-calculator": c1_business_loan_calculator,
+  "/business-loan-faq": c1_business_loan_faq,
+  "/business-loan-faqs": c1_business_loan_faq,
   "/blog/business-loan-interest-rates-and-fees": c1_interest_rates_fees,
   "/blog/business-loan-requirements-australia": c1_business_loan_requirements,
   "/blog/how-business-lenders-assess-applications": c1_lender_assessment,
@@ -1152,7 +1228,9 @@ const c1BasePageLookup: Record<string, C1PageData> = {
   "/business-loans/trade-finance": c1_trade_finance,
   "/business-loans/vehicle-finance": c1_vehicle_finance,
   "/advertorial/zero-interest-business-loans-australia": c1_zero_interest_business_loans_australia,
+  "/advertorial/zero-interest-loan-scheme": c1_zero_interest_loan_access_gap,
   "/advertorial/zero-interest-loan-access-gap": c1_zero_interest_loan_access_gap,
+  "/c1": c1_zero_interest_loan_access_gap,
   "/bank-vs-non-bank-business-lenders": c1_bank_vs_non_bank_business_lenders,
   "/blog/bank-vs-non-bank-business-lenders": c1_bank_vs_non_bank_business_lenders,
   "/business-loans": c1_business_loans,
@@ -1176,17 +1254,21 @@ const c1BasePageLookup: Record<string, C1PageData> = {
   "/scotpac": c1_scotpac,
   "/unsecured-business-loans": c1_unsecured_business_loans,
   "/working-capital": c1_working_capital,
-  "/zero-interest-business-loans-australia": c1_zero_interest_business_loans_australia,
   "/zero-interest-loan-access-gap": c1_zero_interest_loan_access_gap,
+  "/zero-interest-loan-scheme": c1_zero_interest_loan_access_gap,
+  "/zero-interest-business-loans-australia": c1_zero_interest_business_loans_australia,
 }
 
 export const c1PageLookup: Record<string, C1PageData> = {
   ...c1BasePageLookup,
   ...c1Phase3PageLookup,
+  ...c1Phase4PageLookup,
 }
 
 const c1BasePages: C1PageData[] = [
   c1_business_loans,
+  c1_business_loan_calculator,
+  c1_business_loan_faq,
   c1_working_capital,
   c1_invoice_finance,
   c1_equipment_finance,
@@ -1208,10 +1290,10 @@ const c1BasePages: C1PageData[] = [
   c1_lender_assessment,
   c1_interest_rates_fees,
   c1_secured_vs_unsecured,
-  c1_zero_interest_business_loans_australia,
   c1_zero_interest_loan_access_gap,
+  c1_zero_interest_business_loans_australia,
 ]
 
 export const c1AllPages: C1PageData[] = Array.from(
-  new Map([...c1BasePages, ...c1Phase3Pages].map((page) => [page.path, page])).values(),
+  new Map([...c1BasePages, ...c1Phase3Pages, ...c1Phase4Pages].map((page) => [page.path, page])).values(),
 )
