@@ -19,6 +19,15 @@ import Categories from './categories'
 import Date from './date'
 import Schema from './schema'
 
+const headingComponents = {
+	h1: (node: any) => <AnchoredHeading as="h1" {...node} />,
+	h2: (node: any) => <AnchoredHeading as="h2" {...node} />,
+	h3: (node: any) => <AnchoredHeading as="h3" {...node} />,
+	h4: (node: any) => <AnchoredHeading as="h4" {...node} />,
+	h5: (node: any) => <AnchoredHeading as="h5" {...node} />,
+	h6: (node: any) => <AnchoredHeading as="h6" {...node} />,
+}
+
 export default function ({
 	post,
 	tableOfContents,
