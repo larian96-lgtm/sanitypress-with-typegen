@@ -265,7 +265,7 @@ function HeroSection({ page }: { page: Required<C1HomepageData> }) {
 // ------------------------------------------------------------------
 function TrustStrip({ text }: { text: string }) {
   return (
-    <section className="border-b border-[#DFE0E4] bg-[#F5F6F7] py-5">
+    <section className="border-b border-[#DFE0E4] bg-[#F5F6F7] pb-5 pt-12 md:pt-10">
       <div className="mx-auto max-w-7xl px-4 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6A7283]">
           {cleanHomepageText(text)}
