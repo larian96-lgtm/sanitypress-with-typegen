@@ -22,8 +22,8 @@ import { schema } from './src/sanity/schemaTypes'
 import structure from './src/sanity/structure'
 
 export default defineConfig({
-	title: 'SanityPress',
-	basePath: '/admin',
+	title: 'Comparison One Studio',
+	basePath: '/studio',
 	projectId,
 	dataset,
 	icon,

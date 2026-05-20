@@ -1,0 +1,47 @@
+export const c1ZeroInterestAdvertorialTemplate = {
+	id: 'c1-zero-interest-advertorial',
+	title: 'Zero Interest Loan Scheme advertorial',
+	schemaType: 'c1.contentPage',
+	value: {
+		_id: 'c1.contentPage.zero-interest-loan-scheme',
+		_type: 'c1.contentPage',
+		type: 'advertorial',
+		title: 'Economic Resilience Program Zero Interest Loan Pathway',
+		slug: { _type: 'slug', current: 'zero-interest-loan-scheme' },
+		path: '/zero-interest-loan-scheme',
+		eyebrow: 'Business funding news',
+		headline: 'REVEALED: Can your business use the Economic Resilience Program zero interest loan pathway?',
+		summary: 'Learn whether your business may be able to access the Economic Resilience Program before demand rises.\n\nSmall businesses are often hit hardest when fuel, freight, supplier costs and cash flow pressure rise at the same time. On 20 April 2026, the Economic Resilience Program opened a zero interest loan pathway for eligible businesses.\n\nIf you run a small business, read on to see how the pathway works and whether it may fit your situation.',
+		primaryCtaLabel: 'Start the funding-fit check',
+		primaryCtaHref: '#funding-check',
+		proofPoints: ['SSL secure connection', 'No credit pull to start', '90-second check'],
+		sections: [
+			{
+				_key: 'what-is-the-economic-resilience-program',
+				heading: 'What is the Economic Resilience Program?',
+				body: 'Opening on 20 April 2026, the Australian Government allocated $1 billion from the $15 billion National Reconstruction Fund to the Economic Resilience Program. The program provides zero interest loans to eligible businesses that fit the program criteria.\n\nLoans of up to $5 million are administered by the Big 4 Banks, as well as BOQ, Bendigo and Judo.\n\nLoans over $5 million are administered directly by the NRFC.',
+			},
+			{
+				_key: 'whos-eligible',
+				heading: 'Who’s Eligible?',
+				body: 'The Program is available for businesses in critical manufacturing, supply chain, logistics, transport and food businesses. The funds can be used for most business purposes, particularly if they are for costs incurred by market disruption or to increase production of critical goods and services.\n\nThe biggest catch right now is how the program is being delivered. Unlike the Coronavirus SME Guarantee Scheme, this zero interest pathway is not broadly open through non-bank lenders. At the moment, access is through the major banks and their strict criteria.\n\nThat can make the program harder to use than the headline suggests. Banks usually want clean documentation, strong trading evidence, clear repayment capacity and a business profile that fits their rules. Processing can be slow. Requirements can be strict. Many businesses with real cash-flow pressure may still fall outside the criteria.\n\nThat means the program may be underutilised, not because businesses do not need it, but because the pathway is hard to fit. If the program changes or opens up to more lenders, Comparison One will update the page. For now, if you have already been declined by a major lender, or you know your documentation will not pass a bank-style process, you may need to compare other business funding options instead.',
+			},
+			{
+				_key: 'how-comparison-one-helps',
+				heading: 'How Comparison One helps',
+				body: 'For some businesses, the Economic Resilience Program may be worth looking at. But it’s not a solution for most businesses, as the timing and criteria of the banks are not always suited for SMEs. If your business doesn’t line up with that pathway, you could waste valuable time applying in the wrong place.\n\nComparison One was built to help owners avoid that. The Funding Fit Check helps match you with a lender that actually makes sense for your business before you commit to a full application. Whether it’s a non-bank option, or another funding structure, the goal is the same: our technology asks the right questions, so you get matched to a lender that wants to help. Don’t lose weeks guessing, while bills, invoices, super and taxes keep coming in.\n\nIt only takes a few minutes to get your funding fit. The initial check is obligation free and nothing goes on your credit report without permission.\n\nCheck your eligibility below.',
+			},
+		],
+		faqs: [
+			{ _key: 'is-the-economic-resilience-program-real', question: 'Is the Economic Resilience Program real?', answer: 'Yes. The Economic Resilience Program opened on 20 April 2026 and includes a zero interest loan pathway for eligible Australian businesses in targeted sectors. The key question is whether your business fits the program purpose, rules and assessment pathway.' },
+			{ _key: 'does-zero-interest-mean-the-loan-is-a-giveaway', question: 'Does zero interest mean the loan is a giveaway?', answer: 'No. The principal still has to be repaid and fees or other conditions may apply depending on the pathway.' },
+			{ _key: 'will-the-check-affect-my-credit-file', question: 'Will the check affect my credit file?', answer: 'No credit pull is made for the initial funding-fit check.' },
+			{ _key: 'what-if-the-program-does-not-fit-my-business', question: 'What if the program does not fit my business?', answer: 'Other funding pathways may still be worth comparing, including working capital finance, invoice finance, equipment finance, line of credit or unsecured business loans.' },
+		],
+		relatedLinks: [],
+		seoTitle: 'Economic Resilience Program Zero Interest Loan Pathway | Comparison One',
+		seoDescription: 'Learn whether your business may be able to access the Economic Resilience Program zero interest loan pathway before demand rises.',
+		lastReviewed: '2026-05-20',
+		authorTitle: 'Comparison One SME Finance Editorial Team',
+	},
+}

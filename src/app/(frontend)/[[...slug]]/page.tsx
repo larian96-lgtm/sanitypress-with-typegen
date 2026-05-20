@@ -41,9 +41,13 @@ export default async function Page({ params }: Props) {
 	if (path === '/quiz') return <C1QuotePage />
 	if (isLegalPath(path)) return <C1LegalPage path={path} />
 	const c1Page = c1PageLookup[path]
+	const cmsPath = getC1CmsLookupPath(path)
+	const cmsC1Page = await getC1CmsPage(cmsPath)
+	if (cmsC1Page) {
+		if (cmsC1Page.type === 'advertorial') return <C1AdvertorialPage page={cmsC1Page} />
+	}
 	if (c1Page?.type === 'advertorial') return <C1AdvertorialPage page={c1Page} />
 
-	const cmsC1Page = await getC1CmsPage(path)
 	const rateTable = await getC1RateTable(cmsC1Page?.rateComparisonTable?.rateTableSlug || 'business-loans-rates')
 	if (cmsC1Page) {
 		if (cmsC1Page.type === 'advertorial') return <C1AdvertorialPage page={cmsC1Page} />
@@ -100,17 +104,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		return buildC1Metadata({ path, title: `${title} | Comparison One`, description: `${title} for Comparison One.` })
 	}
 	const c1Page = c1PageLookup[path]
-	if (c1Page?.type === 'advertorial') {
-		return buildC1Metadata({
-			path,
-			title: c1Page.seoTitle,
-			description: c1Page.seoDescription,
-			type: 'article',
-			noIndex: true,
-		})
-	}
-
-	const cmsC1Page = await getC1CmsPage(path)
+	const cmsC1Page = await getC1CmsPage(getC1CmsLookupPath(path))
 	if (cmsC1Page) {
 		return buildC1Metadata({
 			path,
@@ -118,6 +112,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 			description: cmsC1Page.seoDescription,
 			type: cmsC1Page.type === 'blog' || cmsC1Page.type === 'lender' || cmsC1Page.type === 'advertorial' ? 'article' : 'website',
 			noIndex: cmsC1Page.type === 'advertorial',
+		})
+	}
+
+	if (c1Page?.type === 'advertorial') {
+		return buildC1Metadata({
+			path,
+			title: c1Page.seoTitle,
+			description: c1Page.seoDescription,
+			type: 'article',
+			noIndex: true,
 		})
 	}
 
@@ -202,6 +206,12 @@ async function getPage(slug?: string[]) {
 }
 
 type LegalPath = '/privacy-policy' | '/terms-and-conditions' | '/editorial-policy' | '/about' | '/contact'
+
+
+function getC1CmsLookupPath(path: string) {
+	if (path === '/c1' || path === '/zero-interest-loan-access-gap') return '/zero-interest-loan-scheme'
+	return path
+}
 
 function isLegalPath(path: string): path is LegalPath {
 	return path === '/privacy-policy' || path === '/terms-and-conditions' || path === '/editorial-policy' || path === '/about' || path === '/contact'

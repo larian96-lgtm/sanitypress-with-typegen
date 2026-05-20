@@ -42,6 +42,7 @@ import moduleAttributes from './objects/module-attributes'
 import rateSnapshot from './objects/rate-snapshot'
 import rateComparisonTable from './objects/rate-comparison-table'
 import c1LenderRateRow from './objects/c1.lender-rate-row'
+import { c1ZeroInterestAdvertorialTemplate } from './templates/c1-zero-interest-advertorial'
 
 export const schema: SchemaPluginOptions = {
 	types: [
@@ -94,8 +95,10 @@ export const schema: SchemaPluginOptions = {
 		stepList,
 	],
 
-	templates: (templates) =>
-		templates.filter(({ schemaType }) => !singletonTypes.includes(schemaType)),
+	templates: (templates) => [
+		c1ZeroInterestAdvertorialTemplate,
+		...templates.filter(({ schemaType }) => !singletonTypes.includes(schemaType)),
+	],
 }
 
 const singletonTypes = ['site', 'c1.homepage']
