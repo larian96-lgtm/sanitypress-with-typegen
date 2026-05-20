@@ -251,7 +251,7 @@ function FundingPathAdvertorial({ page }: { page: C1PageData }) {
       <main className="min-h-screen bg-white pb-24 text-[#111827] md:pb-0">
         <header className="sticky top-0 z-30 border-b border-[#E5E7EB] bg-white/95 backdrop-blur">
           <div className="mx-auto flex max-w-[1040px] items-center justify-between gap-4 px-4 py-3">
-            <img src="/comparisonone/logo.png?v=7" alt="Comparison One" className="h-10 w-auto md:h-12" />
+            <img src="/comparisonone/advertorial/logo-white-bg.png?v=1" alt="Comparison One" className="h-10 w-auto md:h-12" />
             <a href="#funding-check" className="hidden rounded bg-[#0B6B57] px-4 py-2 text-sm font-black text-white no-underline sm:inline-flex">Check My Funding Path</a>
           </div>
         </header>
@@ -308,6 +308,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
   const contentSections = page.sections?.filter(s => s !== sourceSection && !/editorial review|editorial disclaimer|compliance|important disclaimer/i.test(s.heading)) ?? []
   const reviewedDate = formatReviewedDate(page.lastReviewed)
   const heroParagraphs = page.summary.split('\n\n').map(p => p.trim()).filter(Boolean)
+  const displayHeadline = page.headline.replace(/^REVEALED:\s*/i, '')
 
   return (
     <>
@@ -326,7 +327,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
       <main className="min-h-screen bg-white text-[#111827]">
         <header className="bg-white shadow-[0_3px_18px_rgba(3,33,27,0.07)]">
           <div className="mx-auto flex max-w-[900px] items-center justify-between gap-4 px-4 py-3">
-            <img src="/comparisonone/logo.png?v=7" alt="Comparison One" className="h-10 w-auto md:h-12" />
+            <img src="/comparisonone/advertorial/logo-white-bg.png?v=1" alt="Comparison One" className="h-10 w-auto md:h-12" />
             <span className="hidden text-sm font-semibold text-[#6B7280] sm:inline">Business funding news</span>
           </div>
         </header>
@@ -335,13 +336,12 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
           <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5B6473]">
             <span>Updated {reviewedDate || 'May 2026'}</span>
             <span className="rounded-full bg-white px-3 py-1 text-[#074C3E] shadow-sm">Business funding news</span>
-            <span className="rounded-full bg-white px-3 py-1 text-[#074C3E] shadow-sm">Independent comparison service</span>
           </div>
 
           <section className="border-b border-[#E5E7EB] pb-6">
             <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#074C3E]">Revealed</p>
             <h1 className="max-w-[760px] text-[2.35rem] font-black leading-[1.04] tracking-[-0.045em] text-[#111827] md:text-[4rem]">
-              {page.headline}
+              {displayHeadline}
             </h1>
             <div className="mt-5 max-w-[720px] space-y-4">
               {heroParagraphs.map((paragraph) => (
@@ -355,7 +355,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
           <PhotoBreak
             src="/comparisonone/photos/zero-interest-loan-scheme-photo.jpg?v=1"
             alt="Australian small business context for the Economic Resilience Program"
-            caption="Australian small business context for the Economic Resilience Program. The program may help eligible businesses, but the funding path still has to fit the business."
+            caption="The program may help eligible SMEs in manufacturing, logistics and transport but lender criteria apply."
           />
 
           <section className="mt-7 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-5 md:p-7">
