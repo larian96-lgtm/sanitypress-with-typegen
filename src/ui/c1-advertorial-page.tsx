@@ -350,12 +350,6 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
                 </p>
               ))}
             </div>
-            <div className="mt-5 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5B6473]">
-              <span>🔒 SSL secure connection</span>
-              <span>✅ No credit pull to start</span>
-              <span>⏱ 90-second funding-fit check</span>
-            </div>
-
           </section>
 
           <PhotoBreak
