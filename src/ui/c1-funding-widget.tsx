@@ -77,15 +77,16 @@ export function C1FundingWidget({
 	)
 }
 
-export function C1EmbeddedQuoteFrame({ showDirectLink = true }: { showDirectLink?: boolean } = {}) {
+export function C1EmbeddedQuoteFrame({ showDirectLink = true, showHeader = true, compact = false }: { showDirectLink?: boolean; showHeader?: boolean; compact?: boolean } = {}) {
 	const searchParams = useSearchParams()
 	const amount = searchParams.get('amount') ?? ''
 	const iframeUrl = useMemo(() => buildC1QuoteUrl(amount, true), [amount])
 	const directUrl = useMemo(() => buildC1QuoteUrl(amount, false), [amount])
 
 	return (
-		<div className="overflow-hidden rounded-3xl bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]">
-			<div className="flex flex-col gap-2 bg-[rgba(7,76,62,0.05)] px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
+		<div className={compact ? "overflow-hidden bg-white" : "overflow-hidden rounded-3xl bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]"}>
+			{showHeader && (
+				<div className="flex flex-col gap-2 bg-[rgba(7,76,62,0.05)] px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
 				<div>
 					<p className="text-sm font-semibold text-[#222E48]">Secure partner quote form</p>
 					<p className="text-xs text-[#6A7283]">
@@ -97,7 +98,8 @@ export function C1EmbeddedQuoteFrame({ showDirectLink = true }: { showDirectLink
 						Open in new tab
 					</Link>
 				)}
-			</div>
+				</div>
+			)}
 			<iframe
 				src={iframeUrl}
 				title="Comparison One funding quote application"

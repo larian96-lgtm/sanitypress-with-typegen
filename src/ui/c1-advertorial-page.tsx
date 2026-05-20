@@ -47,7 +47,7 @@ function CtaBox({ title, body, label = 'Check funding fit' }: { title: string; b
 
 function PhotoBreak({ src, alt, caption }: { src: string; alt: string; caption: string }) {
   return (
-    <figure className="my-9 overflow-hidden rounded-[30px] bg-[#F5F6F7] shadow-[0_16px_48px_rgba(3,33,27,0.10)]">
+    <figure className="my-5 overflow-hidden rounded-[24px] bg-[#F5F6F7] shadow-[0_10px_30px_rgba(3,33,27,0.08)]">
       <img src={src} alt={alt} className="h-auto w-full object-cover" loading="lazy" />
       <figcaption className="px-4 py-3 text-xs font-semibold leading-relaxed text-[#5B6473]">{caption}</figcaption>
     </figure>
@@ -338,7 +338,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
             <span className="rounded-full bg-white px-3 py-1 text-[#074C3E] shadow-sm">Business funding news</span>
           </div>
 
-          <section className="border-b border-[#E5E7EB] pb-6">
+          <section className="pb-3">
             <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#074C3E]">Revealed</p>
             <h1 className="max-w-[760px] text-[2.35rem] font-black leading-[1.04] tracking-[-0.045em] text-[#111827] md:text-[4rem]">
               {displayHeadline}
@@ -358,9 +358,10 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
             caption="The program may help eligible SMEs in manufacturing, logistics and transport but lender criteria apply."
           />
 
-          <section className="mt-7 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-5 md:p-7">
+          <section className="mt-5 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-4 md:p-5">
             <h2 className="mb-2 text-[1.6rem] font-black leading-tight tracking-[-0.03em] text-[#111827]">No time to read?</h2>
-            <p className="mb-4 text-base leading-relaxed text-[#374151]">The Program comes with strict industry and bank criteria. Click below to match with non-bank lenders that may be more suitable for your business.</p>
+            <p className="mb-3 text-base leading-relaxed text-[#374151]">The Program comes with strict industry and bank criteria.</p>
+            <p className="mb-4 text-base leading-relaxed text-[#374151]">Click below to match with non-bank lenders that may be more suitable for your business.</p>
             <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#0B6B57] px-6 text-center text-base font-black text-white no-underline sm:w-auto">
               Start the funding-fit check
             </a>
