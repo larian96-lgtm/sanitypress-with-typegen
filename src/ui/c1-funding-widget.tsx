@@ -11,7 +11,7 @@ const BASE_QUOTE_PARAMS: Record<string, string> = {
 	application_type: 'undefined',
 }
 
-const QUOTE_IFRAME_BASE_URL = 'https://application.lend.com.au/quote/iframe'
+const QUOTE_IFRAME_BASE_URL = 'https://comparisonone.lend.com.au/quote/iframe'
 
 export function buildC1QuoteUrl(amount?: string | number, iframe = false) {
 	const params = new URLSearchParams(BASE_QUOTE_PARAMS)
