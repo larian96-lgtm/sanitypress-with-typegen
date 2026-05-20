@@ -385,8 +385,8 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
             <ArticleSection key={`${section.heading}-${i}`} section={section} index={i} />
           ))}
 
-          <section id="funding-check" className="mt-12 scroll-mt-8 border-t border-[#E5E7EB] pt-8">
-            <C1EmbeddedQuoteFrame showDirectLink={false} />
+          <section id="funding-check" className="mt-6 scroll-mt-8 pt-2">
+            <C1EmbeddedQuoteFrame showDirectLink={false} showHeader={false} compact />
           </section>
 
           {page.faqs && page.faqs.length > 0 && (
