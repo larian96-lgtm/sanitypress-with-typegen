@@ -4,7 +4,7 @@ import type { C1PageData } from '@/lib/c1-pages'
 import { C1EmbeddedQuoteFrame } from '@/ui/c1-funding-widget'
 
 const trustItems = ['🔒 SSL secure connection', '✅ No credit pull to start', '⏱ 90-second funding-fit check']
-const articleTakeaways = ['what the Economic Resilience Program zero interest pathway is', 'why the pathway opened on 20 April 2026', 'how to check funding fit before applying']
+const articleTakeaways = ['What the Economic Resilience Program zero interest pathway is.', 'Which businesses may fit the program criteria.', 'How to check your funding fit before applying.']
 
 function cleanBody(text: string) {
   return text.replace(/^>\s*/gm, '').trim()
@@ -58,7 +58,7 @@ function ArticleSection({ section, index }: { section: C1PageData['sections'][nu
   const paragraphs = (section.body || '').split('\n').map(cleanBody).filter(Boolean)
   const showFirstCta = section.heading === 'Who may the program suit?'
   const showSecondCta = section.heading === 'If the zero interest loan does not fit'
-  const showImage = section.heading === 'What is the Economic Resilience Program zero interest loan pathway?'
+  const showImage = false
 
   return (
     <section className={index === 0 ? 'mt-8' : 'mt-10'}>
@@ -334,7 +334,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
         <article className="mx-auto max-w-[900px] px-4 pb-12 pt-5 md:pb-16 md:pt-8">
           <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5B6473]">
             <span>Updated {reviewedDate || 'May 2026'}</span>
-            <span className="rounded-full bg-white px-3 py-1 text-[#074C3E] shadow-sm">Business funding update</span>
+            <span className="rounded-full bg-white px-3 py-1 text-[#074C3E] shadow-sm">Business funding news</span>
             <span className="rounded-full bg-white px-3 py-1 text-[#074C3E] shadow-sm">Independent comparison service</span>
           </div>
 
@@ -358,9 +358,15 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
 
           </section>
 
+          <PhotoBreak
+            src="/comparisonone/photos/zero-interest-loan-scheme-photo.jpg?v=1"
+            alt="Australian small business context for the Economic Resilience Program"
+            caption="Australian small business context for the Economic Resilience Program. The program may help eligible businesses, but the funding path still has to fit the business."
+          />
+
           <section className="mt-7 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-5 md:p-7">
             <h2 className="mb-2 text-[1.6rem] font-black leading-tight tracking-[-0.03em] text-[#111827]">No time to read?</h2>
-            <p className="mb-4 text-base leading-relaxed text-[#374151]">Get a clearer starting point before spending time on the wrong funding path.</p>
+            <p className="mb-4 text-base leading-relaxed text-[#374151]">The Program comes with strict industry and bank criteria. Click below to match with non-bank lenders that may be more suitable for your business.</p>
             <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#0B6B57] px-6 text-center text-base font-black text-white no-underline sm:w-auto">
               Start the funding-fit check
             </a>
@@ -374,7 +380,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
             <ul className="grid gap-3 md:grid-cols-3">
               {articleTakeaways.map(item => (
                 <li key={item} className="border-l-4 border-[#FCB650] bg-[#FFFBEB] px-4 py-3 text-sm font-black leading-relaxed text-[#111827]">
-                  <span className="mr-2 text-[#074C3E]">✓</span>{item}
+                  <span className="mr-2 text-[#074C3E]">•</span>{item}
                 </li>
               ))}
             </ul>
