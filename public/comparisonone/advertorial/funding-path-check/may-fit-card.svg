@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-label="This may fit, or it may not">
+<rect width="1280" height="760" fill="#EAF7EF"/>
+<rect x="40" y="40" width="1200" height="680" rx="44" fill="white" stroke="#DCE8E2"/>
+<circle cx="1120" cy="140" r="78" fill="#FCB650" opacity="0.22"/>
+<circle cx="1060" cy="650" r="110" fill="#074C3E" opacity="0.08"/>
+<text x="80" y="115" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" fill="#074C3E">This may fit, or it may not</text>
+<text x="82" y="165" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#526070">Check sector, timing, documents and repayment source first</text>
+<g font-family="Arial, Helvetica, sans-serif"><rect x="80" y="210" width="1120" height="70" rx="22" fill="white" stroke="#D7E6DD"/>
+<text x="120" y="255" font-size="28" font-weight="700" fill="#263244">Worth checking: manufacturing, logistics, supply-chain pressure</text>
+<rect x="80" y="300" width="1120" height="70" rx="22" fill="white" stroke="#D7E6DD"/>
+<text x="120" y="345" font-size="28" font-weight="700" fill="#263244">Worth checking: real trading activity and sector fit</text>
+<rect x="80" y="390" width="1120" height="70" rx="22" fill="white" stroke="#D7E6DD"/>
+<text x="120" y="435" font-size="28" font-weight="700" fill="#263244">May not fit: outside targeted sectors or urgent timing</text>
+<rect x="80" y="480" width="1120" height="70" rx="22" fill="white" stroke="#D7E6DD"/>
+<text x="120" y="525" font-size="28" font-weight="700" fill="#263244">May not fit: incomplete file, payroll, BAS or bank-decline pressure</text></g>
+</svg>

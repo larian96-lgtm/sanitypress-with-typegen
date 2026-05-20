@@ -628,49 +628,182 @@ const c1_scotpac: C1PageData = {
   ],
 }
 
+
+
+const c1_payday_super_cash_flow_gap: C1PageData = {
+  type: "advertorial",
+  title: "Payday Super Cash Flow Gap",
+  slug: "payday-super-cash-flow-gap",
+  path: "/advertorial/payday-super-cash-flow-gap",
+  eyebrow: "Australian business cash-flow update",
+  headline: "Payday Super starts July 1. Here’s why SME cash flow may feel tighter.",
+  summary: "From 1 July 2026, Australian employers move into the payday super system. Super that many businesses currently pay quarterly will need to move with payday. For SMEs already managing invoices, stock, suppliers and payroll timing, that may change the working-capital rhythm.",
+  seoTitle: "Payday Super Cash Flow Gap | Compare Working Capital Options | Comparison One",
+  seoDescription: "Payday super starts 1 July 2026. Learn how the move from quarterly super to payday super may affect Australian SME cash flow and compare working capital options.",
+  primaryCtaLabel: "Compare Funding Options",
+  primaryCtaHref: "#funding-check",
+  lastReviewed: "2026-05-19",
+  proofPoints: ["No credit pull to start", "90-second funding-fit check", "Secure partner form", "No obligation"],
+  sections: [
+    {
+      heading: "The quarterly super buffer is changing",
+      body: "From 1 July 2026, Payday Super changes when employers pay super guarantee. Instead of relying on the current quarterly payment rhythm, employers will need to pay super at the same time as salary and wages, with payments received by the super fund within the required timeframe.\n\nFor many businesses, the total super obligation may not be the surprising part. The timing is the part that changes the cash-flow feel. Money that used to sit in the business between payroll cycles and quarterly super dates may now need to move much closer to payday."
+    },
+    {
+      heading: "Why this matters for working capital",
+      body: "Payroll is already one of the largest recurring cash-flow moments for an employer. When super moves closer to payday, the cash needed for each pay cycle can become more concentrated.\n\nThat may matter most for businesses that pay staff before customers pay invoices, carry seasonal revenue, buy stock before sales land, or manage supplier terms that do not line up neatly with payroll dates.",
+      bullets: ["Invoice delays can make payroll timing sharper", "Supplier and stock costs may land before revenue", "Seasonal sales can leave quieter weeks exposed", "Growing teams can increase cash needed each pay run", "Quarterly planning habits may need to change before July 1"]
+    },
+    {
+      heading: "A cash-flow gap does not always need the same funding path",
+      body: "The right funding path depends on why the gap exists. A business waiting on invoices may need a different structure from a business buying stock, replacing equipment, covering a payroll timing spike, or smoothing seasonal revenue.\n\nBefore applying for finance, compare the funding structure first. The product, repayment rhythm, speed, fees and lender type all affect whether the solution helps cash flow or adds pressure to it.",
+      table: { headers: ["Situation", "Path to compare"], rows: [["Customers pay after payroll lands", "Invoice finance or working capital"], ["Stock or supplier costs arrive early", "Working capital or line of credit"], ["Equipment or vehicle purchase is the pressure point", "Equipment or vehicle finance"], ["Bank documents are incomplete", "Low-doc or non-bank options may be worth comparing"], ["Cash flow is stable but timing is tight", "Repayment structure and lender fit matter most"]] }
+    },
+    {
+      heading: "What to compare before July 1",
+      body: "Do not compare only on headline speed. For a payroll-related cash-flow gap, speed matters, but repayment timing matters too. A fast facility with the wrong repayment rhythm can make the next payroll cycle harder.\n\nThe practical comparison is structure first, lender second, rate third. Look at how repayments line up with revenue, whether fees are clear, how much flexibility exists, and what documents the lender will need before you commit time to an application.",
+      bullets: ["Repayment frequency and term", "Setup fees and ongoing fees", "Whether security is required", "How quickly the lender can assess documents", "Whether the product matches payroll, invoices, stock or equipment", "Whether the initial check starts without a credit pull"]
+    },
+    {
+      heading: "Comparison One helps you start one step earlier",
+      body: "Comparison One’s funding-fit check is designed to help Australian SMEs compare the likely path before moving into a full application. It starts with the business situation: amount, purpose, urgency, trading history, revenue, documents and timing pressure.\n\nThe goal is not to promise approval. The goal is to help you avoid applying blindly when the pressure is really about timing, structure and lender fit."
+    },
+    {
+      heading: "Before payday super starts, compare the funding path",
+      body: "If payday super changes the way cash leaves your business each pay cycle, the safer move is to plan before July 1. Compare working capital, invoice finance, line of credit, equipment finance and non-bank options based on the actual timing problem.\n\nStart with the 90-second funding-fit check and compare which business finance path may fit before the new payroll rhythm begins."
+    }
+  ],
+  faqs: [
+    { question: "When does Payday Super start?", answer: "The ATO states Payday Super applies from 1 July 2026. Employers will need to pay employees’ super guarantee at the same time as salary and wages, with super funds receiving payments within the required timeframe." },
+    { question: "Does Payday Super increase the amount of super a business pays?", answer: "For many employers, the main change is timing rather than the basic obligation. The cash-flow impact can still be material because payments move closer to payday." },
+    { question: "What if my business already pays super on payday?", answer: "Businesses already paying super with each pay run may feel less change. It is still worth checking payroll systems, fund details, reporting and cash-flow planning before July 1." },
+    { question: "Can finance help with a payroll timing gap?", answer: "Some working-capital, invoice finance, line-of-credit or other business finance options may help with timing gaps, but the fit depends on revenue, documents, repayment ability, fees and lender criteria." },
+    { question: "Does Comparison One guarantee funding?", answer: "No. Comparison One does not guarantee approval, rates, terms or availability. Any funding depends on lender or partner assessment." }
+  ],
+  relatedLinks: [],
+}
+
+const c1_funding_path_check_zero_interest_business_loans: C1PageData = {
+  type: "advertorial",
+  title: "Zero-Interest Business Loans Funding Path Check",
+  slug: "funding-path-check-zero-interest-business-loans",
+  path: "/advertorial/funding-path-check-zero-interest-business-loans",
+  eyebrow: "Australian business funding update",
+  headline: "Zero-interest business loans are open — but not every Australian business will qualify",
+  summary: "The government-backed pathway may help eligible businesses in targeted manufacturing, logistics and supply-chain sectors. But your sector, documents, urgency, repayment source and lender fit still matter.\n\nBefore you spend days applying, check whether your business may fit the official pathway — or whether a bank, low-doc, invoice, equipment, line-of-credit or working-capital option makes more sense.",
+  seoTitle: "Zero-Interest Business Loans Funding Path Check | Comparison One",
+  seoDescription: "Check whether your Australian business may fit the zero-interest business loan pathway, or whether a bank, low-doc, invoice, equipment, line-of-credit or working-capital option may make more sense.",
+  primaryCtaLabel: "Check My Funding Path",
+  primaryCtaHref: "#funding-check",
+  lastReviewed: "2026-05-15",
+  proofPoints: ["No credit pull to start", "90-second check", "Secure partner form", "No obligation"],
+  sections: [
+    {
+      heading: "Australian business funding update",
+      body: "The headline sounds simple:\n\nZero-interest business loans.\n\nFor Australian business owners dealing with rising costs, supplier pressure, fuel bills, unpaid invoices, payroll timing, equipment needs or BAS stress, that kind of headline gets attention quickly.\n\nAnd for some businesses, the government-backed pathway may be worth checking.\n\nBut there is a catch.\n\nThe pathway is not automatic.\n\nIt is not a blanket program for every Australian SME.\n\nEligibility, sector fit, documentation, repayment ability and bank-style assessment can still matter.\n\nThat means the real question is not only:\n\nCan I get the zero-interest loan?\n\nThe better question is:\n\nWhich funding path actually fits my business before I apply anywhere?\n\nBecause applying to the wrong path first can cost time, create frustration, and leave you no clearer on what to do next."
+    },
+    {
+      heading: "The zero-interest loan may be real. But the pathway is narrower than the headline sounds.",
+      body: "Government-backed funding can sound like the obvious first move.\n\nAnd if your business fits the criteria, it may be worth exploring.\n\nBut business funding does not work by headline alone.\n\nA program may be attractive, but still depend on things like:\n\nAnd even when interest is zero, that does not mean the money is free.\n\nPrincipal still needs to be repaid. Fees, terms, assessment criteria and repayment conditions may still apply depending on the pathway.\n\nSo the first step is not guessing.\n\nThe first step is checking fit.",
+      bullets: ["Your industry or sector", "Your business activity", "Your ABN and trading history", "Your evidence of disruption or business need", "Your available documents", "Your repayment source", "Whether the pathway is bank-administered", "Whether your business fits the program’s current criteria"]
+    },
+    {
+      heading: "This pathway may be worth checking if…",
+      body: "The official pathway may be worth checking if your business fits the sector, criteria and assessment requirements. But it may not be the right first path if the documents, urgency, purpose or sector do not match the pathway. If you are unsure, do not guess. The safer move is to check which funding path may fit before you apply anywhere.",
+      table: { headers: ["This may be worth checking if…", "This may not be the right first path if…"], rows: [["Operates in manufacturing, logistics, freight, fuel, fertiliser, plastics or related supply chains", "Your business is outside the targeted sectors"], ["Has been affected by rising input costs, fuel costs, market disruption or supply-chain pressure", "You need funding faster than a bank-administered pathway may move"], ["Needs funding but is unsure whether the government-backed or bank-administered route is realistic", "Your documents are incomplete or not yet ready"], ["Has real trading activity but may not have every bank-style document ready", "Your need is payroll, unpaid invoices, equipment, stock, BAS/ATO pressure or short-term working capital"], ["Wants to compare the official pathway against bank, low-doc or alternative funding options before applying", "You have already been declined by a bank and do not know why"]] }
+    },
+    {
+      heading: "The real risk is not missing one loan. It is applying to the wrong funding path first.",
+      body: "Most business owners start with the same question:\n\nCan I get approved?\n\nBut that question often comes too late.\n\nA better first question is:\n\nWhich funding path is actually built for a business like mine?\n\nBecause business funding is not one single category.\n\nA payroll gap is not the same as an equipment purchase.\n\nAn unpaid invoice problem is not the same as BAS pressure.\n\nA government-backed pathway is not the same as low-doc working capital.\n\nA bank-ready business is not the same as a business with strong revenue but incomplete paperwork.\n\nAnd a fast approval is not always a safe fit if the repayment structure puts more pressure on the cash flow it was meant to fix.\n\nThat is the Apply-Blind Funding Trap.\n\nIt happens when a business owner applies to the first promising headline, lender or offer they see before checking whether the path actually matches their documents, timing, purpose and repayment ability.\n\nA business can be real, active and viable, but still be a poor fit for the first funding path it tries."
+    },
+    {
+      heading: "Comparison One starts one step earlier: with a Funding Fit Check",
+      body: "Comparison One’s Funding Fit Check is designed to help Australian business owners compare the likely path before comparing the lender.\n\nInstead of pushing you straight into a full application, the check starts with practical questions about your business situation.\n\nThe goal is not to promise approval.\n\nThe goal is to help you stop guessing.",
+      bullets: ["How much funding you are looking for", "What the funding is mainly for", "How urgently you need an answer", "How long the business has been trading", "Approximate monthly revenue", "Whether your bank statements or BAS are ready", "Whether you have been declined before", "Whether your need is tied to invoices, stock, equipment, payroll, tax pressure or another business purpose", "Whether the government-backed pathway may be realistic"]
+    },
+    {
+      heading: "Different funding problems may need different funding paths",
+      body: "The mistake many business owners make is treating all business funding as the same. But the right path depends on the actual problem you are solving.",
+      table: { headers: ["Business issue", "Why the path can differ", "CTA"], rows: [["Payroll or supplier pressure", "You may need a working-capital pathway that considers speed, repayment timing and current cash flow.", "Check my working-capital path"], ["Unpaid invoices", "Invoice finance may be more relevant than a general business loan if the money is already owed to you but has not arrived yet.", "Check if invoice-led funding may fit"], ["Equipment or vehicles", "Equipment or asset-backed finance may match the purchase better than using short-term working capital for a long-life asset.", "Check my equipment funding path"], ["Incomplete paperwork", "A low-doc pathway may be possible, but lender fit and repayment fit matter even more when the file is not bank-perfect.", "Find my low-doc funding pathway"], ["The bank already said no", "A bank decline may reflect a mismatch in documents, security, trading history, purpose, serviceability or lender criteria.", "Decode my bank decline"], ["Checking the zero-interest pathway", "The government-backed route may be worth exploring if your business fits the sector, criteria and assessment requirements.", "Check if the official pathway is realistic"], ["BAS or ATO pressure", "Sometimes the first move is understanding the pressure and structure before taking on new debt.", "Check my BAS/tax pressure path"]] }
+    },
+    {
+      heading: "Do not fit the zero-interest pathway? That does not always mean you are out of options.",
+      body: "Many business owners will not fit the official zero-interest pathway.\n\nThat does not automatically mean the business is unfinanceable.\n\nIt may simply mean the business needs a different route.\n\nDepending on the situation, another path may be more relevant.\n\nThe key is not to apply everywhere and hope.\n\nThe key is to check which path makes sense before you hand your details to another lender or program.\n\nA decline is information, not a verdict.",
+      bullets: ["A bank-ready pathway", "A low-doc or non-bank pathway", "Invoice finance", "Equipment or vehicle finance", "A line of credit", "Working capital", "A tax/BAS pressure strategy", "Another partner-funded pathway"]
+    },
+    {
+      heading: "Your business may be stronger than your paperwork makes it look",
+      body: "Many real Australian businesses do not look perfect on paper.\n\nTax returns may not be up to date.\n\nBAS may not tell the full story.\n\nRevenue may be seasonal.\n\nInvoices may be delayed.\n\nStock, fuel, wages or equipment costs may have hit before customer payments arrived.\n\nThat does not mean every funding path is open.\n\nBut it also does not always mean every door is closed.\n\nLow-doc and flexible funding pathways may exist for some businesses, but they should be approached carefully.\n\nWhy?\n\nBecause when the paperwork is lighter, the path fit matters more.\n\nThe repayment structure, fees, timing, lender type and use of funds all need to make sense for the business."
+    },
+    {
+      heading: "A safer first step before a full application",
+      body: "The Funding Fit Check is designed to be a lower-friction first step.\n\nYou are not being told to accept a loan.\n\nYou are not being promised approval.\n\nYou are not being told every business qualifies.\n\nYou are checking which path may fit your situation before moving deeper into an application process.",
+      table: { headers: ["Trust cue", "What it means"], rows: [["No credit pull to start", "The initial check is designed to start without a credit pull. If you proceed with a lender or partner, later checks may apply."], ["Secure partner form", "Some pathways may continue through secure external partner forms. Separate partner terms and privacy policies may apply."], ["No obligation", "You can check your path without being obligated to proceed."], ["Plain-English guidance", "The page is designed to help you understand the route, not bury you in finance jargon."], ["Not a lender", "Comparison One is not a lender, credit provider, government agency or financial adviser."]] }
+    },
+    {
+      heading: "How the 90-second Funding Fit Check works",
+      body: "The check is designed to help you compare the likely route before applying.",
+      table: { headers: ["Step", "What happens"], rows: [["Step 1: Tell us what the funding is for", "Cash flow, payroll, stock, equipment, invoices, tax pressure, expansion, government-backed funding, or another business need."], ["Step 2: Answer simple business-fit questions", "Your business type, trading history, approximate revenue, urgency, documents and whether you have been declined before can all affect the path."], ["Step 3: Compare the likely route before applying", "You may be routed toward a government-backed, bank, low-doc, non-bank, invoice, equipment, line-of-credit or other partner-funded pathway depending on your situation."]] }
+    },
+    {
+      heading: "Before you apply anywhere, check which funding path actually fits your business",
+      body: "If your business needs funding, the fastest move is not always the smartest move.\n\nAnd the cheapest-looking headline is not always the right path.\n\nYour business may need the official government-backed route, a bank-ready path, a low-doc alternative, invoice finance, equipment finance, working capital, or something else entirely.\n\nThe first step is knowing which path may fit.\n\nStart with the 90-second Funding Fit Check and get a clearer next move before applying blindly.\n\nComparison One is not a lender, credit provider, government agency or financial adviser. Information is general in nature. Funding availability, approval, rates, fees, timing, repayment terms and eligibility depend on lender or partner assessment."
+    }
+  ],
+  faqs: [
+    { question: "Is Comparison One a lender?", answer: "No. Comparison One is not a lender, credit provider, government agency or financial adviser. It is a comparison and education pathway that may connect users with secure partner forms or relevant funding partners." },
+    { question: "Is this a government website?", answer: "No. Comparison One is not a government agency. This page may discuss government-backed funding options, but access to any government-backed program depends on the relevant criteria, lender or program assessment." },
+    { question: "Will this affect my credit score?", answer: "The initial Funding Fit Check is designed to start without a credit pull. If you choose to proceed with a lender or partner, later credit checks or assessment steps may apply." },
+    { question: "Is approval promised?", answer: "No. Approval is not promised. Funding availability, approval, rates, fees, repayment terms, timing and eligibility depend on lender or partner assessment." },
+    { question: "What if I do not qualify for the zero-interest pathway?", answer: "That is one reason the check exists. If the official pathway is not realistic, your business may still be better suited to another funding route, such as a bank, low-doc, invoice, equipment, line-of-credit or working-capital pathway." },
+    { question: "Do I need perfect paperwork?", answer: "Not always, but documents still matter. Some pathways may be more flexible than traditional bank funding, but your available documents, bank statements, revenue, trading history and repayment fit can all affect options." },
+    { question: "Are low-doc loans more expensive?", answer: "Some flexible or non-bank pathways may cost more than traditional bank finance. That is why it is important to check the funding path, repayment structure and trade-offs before proceeding." },
+    { question: "How fast can I get funding?", answer: "Timing depends on the pathway, your documents, lender or partner assessment and the type of funding. Some pathways may move faster than traditional bank processes, but no timing should be assumed before assessment." },
+    { question: "What happens after I complete the check?", answer: "Depending on your answers, you may be shown or connected to a relevant next step. Some pathways may continue through secure external partner forms, where separate partner terms and privacy policies may apply." },
+    { question: "What if I have already been declined by a bank?", answer: "A bank decline does not always mean every path is closed. It may mean the bank route, documents, security, timing, purpose or serviceability did not fit. A funding-fit check can help you think through the next realistic step." }
+  ],
+  relatedLinks: [],
+}
+
 const c1_zero_interest_loan_access_gap: C1PageData = {
   type: "advertorial",
   title: "Zero Interest Loan Scheme",
   slug: "zero-interest-loan-scheme",
-  path: "/advertorial/zero-interest-loan-scheme",
+  path: "/zero-interest-loan-scheme",
   eyebrow: "Business funding update",
-  headline: "REVEALED: Are you eligible for the government backed zero interest loan program?",
-  summary: "Learn how your business may be able to access a zero interest loan through the government backed program before demand rises.\n\nAs we know, small businesses are some of the hardest hit when fuel, freight, supplier costs and cash flow pressure move at the same time. Thankfully, the Government has opened a zero interest loan pathway to support eligible businesses during this difficult period.\n\nIf you run a small business, read on to find out how you may be able to benefit.",
-  seoTitle: "Are You Eligible For The Government Backed Zero Interest Loan Program? | Comparison One",
-  seoDescription: "Australian small businesses may be checking the government backed zero interest loan program. Find out what the scheme is, who may be eligible and how to check funding fit.",
-  primaryCtaLabel: "Check eligibility",
+  headline: "REVEALED: Can your business use the Economic Resilience Program zero interest loan pathway?",
+  summary: "Learn how your business may be able to access a zero interest loan through the Economic Resilience Program before demand rises.\n\nAs we know, small businesses are some of the hardest hit when fuel, freight, supplier costs and cash flow pressure move at the same time. On 20 April 2026, the Economic Resilience Program opened a zero interest loan pathway to support eligible businesses during this difficult period.\n\nIf you run a small business, read on to find out how the pathway works and why checking funding fit first can save time.",
+  seoTitle: "Economic Resilience Program Zero Interest Loan Pathway | Comparison One",
+  seoDescription: "The Economic Resilience Program opened on 20 April 2026 with a zero interest loan pathway for eligible Australian businesses. Learn what matters before applying and how to check funding fit.",
+  primaryCtaLabel: "Check funding fit",
   primaryCtaHref: "#funding-check",
-  lastReviewed: "2026-05-14",
+  lastReviewed: "2026-05-20",
   proofPoints: ["SSL secure connection", "No credit pull for the initial check", "90-second funding-fit check"],
   sections: [
     {
-      heading: "What is the government backed zero interest loan program?",
-      body: "To support eligible businesses facing serious supply chain and cost pressure, the Government has opened a zero interest loan pathway for small and medium businesses that fit the program criteria.\n\nThe program is aimed at businesses in affected sectors, including manufacturing, logistics and critical supply chain activity linked to fuel, freight, fertiliser and plastics. Under the scheme, eligible businesses may be able to access a loan with zero interest payable.\n\nWhat does this mean for small businesses?\n\nIt means some businesses may be able to tap into a lower cost funding pathway at a time when cash flow is tight. The money may help with business costs such as supplier payments, stock, transport, equipment, payroll pressure or other operating needs connected to the disruption.\n\nBut zero interest does not mean automatic approval. The loan still has to be repaid. Banks and program administrators still assess applications. Your business still has to fit the rules. That is why the first step is checking whether the scheme, or another funding path, actually fits your situation."
+      heading: "What is the Economic Resilience Program zero interest loan pathway?",
+      body: "The Economic Resilience Program opened on 20 April 2026. It includes a zero interest loan pathway for eligible small and medium businesses that fit the program criteria.\n\nThe pathway is aimed at businesses in affected sectors, including manufacturing, logistics and critical supply chain activity linked to fuel, freight, fertiliser and plastics. Under the program, eligible businesses may be able to access a loan with zero interest payable.\n\nWhat does this mean for small businesses?\n\nIt means some businesses may be able to tap into a lower cost funding pathway at a time when cash flow is tight. The money may help with business costs such as supplier payments, stock, transport, equipment, payroll pressure or other operating needs connected to the disruption.\n\nBut zero interest does not mean automatic approval. The loan still has to be repaid. Banks and program administrators still assess applications. Your business still has to fit the rules. That is why the first step is checking whether the program, or another funding path, actually fits your situation."
     },
     {
-      heading: "Who is eligible for the scheme?",
-      body: "To be eligible for the scheme, your business generally needs to be operating in an affected industry or supply chain activity covered by the program. Official information points to businesses in manufacturing and logistics, especially those exposed to fuel, freight, fertiliser and plastics disruption.\n\nBut it is not that simple. Eligibility can depend on the business activity, turnover, funding amount, evidence of disruption, repayment capacity and the lender or program pathway used.\n\nA business may be in a relevant industry and still need to pass assessment. Another business may be under real pressure but sit outside the target sector list. A third may need funds faster than the program process can move.\n\nThat is why it is worth checking before you spend time on the wrong application.",
+      heading: "Who may the program suit?",
+      body: "The Economic Resilience Program is generally aimed at businesses operating in an affected industry or supply chain activity covered by the program. Official information points to businesses in manufacturing and logistics, especially those exposed to fuel, freight, fertiliser and plastics disruption.\n\nBut it is not that simple. Fit can depend on the business activity, turnover, funding amount, evidence of disruption, repayment capacity and the lender or program pathway used.\n\nA business may be in a relevant industry and still need to pass assessment. Another business may be under real pressure but sit outside the target sector list. A third may need funds faster than the program process can move.\n\nThat is why it is worth checking the path before you spend time on the wrong application.",
       bullets: ["Active ABN and current trading history", "Business activity connected to an eligible sector or supply chain", "Evidence of cash flow or cost pressure linked to the disruption", "Loan purpose that fits business use", "Repayment capacity even though the interest rate is zero", "Documentation the lender or program pathway can assess"]
     },
     {
       heading: "If the zero interest loan does not fit",
-      body: "The biggest catch right now is how the program is being delivered. Unlike the Coronavirus SME Guarantee Scheme, this zero interest pathway is not broadly open through non-bank lenders. At the moment, access is mainly through major bank-style assessment pathways.\n\nThat can make the program harder to use than the headline suggests. Banks usually want clean documentation, strong trading evidence, clear repayment capacity and a business profile that fits their rules. Processing can be slow. Requirements can be strict. Many businesses with real cash-flow pressure may still fall outside the criteria.\n\nThat means the program may be underutilized, not because businesses do not need it, but because the pathway is hard to fit. If the program changes or opens up to more lenders, Comparison One will update the page. For now, if you have already been declined by a major lender, or you know your documentation will not pass a bank-style process, you may need to compare non-bank business funding options instead."
+      body: "The biggest catch right now is how the program is being delivered. Unlike the Coronavirus SME Guarantee Scheme, this zero interest pathway is not broadly open through non-bank lenders. At the moment, access is mainly through major bank-style assessment pathways.\n\nThat can make the program harder to use than the headline suggests. Banks usually want clean documentation, strong trading evidence, clear repayment capacity and a business profile that fits their rules. Processing can be slow. Requirements can be strict. Many businesses with real cash-flow pressure may still fall outside the criteria.\n\nThat means the program may be underutilized, not because businesses do not need it, but because the pathway is hard to fit. If the program changes or opens up to more lenders, Comparison One will update the page. For now, if you have already been declined by a major lender, or you know your documentation will not pass a bank-style process, you may need to compare other business funding options instead."
     },
     {
-      heading: "The simple way to see if you may be eligible",
-      body: "To make it easier, Comparison One has created a quick process that helps narrow the starting point before you apply blind.\n\nThe check looks at your business profile, funding purpose, timing and basic eligibility signals. From there, you can see whether the zero interest pathway may be worth exploring, or whether another business funding option may fit better.\n\nIt only takes a few minutes to find out.\n\nOf course, it is obligation free and nothing goes on your credit report without permission.\n\nStart the process below to find out more."
-    },
-    {
-      heading: "How Comparison One can help you access funding",
-      body: "Comparison One helps Australian business owners check funding fit before applying.\n\nInstead of guessing which lender, bank or program path might work, the quick check starts with the basics: what the money is for, how soon it is needed, how the business trades and what evidence may support the application.\n\nThat can help you avoid wasting time on a pathway that does not match your situation. It can also help you compare alternatives if the government backed zero interest loan program is not the right fit."
+      heading: "How Comparison One helps you avoid the wrong funding path",
+      body: "Comparison One helps Australian business owners check funding fit before applying. We do not decide whether the Economic Resilience Program or a participating bank will approve funding, and we do not partner directly with the banks that administer that pathway.\n\nWhat we can do is help narrow the starting point so you are not applying blind. The quick check starts with the basics: what the money is for, how soon it is needed, how the business trades, what documents may support the application and whether the zero interest pathway is likely to be worth exploring before you spend time on it.\n\nIf the program does not look like the right fit, the process can help you compare other routes such as working capital, invoice finance, equipment finance, line of credit or non-bank funding options.\n\nThe point is not to promise an outcome. The point is to avoid messing business owners around with a pathway that does not match their situation.\n\nIt only takes a few minutes to get a clearer starting point. The initial check is obligation free and nothing goes on your credit report without permission."
     },
   ],
   faqs: [
-    { question: "Is the government backed zero interest loan program real?", answer: "Yes. The program is a real pathway for eligible Australian businesses in targeted sectors. The key question is whether your business fits the eligibility rules and assessment pathway." },
-    { question: "Does zero interest mean free money?", answer: "No. The principal still has to be repaid and fees or other conditions may apply depending on the pathway." },
-    { question: "Can Comparison One decide if I am eligible?", answer: "No. Comparison One is not a government agency or lender. It helps you check funding fit and understand possible pathways before a lender or program administrator assesses the business." },
+    { question: "Is the Economic Resilience Program real?", answer: "Yes. The Economic Resilience Program opened on 20 April 2026 and includes a zero interest loan pathway for eligible Australian businesses in targeted sectors. The key question is whether your business fits the program purpose, rules and assessment pathway." },
+    { question: "Does zero interest mean the loan is a giveaway?", answer: "No. The principal still has to be repaid and fees or other conditions may apply depending on the pathway." },
+    { question: "Can Comparison One decide whether my business fits the program?", answer: "No. Comparison One is not a government agency or lender. It helps you check funding fit and understand possible pathways before a lender or program administrator assesses the business." },
     { question: "Will the check affect my credit file?", answer: "No credit pull is made for the initial funding-fit check." },
-    { question: "What if my business does not qualify?", answer: "Other funding pathways may still be worth comparing, including working capital finance, invoice finance, equipment finance, line of credit or unsecured business loans." },
+    { question: "What if the program does not fit my business?", answer: "Other funding pathways may still be worth comparing, including working capital finance, invoice finance, equipment finance, line of credit or unsecured business loans." },
   ],
   relatedLinks: [],
 }
@@ -1227,9 +1360,12 @@ const c1BasePageLookup: Record<string, C1PageData> = {
   "/business-loans/tax-debt": c1_tax_debt_funding,
   "/business-loans/trade-finance": c1_trade_finance,
   "/business-loans/vehicle-finance": c1_vehicle_finance,
+  "/advertorial/payday-super-cash-flow-gap": c1_payday_super_cash_flow_gap,
+  "/payday-super-cash-flow-gap": c1_payday_super_cash_flow_gap,
+  "/advertorial/funding-path-check-zero-interest-business-loans": c1_funding_path_check_zero_interest_business_loans,
+  "/funding-path-check-zero-interest-business-loans": c1_funding_path_check_zero_interest_business_loans,
   "/advertorial/zero-interest-business-loans-australia": c1_zero_interest_business_loans_australia,
-  "/advertorial/zero-interest-loan-scheme": c1_zero_interest_loan_access_gap,
-  "/advertorial/zero-interest-loan-access-gap": c1_zero_interest_loan_access_gap,
+  "/zero-interest-loan-scheme": c1_zero_interest_loan_access_gap,
   "/c1": c1_zero_interest_loan_access_gap,
   "/bank-vs-non-bank-business-lenders": c1_bank_vs_non_bank_business_lenders,
   "/blog/bank-vs-non-bank-business-lenders": c1_bank_vs_non_bank_business_lenders,
@@ -1255,7 +1391,6 @@ const c1BasePageLookup: Record<string, C1PageData> = {
   "/unsecured-business-loans": c1_unsecured_business_loans,
   "/working-capital": c1_working_capital,
   "/zero-interest-loan-access-gap": c1_zero_interest_loan_access_gap,
-  "/zero-interest-loan-scheme": c1_zero_interest_loan_access_gap,
   "/zero-interest-business-loans-australia": c1_zero_interest_business_loans_australia,
 }
 
@@ -1290,6 +1425,8 @@ const c1BasePages: C1PageData[] = [
   c1_lender_assessment,
   c1_interest_rates_fees,
   c1_secured_vs_unsecured,
+  c1_payday_super_cash_flow_gap,
+  c1_funding_path_check_zero_interest_business_loans,
   c1_zero_interest_loan_access_gap,
   c1_zero_interest_business_loans_australia,
 ]
