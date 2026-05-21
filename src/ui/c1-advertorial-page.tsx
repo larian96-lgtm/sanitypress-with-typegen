@@ -309,6 +309,19 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
   const reviewedDate = formatReviewedDate(page.lastReviewed)
   const heroParagraphs = page.summary.split('\n\n').map(p => p.trim()).filter(Boolean)
   const displayHeadline = page.headline.replace(/^REVEALED:\s*/i, '')
+  const isZeroInterest = page.slug === 'zero-interest-loan-scheme'
+  const isPaydaySuper = page.slug === 'payday-super-cash-flow-gap'
+  const heroImage = isPaydaySuper
+    ? {
+        src: '/comparisonone/photos/payday-super-piggy.jpg?v=1',
+        alt: 'Piggy bank representing cash flow pressure for Australian SMEs',
+        caption: 'Payday Super may make cash leave the business closer to each pay run, reducing the old quarterly buffer.',
+      }
+    : {
+        src: '/comparisonone/photos/zero-interest-loan-scheme-photo.jpg?v=1',
+        alt: 'Australian small business context for the Economic Resilience Program',
+        caption: 'The program may help eligible SMEs in manufacturing, logistics and transport but lender criteria apply.',
+      }
 
   return (
     <>
@@ -353,33 +366,37 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
           </section>
 
           <PhotoBreak
-            src="/comparisonone/photos/zero-interest-loan-scheme-photo.jpg?v=1"
-            alt="Australian small business context for the Economic Resilience Program"
-            caption="The program may help eligible SMEs in manufacturing, logistics and transport but lender criteria apply."
+            src={heroImage.src}
+            alt={heroImage.alt}
+            caption={heroImage.caption}
           />
 
-          <section className="mt-5 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-4 md:p-5">
-            <h2 className="mb-2 text-[1.6rem] font-black leading-tight tracking-[-0.03em] text-[#111827]">No time to read?</h2>
-            <p className="mb-3 text-base leading-relaxed text-[#374151]">The Program comes with strict industry and bank criteria.</p>
-            <p className="mb-4 text-base leading-relaxed text-[#374151]">Click below to match with non-bank lenders that may be more suitable for your business.</p>
-            <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#0B6B57] px-6 text-center text-base font-black text-white no-underline sm:w-auto">
-              Start the funding-fit check
-            </a>
-            <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold text-[#0A6B55]">
-              {trustItems.map(item => <span key={item} className="rounded-full bg-white px-3 py-1 shadow-sm">{item}</span>)}
-            </div>
-          </section>
+          {isZeroInterest && (
+            <>
+              <section className="mt-5 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-4 md:p-5">
+                <h2 className="mb-2 text-[1.6rem] font-black leading-tight tracking-[-0.03em] text-[#111827]">No time to read?</h2>
+                <p className="mb-3 text-base leading-relaxed text-[#374151]">The Program comes with strict industry and bank criteria.</p>
+                <p className="mb-4 text-base leading-relaxed text-[#374151]">Click below to match with non-bank lenders that may be more suitable for your business.</p>
+                <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#0B6B57] px-6 text-center text-base font-black text-white no-underline sm:w-auto">
+                  Start the funding-fit check
+                </a>
+                <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold text-[#0A6B55]">
+                  {trustItems.map(item => <span key={item} className="rounded-full bg-white px-3 py-1 shadow-sm">{item}</span>)}
+                </div>
+              </section>
 
-          <section className="mt-7 border-y border-[#E5E7EB] py-5">
-            <p className="mb-3 text-[1.08rem] font-bold text-[#263244]">In this article you’ll learn:</p>
-            <ul className="grid gap-3 md:grid-cols-3">
-              {articleTakeaways.map(item => (
-                <li key={item} className="border-l-4 border-[#FCB650] bg-[#FFFBEB] px-4 py-3 text-sm font-black leading-relaxed text-[#111827]">
-                  <span className="mr-2 text-[#074C3E]">•</span>{item}
-                </li>
-              ))}
-            </ul>
-          </section>
+              <section className="mt-7 border-y border-[#E5E7EB] py-5">
+                <p className="mb-3 text-[1.08rem] font-bold text-[#263244]">In this article you’ll learn:</p>
+                <ul className="grid gap-3 md:grid-cols-3">
+                  {articleTakeaways.map(item => (
+                    <li key={item} className="border-l-4 border-[#FCB650] bg-[#FFFBEB] px-4 py-3 text-sm font-black leading-relaxed text-[#111827]">
+                      <span className="mr-2 text-[#074C3E]">•</span>{item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </>
+          )}
 
           {contentSections.map((section, i) => (
             <ArticleSection key={`${section.heading}-${i}`} section={section} index={i} />

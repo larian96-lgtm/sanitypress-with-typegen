@@ -634,52 +634,31 @@ const c1_payday_super_cash_flow_gap: C1PageData = {
   type: "advertorial",
   title: "Payday Super Cash Flow Gap",
   slug: "payday-super-cash-flow-gap",
-  path: "/advertorial/payday-super-cash-flow-gap",
+  path: "/payday-super-cash-flow-gap",
   eyebrow: "Australian business cash-flow update",
-  headline: "Payday Super starts July 1. Here’s why SME cash flow may feel tighter.",
-  summary: "From 1 July 2026, Australian employers move into the payday super system. Super that many businesses currently pay quarterly will need to move with payday. For SMEs already managing invoices, stock, suppliers and payroll timing, that may change the working-capital rhythm.",
+  headline: "The Payroll Change That Could Squeeze SME Cash Flow",
+  summary: "From 1 July 2026, Payday Super changes when employers need to move super guarantee payments. For many SMEs, the issue is not a new expense. It is timing. Money that used to sit in the business until the quarterly super deadline may need to leave much closer to payday.\n\nIf your business already juggles invoices, wages, stock, suppliers and tax timing, that shift may make normal pay runs feel tighter.",
   seoTitle: "Payday Super Cash Flow Gap | Compare Working Capital Options | Comparison One",
-  seoDescription: "Payday super starts 1 July 2026. Learn how the move from quarterly super to payday super may affect Australian SME cash flow and compare working capital options.",
-  primaryCtaLabel: "Compare Funding Options",
+  seoDescription: "Payday Super starts 1 July 2026. Learn how the move from quarterly super to payday super may affect Australian SME cash flow and compare working capital options.",
+  primaryCtaLabel: "Start the funding-fit check",
   primaryCtaHref: "#funding-check",
   lastReviewed: "2026-05-19",
-  proofPoints: ["No credit pull to start", "90-second funding-fit check", "Secure partner form", "No obligation"],
+  proofPoints: ["No credit pull to start", "90-second funding-fit check", "Secure partner form"],
   sections: [
     {
-      heading: "The quarterly super buffer is changing",
-      body: "From 1 July 2026, Payday Super changes when employers pay super guarantee. Instead of relying on the current quarterly payment rhythm, employers will need to pay super at the same time as salary and wages, with payments received by the super fund within the required timeframe.\n\nFor many businesses, the total super obligation may not be the surprising part. The timing is the part that changes the cash-flow feel. Money that used to sit in the business between payroll cycles and quarterly super dates may now need to move much closer to payday."
+      heading: "Explain: the quarterly buffer is disappearing",
+      body: "Payday Super means employers will need to pay super at the same time as salary and wages, with payments received by the super fund within the required timeframe.\n\nFor a business owner, the important change is the cash-flow rhythm. Under the quarterly system, super could sit in the business for weeks before the payment date. From July 1, that buffer may shrink.\n\nThe total super obligation may not surprise you. The timing might. A pay cycle that already includes wages, suppliers, rent, fuel, stock or contractor bills may now need more cash available at the same moment.\n\nThat can matter even for a profitable business. Profit on paper does not always mean cash is sitting in the account on payday. The pressure usually shows up in small moments: a customer pays three days late, fuel costs run high, stock needs to be bought early, or a public holiday shifts payroll. Under the old rhythm, the quarterly super buffer could absorb some of that movement. Under Payday Super, there may be less room to hide a timing gap."
     },
     {
-      heading: "Why this matters for working capital",
-      body: "Payroll is already one of the largest recurring cash-flow moments for an employer. When super moves closer to payday, the cash needed for each pay cycle can become more concentrated.\n\nThat may matter most for businesses that pay staff before customers pay invoices, carry seasonal revenue, buy stock before sales land, or manage supplier terms that do not line up neatly with payroll dates.",
-      bullets: ["Invoice delays can make payroll timing sharper", "Supplier and stock costs may land before revenue", "Seasonal sales can leave quieter weeks exposed", "Growing teams can increase cash needed each pay run", "Quarterly planning habits may need to change before July 1"]
+      heading: "Filter: which SMEs may feel it first",
+      body: "The businesses most exposed are usually the ones where money comes in after wages go out. That can include transport operators waiting on customer invoices, retailers buying stock before sales land, construction businesses managing progress payments, hospitality venues with heavy roster weeks, or service firms carrying payroll while clients pay later.\n\nIt may also affect growing teams. Hiring staff can lift revenue later, but wages and super need to be funded now. Seasonal businesses may feel the same pressure when quieter weeks line up with payroll.\n\nBefore applying for finance, separate the cause of the gap. Is the pressure from invoices, stock, equipment, tax timing, a seasonal dip or a permanent shortfall? Different causes point to different funding paths. A line of credit, invoice finance, working capital loan or equipment finance may each suit a different problem. If the business has steady revenue but uneven timing, flexibility may matter more than headline rate. If the gap is tied to unpaid invoices, invoice finance may be more relevant than a general loan. If the pressure is equipment or vehicle related, the asset itself may shape the funding path."
     },
     {
-      heading: "A cash-flow gap does not always need the same funding path",
-      body: "The right funding path depends on why the gap exists. A business waiting on invoices may need a different structure from a business buying stock, replacing equipment, covering a payroll timing spike, or smoothing seasonal revenue.\n\nBefore applying for finance, compare the funding structure first. The product, repayment rhythm, speed, fees and lender type all affect whether the solution helps cash flow or adds pressure to it.",
-      table: { headers: ["Situation", "Path to compare"], rows: [["Customers pay after payroll lands", "Invoice finance or working capital"], ["Stock or supplier costs arrive early", "Working capital or line of credit"], ["Equipment or vehicle purchase is the pressure point", "Equipment or vehicle finance"], ["Bank documents are incomplete", "Low-doc or non-bank options may be worth comparing"], ["Cash flow is stable but timing is tight", "Repayment structure and lender fit matter most"]] }
-    },
-    {
-      heading: "What to compare before July 1",
-      body: "Do not compare only on headline speed. For a payroll-related cash-flow gap, speed matters, but repayment timing matters too. A fast facility with the wrong repayment rhythm can make the next payroll cycle harder.\n\nThe practical comparison is structure first, lender second, rate third. Look at how repayments line up with revenue, whether fees are clear, how much flexibility exists, and what documents the lender will need before you commit time to an application.",
-      bullets: ["Repayment frequency and term", "Setup fees and ongoing fees", "Whether security is required", "How quickly the lender can assess documents", "Whether the product matches payroll, invoices, stock or equipment", "Whether the initial check starts without a credit pull"]
-    },
-    {
-      heading: "Comparison One helps you start one step earlier",
-      body: "Comparison One’s funding-fit check is designed to help Australian SMEs compare the likely path before moving into a full application. It starts with the business situation: amount, purpose, urgency, trading history, revenue, documents and timing pressure.\n\nThe goal is not to promise approval. The goal is to help you avoid applying blindly when the pressure is really about timing, structure and lender fit."
-    },
-    {
-      heading: "Before payday super starts, compare the funding path",
-      body: "If payday super changes the way cash leaves your business each pay cycle, the safer move is to plan before July 1. Compare working capital, invoice finance, line of credit, equipment finance and non-bank options based on the actual timing problem.\n\nStart with the 90-second funding-fit check and compare which business finance path may fit before the new payroll rhythm begins."
+      heading: "Pitch: check the funding path before July 1",
+      body: "The mistake is applying for the fastest loan before checking whether the structure fits. A quick facility with the wrong repayment rhythm can make the next payroll cycle harder.\n\nComparison One helps SMEs start with the funding path, not just the lender name. The Funding Fit Check looks at amount, purpose, urgency, trading history, revenue, documents and timing pressure before you move into a full application.\n\nThe goal is not to promise approval. It is to help you avoid applying blindly when the real issue is timing and structure. A useful first check should narrow the options, rule out mismatched products, and show which lender type is more likely to understand the situation before you spend time on a full application.\n\nIf Payday Super may tighten your cash flow, check the path now rather than waiting until the first pay run feels short."
     }
   ],
-  faqs: [
-    { question: "When does Payday Super start?", answer: "The ATO states Payday Super applies from 1 July 2026. Employers will need to pay employees’ super guarantee at the same time as salary and wages, with super funds receiving payments within the required timeframe." },
-    { question: "Does Payday Super increase the amount of super a business pays?", answer: "For many employers, the main change is timing rather than the basic obligation. The cash-flow impact can still be material because payments move closer to payday." },
-    { question: "What if my business already pays super on payday?", answer: "Businesses already paying super with each pay run may feel less change. It is still worth checking payroll systems, fund details, reporting and cash-flow planning before July 1." },
-    { question: "Can finance help with a payroll timing gap?", answer: "Some working-capital, invoice finance, line-of-credit or other business finance options may help with timing gaps, but the fit depends on revenue, documents, repayment ability, fees and lender criteria." },
-    { question: "Does Comparison One guarantee funding?", answer: "No. Comparison One does not guarantee approval, rates, terms or availability. Any funding depends on lender or partner assessment." }
-  ],
+  faqs: [],
   relatedLinks: [],
 }
 
@@ -1354,7 +1333,6 @@ const c1BasePageLookup: Record<string, C1PageData> = {
   "/business-loans/tax-debt": c1_tax_debt_funding,
   "/business-loans/trade-finance": c1_trade_finance,
   "/business-loans/vehicle-finance": c1_vehicle_finance,
-  "/advertorial/payday-super-cash-flow-gap": c1_payday_super_cash_flow_gap,
   "/payday-super-cash-flow-gap": c1_payday_super_cash_flow_gap,
   "/advertorial/funding-path-check-zero-interest-business-loans": c1_funding_path_check_zero_interest_business_loans,
   "/funding-path-check-zero-interest-business-loans": c1_funding_path_check_zero_interest_business_loans,
