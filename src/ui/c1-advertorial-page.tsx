@@ -309,17 +309,6 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
   const reviewedDate = formatReviewedDate(page.lastReviewed)
   const heroParagraphs = page.summary.split('\n\n').map(p => p.trim()).filter(Boolean)
   const displayHeadline = page.headline.replace(/^REVEALED:\s*/i, '')
-  const heroImage = page.slug === 'zero-interest-loan-scheme'
-    ? {
-        src: '/comparisonone/photos/zero-interest-loan-piggy.jpg?v=1',
-        alt: 'Piggy bank representing small business funding pressure',
-        caption: 'The program may help eligible SMEs in manufacturing, logistics and transport but lender criteria apply.',
-      }
-    : {
-        src: '/comparisonone/photos/zero-interest-loan-scheme-photo.jpg?v=1',
-        alt: 'Australian small business context for funding pressure',
-        caption: 'Business funding pathways can depend on timing, lender criteria and the structure that fits the situation.',
-      }
 
   return (
     <>
@@ -364,9 +353,9 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
           </section>
 
           <PhotoBreak
-            src={heroImage.src}
-            alt={heroImage.alt}
-            caption={heroImage.caption}
+            src="/comparisonone/photos/zero-interest-loan-scheme-photo.jpg?v=1"
+            alt="Australian small business context for the Economic Resilience Program"
+            caption="The program may help eligible SMEs in manufacturing, logistics and transport but lender criteria apply."
           />
 
           <section className="mt-5 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-4 md:p-5">
