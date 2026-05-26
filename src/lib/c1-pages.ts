@@ -1282,6 +1282,94 @@ const c1_business_loan_calculator: C1PageData = {
   ],
 }
 
+
+const c1_rise_of_non_bank_lending: C1PageData = {
+  type: "blog",
+  title: "Rise of Non-bank Lending in Australia",
+  slug: "rise-of-non-bank-lending-australia",
+  path: "/blog/rise-of-non-bank-lending-australia",
+  eyebrow: "SME finance trends",
+  headline: "Why more Australian SMEs are looking beyond banks",
+  summary: "Australian SME finance is shifting. ScotPac's SME Growth Index points to access to finance as the biggest growth barrier for nearly 40% of SMEs, while more than half now intend to use non-bank finance for new investment. This guide explains why the market has moved, which products are rising, and how to compare funding fit before applying.",
+  seoTitle: "Rise of Non-bank Lending in Australia | SME Finance Guide",
+  seoDescription: "Why Australian SMEs are moving to non-bank lending, asset finance and working capital options, with key ScotPac SME Growth Index stats.",
+  primaryCtaLabel: "Start my funding-fit check",
+  primaryCtaHref: "/quiz",
+  lastReviewed: "2026-05-26",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Sources reviewed 26 May 2026", "General information only"],
+  sections: [
+    {
+      heading: "The shift in one sentence",
+      body: "Australian SMEs are not only comparing banks anymore. More business owners are looking at non-bank lenders because access to finance has become a growth constraint, and the market has adapted with faster, more specialised funding products.",
+    },
+    {
+      heading: "Key numbers from the SME lending shift",
+      body: "These figures show why non-bank lending has moved from alternative pathway to mainstream funding conversation.",
+      table: {
+        headers: ["Signal", "What recent SME research says", "Why it matters"],
+        rows: [
+          ["Finance barrier", "Nearly 40% of SMEs identify access to finance as the single biggest barrier to growth", "Funding access is now a growth issue, not only a survival issue"],
+          ["Non-bank demand", "Around 55% to 57% of SMEs plan to use non-bank finance for new investment", "More than half the market is considering lender options outside traditional banks"],
+          ["Bank borrowing", "Bank borrowing intentions sit closer to 28% to 30% in the same research", "The bank-first default is weaker than it used to be"],
+          ["Asset-based lending", "49% of Australian SMEs are already using asset-based lending", "Receivables, inventory, equipment and other business assets are becoming funding tools"],
+        ],
+      },
+    },
+    {
+      heading: "Why SMEs are moving beyond banks",
+      body: "The move is not only about bank declines. A bank can still be the right fit for some businesses, especially where the owner has strong documents, time, security and a larger long-term need. The shift is happening because many business problems are more specific than a general business loan application.\n\nA cafe may need working capital before a busy season. A transport operator may need vehicle finance. A builder may need equipment before a job starts. A wholesaler may need cash unlocked from unpaid invoices or stock. A manufacturer may need to fund machinery without draining cash reserves.\n\nThose scenarios do not all need the same product. They need lender fit, product fit and repayment timing that match the business problem.",
+    },
+    {
+      heading: "What non-bank lenders are solving",
+      body: "Non-bank lending has grown because specialist lenders often focus on practical funding moments. The business may have recent revenue but not perfect financial statements. The need may be tied to an invoice, a vehicle, a machine, stock, a contract or a short-term cash-flow gap. The owner may want to avoid pledging the family home where possible, or may need a faster path than a bank assessment.\n\nThis does not make non-bank lending automatically better. It means the comparison starts with the use of funds and the repayment source, not the lender name.",
+    },
+    {
+      heading: "The rise of asset-based lending",
+      body: "Asset-based lending is part of the same shift. Instead of relying only on property security or a broad business loan assessment, some facilities look at business assets that already exist or are being purchased.\n\nThat can include receivables, inventory, equipment, vehicles or machinery. It can also include product structures connected to assets, such as equipment finance, vehicle finance and lease-style arrangements.\n\nFor an SME, the appeal is simple: the funding structure can be tied to the asset or cash-flow source, rather than forcing every need into one generic loan category.",
+    },
+    {
+      heading: "Products driving the change",
+      body: "The non-bank market is broad, but the main growth areas are easy to understand when viewed through business use cases.",
+      bullets: [
+        "Working capital: used for payroll timing, supplier payments, stock, tax timing or seasonal gaps.",
+        "Asset finance: used when a business needs equipment, machinery or productive assets.",
+        "Vehicle finance: used by transport, trade, delivery and service businesses that rely on utes, vans, trucks or fleet vehicles.",
+        "Invoice finance: used where unpaid B2B invoices create a timing gap between work completed and cash received.",
+        "Line of credit: used when the business needs reusable access for repeat timing gaps rather than one lump sum.",
+        "Lease-style structures: used where access to an asset may matter more than owning it outright from day one.",
+      ],
+    },
+    {
+      heading: "What SMEs should compare before applying",
+      body: "The risk is not just choosing a high-cost lender. The risk is choosing the wrong structure. A short-term working capital loan may not suit a long-life asset. Asset finance may not solve a payroll timing gap. Invoice finance may not fit if invoices are disputed, consumer-facing or concentrated with one debtor.\n\nBefore applying, compare the funding purpose, timing, documents, security, repayment rhythm and exit plan. The better question is not whether non-bank lending is good or bad. The better question is which funding path fits the business situation.",
+    },
+    {
+      heading: "How Comparison One fits into the shift",
+      body: "Comparison One specialises in helping Australian businesses compare non-bank lender options before applying. The funding-fit check starts with what the business needs the money for, then helps map the situation to possible pathways such as working capital, asset finance, equipment finance, vehicle finance, invoice-backed funding and business loans.\n\nComparison One is not a lender and does not make credit decisions. The goal is to help business owners avoid applying blind and move toward lender options that may suit their business circumstances.",
+    },
+    {
+      heading: "Sources reviewed",
+      body: "This guide references ScotPac SME Growth Index findings on access to finance, non-bank lending intentions and asset-based lending use, plus public commentary on Australian SME finance trends. Last reviewed 26 May 2026.",
+      bullets: ["ScotPac SME Growth Index Round 24, March 2026.", "ScotPac SME Growth Index Round 23, September 2025.", "Productivity Commission research on small business access to finance.", "Public market commentary on SME asset finance, working capital and broker demand trends."],
+    },
+  ],
+  faqs: [
+    { question: "Why are Australian SMEs using non-bank lenders?", answer: "Many SMEs compare non-bank lenders because they need speed, flexible criteria, asset-backed structures, working capital options or specialist products that may match their situation better than a traditional bank process." },
+    { question: "Are non-bank business lenders replacing banks?", answer: "No. Banks can still fit many businesses. The change is that more SMEs now compare non-bank options as part of the normal funding process rather than treating them as a last resort." },
+    { question: "What is asset-based lending?", answer: "Asset-based lending uses business assets, receivables, inventory, equipment, vehicles or similar business value as part of the funding structure. The exact product and criteria depend on the lender." },
+    { question: "Is non-bank finance more expensive than bank finance?", answer: "It can be, especially where speed, unsecured risk or flexible criteria are involved. Compare total cost, fees, repayment frequency and product fit before applying." },
+    { question: "What products does Comparison One help compare?", answer: "Comparison One helps Australian businesses compare funding pathways such as working capital, asset finance, equipment finance, vehicle finance, invoice finance, line of credit and business loans." },
+  ],
+  relatedLinks: [
+    { label: "Compare non-bank business lenders", href: "/compare/non-bank-business-lenders" },
+    { label: "Bank vs non-bank business lenders", href: "/blog/bank-vs-non-bank-business-lenders" },
+    { label: "Working capital finance", href: "/business-loans/working-capital" },
+    { label: "Asset and equipment finance", href: "/business-loans/equipment-finance" },
+    { label: "Vehicle finance", href: "/business-loans/vehicle-finance" },
+    { label: "Start the funding-fit check", href: "/quiz" },
+  ],
+}
+
 const c1_business_loan_faq: C1PageData = {
   type: "blog",
   title: "Business Loan FAQs Australia",
@@ -1328,6 +1416,7 @@ const c1BasePageLookup: Record<string, C1PageData> = {
   "/blog/business-loan-requirements-australia": c1_business_loan_requirements,
   "/blog/how-business-lenders-assess-applications": c1_lender_assessment,
   "/blog/secured-vs-unsecured-business-loans": c1_secured_vs_unsecured,
+  "/blog/rise-of-non-bank-lending-australia": c1_rise_of_non_bank_lending,
   "/business-loans/commercial-fitout": c1_commercial_fitout,
   "/business-loans/line-of-credit": c1_line_of_credit,
   "/business-loans/tax-debt": c1_tax_debt_funding,
@@ -1397,6 +1486,7 @@ const c1BasePages: C1PageData[] = [
   c1_lender_assessment,
   c1_interest_rates_fees,
   c1_secured_vs_unsecured,
+  c1_rise_of_non_bank_lending,
   c1_payday_super_cash_flow_gap,
   c1_funding_path_check_zero_interest_business_loans,
   c1_zero_interest_loan_access_gap,
