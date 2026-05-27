@@ -286,9 +286,6 @@ function ArticleWidgets({
 }) {
 	return (
 		<>
-			<div className="my-10">
-				<FinviewTable title="Key facts" headers={['Field', 'What to know']} rows={keyFacts(page)} />
-			</div>
 			{showRates && (
 				<div className="my-10">
 					<C1RateComparisonWidget
@@ -303,12 +300,6 @@ function ArticleWidgets({
 					/>
 				</div>
 			)}
-			<div className="my-10">
-				<FinviewTable title="Decision guide" headers={['Situation', 'Better starting point', 'Why']} rows={decisionRows(page)} />
-			</div>
-			<div className="my-10">
-				<FinviewTable title="Compare funding options" headers={['Funding path', 'May suit', 'Why compare it', 'Watch-outs']} rows={comparisonRows(page.path)} />
-			</div>
 		</>
 	)
 }
