@@ -86,8 +86,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	if (path === '/quiz' || path === '/funding-fit-check') {
 		return buildC1Metadata({
 			path,
-			title: 'Funding Fit Check | Compare Non-Bank Business Finance | Comparison One',
-			description: 'Start a two-minute Funding Fit Check for Australian SME funding options, including working capital, asset, equipment, vehicle and invoice-backed finance paths.',
+			title: 'Business Funding Fit Check | Compare Non-Bank Business Finance | Comparison One',
+			description: 'Start a two-minute Business Funding Fit Check for Australian SME funding options, including working capital, asset, equipment, vehicle and invoice-backed finance paths.',
 			noIndex: path === '/quiz',
 		})
 	}

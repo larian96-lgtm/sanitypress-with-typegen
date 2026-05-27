@@ -23,7 +23,7 @@ const proofCards = [
 	},
 	{
 		title: 'Credit check control',
-		body: 'The Funding Fit Check starts with amount, timing and business purpose. A lender credit check should only occur if you choose to continue with a lender that requires one.',
+		body: 'The Business Funding Fit Check starts with amount, timing and business purpose. A lender credit check should only occur if you choose to continue with a lender that requires one.',
 	},
 	{
 		title: 'Low-doc context',
@@ -54,7 +54,7 @@ export default function C1QuotePage() {
 				<div className="relative mx-auto grid max-w-4xl gap-5">
 					<div className="text-center text-white md:text-left">
 						<h1 className="text-4xl font-black leading-[0.96] tracking-[-0.04em] md:text-5xl lg:text-6xl">
-							Get your Funding Fit Check in two minutes
+							Get your Business Funding Fit Check in two minutes
 						</h1>
 						<div className="mt-5 grid grid-cols-3 gap-x-4 gap-y-2 text-left text-sm font-bold text-white md:text-base">
 							{heroTicks.map((tick) => (
