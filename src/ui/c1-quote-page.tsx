@@ -9,6 +9,7 @@ const heroTicks = [
 	'No credit pull',
 	'Low-doc',
 	'SSL secure',
+	'Unsecured options',
 ]
 
 const proofCards = [
