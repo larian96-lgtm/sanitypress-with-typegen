@@ -1537,6 +1537,8 @@ const c1BasePageLookup: Record<string, C1PageData> = {
   "/blog/how-business-lenders-assess-applications": c1_lender_assessment,
   "/blog/secured-vs-unsecured-business-loans": c1_secured_vs_unsecured,
   "/blog/rise-of-non-bank-lending-australia": c1_rise_of_non_bank_lending,
+  "/blog/payday-super-changes-sme-funding": c1_payday_super_changes_sme_funding,
+  "/blog/economic-resilience-plan-sme-funding": c1_economic_resilience_plan_sme_funding,
   "/business-loans/commercial-fitout": c1_commercial_fitout,
   "/business-loans/line-of-credit": c1_line_of_credit,
   "/business-loans/tax-debt": c1_tax_debt_funding,
