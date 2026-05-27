@@ -43,7 +43,7 @@ export default function C1QuotePage() {
 	return (
 		<main className="min-h-screen bg-[#F5F6F7] text-[#222E48]">
 			<header className="bg-[#063D32] px-4 py-3">
-				<div className="mx-auto flex max-w-7xl justify-center md:justify-start">
+				<div className="mx-auto flex max-w-7xl justify-center">
 					<Image src="/comparisonone/logo.png?v=7" alt="Comparison One" width={186} height={40} className="h-auto w-[156px] md:w-[178px]" priority />
 				</div>
 			</header>
