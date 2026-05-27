@@ -77,11 +77,17 @@ export function C1FundingWidget({
 	)
 }
 
-export function C1EmbeddedQuoteFrame({ showDirectLink = true, showHeader = true, compact = false }: { showDirectLink?: boolean; showHeader?: boolean; compact?: boolean } = {}) {
+export function C1EmbeddedQuoteFrame({
+	showDirectLink = true,
+	showHeader = true,
+	compact = false,
+	cropIframeTop = 0,
+}: { showDirectLink?: boolean; showHeader?: boolean; compact?: boolean; cropIframeTop?: number } = {}) {
 	const searchParams = useSearchParams()
 	const amount = searchParams.get('amount') ?? ''
 	const iframeUrl = useMemo(() => buildC1QuoteUrl(amount, true), [amount])
 	const directUrl = useMemo(() => buildC1QuoteUrl(amount, false), [amount])
+	const baseIframeHeight = compact ? 690 : 760
 
 	return (
 		<div className={compact ? "overflow-hidden bg-white" : "overflow-hidden rounded-3xl bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]"}>
@@ -100,12 +106,15 @@ export function C1EmbeddedQuoteFrame({ showDirectLink = true, showHeader = true,
 				)}
 				</div>
 			)}
-			<iframe
-				src={iframeUrl}
-				title="Comparison One funding quote application"
-				className="h-[760px] w-full border-0 md:h-[880px]"
-				allow="clipboard-write"
-			/>
+			<div style={cropIframeTop ? { height: `calc(${baseIframeHeight}px - ${cropIframeTop}px)` } : undefined} className={cropIframeTop ? 'overflow-hidden md:h-[calc(780px-84px)]' : undefined}>
+				<iframe
+					src={iframeUrl}
+					title="Comparison One funding quote application"
+					className="w-full border-0"
+					style={{ height: `${baseIframeHeight + cropIframeTop}px`, transform: cropIframeTop ? `translateY(-${cropIframeTop}px)` : undefined }}
+					allow="clipboard-write"
+				/>
+			</div>
 		</div>
 	)
 }

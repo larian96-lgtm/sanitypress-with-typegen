@@ -38,7 +38,7 @@ export default async function Page({ params }: Props) {
 
 	// Check C1 hardcoded pages first
 	const path = slugStr === 'index' ? '/' : `/${slugStr}`
-	if (path === '/quiz') return <C1QuotePage />
+	if (path === '/quiz' || path === '/funding-fit-check') return <C1QuotePage />
 	if (isLegalPath(path)) return <C1LegalPage path={path} />
 	const c1Page = c1PageLookup[path]
 	const cmsPath = getC1CmsLookupPath(path)
@@ -83,12 +83,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 			description: homepage?.seoDescription || C1_HOMEPAGE_SEO_DESCRIPTION,
 		})
 	}
-	if (path === '/quiz') {
+	if (path === '/quiz' || path === '/funding-fit-check') {
 		return buildC1Metadata({
 			path,
-			title: 'Compare Business Finance Options | Comparison One',
-			description: 'Start a Comparison One enquiry for Australian SME business funding options after checking amount, purpose and document readiness.',
-			noIndex: true,
+			title: 'Funding Fit Check | Compare Non-Bank Business Finance | Comparison One',
+			description: 'Start a two-minute Funding Fit Check for Australian SME funding options, including working capital, asset, equipment, vehicle and invoice-backed finance paths.',
+			noIndex: path === '/quiz',
 		})
 	}
 	if (isLegalPath(path)) {
