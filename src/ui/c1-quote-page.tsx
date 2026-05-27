@@ -4,11 +4,11 @@ import Image from 'next/image'
 import { C1EmbeddedQuoteFrame } from '@/ui/c1-funding-widget'
 
 const heroTicks = [
-	'Funding up to $500k',
-	'24-hour approval possible',
-	'No credit pull unless authorised',
-	'Low-doc options may be available',
-	'🔒 SSL secure form',
+	'Up to $500k',
+	'24-hour approval',
+	'No credit pull',
+	'Low-doc',
+	'SSL secure',
 ]
 
 const proofCards = [
@@ -47,18 +47,18 @@ export default function C1QuotePage() {
 				</div>
 			</header>
 
-			<section className="relative overflow-hidden bg-[#063D32] px-3 pb-5 pt-1 sm:px-4 md:pb-8">
+			<section className="relative overflow-hidden bg-[#063D32] px-3 pb-5 pt-3 sm:px-4 md:pb-8">
 				<div className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#FCB650] opacity-20 blur-3xl" />
 				<div className="absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-[#D8F07B] opacity-10 blur-3xl" />
 				<div className="relative mx-auto grid max-w-4xl gap-5">
-					<div className="rounded-[2rem] border border-white/10 bg-white/5 p-5 text-white shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur md:p-8">
+					<div className="text-center text-white md:text-left">
 						<h1 className="text-4xl font-black leading-[0.96] tracking-[-0.04em] md:text-5xl lg:text-6xl">
 							Get your Funding Fit Check in two minutes
 						</h1>
-						<div className="mt-5 grid gap-2">
+						<div className="mt-5 grid grid-cols-3 gap-x-4 gap-y-2 text-left text-sm font-bold text-white md:text-base">
 							{heroTicks.map((tick) => (
-								<div key={tick} className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-[#063D32] shadow-sm">
-									<span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#D8F07B] text-xs">✓</span>
+								<div key={tick} className="flex items-center gap-2">
+									<span className="text-[#D8F07B]">✓</span>
 									<span>{tick}</span>
 								</div>
 							))}
@@ -74,7 +74,7 @@ export default function C1QuotePage() {
 			<section className="px-4 py-8 md:py-12">
 				<div className="mx-auto max-w-7xl">
 					<div className="mb-5 max-w-3xl">
-						<h2 className="text-3xl font-black tracking-[-0.03em] text-[#03211B] md:text-4xl">Trust points before you continue</h2>
+						<h2 className="text-3xl font-black tracking-[-0.03em] text-[#03211B] md:text-4xl">Funding Options Are Changing in 2026</h2>
 					</div>
 					<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 						{proofCards.map((card) => (
