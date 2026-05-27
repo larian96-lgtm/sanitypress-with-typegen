@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { C1PageData, C1Section } from '@/lib/c1-pages'
-import type { C1RateTableData } from '@/lib/c1-rate-table'
+import type { C1RateProductType, C1RateTableData } from '@/lib/c1-rate-table'
 import { buildC1StructuredData } from '@/lib/c1-structured-data'
 import {
 	c1FallbackRateTable,
@@ -237,6 +237,82 @@ function decisionRows(page: C1PageData) {
 	]
 }
 
+
+function ArticleSection({ section }: { section: C1Section }) {
+	return (
+		<section className="border-b border-[#E4ECE8] py-9 last:border-b-0">
+			<h2 className="mb-5 text-3xl font-black leading-tight tracking-[-0.02em] text-[#222E48] md:text-4xl">{section.heading}</h2>
+			<div className="space-y-5 text-lg leading-[1.75] text-[#404A60] md:text-xl md:leading-[1.75]">
+				{(section.body || '').split('\n').filter(Boolean).map((para, j) => (
+					<p key={j}>{para.replace(/^>\s*/, '')}</p>
+				))}
+			</div>
+			{section.table && (
+				<div className="mt-8">
+					<FinviewTable headers={section.table.headers} rows={section.table.rows} />
+				</div>
+			)}
+			{section.bullets && !isComparisonSection(section) && (
+				<ul className="mt-7 space-y-3 border-l-4 border-[#D8F07B] pl-5 text-lg leading-relaxed text-[#404A60]">
+					{section.bullets.map((b) => (
+						<li key={b}><span className="font-black text-[#074C3E]">✓</span> {b.replace(/[.;]$/, '')}</li>
+					))}
+				</ul>
+			)}
+			{section.bullets && isComparisonSection(section) && (() => {
+				const table = parseComparisonTable(section.bullets)
+				return (
+					<div className="mt-8">
+						<FinviewTable headers={table.headers} rows={table.rows} />
+					</div>
+				)
+			})()}
+		</section>
+	)
+}
+
+function ArticleWidgets({
+	page,
+	activeRateTable,
+	showRates,
+	defaultProductTypes,
+	defaultLenderSlug,
+}: {
+	page: C1PageData
+	activeRateTable: C1RateTableData
+	showRates: boolean
+	defaultProductTypes: C1RateProductType[]
+	defaultLenderSlug?: string
+}) {
+	return (
+		<>
+			<div className="my-10">
+				<FinviewTable title="Key facts" headers={['Field', 'What to know']} rows={keyFacts(page)} />
+			</div>
+			{showRates && (
+				<div className="my-10">
+					<C1RateComparisonWidget
+						title={page.rateComparisonTable?.headline || activeRateTable.title}
+						updatedAt={page.rateComparisonTable?.updatedAt || activeRateTable.updatedAt}
+						methodologyNote={page.rateComparisonTable?.methodologyNote || activeRateTable.methodologyNote}
+						showFilters={page.rateComparisonTable?.showFilters ?? true}
+						sortable={page.rateComparisonTable?.sortable ?? true}
+						defaultProductTypes={defaultProductTypes}
+						defaultLenderSlug={defaultLenderSlug}
+						rows={activeRateTable.rows}
+					/>
+				</div>
+			)}
+			<div className="my-10">
+				<FinviewTable title="Decision guide" headers={['Situation', 'Better starting point', 'Why']} rows={decisionRows(page)} />
+			</div>
+			<div className="my-10">
+				<FinviewTable title="Compare funding options" headers={['Funding path', 'May suit', 'Why compare it', 'Watch-outs']} rows={comparisonRows(page.path)} />
+			</div>
+		</>
+	)
+}
+
 function displayHeadline(page: C1PageData) {
 	if (page.path === '/business-loans') return 'Compare business loans in Australia'
 	return page.headline
@@ -282,7 +358,6 @@ export default function C1ContentPage({
 		return productMatch && lenderMatch
 	})
 	const jsonLd = buildC1StructuredData(page, structuredRateRows)
-	const ratesAboveOverview = page.path === '/business-loans'
 	return (
 		<>
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -312,20 +387,6 @@ export default function C1ContentPage({
 						<C1RateSnapshot items={page.rateSnapshot} updatedAt={page.lastReviewed} />
 					</div>
 				)}
-				{showRates && ratesAboveOverview && (
-					<div className="mx-auto mb-10 max-w-7xl px-4">
-						<C1RateComparisonWidget
-							title={page.rateComparisonTable?.headline || activeRateTable.title}
-							updatedAt={page.rateComparisonTable?.updatedAt || activeRateTable.updatedAt}
-							methodologyNote={page.rateComparisonTable?.methodologyNote || activeRateTable.methodologyNote}
-							showFilters={page.rateComparisonTable?.showFilters ?? true}
-							sortable={page.rateComparisonTable?.sortable ?? true}
-							defaultProductTypes={defaultProductTypes}
-							defaultLenderSlug={defaultLenderSlug}
-							rows={activeRateTable.rows}
-						/>
-					</div>
-				)}
 				{shouldShowCalculator(page.path) && (
 					<div className="mx-auto mb-10 max-w-7xl px-4">
 						<C1RepaymentCalculator defaultRate={11.5} />
@@ -333,72 +394,35 @@ export default function C1ContentPage({
 				)}
 				<div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,1fr)_330px]">
 					<article className="min-w-0">
-						<div className="mb-10 rounded-2xl bg-white p-8 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Direct answer</p>
-							<h2 className="mb-4 text-2xl font-bold text-[#222E48]">{page.title}</h2>
-							<p className="text-base leading-relaxed text-[#404A60]">{directAnswer(page)}</p>
-						</div>
-						<div className="mb-10">
-							<FinviewTable title="Key facts" headers={['Field', 'What to know']} rows={keyFacts(page)} />
-						</div>
-						<div className="mb-10 rounded-2xl bg-white p-8 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Overview</p>
-							<p className="text-base leading-relaxed text-[#404A60]">{summary}</p>
-						</div>
-						{showRates && !ratesAboveOverview && (
-							<div className="mb-10">
-								<C1RateComparisonWidget
-									title={page.rateComparisonTable?.headline || activeRateTable.title}
-									updatedAt={page.rateComparisonTable?.updatedAt || activeRateTable.updatedAt}
-									methodologyNote={page.rateComparisonTable?.methodologyNote || activeRateTable.methodologyNote}
-									showFilters={page.rateComparisonTable?.showFilters ?? true}
-									sortable={page.rateComparisonTable?.sortable ?? true}
-									defaultProductTypes={defaultProductTypes}
-									defaultLenderSlug={defaultLenderSlug}
-									rows={activeRateTable.rows}
-								/>
-							</div>
-						)}
-						<div className="mb-10">
-							<FinviewTable title="Decision guide" headers={['Situation', 'Better starting point', 'Why']} rows={decisionRows(page)} />
-						</div>
-						<div className="mb-10">
-							<FinviewTable title="How this page is reviewed" headers={['Field', 'Method']} rows={sourcesRows(page)} />
-						</div>
-						<div className="mb-10">
-							<FinviewTable title="Compare the main funding paths" headers={['Funding path', 'May suit', 'Why compare it', 'Watch-outs']} rows={comparisonRows(page.path)} />
-						</div>
-
-						{contentSections.map((section, i) => (
-							<section key={i} className="mb-10 rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-8">
-								<h2 className="mb-4 text-2xl font-bold text-[#222E48]">{section.heading}</h2>
-								{(section.body || '').split('\n').filter(Boolean).map((para, j) => (
-									<p key={j} className="mb-3 leading-relaxed text-[#404A60]">{para.replace(/^>\s*/, '')}</p>
-								))}
-								{section.table && (
-									<div className="mt-6">
-										<FinviewTable headers={section.table.headers} rows={section.table.rows} />
-									</div>
-								)}
-{section.bullets && !isComparisonSection(section) && (
-									<div className="mt-5 grid gap-3 sm:grid-cols-2">
-										{section.bullets.map((b) => (
-											<div key={b} className="rounded-xl bg-[rgba(7,76,62,0.05)] p-4 text-sm font-medium leading-relaxed text-[#404A60]">
-												<span className="mr-2 font-bold text-[#074C3E]">✓</span>{b.replace(/[.;]$/, '')}
-											</div>
-										))}
-									</div>
-								)}
-				{section.bullets && isComparisonSection(section) && (() => {
-					const table = parseComparisonTable(section.bullets)
-					return (
-						<div className="mt-6">
-							<FinviewTable headers={table.headers} rows={table.rows} />
-						</div>
-					)
-				})()}
+						<div className="rounded-[2rem] bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-10 lg:p-12">
+							<section className="border-b border-[#E4ECE8] pb-9">
+								<h2 className="mb-5 text-3xl font-black leading-tight tracking-[-0.02em] text-[#222E48] md:text-4xl">{page.title}</h2>
+								<div className="space-y-5 text-lg leading-[1.75] text-[#404A60] md:text-xl md:leading-[1.75]">
+									<p>{directAnswer(page)}</p>
+									<p>{summary}</p>
+								</div>
 							</section>
-						))}
+
+							{contentSections.slice(0, 2).map((section, i) => (
+								<ArticleSection key={`${section.heading}-${i}`} section={section} />
+							))}
+
+							<ArticleWidgets
+								page={page}
+								activeRateTable={activeRateTable}
+								showRates={showRates}
+								defaultProductTypes={defaultProductTypes}
+								defaultLenderSlug={defaultLenderSlug}
+							/>
+
+							{contentSections.slice(2).map((section, i) => (
+								<ArticleSection key={`${section.heading}-${i + 2}`} section={section} />
+							))}
+
+							<div className="mt-10 pt-2">
+								<FinviewTable title="How this page is reviewed" headers={['Field', 'Method']} rows={sourcesRows(page)} />
+							</div>
+						</div>
 					</article>
 
 					<aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">

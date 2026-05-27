@@ -81,20 +81,26 @@ export default function ({
 						/>
 					)}
 
-					<div className={cn(css.body, 'prose mx-auto grid w-full max-w-4xl')}>
-						<PortableText
-							value={post.content ?? []}
-							components={{
-								block: headingComponents,
-								types: {
-									image: Image,
-									code: Code,
-									'custom-html': ({ value }) => (
-										<CustomHTML {...value} className="my-6" />
-									),
-								},
-							}}
-						/>
+					<div className="mx-auto w-full max-w-5xl rounded-[2rem] bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-10 lg:p-12">
+						<div className={cn(css.body, 'prose prose-lg mx-auto grid w-full max-w-4xl md:prose-xl')}>
+							<PortableText
+								value={post.content ?? []}
+								components={{
+									block: headingComponents,
+									types: {
+										image: Image,
+										code: Code,
+										'custom-html': ({ value }) => (
+											<CustomHTML {...value} className="my-6" />
+										),
+									},
+								}}
+							/>
+						</div>
+						<div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-[#E4ECE8] bg-[#F5F6F7] p-6 text-sm leading-relaxed text-[#404A60]">
+							<h2 className="mb-3 text-lg font-bold text-[#222E48]">How this article is reviewed</h2>
+							<p>Comparison One articles are reviewed for clarity, source quality, finance-fit logic, current lender context and claims that could imply guaranteed approval. Rates, limits, fees and eligibility can change without notice.</p>
+						</div>
 					</div>
 				</section>
 			</article>
