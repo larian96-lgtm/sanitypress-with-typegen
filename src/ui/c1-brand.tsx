@@ -64,6 +64,14 @@ const navGroups: NavGroup[] = [
 		],
 	},
 	{
+		label: 'Blog',
+		items: [
+			{ label: 'SME Funding Shift', href: '/blog/rise-of-non-bank-lending-australia' },
+			{ label: 'Payday Super Changes', href: '/blog/payday-super-changes-sme-funding' },
+			{ label: 'Economic Resilience Plan', href: '/blog/economic-resilience-plan-sme-funding' },
+		],
+	},
+	{
 		label: 'Guides',
 		items: [
 			{ label: 'Business Loan Requirements', href: '/blog/business-loan-requirements-australia' },
@@ -140,6 +148,14 @@ const footerGroups = [
 			{ label: 'Medical & Allied Health', href: '/business-loans/industry/medical-allied-health' },
 			{ label: 'Manufacturing', href: '/business-loans/industry/manufacturing' },
 			{ label: 'Professional Services', href: '/business-loans/industry/professional-services' },
+		],
+	},
+	{
+		title: 'Blog',
+		links: [
+			{ label: 'SME Funding Shift', href: '/blog/rise-of-non-bank-lending-australia' },
+			{ label: 'Payday Super Changes', href: '/blog/payday-super-changes-sme-funding' },
+			{ label: 'Economic Resilience Plan', href: '/blog/economic-resilience-plan-sme-funding' },
 		],
 	},
 	{
@@ -247,7 +263,7 @@ export function C1Footer() {
 	return (
 		<footer className="bg-[#03211B] py-14">
 			<div className="mx-auto max-w-7xl px-4">
-				<div className="grid gap-9 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+				<div className="grid gap-9 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
 					<div className="xl:col-span-2">
 						<div className="mb-4 inline-flex">
 							<Image src="/comparisonone/logo.png?v=7" alt="Comparison One" width={186} height={40} className="h-auto w-[170px]" />

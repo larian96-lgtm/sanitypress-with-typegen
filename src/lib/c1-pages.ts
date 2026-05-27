@@ -1370,6 +1370,126 @@ const c1_rise_of_non_bank_lending: C1PageData = {
   ],
 }
 
+
+const c1_payday_super_changes_sme_funding: C1PageData = {
+  type: "blog",
+  title: "Payday Super Changes and SME Funding",
+  slug: "payday-super-changes-sme-funding",
+  path: "/blog/payday-super-changes-sme-funding",
+  eyebrow: "SME cash-flow guide",
+  headline: "Payday Super changes: what Australian SMEs should check before funding a cash-flow gap",
+  summary: "Payday Super changes the timing of super payments for Australian employers from 1 July 2026. The contribution itself is not new, but the cash-flow rhythm can change. SMEs that currently rely on a quarterly buffer may need to plan for super to leave the business much closer to payday. This guide explains what to check before using working capital, invoice finance, a line of credit or another funding path to manage the timing shift.",
+  seoTitle: "Payday Super Changes and SME Funding | Comparison One",
+  seoDescription: "Payday Super starts from 1 July 2026. Learn how Australian SMEs can prepare for the cash-flow timing shift and compare funding paths before applying.",
+  primaryCtaLabel: "Start my funding-fit check",
+  primaryCtaHref: "/quiz",
+  lastReviewed: "2026-05-27",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a lender"],
+  sections: [
+    {
+      heading: "The change is about timing",
+      body: "From 1 July 2026, Payday Super is expected to move super guarantee payments closer to the day employees are paid. For employers, the practical issue is cash timing.\n\nUnder the quarterly rhythm, some businesses could hold the super amount in the business until the quarterly payment date. Under Payday Super, that buffer may be much smaller.\n\nThe super obligation is not new. What changes is when cash needs to be ready. That matters for businesses that already manage uneven income, late invoices, supplier payments, payroll, tax timing, stock purchases or seasonal demand."
+    },
+    {
+      heading: "Which SMEs may feel the pressure first",
+      body: "The businesses most exposed are often those where cash arrives after wages go out. That can include transport operators, construction subcontractors, hospitality venues, retail businesses, labour hire, manufacturers and service firms with delayed client payments.\n\nGrowth can also create pressure. Hiring staff may support future revenue, but wages and super need to be funded now. A business can be profitable and still feel tight if the cash arrives after payroll.\n\nBefore applying for finance, identify the cause of the gap. A late invoice problem may point to invoice finance. A repeat timing problem may point to a line of credit. A one-off stock or supplier gap may need working capital. Equipment pressure may point to asset finance instead of a general loan."
+    },
+    {
+      heading: "Funding paths to compare before July 2026",
+      body: "Do not treat Payday Super pressure as one generic loan problem. The right funding path depends on whether the gap is temporary, repeated, invoice-led, seasonal, tax-related or caused by growth.\n\nA working capital loan can help some short-term timing gaps, but fixed repayments may create pressure if revenue is uneven. A line of credit may suit repeated cash-flow swings, but limit fees and discipline matter. Invoice finance may suit B2B businesses waiting on eligible invoices. Equipment finance may be better if the real pressure is an asset purchase rather than payroll timing.",
+      table: { headers: ["Cash-flow issue", "Funding path to compare", "What to check"], rows: [["Late B2B invoices", "Invoice finance", "Debtor quality, advance rate, fees and customer notification"], ["Repeated payroll timing gaps", "Line of credit", "Limit, fees, redraw rules and repayment discipline"], ["Short-term supplier or stock pressure", "Working capital", "Repayment rhythm, total cost and clear use of funds"], ["Equipment or vehicle purchase", "Equipment or vehicle finance", "Asset value, term, balloon payments and security"], ["Tax or BAS pressure", "Tax funding or adviser-led plan", "ATO options, accountant advice and whether debt solves the cause"]] }
+    },
+    {
+      heading: "What to prepare before applying",
+      body: "A stronger finance enquiry starts with evidence. Lenders may want to understand revenue, bank-statement conduct, trading history, payroll rhythm, existing debts and the reason for funding.\n\nFor Payday Super planning, prepare the current payroll cycle, average super amount, invoice timing, upcoming supplier payments and the expected first months of the new payment rhythm. The clearer the timing gap, the easier it is to compare product fit."
+    },
+    {
+      heading: "Comparison One view",
+      body: "The risk is applying for the fastest funding before checking whether the repayment structure fits the payroll cycle. A product that solves one pay run can create another cash-flow squeeze if repayments land at the wrong time.\n\nComparison One helps Australian SMEs start with funding fit: purpose, timing, documents, repayment source, security and lender type. Payday Super planning should start with the cash-flow gap, not the lender name."
+    },
+    {
+      heading: "Sources reviewed",
+      body: "This guide references public ATO and Treasury information on Payday Super and general SME finance assessment considerations. Last reviewed 27 May 2026.",
+      bullets: ["Australian Taxation Office public Payday Super guidance.", "Treasury Payday Super policy material.", "business.gov.au guidance on business finance and cash-flow planning.", "Public lender information on working capital, invoice finance and line of credit products."]
+    },
+  ],
+  faqs: [
+    { question: "Does Payday Super create a new super cost?", answer: "The super guarantee obligation already exists. The issue for many SMEs is timing: payments may need to be made much closer to payday rather than quarterly." },
+    { question: "Should SMEs borrow to cover Payday Super?", answer: "Not automatically. First check whether the pressure is a timing gap, a structural cash-flow issue, late invoices, tax pressure or another problem. Funding should match the cause." },
+    { question: "Which finance product may fit a payroll timing gap?", answer: "It depends on the business. Working capital, line of credit or invoice finance may be relevant in different situations. Compare repayment rhythm and total cost before applying." },
+    { question: "Is Comparison One a lender?", answer: "No. Comparison One is not a lender and does not make credit decisions. It helps Australian SMEs compare funding pathways before applying." },
+  ],
+  relatedLinks: [
+    { label: "Rise of non-bank lending", href: "/blog/rise-of-non-bank-lending-australia" },
+    { label: "Working capital finance", href: "/business-loans/working-capital" },
+    { label: "Invoice finance", href: "/business-loans/invoice-finance" },
+    { label: "Business loan calculator", href: "/business-loan-calculator" },
+    { label: "Check funding readiness", href: "/quiz" },
+  ],
+}
+
+const c1_economic_resilience_plan_sme_funding: C1PageData = {
+  type: "blog",
+  title: "Economic Resilience Plan and SME Funding",
+  slug: "economic-resilience-plan-sme-funding",
+  path: "/blog/economic-resilience-plan-sme-funding",
+  eyebrow: "SME funding policy guide",
+  headline: "Economic Resilience Plan: what SMEs should check before chasing government-backed funding",
+  summary: "The Economic Resilience Program has drawn attention because of its zero-interest loan pathway for eligible businesses in selected supply-chain, manufacturing, logistics and related sectors. The headline is attractive, but the pathway is not a general funding solution for every SME. This guide explains what to check before applying and how to compare other funding paths if the program does not fit.",
+  seoTitle: "Economic Resilience Plan and SME Funding | Comparison One",
+  seoDescription: "Learn how the Economic Resilience Program may affect SME funding choices and what Australian businesses should compare before applying for government-backed or alternative finance.",
+  primaryCtaLabel: "Start my funding-fit check",
+  primaryCtaHref: "/quiz",
+  lastReviewed: "2026-05-27",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a government agency"],
+  sections: [
+    {
+      heading: "What the program is trying to solve",
+      body: "The Economic Resilience Program is aimed at strengthening selected parts of Australia’s productive and supply-chain capacity. It has been discussed in connection with businesses affected by disruption, input costs, logistics pressure and critical sector needs.\n\nFor eligible businesses, the zero-interest pathway may be worth checking. But eligibility, sector fit, documentation, use of funds, repayment capacity and delivery pathway still matter. A government-backed headline does not remove the need for assessment."
+    },
+    {
+      heading: "Why the pathway may be narrower than the headline",
+      body: "Many SMEs hear zero interest and assume the first step is to apply. That can be a mistake if the business is outside the target sectors, needs funding faster than the program pathway can move, lacks required documents or is solving a cash-flow problem that another product handles better.\n\nThe key question is not only whether the program exists. The key question is whether the business fits the program purpose and assessment path."
+    },
+    {
+      heading: "What SMEs should check first",
+      body: "Before applying, check sector fit, funding purpose, documents, urgency, repayment source and whether a bank-administered pathway is realistic. If any of those points are unclear, compare alternatives before spending days on the wrong route.",
+      bullets: ["Is the business in a targeted sector or supply chain?", "Is the use of funds connected to the program purpose?", "Are financials, bank statements, BAS and identity documents ready?", "Can the business evidence repayment capacity?", "Is the timing compatible with a government-backed or bank-administered pathway?", "Would a product such as invoice finance, equipment finance, working capital or a line of credit fit better?"]
+    },
+    {
+      heading: "Alternative funding paths if the program does not fit",
+      body: "Not fitting the Economic Resilience Program does not automatically mean the business is unfundable. It may mean the official route is not the right route.\n\nA logistics business waiting on invoices may need invoice finance. A manufacturer buying machinery may need equipment finance. A retailer facing stock timing pressure may need working capital. A business with repeated cash-flow swings may need a line of credit. A bank-ready business may still compare a traditional bank pathway.",
+      table: { headers: ["Business need", "Possible path", "What to compare"], rows: [["Unpaid B2B invoices", "Invoice finance", "Debtor quality, invoice age, fees and advance rate"], ["Machinery or productive asset", "Equipment finance", "Asset value, term, balloon and security"], ["Supplier, payroll or stock timing", "Working capital", "Repayment rhythm, total cost and use of funds"], ["Repeated seasonal gaps", "Line of credit", "Limit, redraw rules, fees and discipline"], ["Strong docs and time", "Bank pathway", "Rate, security, processing time and criteria"]] }
+    },
+    {
+      heading: "How to avoid the apply-blind trap",
+      body: "The apply-blind trap happens when a business applies to a promising headline before checking whether the path matches the problem. That can waste time, create frustration and leave the owner no clearer about the next move.\n\nStart with the funding problem: what is the money for, when is it needed, what evidence is available, what will repay it and what structure fits the cash-flow cycle. Then compare the official pathway against commercial alternatives."
+    },
+    {
+      heading: "Comparison One view",
+      body: "Comparison One is not a government agency and does not decide eligibility for government programs. The site helps SMEs compare funding pathways before applying. For Economic Resilience Program searches, that means checking whether the official pathway is realistic and what alternatives may fit if it is not."
+    },
+    {
+      heading: "Sources reviewed",
+      body: "This guide references public information about the Economic Resilience Program, National Reconstruction Fund policy material and general SME finance comparison sources. Last reviewed 27 May 2026.",
+      bullets: ["National Reconstruction Fund public program material.", "Australian Government public Economic Resilience Program information.", "business.gov.au guidance on business grants, loans and finance.", "Public lender information on working capital, invoice finance, equipment finance and bank lending pathways."]
+    },
+  ],
+  faqs: [
+    { question: "Is the Economic Resilience Program available to every SME?", answer: "No. Public information indicates the pathway is targeted. Sector fit, purpose, documents and assessment criteria matter." },
+    { question: "Does zero interest mean no repayment risk?", answer: "No. Principal still needs to be repaid and fees, terms or conditions may apply depending on the pathway." },
+    { question: "What if my business does not fit the program?", answer: "Other funding pathways may still be worth comparing, including working capital, invoice finance, equipment finance, line of credit, unsecured business loans or bank funding." },
+    { question: "Is Comparison One a government agency?", answer: "No. Comparison One is not a government agency and does not decide program eligibility." },
+  ],
+  relatedLinks: [
+    { label: "Rise of non-bank lending", href: "/blog/rise-of-non-bank-lending-australia" },
+    { label: "Bank vs non-bank business lenders", href: "/blog/bank-vs-non-bank-business-lenders" },
+    { label: "Equipment finance", href: "/business-loans/equipment-finance" },
+    { label: "Working capital finance", href: "/business-loans/working-capital" },
+    { label: "Check funding readiness", href: "/quiz" },
+  ],
+}
+
 const c1_business_loan_faq: C1PageData = {
   type: "blog",
   title: "Business Loan FAQs Australia",
@@ -1487,6 +1607,8 @@ const c1BasePages: C1PageData[] = [
   c1_interest_rates_fees,
   c1_secured_vs_unsecured,
   c1_rise_of_non_bank_lending,
+  c1_payday_super_changes_sme_funding,
+  c1_economic_resilience_plan_sme_funding,
   c1_payday_super_cash_flow_gap,
   c1_funding_path_check_zero_interest_business_loans,
   c1_zero_interest_loan_access_gap,
