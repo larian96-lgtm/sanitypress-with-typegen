@@ -69,6 +69,11 @@ const navGroups: NavGroup[] = [
 			{ label: 'SME Funding Shift', href: '/blog/rise-of-non-bank-lending-australia' },
 			{ label: 'Payday Super Changes', href: '/blog/payday-super-changes-sme-funding' },
 			{ label: 'Economic Resilience Plan', href: '/blog/economic-resilience-plan-sme-funding' },
+			{ label: 'Bank vs Non-bank Business Lenders', href: '/blog/bank-vs-non-bank-business-lenders' },
+			{ label: 'Business Loan Interest Rates and Fees', href: '/blog/business-loan-interest-rates-and-fees' },
+			{ label: 'Business Loan Requirements', href: '/blog/business-loan-requirements-australia' },
+			{ label: 'How Lenders Assess Applications', href: '/blog/how-business-lenders-assess-applications' },
+			{ label: 'Secured vs Unsecured Business Loans', href: '/blog/secured-vs-unsecured-business-loans' },
 		],
 	},
 	{
@@ -156,6 +161,11 @@ const footerGroups = [
 			{ label: 'SME Funding Shift', href: '/blog/rise-of-non-bank-lending-australia' },
 			{ label: 'Payday Super Changes', href: '/blog/payday-super-changes-sme-funding' },
 			{ label: 'Economic Resilience Plan', href: '/blog/economic-resilience-plan-sme-funding' },
+			{ label: 'Bank vs Non-bank Business Lenders', href: '/blog/bank-vs-non-bank-business-lenders' },
+			{ label: 'Business Loan Interest Rates and Fees', href: '/blog/business-loan-interest-rates-and-fees' },
+			{ label: 'Business Loan Requirements', href: '/blog/business-loan-requirements-australia' },
+			{ label: 'How Lenders Assess Applications', href: '/blog/how-business-lenders-assess-applications' },
+			{ label: 'Secured vs Unsecured Business Loans', href: '/blog/secured-vs-unsecured-business-loans' },
 		],
 	},
 	{
