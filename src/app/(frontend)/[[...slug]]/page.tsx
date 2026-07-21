@@ -4,6 +4,7 @@ import { groq } from 'next-sanity'
 import { notFound } from 'next/navigation'
 import { c1PageLookup, type C1PageData } from '@/lib/c1-pages'
 import { buildC1Metadata, c1OgImageUrl } from '@/lib/c1-seo'
+import { getC1SpecialRoute } from '@/lib/c1-special-route'
 import { c1FallbackRateTable, type C1RateTableData } from '@/lib/c1-rate-table'
 import { ROUTES } from '@/lib/env'
 import { client } from '@/sanity/lib/client'
@@ -20,6 +21,7 @@ import C1ContentPage from '@/ui/c1-content-page'
 import C1Homepage, { type C1HomepageData } from '@/ui/c1-homepage'
 import C1LegalPage from '@/ui/c1-legal-page'
 import C1QuotePage from '@/ui/c1-quote-page'
+import C1MatchingEngine from '@/ui/matching-engine/c1-matching-engine'
 import ModulesResolver from '@/ui/modules'
 
 type Props = {
@@ -38,7 +40,9 @@ export default async function Page({ params }: Props) {
 
 	// Check C1 hardcoded pages first
 	const path = slugStr === 'index' ? '/' : `/${slugStr}`
-	if (path === '/quiz' || path === '/funding-fit-check') return <C1QuotePage />
+	const specialRoute = getC1SpecialRoute(path)
+	if (specialRoute === 'quote') return <C1QuotePage />
+	if (specialRoute === 'matching-engine') return <C1MatchingEngine />
 	if (isLegalPath(path)) return <C1LegalPage path={path} />
 	const c1Page = c1PageLookup[path]
 	const cmsPath = getC1CmsLookupPath(path)
@@ -83,7 +87,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 			description: homepage?.seoDescription || C1_HOMEPAGE_SEO_DESCRIPTION,
 		})
 	}
-	if (path === '/quiz' || path === '/funding-fit-check') {
+	if (
+		path === '/quiz' ||
+		path === '/funding-fit-check' ||
+		path === '/business-loans/matching-engine'
+	) {
 		return buildC1Metadata({
 			path,
 			title: 'Business Funding Fit Check | Compare Non-Bank Business Finance | Comparison One',
@@ -174,6 +182,8 @@ export async function generateStaticParams() {
 			.filter((p) => p !== '/')
 			.map((p) => ({ slug: p.replace(/^\//, '').split('/') })),
 		{ slug: ['quiz'] },
+		{ slug: ['funding-fit-check'] },
+		{ slug: ['business-loans', 'matching-engine'] },
 		{ slug: ['privacy-policy'] },
 		{ slug: ['terms-and-conditions'] },
 		{ slug: ['editorial-policy'] },

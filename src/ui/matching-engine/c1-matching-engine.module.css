@@ -1,0 +1,538 @@
+.pageShell {
+	position: relative;
+	isolation: isolate;
+	min-height: 100svh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 32px 16px 24px;
+	background: #f5f4f5;
+	color: #1d252c;
+	font-family: Inter, Geist, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ambientShape {
+	position: fixed;
+	z-index: -1;
+	right: -18vw;
+	bottom: -30vh;
+	width: 70vw;
+	height: 62vh;
+	border-radius: 50%;
+	background: rgba(111, 79, 212, 0.055);
+	transform: rotate(-8deg);
+	pointer-events: none;
+}
+
+.card {
+	position: relative;
+	width: min(100%, 390px);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	border: 0;
+	border-radius: 12px;
+	box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.08), 0 10px 15px -3px rgba(0, 0, 0, 0.12);
+}
+
+.progressTrack {
+	position: absolute;
+	z-index: 2;
+	inset: 0 0 auto;
+	height: 4px;
+	background: #ecebed;
+}
+
+.progressFill {
+	height: 100%;
+	background: linear-gradient(90deg, #4426dc, #7c2fe4);
+	transition: width 200ms ease;
+}
+
+.cardBody {
+	flex: 1;
+	padding: 28px;
+	transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.transitioning {
+	opacity: 0;
+	transform: translateX(-8px);
+}
+
+.backButton {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	min-height: 32px;
+	margin: -8px 0 12px -6px;
+	padding: 4px 6px;
+	border: 0;
+	background: transparent;
+	color: #636069;
+	font: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.backButton:hover {
+	color: #17151a;
+}
+
+.backButton:focus-visible,
+.choiceCard:focus-visible,
+.nextButton:focus-visible,
+.fieldStack input:focus-visible,
+.amountField input:focus-visible,
+.consentCheck input:focus-visible {
+	outline: 3px solid rgba(100, 71, 215, 0.28);
+	outline-offset: 2px;
+}
+
+.questionHeader {
+	margin: 0 0 24px;
+}
+
+.questionHeader h1 {
+	margin: 0;
+	color: rgba(14, 13, 15, 0.9);
+	font-size: 18px;
+	font-weight: 800;
+	line-height: 22px;
+	letter-spacing: -0.015em;
+}
+
+.questionHeader h1:focus {
+	outline: 0;
+}
+
+.questionHeader p {
+	margin: 8px 0 0;
+	color: #6b6870;
+	font-size: 13px;
+	line-height: 19px;
+}
+
+.choiceGrid {
+	display: grid;
+	gap: 10px;
+}
+
+.columns2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.columns3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.columns4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.choiceCard {
+	position: relative;
+	min-height: 68px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 14px;
+	background: #fcfcfc;
+	border: 1px solid #dcdcdc;
+	border-radius: 10px;
+	color: #1d252c;
+	font: inherit;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 17px;
+	text-align: center;
+	cursor: pointer;
+	transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.choiceCard:hover {
+	border-color: #aaa7af;
+	background: #fff;
+	box-shadow: 0 3px 8px rgba(20, 18, 24, 0.06);
+	transform: translateY(-1px);
+}
+
+.iconGrid .choiceCard {
+	min-height: 112px;
+	flex-direction: column;
+	gap: 12px;
+	padding: 18px 14px;
+}
+
+.iconGrid.columns3 .choiceCard {
+	min-height: 108px;
+	padding: 16px 10px;
+}
+
+.choiceIcon {
+	width: 26px;
+	height: 26px;
+	flex: none;
+	stroke-width: 1.65;
+	color: #111215;
+}
+
+.selectedChoice {
+	border-color: #6447d7;
+	background: #f7f5ff;
+	box-shadow: 0 0 0 1px #6447d7;
+}
+
+.selectionCheck {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 15px;
+	height: 15px;
+	padding: 2px;
+	border-radius: 50%;
+	background: #6447d7;
+	color: #fff;
+	stroke-width: 3;
+}
+
+.stateGrid .choiceCard {
+	min-height: 82px;
+	flex-direction: column;
+	gap: 6px;
+	padding: 12px 6px;
+}
+
+.stateGrid .choiceCard > span:last-of-type {
+	font-size: 12px;
+}
+
+.stateSilhouette {
+	width: 34px;
+	height: 34px;
+	fill: #17181b;
+}
+
+.amountField {
+	padding-top: 12px;
+}
+
+.amountField label,
+.fieldStack label > span {
+	display: block;
+	margin: 0 0 7px;
+	color: #4e4b53;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.amountField input,
+.fieldStack input {
+	width: 100%;
+	height: 50px;
+	padding: 0 14px;
+	border: 1px solid #cbc9cf;
+	border-radius: 8px;
+	background: #fff;
+	color: #17151a;
+	font: inherit;
+	font-size: 16px;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.amountField input {
+	height: 66px;
+	font-size: 28px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.amountField input::placeholder,
+.fieldStack input::placeholder {
+	color: #aaa7ad;
+}
+
+.amountField input:hover,
+.fieldStack input:hover {
+	border-color: #98959d;
+}
+
+.amountField input:focus,
+.fieldStack input:focus {
+	border-color: #6447d7;
+	box-shadow: 0 0 0 3px rgba(100, 71, 215, 0.11);
+	outline: 0;
+}
+
+.amountField input[aria-invalid="true"],
+.fieldStack input[aria-invalid="true"] {
+	border-color: #b52626;
+}
+
+.fieldStack {
+	display: grid;
+	gap: 17px;
+}
+
+.splitFields {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.fieldError,
+.submitError {
+	margin: 6px 0 0;
+	color: #a42121;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.consentPanel {
+	display: grid;
+	gap: 18px;
+}
+
+.summaryRows {
+	overflow: hidden;
+	border: 1px solid #e0dee3;
+	border-radius: 10px;
+	background: #fafafa;
+}
+
+.summaryRows > div {
+	display: grid;
+	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+	gap: 12px;
+	padding: 12px 14px;
+	border-bottom: 1px solid #e9e7eb;
+	font-size: 12px;
+	line-height: 17px;
+}
+
+.summaryRows > div:last-child {
+	border-bottom: 0;
+}
+
+.summaryRows span {
+	color: #77737c;
+}
+
+.summaryRows strong {
+	overflow-wrap: anywhere;
+	color: #211f24;
+	font-weight: 700;
+}
+
+.consentCheck {
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	gap: 11px;
+	align-items: start;
+	color: #55515a;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.consentCheck input {
+	width: 20px;
+	height: 20px;
+	margin: 1px 0 0;
+	accent-color: #6447d7;
+}
+
+.cardFooter {
+	padding: 14px 28px 22px;
+	border-top: 1px solid #f0eff1;
+	background: #fff;
+}
+
+.nextButton {
+	width: 100%;
+	min-height: 48px;
+	padding: 0 18px;
+	border: 0;
+	border-radius: 999px;
+	background: linear-gradient(90deg, #3c12e8, #7c15e8);
+	color: #fff;
+	font: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 150ms ease, transform 150ms ease, opacity 150ms ease;
+}
+
+.nextButton:hover:not(:disabled) {
+	background: linear-gradient(90deg, #3210c8, #6811cc);
+	transform: translateY(-1px);
+}
+
+.nextButton:active:not(:disabled) {
+	transform: translateY(0);
+}
+
+.nextButton:disabled {
+	background: #e8e7e8;
+	color: #bbb9bd;
+	cursor: not-allowed;
+}
+
+.autoAdvanceText {
+	display: block;
+	margin-top: 9px;
+	color: #8a878e;
+	font-size: 11px;
+	line-height: 14px;
+	text-align: center;
+}
+
+.trustLine {
+	width: min(100%, 390px);
+	display: flex;
+	justify-content: center;
+	gap: 18px;
+	margin-top: 14px;
+	color: #77747b;
+	font-size: 11px;
+	line-height: 16px;
+}
+
+.trustLine span {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.trustLine svg {
+	width: 13px;
+	height: 13px;
+}
+
+.stepCount {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.successCard {
+	min-height: 410px;
+	align-items: center;
+	justify-content: center;
+	padding: 44px 38px;
+	text-align: center;
+}
+
+.successCard h1 {
+	margin: 20px 0 10px;
+	color: #17151a;
+	font-size: 25px;
+	line-height: 31px;
+}
+
+.successCard p {
+	margin: 0;
+	color: #68656d;
+	font-size: 14px;
+	line-height: 21px;
+}
+
+.successCard .disclaimer {
+	margin-top: 18px;
+	font-size: 11px;
+}
+
+.successIcon {
+	display: grid;
+	place-items: center;
+	width: 54px;
+	height: 54px;
+	border-radius: 50%;
+	background: #f0ecff;
+	color: #6447d7;
+}
+
+.successIcon svg {
+	width: 28px;
+	height: 28px;
+	stroke-width: 2.5;
+}
+
+@media (max-width: 480px) {
+	.pageShell {
+		justify-content: flex-start;
+		padding: 16px;
+	}
+
+	.card {
+		border-radius: 14px;
+	}
+
+	.cardBody {
+		padding: 25px 23px;
+	}
+
+	.questionHeader {
+		margin-bottom: 20px;
+	}
+
+	.questionHeader h1 {
+		font-size: 18px;
+		line-height: 23px;
+	}
+
+	.choiceGrid {
+		gap: 9px;
+	}
+
+	.iconGrid.columns3 .choiceCard {
+		min-height: 96px;
+		gap: 9px;
+		padding: 13px 8px;
+		font-size: 11px;
+		line-height: 14px;
+	}
+
+	.choiceIcon {
+		width: 24px;
+		height: 24px;
+	}
+
+	.columns4 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.stateGrid .choiceCard {
+		min-height: 78px;
+	}
+
+	.cardFooter {
+		padding: 14px 23px 22px;
+	}
+
+	.splitFields {
+		grid-template-columns: 1fr;
+	}
+
+	.trustLine {
+		flex-wrap: wrap;
+		gap: 3px 14px;
+		margin-top: 10px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.progressFill,
+	.cardBody,
+	.choiceCard,
+	.nextButton {
+		transition: none;
+	}
+}
