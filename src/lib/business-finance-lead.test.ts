@@ -6,19 +6,13 @@ import { validateLeadPayload } from './business-finance-lead'
 const validPayload = {
 	answers: {
 		purpose: 'cashflow',
-		timing: 'within_week',
 		amount: '75000',
-		loan_term: 'three_years',
-		trading_history: 'two_plus_years',
 		monthly_revenue: '50000_100000',
+		trading_history: 'two_plus_years',
 		living_situation: 'homeowner',
-		gst_registered: 'yes',
 		tax_debt: 'no',
 		state: 'NSW',
-		business_name: 'Example Plumbing Pty Ltd',
-		abn: '51824753556',
-		first_name: 'Sam',
-		last_name: 'Taylor',
+		full_name: 'Sam Taylor',
 		email: 'sam@example.com',
 		phone: '0412345678',
 		consent: 'yes',
@@ -34,6 +28,46 @@ describe('business finance lead validation', () => {
 		const result = validateLeadPayload(validPayload)
 		assert.equal(result.ok, true)
 		if (result.ok) assert.equal(result.value.answers.amount, '75000')
+	})
+
+	test('removes obsolete fact-find fields from the broker payload', () => {
+		const result = validateLeadPayload({
+			...validPayload,
+			answers: {
+				...validPayload.answers,
+				abn: '51824753556',
+				business_name: 'Legacy Business',
+				loan_term: 'three_to_five_years',
+				gst_registered: 'yes',
+			},
+		})
+
+		assert.equal(result.ok, true)
+		if (result.ok) {
+			assert.equal(result.value.answers.abn, undefined)
+			assert.equal(result.value.answers.business_name, undefined)
+			assert.equal(result.value.answers.loan_term, undefined)
+			assert.equal(result.value.answers.gst_registered, undefined)
+		}
+	})
+
+	test('accepts a vehicle lead with only the vehicle type added', () => {
+		const result = validateLeadPayload({
+			...validPayload,
+			answers: { ...validPayload.answers, purpose: 'new_vehicle', vehicle_type: 'ute_or_van' },
+		})
+
+		assert.equal(result.ok, true)
+	})
+
+	test('rejects a vehicle lead without a vehicle type', () => {
+		const result = validateLeadPayload({
+			...validPayload,
+			answers: { ...validPayload.answers, purpose: 'new_vehicle' },
+		})
+
+		assert.equal(result.ok, false)
+		if (!result.ok) assert.equal(result.errors.vehicle_type, 'Select a vehicle type')
 	})
 
 	test('rejects missing consent and malformed contact details', () => {

@@ -28,36 +28,48 @@ const PURPOSES = new Set([
 	'stock',
 	'property',
 	'fitout',
-	'tax_debt',
 	'buy_business',
 	'start_business',
 	'other',
 ])
 
-const REQUIRED_FIELDS = [
+const ANSWER_FIELDS = new Set([
 	'purpose',
-	'timing',
+	'vehicle_type',
+	'equipment_type',
 	'amount',
-	'loan_term',
-	'trading_history',
 	'monthly_revenue',
+	'trading_history',
 	'living_situation',
-	'gst_registered',
 	'tax_debt',
 	'state',
-	'business_name',
-	'abn',
-	'first_name',
-	'last_name',
+	'full_name',
+	'email',
+	'phone',
+	'consent',
+])
+
+const REQUIRED_FIELDS = [
+	'purpose',
+	'amount',
+	'monthly_revenue',
+	'trading_history',
+	'living_situation',
+	'tax_debt',
+	'state',
+	'full_name',
 	'email',
 	'phone',
 ] as const
 
-function stringRecord(value: unknown): Record<string, string> {
+function stringRecord(value: unknown, allowedFields?: Set<string>): Record<string, string> {
 	if (!value || typeof value !== 'object' || Array.isArray(value)) return {}
 	return Object.fromEntries(
 		Object.entries(value)
-			.filter((entry): entry is [string, string] => typeof entry[1] === 'string')
+			.filter(
+				(entry): entry is [string, string] =>
+					typeof entry[1] === 'string' && (!allowedFields || allowedFields.has(entry[0])),
+			)
 			.map(([key, entryValue]) => [key, entryValue.trim().slice(0, 500)]),
 	)
 }
@@ -68,7 +80,7 @@ export function validateLeadPayload(payload: unknown): ValidationResult {
 	}
 
 	const source = payload as Record<string, unknown>
-	const answers = stringRecord(source.answers)
+	const answers = stringRecord(source.answers, ANSWER_FIELDS)
 	const attribution = stringRecord(source.attribution) as LeadAttribution
 	const errors: Record<string, string> = {}
 
@@ -94,33 +106,16 @@ export function validateLeadPayload(payload: unknown): ValidationResult {
 		errors.phone = 'Enter a valid Australian phone number'
 	}
 
-	if (answers.abn && !/^\d{11}$/.test(answers.abn.replace(/\s/g, ''))) {
-		errors.abn = 'Enter an 11-digit ABN'
-	}
-
 	if (answers.consent !== 'yes') {
 		errors.consent = 'Consent is required'
 	}
 
-	if (answers.tax_debt === 'yes' && !answers.tax_debt_amount) {
-		errors.tax_debt_amount = 'Enter the approximate tax debt amount'
+	if (answers.purpose === 'new_vehicle' && !answers.vehicle_type) {
+		errors.vehicle_type = 'Select a vehicle type'
 	}
 
-	if (answers.purpose === 'new_vehicle') {
-		if (!answers.vehicle_type) errors.vehicle_type = 'Select a vehicle type'
-		if (!answers.vehicle_found) errors.vehicle_found = 'Select an option'
-	}
-
-	if (answers.purpose === 'new_equipment') {
-		if (!answers.equipment_type) errors.equipment_type = 'Select an equipment type'
-		if (!answers.equipment_found) errors.equipment_found = 'Select an option'
-	}
-
-	if (
-		(answers.vehicle_found === 'yes' || answers.equipment_found === 'yes') &&
-		!answers.asset_purchase_source
-	) {
-		errors.asset_purchase_source = 'Select a purchase source'
+	if (answers.purpose === 'new_equipment' && !answers.equipment_type) {
+		errors.equipment_type = 'Select an equipment type'
 	}
 
 	if (Object.keys(errors).length > 0) return { ok: false, errors }

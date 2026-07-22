@@ -2,64 +2,33 @@ export type MatchingAnswers = Record<string, string>
 
 export type StepId =
 	| 'purpose'
-	| 'timing'
 	| 'vehicle_type'
-	| 'vehicle_found'
 	| 'equipment_type'
-	| 'equipment_found'
-	| 'asset_purchase_source'
-	| 'finance_full_purchase'
 	| 'amount'
-	| 'loan_term'
-	| 'trading_history'
 	| 'monthly_revenue'
+	| 'trading_history'
 	| 'living_situation'
-	| 'gst_registered'
 	| 'tax_debt'
-	| 'tax_debt_amount'
 	| 'state'
-	| 'business_details'
 	| 'contact'
-	| 'consent'
 
 const COMMON_FINAL_STEPS: StepId[] = [
 	'amount',
-	'loan_term',
-	'trading_history',
 	'monthly_revenue',
+	'trading_history',
 	'living_situation',
-	'gst_registered',
 	'tax_debt',
 	'state',
-	'business_details',
 	'contact',
-	'consent',
 ]
 
 export function buildJourney(answers: MatchingAnswers): StepId[] {
-	const journey: StepId[] = ['purpose', 'timing']
+	const journey: StepId[] = ['purpose']
 
-	if (answers.purpose === 'new_vehicle') {
-		journey.push('vehicle_type', 'vehicle_found')
-		if (answers.vehicle_found === 'yes') {
-			journey.push('asset_purchase_source', 'finance_full_purchase')
-		}
-	}
-
-	if (answers.purpose === 'new_equipment') {
-		journey.push('equipment_type', 'equipment_found')
-		if (answers.equipment_found === 'yes') {
-			journey.push('asset_purchase_source', 'finance_full_purchase')
-		}
-	}
+	if (answers.purpose === 'new_vehicle') journey.push('vehicle_type')
+	if (answers.purpose === 'new_equipment') journey.push('equipment_type')
 
 	journey.push(...COMMON_FINAL_STEPS)
-
-	if (answers.tax_debt === 'yes') {
-		const stateIndex = journey.indexOf('state')
-		journey.splice(stateIndex, 0, 'tax_debt_amount')
-	}
-
 	return journey
 }
 

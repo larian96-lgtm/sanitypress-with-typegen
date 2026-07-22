@@ -1,12 +1,8 @@
 import type { IconType } from 'react-icons'
 import {
-	LuBadgeDollarSign,
-	LuBanknote,
 	LuBuilding2,
-	LuCalendarDays,
 	LuCarFront,
 	LuCircleCheck,
-	LuClock3,
 	LuCoins,
 	LuHammer,
 	LuHouse,
@@ -20,7 +16,6 @@ import {
 	LuTractor,
 	LuTruck,
 	LuUtensils,
-	LuWalletCards,
 } from 'react-icons/lu'
 
 import type { StepId } from './model'
@@ -55,15 +50,6 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 			{ value: 'other', label: 'Other', icon: LuCircleCheck },
 		],
 	},
-	timing: {
-		title: 'When do you need the funding?',
-		columns: 3,
-		options: [
-			{ value: 'immediately', label: 'Immediately', icon: LuClock3 },
-			{ value: 'within_week', label: 'Within a week', icon: LuCalendarDays },
-			{ value: 'within_month', label: 'Within a month', icon: LuCalendarDays },
-		],
-	},
 	vehicle_type: {
 		title: 'What type of vehicle are you looking for?',
 		columns: 2,
@@ -73,14 +59,6 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 			{ value: 'truck', label: 'Truck', icon: LuTruck },
 			{ value: 'trailer', label: 'Trailer', icon: LuTractor },
 			{ value: 'other', label: 'Other vehicle', icon: LuCircleCheck },
-		],
-	},
-	vehicle_found: {
-		title: 'Have you found the vehicle you want to buy?',
-		columns: 2,
-		options: [
-			{ value: 'yes', label: 'Yes', icon: LuCircleCheck },
-			{ value: 'no', label: 'Not yet', icon: LuClock3 },
 		],
 	},
 	equipment_type: {
@@ -94,47 +72,13 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 			{ value: 'other', label: 'Other equipment', icon: LuHammer },
 		],
 	},
-	equipment_found: {
-		title: 'Have you found the equipment you want to buy?',
-		columns: 2,
-		options: [
-			{ value: 'yes', label: 'Yes', icon: LuCircleCheck },
-			{ value: 'no', label: 'Not yet', icon: LuClock3 },
-		],
-	},
-	asset_purchase_source: {
-		title: 'Where are you planning to buy it?',
-		columns: 2,
-		options: [
-			{ value: 'dealer', label: 'Dealer or supplier', icon: LuStore },
-			{ value: 'private', label: 'Private seller', icon: LuHouse },
-			{ value: 'auction', label: 'Auction', icon: LuHammer },
-			{ value: 'other', label: 'Somewhere else', icon: LuCircleCheck },
-		],
-	},
-	finance_full_purchase: {
-		title: 'How much of the purchase would you like to finance?',
-		columns: 2,
-		options: [
-			{ value: 'full', label: 'The full amount', icon: LuBanknote },
-			{ value: 'deposit', label: 'I have a deposit', icon: LuWalletCards },
-		],
-	},
-	loan_term: {
-		title: 'How long would you like the finance for?',
-		columns: 2,
-		options: [
-			{ value: 'under_year', label: 'Under 12 months' },
-			{ value: 'one_to_three_years', label: '1–3 years' },
-			{ value: 'three_to_five_years', label: '3–5 years' },
-			{ value: 'not_sure', label: 'Not sure' },
-		],
-	},
 	trading_history: {
 		title: 'How long has the business been trading?',
 		columns: 3,
 		options: [
-			{ value: 'under_year', label: 'Under 1 year' },
+			{ value: 'not_trading', label: 'Not trading yet' },
+			{ value: 'under_six_months', label: 'Under 6 months' },
+			{ value: 'six_to_twelve_months', label: '6–12 months' },
 			{ value: 'one_to_two_years', label: '1–2 years' },
 			{ value: 'two_plus_years', label: 'Over 2 years' },
 		],
@@ -143,6 +87,7 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 		title: 'What is the business’s average monthly revenue?',
 		columns: 2,
 		options: [
+			{ value: 'pre_revenue', label: 'Not trading yet / pre-revenue' },
 			{ value: 'under_10000', label: 'Under $10,000' },
 			{ value: '10000_25000', label: '$10,000–$25,000' },
 			{ value: '25000_50000', label: '$25,000–$50,000' },
@@ -158,14 +103,6 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 			{ value: 'homeowner', label: 'Homeowner', icon: LuHouse },
 			{ value: 'renting', label: 'Renting', icon: LuBuilding2 },
 			{ value: 'other', label: 'Other', icon: LuMapPin },
-		],
-	},
-	gst_registered: {
-		title: 'Is the business registered for GST?',
-		columns: 2,
-		options: [
-			{ value: 'yes', label: 'Yes' },
-			{ value: 'no', label: 'No' },
 		],
 	},
 	tax_debt: {
@@ -198,19 +135,8 @@ export const fieldQuestionTitles: Partial<Record<StepId, { title: string; helper
 		title: 'How much would you like to borrow?',
 		helper: 'Enter the amount you actually need.',
 	},
-	tax_debt_amount: {
-		title: 'Approximately how much tax debt is outstanding?',
-	},
-	business_details: {
-		title: 'Tell us about the business',
-		helper: 'We use these details to identify relevant funding pathways.',
-	},
 	contact: {
 		title: 'Where should we send your options?',
 		helper: 'Your details are handled securely and are not shown publicly.',
-	},
-	consent: {
-		title: 'Check your details and continue',
-		helper: 'Comparison One is a comparison and referral service, not a lender.',
 	},
 }

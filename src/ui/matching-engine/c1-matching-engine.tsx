@@ -19,8 +19,8 @@ import { choiceQuestions, fieldQuestionTitles } from './questions'
 const STORAGE_KEY = 'comparison-one-matching-engine'
 
 const answerKeysByPurpose = {
-	new_vehicle: ['vehicle_type', 'vehicle_found'],
-	new_equipment: ['equipment_type', 'equipment_found'],
+	new_vehicle: ['vehicle_type'],
+	new_equipment: ['equipment_type'],
 } as const
 
 function formatCurrency(value = '') {
@@ -40,16 +40,7 @@ function cleanAnswersForSelection(
 		for (const fields of Object.values(answerKeysByPurpose)) {
 			for (const field of fields) delete next[field]
 		}
-		delete next.asset_purchase_source
-		delete next.finance_full_purchase
 	}
-
-	if ((currentStepId === 'vehicle_found' || currentStepId === 'equipment_found') && value === 'no') {
-		delete next.asset_purchase_source
-		delete next.finance_full_purchase
-	}
-
-	if (currentStepId === 'tax_debt' && value === 'no') delete next.tax_debt_amount
 
 	return next
 }
@@ -147,22 +138,14 @@ export default function C1MatchingEngine() {
 	function validateCurrentStep() {
 		const nextErrors: Record<string, string> = {}
 
-		if (currentStepId === 'amount' || currentStepId === 'tax_debt_amount') {
-			if (!answers[currentStepId] || Number(answers[currentStepId]) <= 0) {
-				nextErrors[currentStepId] = 'Enter an amount greater than $0'
-			}
-		}
-
-		if (currentStepId === 'business_details') {
-			if (!answers.business_name?.trim()) nextErrors.business_name = 'Enter the registered business name'
-			if (!/^\d{11}$/.test(answers.abn?.replace(/\s/g, '') ?? '')) {
-				nextErrors.abn = 'Enter an 11-digit ABN'
+		if (currentStepId === 'amount') {
+			if (!answers.amount || Number(answers.amount) <= 0) {
+				nextErrors.amount = 'Enter an amount greater than $0'
 			}
 		}
 
 		if (currentStepId === 'contact') {
-			if (!answers.first_name?.trim()) nextErrors.first_name = 'Enter your first name'
-			if (!answers.last_name?.trim()) nextErrors.last_name = 'Enter your last name'
+			if (!answers.full_name?.trim()) nextErrors.full_name = 'Enter your full name'
 			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(answers.email ?? '')) {
 				nextErrors.email = 'Enter a valid email address'
 			}
@@ -170,10 +153,7 @@ export default function C1MatchingEngine() {
 			if (!/^(?:\+?61|0)[2-478]\d{8}$/.test(normalizedPhone)) {
 				nextErrors.phone = 'Enter a valid Australian phone number'
 			}
-		}
-
-		if (currentStepId === 'consent' && answers.consent !== 'yes') {
-			nextErrors.consent = 'Confirm your consent to continue'
+			if (answers.consent !== 'yes') nextErrors.consent = 'Confirm your consent to continue'
 		}
 
 		setErrors(nextErrors)
@@ -266,51 +246,21 @@ export default function C1MatchingEngine() {
 	}
 
 	function renderFieldQuestion() {
-		if (currentStepId === 'amount' || currentStepId === 'tax_debt_amount') {
+		if (currentStepId === 'amount') {
 			return (
 				<div className={styles.amountField}>
-					<label htmlFor={currentStepId}>Amount</label>
+					<label htmlFor="amount">Amount</label>
 					<input
-						id={currentStepId}
+						id="amount"
 						autoFocus
 						inputMode="numeric"
 						autoComplete="off"
-						value={formatCurrency(answers[currentStepId])}
-						onChange={(event) => updateAnswer(currentStepId, event.target.value.replace(/\D/g, ''))}
+						value={formatCurrency(answers.amount)}
+						onChange={(event) => updateAnswer('amount', event.target.value.replace(/\D/g, ''))}
 						placeholder="$50,000"
-						aria-invalid={Boolean(errors[currentStepId])}
+						aria-invalid={Boolean(errors.amount)}
 					/>
-					<FieldError message={errors[currentStepId]} />
-				</div>
-			)
-		}
-
-		if (currentStepId === 'business_details') {
-			return (
-				<div className={styles.fieldStack}>
-					<label>
-						<span>Registered business name</span>
-						<input
-							autoFocus
-							autoComplete="organization"
-							value={answers.business_name ?? ''}
-							onChange={(event) => updateAnswer('business_name', event.target.value)}
-							aria-invalid={Boolean(errors.business_name)}
-						/>
-						<FieldError message={errors.business_name} />
-					</label>
-					<label>
-						<span>ABN</span>
-						<input
-							inputMode="numeric"
-							autoComplete="off"
-							value={answers.abn ?? ''}
-							onChange={(event) => updateAnswer('abn', event.target.value.replace(/[^\d\s]/g, ''))}
-							placeholder="11 digits"
-							aria-invalid={Boolean(errors.abn)}
-						/>
-						<FieldError message={errors.abn} />
-					</label>
+					<FieldError message={errors.amount} />
 				</div>
 			)
 		}
@@ -318,29 +268,17 @@ export default function C1MatchingEngine() {
 		if (currentStepId === 'contact') {
 			return (
 				<div className={styles.fieldStack}>
-					<div className={styles.splitFields}>
-						<label>
-							<span>First name</span>
-							<input
-								autoFocus
-								autoComplete="given-name"
-								value={answers.first_name ?? ''}
-								onChange={(event) => updateAnswer('first_name', event.target.value)}
-								aria-invalid={Boolean(errors.first_name)}
-							/>
-							<FieldError message={errors.first_name} />
-						</label>
-						<label>
-							<span>Last name</span>
-							<input
-								autoComplete="family-name"
-								value={answers.last_name ?? ''}
-								onChange={(event) => updateAnswer('last_name', event.target.value)}
-								aria-invalid={Boolean(errors.last_name)}
-							/>
-							<FieldError message={errors.last_name} />
-						</label>
-					</div>
+					<label>
+						<span>Full name</span>
+						<input
+							autoFocus
+							autoComplete="name"
+							value={answers.full_name ?? ''}
+							onChange={(event) => updateAnswer('full_name', event.target.value)}
+							aria-invalid={Boolean(errors.full_name)}
+						/>
+						<FieldError message={errors.full_name} />
+					</label>
 					<label>
 						<span>Email address</span>
 						<input
@@ -364,31 +302,21 @@ export default function C1MatchingEngine() {
 						/>
 						<FieldError message={errors.phone} />
 					</label>
-				</div>
-			)
-		}
-
-		if (currentStepId === 'consent') {
-			return (
-				<div className={styles.consentPanel}>
-					<div className={styles.summaryRows}>
-						<div><span>Funding amount</span><strong>{formatCurrency(answers.amount)}</strong></div>
-						<div><span>Business</span><strong>{answers.business_name}</strong></div>
-						<div><span>Contact</span><strong>{answers.email}</strong></div>
+					<div className={styles.consentPanel}>
+						<label className={styles.consentCheck}>
+							<input
+								type="checkbox"
+								checked={answers.consent === 'yes'}
+								onChange={(event) => updateAnswer('consent', event.target.checked ? 'yes' : 'no')}
+							/>
+							<span>
+								I agree that Comparison One may use these details to identify and contact me about relevant
+								business-finance options. Approval is not guaranteed.
+							</span>
+						</label>
+						<FieldError message={errors.consent} />
+						{submitState === 'error' ? <p className={styles.submitError}>{submitMessage}</p> : null}
 					</div>
-					<label className={styles.consentCheck}>
-						<input
-							type="checkbox"
-							checked={answers.consent === 'yes'}
-							onChange={(event) => updateAnswer('consent', event.target.checked ? 'yes' : 'no')}
-						/>
-						<span>
-							I agree that Comparison One may use these details to identify and contact me about relevant
-							business-finance options. Approval is not guaranteed.
-						</span>
-					</label>
-					<FieldError message={errors.consent} />
-					{submitState === 'error' ? <p className={styles.submitError}>{submitMessage}</p> : null}
 				</div>
 			)
 		}
@@ -449,7 +377,7 @@ export default function C1MatchingEngine() {
 					>
 						{submitState === 'sending'
 							? 'Sending securely…'
-							: currentStepId === 'consent'
+							: currentStepId === 'contact'
 								? 'See my options'
 								: 'Next'}
 					</button>
