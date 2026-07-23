@@ -1,10 +1,15 @@
 import { NextResponse } from 'next/server'
 
 import { validateLeadPayload } from '@/lib/business-finance-lead'
+import { submitMoneyBusinessAutoLead } from '@/lib/money-business-auto'
 
 export const runtime = 'nodejs'
 
 const MAX_BODY_BYTES = 64 * 1024
+
+function isMoneyApiConfigured() {
+	return Boolean(process.env.MONEY_API_CLIENT_ID?.trim() && process.env.MONEY_API_CLIENT_SECRET?.trim())
+}
 
 function isLeadWebhookConfigured() {
 	return Boolean(process.env.BUSINESS_FINANCE_LEAD_WEBHOOK_URL?.trim())
@@ -31,16 +36,17 @@ export async function POST(request: Request) {
 		)
 	}
 
+	const moneyApiConfigured = isMoneyApiConfigured()
 	const leadWebhookConfigured = isLeadWebhookConfigured()
 	const isProduction = process.env.NODE_ENV === 'production'
-	if (isProduction && !leadWebhookConfigured) {
+	if (isProduction && (!moneyApiConfigured || !leadWebhookConfigured)) {
 		return NextResponse.json(
 			{ ok: false, message: 'Secure lead delivery has not been activated yet.' },
 			{ status: 503 },
 		)
 	}
 
-	if (!leadWebhookConfigured) {
+	if (!moneyApiConfigured || !leadWebhookConfigured) {
 		return NextResponse.json({ ok: true, mode: 'preview' })
 	}
 
@@ -54,7 +60,11 @@ export async function POST(request: Request) {
 	const lastName = nameParts.join(' ')
 
 	try {
-		const webhookResponse = await fetch(process.env.BUSINESS_FINANCE_LEAD_WEBHOOK_URL!.trim(), {
+		const moneyDelivery = submitMoneyBusinessAutoLead(answers, idempotencyKey).then(({ status }) => ({
+			destination: 'money-business-auto',
+			status,
+		}))
+		const webhookDelivery = fetch(process.env.BUSINESS_FINANCE_LEAD_WEBHOOK_URL!.trim(), {
 			method: 'POST',
 			cache: 'no-store',
 			redirect: 'error',
@@ -95,11 +105,12 @@ export async function POST(request: Request) {
 				fbclid: attribution.fbclid || null,
 			}),
 			signal: AbortSignal.timeout(10_000),
+		}).then((webhookResponse) => {
+			if (!webhookResponse.ok) throw new Error(`Integrately webhook returned ${webhookResponse.status}`)
+			return { destination: 'integrately-webhook', status: webhookResponse.status }
 		})
 
-		if (!webhookResponse.ok) throw new Error(`Integrately webhook returned ${webhookResponse.status}`)
-
-		const deliveryResults = [{ destination: 'integrately-webhook', status: webhookResponse.status }]
+		const deliveryResults = await Promise.all([moneyDelivery, webhookDelivery])
 		console.info('[business-finance-lead] delivery_succeeded', {
 			submissionId: idempotencyKey,
 			deliveries: deliveryResults,

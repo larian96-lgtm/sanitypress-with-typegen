@@ -77,24 +77,49 @@ describe('business finance lead API route', () => {
 		assert.equal(response.status, 503)
 	})
 
-	test('delivers the full validated lead only to the Integrately webhook', async () => {
+	test('fails closed in production when Money API credentials are missing', async () => {
 		mutableEnv.NODE_ENV = 'production'
 		process.env.BUSINESS_FINANCE_LEAD_WEBHOOK_URL = 'https://webhooks.example.test/c1-leads'
 		delete process.env.MONEY_API_CLIENT_ID
 		delete process.env.MONEY_API_CLIENT_SECRET
-		delete process.env.BUSINESS_FINANCE_LEAD_SHEET_WEBHOOK_URL
-		delete process.env.BUSINESS_FINANCE_LEAD_SHEET_WEBHOOK_SECRET
+		let fetchCalled = false
+		globalThis.fetch = async () => {
+			fetchCalled = true
+			return Response.json({ received: true })
+		}
+
+		const response = await POST(
+			new Request('http://localhost/api/business-finance-lead', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify(completeLead),
+			}),
+		)
+
+		assert.equal(response.status, 503)
+		assert.equal(fetchCalled, false)
+	})
+
+	test('delivers the full validated lead to Money and the Integrately webhook', async () => {
+		mutableEnv.NODE_ENV = 'production'
+		process.env.MONEY_API_BASE_URL = 'https://api-staging.money.com.au'
+		process.env.MONEY_API_CLIENT_ID = 'client-id'
+		process.env.MONEY_API_CLIENT_SECRET = 'server-only-secret'
+		process.env.BUSINESS_FINANCE_LEAD_WEBHOOK_URL = 'https://webhooks.example.test/c1-leads'
 
 		const calls: Array<{ url: string; init?: RequestInit }> = []
 		globalThis.fetch = async (input, init) => {
-			calls.push({ url: String(input), init })
+			const url = String(input)
+			calls.push({ url, init })
+			if (url.endsWith('/oauth/token')) return Response.json({ access_token: 'temporary-token' })
+			if (url.endsWith('/v1/funnels/business-auto')) return Response.json({ received: true }, { status: 201 })
 			return Response.json({ received: true }, { status: 200 })
 		}
 
 		const response = await POST(
 			new Request('http://localhost/api/business-finance-lead', {
 				method: 'POST',
-				headers: { 'content-type': 'application/json', 'x-idempotency-key': 'submission_webhook_only' },
+				headers: { 'content-type': 'application/json', 'x-idempotency-key': 'submission_dual_delivery' },
 				body: JSON.stringify(completeLead),
 			}),
 		)
@@ -103,18 +128,44 @@ describe('business finance lead API route', () => {
 		assert.equal(response.status, 200)
 		assert.deepEqual(body, {
 			ok: true,
-			submissionId: 'submission_webhook_only',
-			deliveries: [{ destination: 'integrately-webhook', status: 200 }],
+			submissionId: 'submission_dual_delivery',
+			deliveries: [
+				{ destination: 'money-business-auto', status: 201 },
+				{ destination: 'integrately-webhook', status: 200 },
+			],
 		})
-		assert.equal(calls.length, 1)
-		assert.equal(calls[0].url, 'https://webhooks.example.test/c1-leads')
-		assert.equal(calls[0].init?.method, 'POST')
-		const webhookHeaders = new Headers(calls[0].init?.headers)
-		assert.equal(webhookHeaders.get('content-type'), 'application/json')
-		assert.equal(webhookHeaders.get('x-idempotency-key'), 'submission_webhook_only')
+		assert.equal(calls.length, 3)
 
-		const webhookBody = JSON.parse(String(calls[0].init?.body))
-		assert.equal(webhookBody.submission_id, 'submission_webhook_only')
+		const tokenCall = calls.find((call) => call.url.endsWith('/oauth/token'))!
+		assert.equal(new URLSearchParams(String(tokenCall.init?.body)).get('client_id'), 'client-id')
+
+		const moneyCall = calls.find((call) => call.url.endsWith('/v1/funnels/business-auto'))!
+		const moneyHeaders = new Headers(moneyCall.init?.headers)
+		assert.equal(moneyHeaders.get('authorization'), 'Bearer temporary-token')
+		assert.equal(moneyHeaders.get('idempotency-key'), 'submission_dual_delivery')
+		const moneyBody = JSON.parse(String(moneyCall.init?.body))
+		assert.deepEqual(moneyBody, {
+			first_name: 'Sam',
+			last_name: 'Taylor',
+			email: 'sam@example.com',
+			phone_number: '0412 345 678',
+			loan_amount: 75000,
+			purpose: 'DAY_TO_DAY',
+			organisation_name: 'Taylor Trade Co',
+			months_in_business: 42,
+			sales_monthly: 75000,
+			vehicle_type: 'OTHER',
+			vehicle_source: 'UNKNOWN',
+		})
+
+		const webhookCall = calls.find((call) => call.url === 'https://webhooks.example.test/c1-leads')!
+		assert.equal(webhookCall.init?.method, 'POST')
+		const webhookHeaders = new Headers(webhookCall.init?.headers)
+		assert.equal(webhookHeaders.get('content-type'), 'application/json')
+		assert.equal(webhookHeaders.get('x-idempotency-key'), 'submission_dual_delivery')
+
+		const webhookBody = JSON.parse(String(webhookCall.init?.body))
+		assert.equal(webhookBody.submission_id, 'submission_dual_delivery')
 		assert.equal(webhookBody.source, 'comparison-one-matching-engine')
 		assert.match(webhookBody.submitted_at, /^\d{4}-\d{2}-\d{2}T/)
 		assert.equal(webhookBody.business_name, 'Taylor Trade Co')
@@ -135,13 +186,22 @@ describe('business finance lead API route', () => {
 		assert.equal(webhookBody.vehicle_type, null)
 		assert.equal(webhookBody.vehicle_source, null)
 		assert.equal(webhookBody.equipment_type, null)
+		assert.doesNotMatch(JSON.stringify(body), /server-only-secret/)
 	})
 
 	test('returns a safe 503 when the Integrately webhook rejects the lead', async () => {
 		mutableEnv.NODE_ENV = 'production'
+		process.env.MONEY_API_BASE_URL = 'https://api-staging.money.com.au'
+		process.env.MONEY_API_CLIENT_ID = 'client-id'
+		process.env.MONEY_API_CLIENT_SECRET = 'server-only-secret'
 		process.env.BUSINESS_FINANCE_LEAD_WEBHOOK_URL = 'https://webhooks.example.test/c1-leads'
 
-		globalThis.fetch = async () => Response.json({ error: 'internal destination detail' }, { status: 500 })
+		globalThis.fetch = async (input) => {
+			const url = String(input)
+			if (url.endsWith('/oauth/token')) return Response.json({ access_token: 'temporary-token' })
+			if (url.endsWith('/v1/funnels/business-auto')) return Response.json({ received: true }, { status: 201 })
+			return Response.json({ error: 'internal destination detail' }, { status: 500 })
+		}
 
 		const response = await POST(
 			new Request('http://localhost/api/business-finance-lead', {
