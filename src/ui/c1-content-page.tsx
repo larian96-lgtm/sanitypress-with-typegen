@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import type { C1PageData, C1Section } from '@/lib/c1-pages'
 import type { C1RateProductType, C1RateTableData } from '@/lib/c1-rate-table'
 import { buildC1StructuredData } from '@/lib/c1-structured-data'
@@ -328,9 +329,11 @@ function pageImage(path: string) {
 export default function C1ContentPage({
 	page,
 	rateTable,
+	notice,
 }: {
 	page: C1PageData
 	rateTable?: C1RateTableData
+	notice?: ReactNode
 }) {
 	const activeRateTable = rateTable ?? c1FallbackRateTable
 	const editorSection = page.sections?.find(isEditorSection)
@@ -348,11 +351,13 @@ export default function C1ContentPage({
 		const lenderMatch = defaultLenderSlug ? row.lenderSlug === defaultLenderSlug : true
 		return productMatch && lenderMatch
 	})
+	const HeroHeading = notice ? 'h2' : 'h1'
 	const jsonLd = buildC1StructuredData(page, structuredRateRows)
 	return (
 		<>
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 			<C1Header compact />
+			{notice}
 
 			<section className="relative overflow-hidden bg-[#389BDD] py-16 md:py-20">
 				<div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#C9F3FF] opacity-10" />
@@ -360,7 +365,7 @@ export default function C1ContentPage({
 				<div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr]">
 					<div>
 						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9F3FF]">{page.eyebrow || 'Business finance comparison'}</p>
-						<h1 className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{displayHeadline(page)}</h1>
+						<HeroHeading className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{displayHeadline(page)}</HeroHeading>
 						<p className="max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">{shortHero}</p>
 						<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Compare now'} />
 					</div>
