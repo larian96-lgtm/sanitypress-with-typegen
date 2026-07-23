@@ -97,8 +97,8 @@ export default function ({
 								}}
 							/>
 						</div>
-						<div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-[#E4ECE8] bg-[#F5F6F7] p-6 text-sm leading-relaxed text-[#404A60]">
-							<h2 className="mb-3 text-lg font-bold text-[#222E48]">How this article is reviewed</h2>
+						<div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-[#D6E3EA] bg-[#F3F9FC] p-6 text-sm leading-relaxed text-[#36515F]">
+							<h2 className="mb-3 text-lg font-bold text-[#102633]">How this article is reviewed</h2>
 							<p>Comparison One articles are reviewed for clarity, source quality, finance-fit logic, current lender context and claims that could imply guaranteed approval. Rates, limits, fees and eligibility can change without notice.</p>
 						</div>
 					</div>

@@ -186,7 +186,7 @@ const footerGroups = [
 function NavMenuItem({ group }: { group: NavGroup }) {
 	if (group.href) {
 		return (
-			<Link href={group.href} className="whitespace-nowrap text-white/80 no-underline transition-colors hover:text-[#FCB650]">
+			<Link href={group.href} className="whitespace-nowrap text-white/80 no-underline transition-colors hover:text-[#C9F3FF]">
 				{group.label}
 			</Link>
 		)
@@ -194,13 +194,13 @@ function NavMenuItem({ group }: { group: NavGroup }) {
 
 	return (
 		<details className="group relative" name="c1-desktop-nav">
-			<summary className="list-none cursor-pointer whitespace-nowrap text-white/80 transition-colors hover:text-[#FCB650] [&::-webkit-details-marker]:hidden">
+			<summary className="list-none cursor-pointer whitespace-nowrap text-white/80 transition-colors hover:text-[#C9F3FF] [&::-webkit-details-marker]:hidden">
 				{group.label}
 			</summary>
-			<div className="absolute left-1/2 top-full z-50 mt-3 hidden w-[min(92vw,24rem)] -translate-x-1/2 rounded-2xl border border-white/10 bg-[#022019] p-3 shadow-2xl group-open:block">
+			<div className="absolute left-1/2 top-full z-50 mt-3 hidden w-[min(92vw,24rem)] -translate-x-1/2 rounded-2xl border border-white/10 bg-[#061B2B] p-3 shadow-2xl group-open:block">
 				<div className="grid gap-1">
 					{group.items?.map((item) => (
-						<Link key={item.href} href={item.href} className="rounded-xl px-3 py-2 text-sm text-white/80 no-underline transition-colors hover:bg-white/8 hover:text-[#FCB650]">
+						<Link key={item.href} href={item.href} className="rounded-xl px-3 py-2 text-sm text-white/80 no-underline transition-colors hover:bg-white/8 hover:text-[#C9F3FF]">
 							{item.label}
 						</Link>
 					))}
@@ -235,7 +235,7 @@ function MobileMenuGroup({ group }: { group: NavGroup }) {
 
 export function C1Header({ compact = false }: { compact?: boolean }) {
 	return (
-		<header className="sticky top-0 z-50 border-b border-white/10 bg-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.10)] backdrop-blur">
+		<header className="sticky top-0 z-50 border-b border-white/10 bg-[#061B2B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.10)] backdrop-blur">
 			<div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 ${compact ? 'py-2.5' : 'py-3'}`}>
 				<Link href="/" className="flex shrink-0 items-center no-underline" aria-label="Comparison One home">
 					<Image src="/comparisonone/logo.png?v=7" alt="Comparison One" width={186} height={40} className="h-auto w-[145px] md:w-[174px]" priority />
@@ -252,7 +252,7 @@ export function C1Header({ compact = false }: { compact?: boolean }) {
 						<summary className="cursor-pointer list-none rounded-full border border-white/15 px-4 py-2 text-xs font-semibold text-white/85 [&::-webkit-details-marker]:hidden">
 							Menu
 						</summary>
-						<div className="absolute right-0 top-full z-50 mt-3 w-[min(92vw,24rem)] rounded-3xl border border-white/10 bg-[#03211B] p-3 shadow-2xl">
+						<div className="absolute right-0 top-full z-50 mt-3 w-[min(92vw,24rem)] rounded-3xl border border-white/10 bg-[#061B2B] p-3 shadow-2xl">
 							<div className="grid gap-3 rounded-3xl bg-white/5 p-3 text-sm font-medium text-white/85">
 								{navGroups.map((group) => (
 									<MobileMenuGroup key={group.label} group={group} />
@@ -260,7 +260,7 @@ export function C1Header({ compact = false }: { compact?: boolean }) {
 							</div>
 						</div>
 					</details>
-					<Link href="/quiz" className="hidden shrink-0 rounded-full bg-[#FCB650] px-4 py-2 text-xs font-semibold text-[#03211B] no-underline transition-colors hover:bg-[#fcc970] md:inline-flex md:px-5 md:text-sm">
+					<Link href="/quiz" className="hidden shrink-0 rounded-full bg-[#C9F3FF] px-4 py-2 text-xs font-semibold text-[#061B2B] no-underline transition-colors hover:bg-[#E6F9FF] md:inline-flex md:px-5 md:text-sm">
 						Compare now
 					</Link>
 				</div>
@@ -271,7 +271,7 @@ export function C1Header({ compact = false }: { compact?: boolean }) {
 
 export function C1Footer() {
 	return (
-		<footer className="bg-[#03211B] py-14">
+		<footer className="bg-[#061B2B] py-14">
 			<div className="mx-auto max-w-7xl px-4">
 				<div className="grid gap-9 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
 					<div className="xl:col-span-2">
@@ -287,7 +287,7 @@ export function C1Footer() {
 							<h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white">{group.title}</h4>
 							<div className="space-y-2 text-sm">
 								{group.links.map((link) => (
-									<Link key={link.href} href={link.href} className="block text-white/60 no-underline transition-colors hover:text-[#FCB650]">
+									<Link key={link.href} href={link.href} className="block text-white/60 no-underline transition-colors hover:text-[#C9F3FF]">
 										{link.label}
 									</Link>
 								))}
@@ -296,7 +296,7 @@ export function C1Footer() {
 					))}
 				</div>
 				<div className="mt-10 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/45">
-					Comparison One provides general information and online enquiry pathways for Australian SME funding. Comparison One is not a lender and does not provide financial, credit, legal, tax or accounting advice. Approval, rates, terms, settlement timing and availability depend on lender criteria and business circumstances. <Link href="/about" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">About</Link> | <Link href="/contact" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Contact</Link> | <Link href="/privacy-policy" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Terms</Link> | <Link href="/editorial-policy" className="text-white/60 underline underline-offset-4 hover:text-[#FCB650]">Editorial Policy</Link> | <Link href="/sitemap.xml" className="font-semibold text-white/60 underline underline-offset-4 hover:text-[#FCB650]">XML sitemap</Link>. &copy; {new Date().getFullYear()} Comparison One.
+					Comparison One provides general information and online enquiry pathways for Australian SME funding. Comparison One is not a lender and does not provide financial, credit, legal, tax or accounting advice. Approval, rates, terms, settlement timing and availability depend on lender criteria and business circumstances. <Link href="/about" className="text-white/60 underline underline-offset-4 hover:text-[#C9F3FF]">About</Link> | <Link href="/contact" className="text-white/60 underline underline-offset-4 hover:text-[#C9F3FF]">Contact</Link> | <Link href="/privacy-policy" className="text-white/60 underline underline-offset-4 hover:text-[#C9F3FF]">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="text-white/60 underline underline-offset-4 hover:text-[#C9F3FF]">Terms</Link> | <Link href="/editorial-policy" className="text-white/60 underline underline-offset-4 hover:text-[#C9F3FF]">Editorial Policy</Link> | <Link href="/sitemap.xml" className="font-semibold text-white/60 underline underline-offset-4 hover:text-[#C9F3FF]">XML sitemap</Link>. &copy; {new Date().getFullYear()} Comparison One.
 				</div>
 			</div>
 		</footer>

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import type { C1PageData, C1Section } from '@/lib/c1-pages'
 import type { C1RateProductType, C1RateTableData } from '@/lib/c1-rate-table'
 import { buildC1StructuredData } from '@/lib/c1-structured-data'
@@ -50,13 +51,13 @@ function FinviewTable({
 }) {
 	return (
 		<div className="overflow-hidden rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-8">
-			{title && <h2 className="mb-8 text-xl font-medium text-[#222E48]">{title}</h2>}
-			<div className="overflow-x-auto [&::-webkit-scrollbar]:h-[0.7vw] [&::-webkit-scrollbar-track]:bg-[rgba(7,76,62,0.06)] [&::-webkit-scrollbar-thumb]:bg-[#074C3E]">
+			{title && <h2 className="mb-8 text-xl font-medium text-[#102633]">{title}</h2>}
+			<div className="overflow-x-auto [&::-webkit-scrollbar]:h-[0.7vw] [&::-webkit-scrollbar-track]:bg-[rgba(7,76,62,0.06)] [&::-webkit-scrollbar-thumb]:bg-[#389BDD]">
 				<table className="w-full min-w-[720px] border-collapse text-left">
 					<thead>
 						<tr>
 							{headers.map((header) => (
-								<th key={header} className="border-r border-dashed border-[#C1C4CC] px-5 py-3 text-xl font-medium text-[#222E48] last:border-r-0">
+								<th key={header} className="border-r border-dashed border-[#B4C8D3] px-5 py-3 text-xl font-medium text-[#102633] last:border-r-0">
 									{header}
 								</th>
 							))}
@@ -66,7 +67,7 @@ function FinviewTable({
 						{rows.map((row, rowIndex) => (
 							<tr key={`${row[0]}-${rowIndex}`} className="odd:bg-[rgba(7,76,62,0.05)]">
 								{row.map((cell, cellIndex) => (
-									<td key={`${cellIndex}-${cell}`} className={`border-r border-dashed border-[#C1C4CC] px-5 py-3 font-medium leading-relaxed last:border-r-0 ${cellIndex === 0 ? 'text-[#074C3E]' : 'text-[#404A60]'}`}>
+									<td key={`${cellIndex}-${cell}`} className={`border-r border-dashed border-[#B4C8D3] px-5 py-3 font-medium leading-relaxed last:border-r-0 ${cellIndex === 0 ? 'text-[#389BDD]' : 'text-[#36515F]'}`}>
 										{cell}
 									</td>
 								))}
@@ -240,9 +241,9 @@ function decisionRows(page: C1PageData) {
 
 function ArticleSection({ section }: { section: C1Section }) {
 	return (
-		<section className="border-b border-[#E4ECE8] py-9 last:border-b-0">
-			<h2 className="mb-5 text-3xl font-black leading-tight tracking-[-0.02em] text-[#222E48] md:text-4xl">{section.heading}</h2>
-			<div className="space-y-5 text-lg leading-[1.75] text-[#404A60] md:text-xl md:leading-[1.75]">
+		<section className="border-b border-[#D6E3EA] py-9 last:border-b-0">
+			<h2 className="mb-5 text-3xl font-black leading-tight tracking-[-0.02em] text-[#102633] md:text-4xl">{section.heading}</h2>
+			<div className="space-y-5 text-lg leading-[1.75] text-[#36515F] md:text-xl md:leading-[1.75]">
 				{(section.body || '').split('\n').filter(Boolean).map((para, j) => (
 					<p key={j}>{para.replace(/^>\s*/, '')}</p>
 				))}
@@ -253,9 +254,9 @@ function ArticleSection({ section }: { section: C1Section }) {
 				</div>
 			)}
 			{section.bullets && !isComparisonSection(section) && (
-				<ul className="mt-7 space-y-3 border-l-4 border-[#D8F07B] pl-5 text-lg leading-relaxed text-[#404A60]">
+				<ul className="mt-7 space-y-3 border-l-4 border-[#C9F3FF] pl-5 text-lg leading-relaxed text-[#36515F]">
 					{section.bullets.map((b) => (
-						<li key={b}><span className="font-black text-[#074C3E]">✓</span> {b.replace(/[.;]$/, '')}</li>
+						<li key={b}><span className="font-black text-[#389BDD]">✓</span> {b.replace(/[.;]$/, '')}</li>
 					))}
 				</ul>
 			)}
@@ -328,9 +329,13 @@ function pageImage(path: string) {
 export default function C1ContentPage({
 	page,
 	rateTable,
+	notice,
+	hideHero = false,
 }: {
 	page: C1PageData
 	rateTable?: C1RateTableData
+	notice?: ReactNode
+	hideHero?: boolean
 }) {
 	const activeRateTable = rateTable ?? c1FallbackRateTable
 	const editorSection = page.sections?.find(isEditorSection)
@@ -348,31 +353,35 @@ export default function C1ContentPage({
 		const lenderMatch = defaultLenderSlug ? row.lenderSlug === defaultLenderSlug : true
 		return productMatch && lenderMatch
 	})
+	const HeroHeading = notice ? 'h2' : 'h1'
 	const jsonLd = buildC1StructuredData(page, structuredRateRows)
 	return (
 		<>
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 			<C1Header compact />
+			{notice}
 
-			<section className="relative overflow-hidden bg-[#074C3E] py-16 md:py-20">
-				<div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#FCB650] opacity-10" />
-				<div className="absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#E0F300] opacity-10" />
-				<div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr]">
-					<div>
-						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">{page.eyebrow || 'Business finance comparison'}</p>
-						<h1 className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{displayHeadline(page)}</h1>
-						<p className="max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">{shortHero}</p>
-						<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Compare now'} />
-					</div>
-					<div className="hidden lg:block">
-						<div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.12)]">
-							<Image src={image} alt={`${page.title} guide`} width={620} height={420} className="h-auto w-full rounded-[1.5rem] object-cover" priority />
+			{!hideHero && (
+				<section className="relative overflow-hidden bg-[#389BDD] py-16 md:py-20">
+					<div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#C9F3FF] opacity-10" />
+					<div className="absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#C9F3FF] opacity-10" />
+					<div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr]">
+						<div>
+							<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9F3FF]">{page.eyebrow || 'Business finance comparison'}</p>
+							<HeroHeading className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{displayHeadline(page)}</HeroHeading>
+							<p className="max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">{shortHero}</p>
+							<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Compare now'} />
+						</div>
+						<div className="hidden lg:block">
+							<div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.12)]">
+								<Image src={image} alt={`${page.title} guide`} width={620} height={420} className="h-auto w-full rounded-[1.5rem] object-cover" priority />
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			)}
 
-			<section className="bg-[#F5F6F7] py-12">
+			<section className="bg-[#F3F9FC] py-12">
 				{page.rateSnapshot && page.rateSnapshot.length > 0 && (
 					<div className="mx-auto mb-10 max-w-7xl px-4">
 						<C1RateSnapshot items={page.rateSnapshot} updatedAt={page.lastReviewed} />
@@ -386,9 +395,9 @@ export default function C1ContentPage({
 				<div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,1fr)_330px]">
 					<article className="min-w-0">
 						<div className="rounded-[2rem] bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-10 lg:p-12">
-							<section className="border-b border-[#E4ECE8] pb-9">
-								<h2 className="mb-5 text-3xl font-black leading-tight tracking-[-0.02em] text-[#222E48] md:text-4xl">{page.title}</h2>
-								<div className="space-y-5 text-lg leading-[1.75] text-[#404A60] md:text-xl md:leading-[1.75]">
+							<section className="border-b border-[#D6E3EA] pb-9">
+								<h2 className="mb-5 text-3xl font-black leading-tight tracking-[-0.02em] text-[#102633] md:text-4xl">{page.title}</h2>
+								<div className="space-y-5 text-lg leading-[1.75] text-[#36515F] md:text-xl md:leading-[1.75]">
 									<p>{directAnswer(page)}</p>
 									<p>{summary}</p>
 								</div>
@@ -417,23 +426,23 @@ export default function C1ContentPage({
 					</article>
 
 					<aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
-						<div className="rounded-2xl bg-[#074C3E] p-5 text-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]">
+						<div className="rounded-2xl bg-[#389BDD] p-5 text-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]">
 							<h2 className="mb-3 text-xl font-bold">Compare before you apply</h2>
 							<C1FundingWidget buttonLabel="Compare now" compact />
 						</div>
 						<div className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-							<h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-[#6A7283]">Author</h2>
-							<p className="font-semibold text-[#222E48]">Comparison One SME Finance Editorial Team</p>
-							<p className="mt-2 text-sm leading-relaxed text-[#6A7283]">Finance editors reviewing Australian SME funding pathways, lender criteria and cash-flow use cases.</p>
-							<p className="mt-3 text-xs text-[#6A7283]">Last reviewed {page.lastReviewed}</p>
+							<h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-[#5F7480]">Author</h2>
+							<p className="font-semibold text-[#102633]">Comparison One SME Finance Editorial Team</p>
+							<p className="mt-2 text-sm leading-relaxed text-[#5F7480]">Finance editors reviewing Australian SME funding pathways, lender criteria and cash-flow use cases.</p>
+							<p className="mt-3 text-xs text-[#5F7480]">Last reviewed {page.lastReviewed}</p>
 						</div>
 						{editorSection && null}
 						{page.relatedLinks?.length > 0 && (
 							<div className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-								<h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-[#6A7283]">Related pages</h2>
+								<h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-[#5F7480]">Related pages</h2>
 								<div className="space-y-2">
 									{page.relatedLinks.map((link) => (
-										<Link key={link.href} href={link.href} className="block rounded-xl bg-[rgba(7,76,62,0.05)] px-4 py-3 text-sm font-semibold text-[#222E48] no-underline transition-colors hover:bg-[#074C3E] hover:text-white">
+										<Link key={link.href} href={link.href} className="block rounded-xl bg-[rgba(7,76,62,0.05)] px-4 py-3 text-sm font-semibold text-[#102633] no-underline transition-colors hover:bg-[#389BDD] hover:text-white">
 											{link.label} →
 										</Link>
 									))}
@@ -447,14 +456,14 @@ export default function C1ContentPage({
 			{page.faqs?.length > 0 && (
 				<section className="bg-white py-16">
 					<div className="mx-auto max-w-4xl px-4">
-						<h2 className="mb-8 text-3xl font-bold text-[#222E48]">Frequently asked questions</h2>
+						<h2 className="mb-8 text-3xl font-bold text-[#102633]">Frequently asked questions</h2>
 						<div className="space-y-3">
 							{page.faqs.map((faq) => (
 								<details key={faq.question} className="group rounded-2xl bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)]">
-									<summary className="cursor-pointer px-6 py-4 text-base font-semibold text-[#222E48] transition-colors hover:text-[#074C3E]">
+									<summary className="cursor-pointer px-6 py-4 text-base font-semibold text-[#102633] transition-colors hover:text-[#389BDD]">
 										{faq.question}
 									</summary>
-									<div className="px-6 pb-4 text-sm leading-relaxed text-[#6A7283]">{faq.answer}</div>
+									<div className="px-6 pb-4 text-sm leading-relaxed text-[#5F7480]">{faq.answer}</div>
 								</details>
 							))}
 						</div>

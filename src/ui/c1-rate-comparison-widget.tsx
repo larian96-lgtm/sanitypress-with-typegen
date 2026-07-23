@@ -102,13 +102,13 @@ export function C1RateComparisonWidget({
 		: `Rates updated ${prettyDate(updatedAt)}`
 
 	return (
-		<section className="rounded-3xl bg-[#F5F8F6] p-4 md:p-6">
+		<section className="rounded-3xl bg-[#F3F9FC] p-4 md:p-6">
 			<div className="mb-4 flex flex-wrap items-center justify-between gap-3">
 				<div>
-					<h2 className="text-xl font-bold text-[#222E48] md:text-2xl">{title}</h2>
-					<p className="mt-1 text-xs text-[#6A7283]">Filter by product, amount and security type to narrow suitable options.</p>
+					<h2 className="text-xl font-bold text-[#102633] md:text-2xl">{title}</h2>
+					<p className="mt-1 text-xs text-[#5F7480]">Filter by product, amount and security type to narrow suitable options.</p>
 				</div>
-				<span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${stale ? 'bg-[#FFF3E0] text-[#8A5B00]' : 'bg-[#E5F3EF] text-[#074C3E]'}`}>
+				<span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${stale ? 'bg-[#FFF3E0] text-[#8A5B00]' : 'bg-[#E6F9FF] text-[#389BDD]'}`}>
 					{badgeLabel}
 				</span>
 			</div>
@@ -134,13 +134,13 @@ export function C1RateComparisonWidget({
 			/>
 
 			{sortable && (
-				<div className="mb-4 flex items-center gap-2 text-sm text-[#4E5A72]">
+				<div className="mb-4 flex items-center gap-2 text-sm text-[#5F7480]">
 					<label htmlFor="rate-sort" className="font-medium">Sort by</label>
 					<select
 						id="rate-sort"
 						value={sortKey}
 						onChange={(event) => setSortKey(event.target.value as SortKey)}
-						className="rounded-xl border border-[#DCE3E0] bg-white px-3 py-2 text-sm text-[#222E48]"
+						className="rounded-xl border border-[#D6E3EA] bg-white px-3 py-2 text-sm text-[#102633]"
 					>
 						<option value="rateAsc">Rate: low to high</option>
 						<option value="rateDesc">Rate: high to low</option>
@@ -152,7 +152,7 @@ export function C1RateComparisonWidget({
 
 			<C1RateComparisonTable rows={filteredRows} amountForCta={filters.amount} />
 
-			<p className="mt-4 text-xs leading-relaxed text-[#6A7283]">
+			<p className="mt-4 text-xs leading-relaxed text-[#5F7480]">
 				{methodologyNote ||
 					'Rates shown are advertised starting rates from lender public information. Your actual rate depends on lender assessment and your business profile.'}
 			</p>

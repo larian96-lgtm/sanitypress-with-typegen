@@ -39,9 +39,9 @@ export function C1RateFilterBar({
 	if (!showFilters) return null
 
 	return (
-		<div className="mb-5 space-y-4 rounded-2xl border border-[#DCE3E0] bg-white p-4 md:p-5">
+		<div className="mb-5 space-y-4 rounded-2xl border border-[#D6E3EA] bg-white p-4 md:p-5">
 			<div>
-				<p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#6A7283]">Product type</p>
+				<p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#5F7480]">Product type</p>
 				<div className="flex flex-wrap gap-2">
 					{availableProductTypes.map((productType) => {
 						const active = filters.productTypes.includes(productType)
@@ -53,8 +53,8 @@ export function C1RateFilterBar({
 								className={cn(
 									'rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors',
 									active
-										? 'border-[#074C3E] bg-[#074C3E] text-white'
-										: 'border-[#DCE3E0] bg-white text-[#3C4558] hover:border-[#074C3E] hover:text-[#074C3E]',
+										? 'border-[#389BDD] bg-[#389BDD] text-white'
+										: 'border-[#D6E3EA] bg-white text-[#36515F] hover:border-[#389BDD] hover:text-[#389BDD]',
 								)}
 							>
 								{PRODUCT_TYPE_LABELS[productType]}
@@ -66,7 +66,7 @@ export function C1RateFilterBar({
 
 			<div className="grid gap-3 md:grid-cols-2">
 				<label className="block">
-					<span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#6A7283]">Loan amount</span>
+					<span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#5F7480]">Loan amount</span>
 					<input
 						type="number"
 						inputMode="numeric"
@@ -77,16 +77,16 @@ export function C1RateFilterBar({
 							onAmountChange(Number.isFinite(value) && value > 0 ? value : null)
 						}}
 						placeholder="e.g. 120000"
-						className="w-full rounded-xl border border-[#DCE3E0] px-3 py-2 text-sm text-[#222E48] outline-none ring-[#074C3E] focus:ring-2"
+						className="w-full rounded-xl border border-[#D6E3EA] px-3 py-2 text-sm text-[#102633] outline-none ring-[#389BDD] focus:ring-2"
 					/>
 				</label>
 
 				<label className="block">
-					<span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#6A7283]">Security</span>
+					<span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#5F7480]">Security</span>
 					<select
 						value={filters.security}
 						onChange={(event) => onSecurityChange(event.target.value as C1SecurityType | 'all')}
-						className="w-full rounded-xl border border-[#DCE3E0] bg-white px-3 py-2 text-sm text-[#222E48] outline-none ring-[#074C3E] focus:ring-2"
+						className="w-full rounded-xl border border-[#D6E3EA] bg-white px-3 py-2 text-sm text-[#102633] outline-none ring-[#389BDD] focus:ring-2"
 					>
 						<option value="all">All</option>
 						<option value="secured">Secured</option>

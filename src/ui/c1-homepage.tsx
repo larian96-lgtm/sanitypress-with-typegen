@@ -180,18 +180,18 @@ function mergeHomepage(data?: C1HomepageData | null) {
 // ------------------------------------------------------------------
 function HeroSection({ page }: { page: Required<C1HomepageData> }) {
   return (
-    <section className="relative overflow-visible bg-[#074C3E]">
+    <section className="relative overflow-visible bg-[#389BDD]">
       {/* Decorative background circles */}
       <div className="absolute inset-0 opacity-[0.07]">
-        <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#FCB650]" />
-        <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-[#E0F300]" />
+        <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#C9F3FF]" />
+        <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-[#C9F3FF]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 pt-16 md:pt-24">
         {/* Top area: text + image */}
         <div className="grid items-center gap-12 md:grid-cols-2 md:pb-10">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.15em] text-[#C9F3FF]">
               {cleanHomepageText(page.heroEyebrow)}
             </p>
             <h1 className="mb-5 text-4xl font-extrabold leading-[1.1] text-white md:text-5xl lg:text-6xl">
@@ -201,7 +201,7 @@ function HeroSection({ page }: { page: Required<C1HomepageData> }) {
               {page.heroSubtitle === 'Comparison One helps Australian SME owners check the funding path before the lender. See what lenders may ask for, what documents to prepare, and which product type may fit the cash-flow problem before you send an application.' ? 'Comparison One helps Australian business owners compare funding pathways before applying. It is not a lender and does not provide financial advice. Use it to check loan types, lender fit, document readiness, rates and funding needs before sending an enquiry.' : page.heroSubtitle}
             </p>
             <div className="mb-7 max-w-xl rounded-2xl bg-white/10 p-4 text-sm leading-relaxed text-white/82 ring-1 ring-white/15">
-              <p className="mb-1 font-bold text-[#FCB650]">What is Comparison One?</p>
+              <p className="mb-1 font-bold text-[#C9F3FF]">What is Comparison One?</p>
               <p>Comparison One is an Australian SME finance comparison and funding-readiness site. It helps business owners compare funding paths, documents and lender-fit signals before applying.</p>
             </div>
             <C1FundingWidget className="mb-4 max-w-xl" buttonLabel={page.primaryCtaLabel} />
@@ -215,7 +215,7 @@ function HeroSection({ page }: { page: Required<C1HomepageData> }) {
             {/* Trust signal inline */}
             <p className="mt-6 text-sm text-white/50">
               <span className="inline-flex items-center gap-2">
-                <span className="text-[#FCB650]">★</span>
+                <span className="text-[#C9F3FF]">★</span>
                 <span>SME funding path checked before you apply, not a lender, not a broker</span>
               </span>
             </p>
@@ -242,13 +242,13 @@ function HeroSection({ page }: { page: Required<C1HomepageData> }) {
                 href={card.href || '/'}
                 className="group rounded-2xl bg-white p-5 shadow-[0px_6px_30px_rgba(0,0,0,0.08)] transition-all hover:-translate-y-0.5 hover:shadow-[0px_8px_35px_rgba(0,0,0,0.12)]"
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#074C3E]/10 text-lg font-bold text-[#074C3E] transition-colors group-hover:bg-[#074C3E] group-hover:text-white">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#389BDD]/10 text-lg font-bold text-[#389BDD] transition-colors group-hover:bg-[#389BDD] group-hover:text-white">
                   {PATHWAY_ICONS[i] || i + 1}
                 </div>
-                <h3 className="mb-1 text-[15px] font-semibold leading-snug text-[#222E48] transition-colors group-hover:text-[#074C3E]">
+                <h3 className="mb-1 text-[15px] font-semibold leading-snug text-[#102633] transition-colors group-hover:text-[#389BDD]">
                   {card.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#6A7283]">
+                <p className="text-sm leading-relaxed text-[#5F7480]">
                   {card.description}
                 </p>
               </Link>
@@ -265,9 +265,9 @@ function HeroSection({ page }: { page: Required<C1HomepageData> }) {
 // ------------------------------------------------------------------
 function TrustStrip({ text }: { text: string }) {
   return (
-    <section className="border-b border-[#DFE0E4] bg-[#F5F6F7] py-6">
+    <section className="border-b border-[#D6E3EA] bg-[#F3F9FC] py-6">
       <div className="mx-auto max-w-7xl px-4 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6A7283]">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#5F7480]">
           {cleanHomepageText(text)}
         </p>
       </div>
@@ -282,26 +282,26 @@ function WhySection({ page }: { page: Required<C1HomepageData> }) {
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <p className="mb-2 text-center text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+        <p className="mb-2 text-center text-sm font-semibold uppercase tracking-[0.15em] text-[#C9F3FF]">
           {page.whyEyebrow}
         </p>
-        <h2 className="mb-3 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+        <h2 className="mb-3 text-center text-3xl font-bold text-[#102633] md:text-4xl">
           {page.whyHeading}
         </h2>
-        <p className="mx-auto mb-14 max-w-2xl text-center text-[#6A7283]">
+        <p className="mx-auto mb-14 max-w-2xl text-center text-[#5F7480]">
           {page.whyBody}
         </p>
         <div className="grid gap-8 md:grid-cols-3">
           {page.whyCards.map((item, i) => (
             <div
               key={`${item.title}-${i}`}
-              className="rounded-2xl bg-[#F5F6F7] p-8 text-center transition-shadow hover:shadow-[0px_6px_30px_rgba(0,0,0,0.06)]"
+              className="rounded-2xl bg-[#F3F9FC] p-8 text-center transition-shadow hover:shadow-[0px_6px_30px_rgba(0,0,0,0.06)]"
             >
-              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#074C3E]/10">
-                <span className="text-2xl font-bold text-[#074C3E]">{i + 1}</span>
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#389BDD]/10">
+                <span className="text-2xl font-bold text-[#389BDD]">{i + 1}</span>
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-[#222E48]">{item.title}</h3>
-              <p className="leading-relaxed text-[#6A7283]">{item.description}</p>
+              <h3 className="mb-3 text-xl font-semibold text-[#102633]">{item.title}</h3>
+              <p className="leading-relaxed text-[#5F7480]">{item.description}</p>
             </div>
           ))}
         </div>
@@ -315,21 +315,21 @@ function WhySection({ page }: { page: Required<C1HomepageData> }) {
 // ------------------------------------------------------------------
 function DocumentChecklist({ page }: { page: Required<C1HomepageData> }) {
   return (
-    <section className="bg-[#F5F6F7] py-20">
+    <section className="bg-[#F3F9FC] py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
-          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-[#C9F3FF]">
             {page.docEyebrow}
           </p>
-          <h2 className="mb-4 text-3xl font-bold text-[#222E48] md:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-[#102633] md:text-4xl">
             {page.docHeading}
           </h2>
-          <p className="mb-5 leading-relaxed text-[#6A7283]">
+          <p className="mb-5 leading-relaxed text-[#5F7480]">
             {page.docBody}
           </p>
           <Link
             href={page.docCtaHref}
-            className="inline-block rounded-full bg-[#074C3E] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#03211B]"
+            className="inline-block rounded-full bg-[#389BDD] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#061B2B]"
           >
             {page.docCtaLabel}
           </Link>
@@ -338,9 +338,9 @@ function DocumentChecklist({ page }: { page: Required<C1HomepageData> }) {
           {page.checklist.map((item) => (
             <div
               key={item}
-              className="rounded-xl border border-[#DFE0E4] bg-white p-5 text-sm font-medium leading-relaxed text-[#404A60] shadow-sm"
+              className="rounded-xl border border-[#D6E3EA] bg-white p-5 text-sm font-medium leading-relaxed text-[#36515F] shadow-sm"
             >
-              <span className="mr-2 font-bold text-[#074C3E]">{'✓'}</span>
+              <span className="mr-2 font-bold text-[#389BDD]">{'✓'}</span>
               {item}
             </div>
           ))}
@@ -359,25 +359,25 @@ function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) 
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <h2 className="mb-3 text-center text-sm font-semibold uppercase tracking-[0.15em] text-[#FCB650]">
+        <h2 className="mb-3 text-center text-sm font-semibold uppercase tracking-[0.15em] text-[#C9F3FF]">
           What business owners say
         </h2>
-        <p className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+        <p className="mb-14 text-center text-3xl font-bold text-[#102633] md:text-4xl">
           Real experiences from Australian SME owners
         </p>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="flex flex-col rounded-2xl border border-[#DFE0E4] bg-white p-6 shadow-sm"
+              className="flex flex-col rounded-2xl border border-[#D6E3EA] bg-white p-6 shadow-sm"
             >
-              <div className="mb-3 text-3xl leading-none text-[#074C3E]/20">{'“'}</div>
-              <p className="mb-4 flex-1 text-sm leading-relaxed italic text-[#404A60]">
+              <div className="mb-3 text-3xl leading-none text-[#389BDD]/20">{'“'}</div>
+              <p className="mb-4 flex-1 text-sm leading-relaxed italic text-[#36515F]">
                 {t.quote}
               </p>
-              <div className="border-t border-[#DFE0E4] pt-3">
-                <p className="text-sm font-semibold text-[#222E48]">{t.author}</p>
-                {t.role && <p className="text-xs text-[#6A7283]">{t.role}</p>}
+              <div className="border-t border-[#D6E3EA] pt-3">
+                <p className="text-sm font-semibold text-[#102633]">{t.author}</p>
+                {t.role && <p className="text-xs text-[#5F7480]">{t.role}</p>}
               </div>
             </div>
           ))}
@@ -392,7 +392,7 @@ function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) 
 // ------------------------------------------------------------------
 function BankDeclineSection({ page }: { page: Required<C1HomepageData> }) {
   return (
-    <section className="bg-[#074C3E] py-20">
+    <section className="bg-[#389BDD] py-20">
       <div className="mx-auto max-w-7xl px-4 text-center">
         <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">{page.declineHeading}</h2>
         <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-white/80">
@@ -400,7 +400,7 @@ function BankDeclineSection({ page }: { page: Required<C1HomepageData> }) {
         </p>
         <Link
           href={page.declineCtaHref}
-          className="inline-block rounded-full bg-[#FCB650] px-8 py-3.5 text-base font-semibold text-[#03211B] transition-colors hover:bg-[#fcc970]"
+          className="inline-block rounded-full bg-[#C9F3FF] px-8 py-3.5 text-base font-semibold text-[#061B2B] transition-colors hover:bg-[#E6F9FF]"
         >
           {page.declineCtaLabel}
         </Link>
@@ -416,7 +416,7 @@ function GuidesSection({ page }: { page: Required<C1HomepageData> }) {
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <h2 className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+        <h2 className="mb-14 text-center text-3xl font-bold text-[#102633] md:text-4xl">
           {page.guideHeading}
         </h2>
         <CardGrid cards={page.guideCards} defaultLabel="Read guide" />
@@ -430,21 +430,21 @@ function GuidesSection({ page }: { page: Required<C1HomepageData> }) {
 // ------------------------------------------------------------------
 function FaqSection({ page }: { page: Required<C1HomepageData> }) {
   return (
-    <section className="bg-[#F5F6F7] py-20" id="faq">
+    <section className="bg-[#F3F9FC] py-20" id="faq">
       <div className="mx-auto max-w-3xl px-4">
-        <h2 className="mb-14 text-center text-3xl font-bold text-[#222E48] md:text-4xl">
+        <h2 className="mb-14 text-center text-3xl font-bold text-[#102633] md:text-4xl">
           {page.faqHeading}
         </h2>
         <div className="space-y-3">
           {page.faqs.map((item, i) => (
             <details
               key={`${item.question}-${i}`}
-              className="group rounded-xl border border-[#DFE0E4] bg-white"
+              className="group rounded-xl border border-[#D6E3EA] bg-white"
             >
-              <summary className="cursor-pointer px-6 py-4 text-lg font-semibold text-[#222E48] transition-colors hover:text-[#074C3E]">
+              <summary className="cursor-pointer px-6 py-4 text-lg font-semibold text-[#102633] transition-colors hover:text-[#389BDD]">
                 {item.question}
               </summary>
-              <div className="px-6 pb-4 leading-relaxed text-[#6A7283]">
+              <div className="px-6 pb-4 leading-relaxed text-[#5F7480]">
                 {item.answer}
               </div>
             </details>
@@ -462,15 +462,15 @@ function FinalCtaSection({ page }: { page: Required<C1HomepageData> }) {
   return (
     <section className="py-20" id="calculator">
       <div className="mx-auto max-w-3xl px-4 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-[#222E48] md:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold text-[#102633] md:text-4xl">
           {page.finalHeading}
         </h2>
-        <p className="mb-8 text-lg text-[#6A7283]">
+        <p className="mb-8 text-lg text-[#5F7480]">
           {page.finalBody}
         </p>
         <Link
           href={page.finalCtaHref}
-          className="inline-block rounded-full bg-[#FCB650] px-10 py-4 text-lg font-semibold text-[#03211B] transition-colors hover:bg-[#fcc970]"
+          className="inline-block rounded-full bg-[#C9F3FF] px-10 py-4 text-lg font-semibold text-[#061B2B] transition-colors hover:bg-[#E6F9FF]"
         >
           {page.finalCtaLabel}
         </Link>
@@ -489,15 +489,15 @@ function CardGrid({ cards, defaultLabel }: { cards: TextCard[]; defaultLabel: st
         <Link
           key={`${item.title}-${i}`}
           href={item.href || '/'}
-          className="group rounded-xl border border-[#DFE0E4] bg-white p-6 transition-shadow hover:shadow-[0px_6px_30px_rgba(0,0,0,0.08)]"
+          className="group rounded-xl border border-[#D6E3EA] bg-white p-6 transition-shadow hover:shadow-[0px_6px_30px_rgba(0,0,0,0.08)]"
         >
-          <h3 className="mb-2 text-lg font-semibold text-[#222E48] transition-colors group-hover:text-[#074C3E]">
+          <h3 className="mb-2 text-lg font-semibold text-[#102633] transition-colors group-hover:text-[#389BDD]">
             {item.title}
           </h3>
-          <p className="text-sm leading-relaxed text-[#6A7283]">
+          <p className="text-sm leading-relaxed text-[#5F7480]">
             {item.description}
           </p>
-          <span className="mt-3 inline-block text-sm font-semibold text-[#074C3E]">
+          <span className="mt-3 inline-block text-sm font-semibold text-[#389BDD]">
             {item.linkLabel || defaultLabel} {'→'}
           </span>
         </Link>

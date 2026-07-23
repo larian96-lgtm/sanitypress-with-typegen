@@ -52,7 +52,7 @@ export function C1FundingWidget({
 		<form className={className} onSubmit={submit}>
 			<div className={`grid gap-3 ${compact ? 'grid-cols-1' : 'sm:grid-cols-[minmax(0,1fr)_auto] sm:items-stretch'}`}>
 				<label className="flex min-h-[58px] flex-1 items-center gap-3 rounded-full bg-white px-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] ring-1 ring-black/5">
-					<span className="text-xl font-bold text-[#074C3E]">$</span>
+					<span className="text-xl font-bold text-[#389BDD]">$</span>
 					<input
 						type="text"
 						inputMode="numeric"
@@ -60,17 +60,17 @@ export function C1FundingWidget({
 						value={amount}
 						onChange={(e) => setAmount(e.target.value)}
 						aria-label="Funding amount"
-						className="w-full border-0 bg-transparent text-base font-semibold text-[#222E48] outline-none placeholder:text-[#6A7283]"
+						className="w-full border-0 bg-transparent text-base font-semibold text-[#102633] outline-none placeholder:text-[#5F7480]"
 					/>
 				</label>
 				<button
 					type="submit"
-					className={`inline-flex min-h-[58px] ${compact ? 'w-full' : 'min-w-[9rem]'} cursor-pointer items-center justify-center rounded-full border-0 bg-[#FCB650] px-7 text-base font-bold text-[#03211B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#fcc970]`}
+					className={`inline-flex min-h-[58px] ${compact ? 'w-full' : 'min-w-[9rem]'} cursor-pointer items-center justify-center rounded-full border-0 bg-[#C9F3FF] px-7 text-base font-bold text-[#061B2B] shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#E6F9FF]`}
 				>
 					{buttonLabel} <span className="ml-2">→</span>
 				</button>
 			</div>
-			<p className={`mt-3 text-xs ${isDark ? 'text-white/65' : 'text-[#6A7283]'}`}>
+			<p className={`mt-3 text-xs ${isDark ? 'text-white/65' : 'text-[#5F7480]'}`}>
 				Start with an amount, then continue to the quote form.
 			</p>
 		</form>
@@ -94,13 +94,13 @@ export function C1EmbeddedQuoteFrame({
 			{showHeader && (
 				<div className="flex flex-col gap-2 bg-[rgba(7,76,62,0.05)] px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
 				<div>
-					<p className="text-sm font-semibold text-[#222E48]">Secure partner quote form</p>
-					<p className="text-xs text-[#6A7283]">
+					<p className="text-sm font-semibold text-[#102633]">Secure partner quote form</p>
+					<p className="text-xs text-[#5F7480]">
 						{amount ? `Starting amount: $${Number(amount).toLocaleString('en-AU')}` : 'Enter an amount on any page or continue below.'}
 					</p>
 				</div>
 				{showDirectLink && (
-					<Link href={directUrl} target="_blank" rel="noopener noreferrer nofollow sponsored" className="text-xs font-semibold text-[#074C3E] underline underline-offset-4">
+					<Link href={directUrl} target="_blank" rel="noopener noreferrer nofollow sponsored" className="text-xs font-semibold text-[#389BDD] underline underline-offset-4">
 						Open in new tab
 					</Link>
 				)}

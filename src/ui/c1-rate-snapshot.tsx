@@ -25,21 +25,21 @@ export function C1RateSnapshot({
 						key={`${item.label}-${i}`}
 						className="rounded-2xl bg-white p-5 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0px_8px_35px_0px_rgba(0,0,0,0.08)]"
 					>
-						<p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[#6A7283]">
+						<p className="mb-1 text-xs font-semibold uppercase tracking-wider text-[#5F7480]">
 							{item.label}
 						</p>
-						<p className="text-3xl font-extrabold text-[#074C3E]">
+						<p className="text-3xl font-extrabold text-[#389BDD]">
 							{item.rate}
 						</p>
 						{item.sublabel && (
-							<p className="mt-1 text-sm text-[#6A7283]">
+							<p className="mt-1 text-sm text-[#5F7480]">
 								{item.sublabel}
 							</p>
 						)}
 						{item.linkHref && (
 							<Link
 								href={item.linkHref}
-								className="mt-3 inline-block text-sm font-semibold text-[#222E48] underline underline-offset-4 transition-colors hover:text-[#074C3E]"
+								className="mt-3 inline-block text-sm font-semibold text-[#102633] underline underline-offset-4 transition-colors hover:text-[#389BDD]"
 							>
 								{item.linkLabel || 'View details'} →
 							</Link>
@@ -48,7 +48,7 @@ export function C1RateSnapshot({
 				))}
 			</div>
 			{updatedAt && (
-				<p className="mt-3 text-xs text-[#6A7283]">
+				<p className="mt-3 text-xs text-[#5F7480]">
 					Rates updated {updatedAt}. Your rate depends on lender
 					assessment.
 				</p>

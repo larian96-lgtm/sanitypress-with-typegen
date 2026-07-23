@@ -34,33 +34,33 @@ export default async function SearchPage({ searchParams }: Props) {
 	return (
 		<>
 			<C1Header compact />
-			<section className="bg-[#074C3E] py-16 text-white">
+			<section className="bg-[#389BDD] py-16 text-white">
 				<div className="mx-auto max-w-5xl px-4">
-					<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FCB650]">Comparison One search</p>
+					<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9F3FF]">Comparison One search</p>
 					<h1 className="mb-5 text-4xl font-extrabold md:text-5xl">Search business finance guides</h1>
 					<form action="/search" className="flex max-w-2xl gap-3">
 						<input
 							name="q"
 							defaultValue={params?.q || ''}
 							placeholder="Try equipment finance, non-bank lenders or bank decline"
-							className="min-w-0 flex-1 rounded-full border border-white/20 bg-white px-5 py-3 text-[#222E48] outline-none"
+							className="min-w-0 flex-1 rounded-full border border-white/20 bg-white px-5 py-3 text-[#102633] outline-none"
 						/>
-						<button className="rounded-full bg-[#FCB650] px-6 py-3 font-semibold text-[#03211B]">Search</button>
+						<button className="rounded-full bg-[#C9F3FF] px-6 py-3 font-semibold text-[#061B2B]">Search</button>
 					</form>
 				</div>
 			</section>
-			<section className="bg-[#F5F6F7] py-14">
+			<section className="bg-[#F3F9FC] py-14">
 				<div className="mx-auto max-w-5xl px-4">
-					<h2 className="mb-6 text-2xl font-bold text-[#222E48]">{query ? `${results.length} result${results.length === 1 ? '' : 's'} for “${params?.q}”` : 'Popular pages'}</h2>
+					<h2 className="mb-6 text-2xl font-bold text-[#102633]">{query ? `${results.length} result${results.length === 1 ? '' : 's'} for “${params?.q}”` : 'Popular pages'}</h2>
 					<div className="grid gap-4">
 						{results.map((page) => (
 							<Link key={page.path} href={page.path} className="rounded-2xl bg-white p-6 no-underline shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-lg">
-								<p className="mb-2 text-sm font-semibold uppercase tracking-wider text-[#074C3E]">{page.eyebrow}</p>
-								<h3 className="mb-2 text-xl font-bold text-[#222E48]">{page.title}</h3>
-								<p className="text-sm leading-relaxed text-[#6A7283]">{page.seoDescription || page.summary}</p>
+								<p className="mb-2 text-sm font-semibold uppercase tracking-wider text-[#389BDD]">{page.eyebrow}</p>
+								<h3 className="mb-2 text-xl font-bold text-[#102633]">{page.title}</h3>
+								<p className="text-sm leading-relaxed text-[#5F7480]">{page.seoDescription || page.summary}</p>
 							</Link>
 						))}
-						{results.length === 0 && <p className="rounded-2xl bg-white p-6 text-[#404A60]">No matching guides found. Try a broader term such as business loans, equipment, invoice finance or lender.</p>}
+						{results.length === 0 && <p className="rounded-2xl bg-white p-6 text-[#36515F]">No matching guides found. Try a broader term such as business loans, equipment, invoice finance or lender.</p>}
 					</div>
 				</div>
 			</section>

@@ -23,7 +23,7 @@ function richParagraph(text: string) {
   if (!canBoldLead) return text
   return (
     <>
-      <strong className="font-extrabold text-[#0F172A]">{text.slice(0, colon + 1)}</strong>
+      <strong className="font-extrabold text-[#102633]">{text.slice(0, colon + 1)}</strong>
       {text.slice(colon + 1)}
     </>
   )
@@ -31,14 +31,14 @@ function richParagraph(text: string) {
 
 function CtaBox({ title, body, label = 'Check funding fit' }: { title: string; body: string; label?: string }) {
   return (
-    <div className="my-8 rounded-[28px] border border-[#CAE7D8] bg-[#EAF7EF] p-5 shadow-[0_14px_40px_rgba(7,76,62,0.10)] md:p-7">
-      <p className="mb-2 text-xs font-black uppercase tracking-[0.22em] text-[#0A6B55]">Quick check</p>
-      <h3 className="mb-3 text-2xl font-black leading-tight tracking-[-0.03em] text-[#03211B]">{title}</h3>
-      <p className="mb-5 text-base leading-relaxed text-[#2F3A4A]">{body}</p>
-      <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#0B6B57] px-6 text-center text-base font-black text-white no-underline shadow-[0_8px_22px_rgba(7,76,62,0.22)] sm:w-auto">
+    <div className="my-8 rounded-[28px] border border-[#C9F3FF] bg-[#E6F9FF] p-5 shadow-[0_14px_40px_rgba(7,76,62,0.10)] md:p-7">
+      <p className="mb-2 text-xs font-black uppercase tracking-[0.22em] text-[#236F9E]">Quick check</p>
+      <h3 className="mb-3 text-2xl font-black leading-tight tracking-[-0.03em] text-[#061B2B]">{title}</h3>
+      <p className="mb-5 text-base leading-relaxed text-[#36515F]">{body}</p>
+      <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#236F9E] px-6 text-center text-base font-black text-white no-underline shadow-[0_8px_22px_rgba(7,76,62,0.22)] sm:w-auto">
         {label}
       </a>
-      <div className="mt-4 flex flex-wrap gap-2 text-[0.78rem] font-bold text-[#0A6B55]">
+      <div className="mt-4 flex flex-wrap gap-2 text-[0.78rem] font-bold text-[#236F9E]">
         {trustItems.map(item => <span key={item} className="rounded-full bg-white px-3 py-1 shadow-sm">{item}</span>)}
       </div>
     </div>
@@ -47,9 +47,9 @@ function CtaBox({ title, body, label = 'Check funding fit' }: { title: string; b
 
 function PhotoBreak({ src, alt, caption }: { src: string; alt: string; caption: string }) {
   return (
-    <figure className="my-5 overflow-hidden rounded-[24px] bg-[#F5F6F7] shadow-[0_10px_30px_rgba(3,33,27,0.08)]">
+    <figure className="my-5 overflow-hidden rounded-[24px] bg-[#F3F9FC] shadow-[0_10px_30px_rgba(6,27,43,0.08)]">
       <img src={src} alt={alt} className="h-auto w-full object-cover" loading="lazy" />
-      <figcaption className="px-4 py-3 text-xs font-semibold leading-relaxed text-[#5B6473]">{caption}</figcaption>
+      <figcaption className="px-4 py-3 text-xs font-semibold leading-relaxed text-[#5F7480]">{caption}</figcaption>
     </figure>
   )
 }
@@ -62,12 +62,12 @@ function ArticleSection({ section, index }: { section: C1PageData['sections'][nu
 
   return (
     <section className={index === 0 ? 'mt-8' : 'mt-10'}>
-      <h2 className="mb-4 border-l-[7px] border-[#FCB650] pl-4 text-[1.55rem] font-black leading-tight tracking-[-0.03em] text-[#03211B] md:text-[1.95rem]">
+      <h2 className="mb-4 border-l-[7px] border-[#C9F3FF] pl-4 text-[1.55rem] font-black leading-tight tracking-[-0.03em] text-[#061B2B] md:text-[1.95rem]">
         {section.heading}
       </h2>
 
       {paragraphs.map((para, j) => (
-        <p key={j} className="mb-5 text-[1.06rem] leading-[1.76] text-[#263244] md:text-[1.13rem]">
+        <p key={j} className="mb-5 text-[1.06rem] leading-[1.76] text-[#36515F] md:text-[1.13rem]">
           {richParagraph(para)}
         </p>
       ))}
@@ -81,10 +81,10 @@ function ArticleSection({ section, index }: { section: C1PageData['sections'][nu
       )}
 
       {section.bullets && section.bullets.length > 0 && (
-        <ul className="mb-6 mt-2 space-y-3 text-[1.03rem] leading-[1.68] text-[#263244]">
+        <ul className="mb-6 mt-2 space-y-3 text-[1.03rem] leading-[1.68] text-[#36515F]">
           {section.bullets.map((b, j) => (
-            <li key={j} className="rounded-2xl bg-[#F6FAF7] px-4 py-3 shadow-[inset_0_0_0_1px_rgba(7,76,62,0.08)]">
-              <span className="mr-2 font-black text-[#074C3E]">✓</span>{b.replace(/[.;]$/, '')}
+            <li key={j} className="rounded-2xl bg-[#F3F9FC] px-4 py-3 shadow-[inset_0_0_0_1px_rgba(7,76,62,0.08)]">
+              <span className="mr-2 font-black text-[#389BDD]">✓</span>{b.replace(/[.;]$/, '')}
             </li>
           ))}
         </ul>
@@ -93,10 +93,10 @@ function ArticleSection({ section, index }: { section: C1PageData['sections'][nu
       {section.table && (
         <div className="my-8 grid gap-3">
           {section.table.rows.map((row, ri) => (
-            <div key={ri} className="rounded-[22px] border border-[#D8EBDD] bg-white p-4 shadow-[0_8px_26px_rgba(3,33,27,0.06)]">
-              <p className="mb-2 text-lg font-black text-[#074C3E]">{row[0]}</p>
-              <p className="text-sm font-bold leading-relaxed text-[#0F172A]">{row[1]}</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#526070]">{row[2]}</p>
+            <div key={ri} className="rounded-[22px] border border-[#C9F3FF] bg-white p-4 shadow-[0_8px_26px_rgba(6,27,43,0.06)]">
+              <p className="mb-2 text-lg font-black text-[#389BDD]">{row[0]}</p>
+              <p className="text-sm font-bold leading-relaxed text-[#102633]">{row[1]}</p>
+              <p className="mt-2 text-sm leading-relaxed text-[#5F7480]">{row[2]}</p>
             </div>
           ))}
         </div>
@@ -154,8 +154,8 @@ const fundingPathCtas: Record<string, { label: string; microcopy?: string }> = {
 
 function FundingPathTrustBadges() {
   return (
-    <div className="mt-4 flex flex-wrap gap-2 text-xs font-extrabold text-[#074C3E]">
-      {fundingPathTrustItems.map(item => <span key={item} className="rounded-full border border-[#CFE7D8] bg-white px-3 py-1 shadow-sm">{item}</span>)}
+    <div className="mt-4 flex flex-wrap gap-2 text-xs font-extrabold text-[#389BDD]">
+      {fundingPathTrustItems.map(item => <span key={item} className="rounded-full border border-[#C9F3FF] bg-white px-3 py-1 shadow-sm">{item}</span>)}
     </div>
   )
 }
@@ -163,11 +163,11 @@ function FundingPathTrustBadges() {
 function FundingPathCTA({ cta }: { cta?: { label: string; microcopy?: string } }) {
   if (!cta) return null
   return (
-    <div className="my-8 rounded-[26px] border border-[#CFE7D8] bg-[#EAF7EF] p-5 shadow-[0_14px_36px_rgba(7,76,62,0.10)] md:p-6">
-      <a href="#funding-check" className="inline-flex min-h-[56px] w-full items-center justify-center rounded bg-[#0B6B57] px-6 text-center text-base font-black text-white no-underline shadow-[0_10px_24px_rgba(7,76,62,0.22)] sm:w-auto">
+    <div className="my-8 rounded-[26px] border border-[#C9F3FF] bg-[#E6F9FF] p-5 shadow-[0_14px_36px_rgba(7,76,62,0.10)] md:p-6">
+      <a href="#funding-check" className="inline-flex min-h-[56px] w-full items-center justify-center rounded bg-[#236F9E] px-6 text-center text-base font-black text-white no-underline shadow-[0_10px_24px_rgba(7,76,62,0.22)] sm:w-auto">
         {cta.label}
       </a>
-      {cta.microcopy && <p className="mt-3 text-sm font-bold leading-relaxed text-[#0A6B55]">{cta.microcopy}</p>}
+      {cta.microcopy && <p className="mt-3 text-sm font-bold leading-relaxed text-[#236F9E]">{cta.microcopy}</p>}
       <FundingPathTrustBadges />
     </div>
   )
@@ -176,9 +176,9 @@ function FundingPathCTA({ cta }: { cta?: { label: string; microcopy?: string } }
 function FundingPathImage({ item }: { item?: { src: string; alt: string; caption: string } }) {
   if (!item) return null
   return (
-    <figure className="my-8 overflow-hidden rounded-[28px] border border-[#E5E7EB] bg-[#F8FAF9] shadow-[0_14px_42px_rgba(3,33,27,0.08)]">
+    <figure className="my-8 overflow-hidden rounded-[28px] border border-[#EAF3F7] bg-[#F3F9FC] shadow-[0_14px_42px_rgba(6,27,43,0.08)]">
       <img src={item.src} alt={item.alt} className="h-auto w-full object-cover" loading="lazy" />
-      <figcaption className="px-4 py-3 text-xs font-semibold leading-relaxed text-[#526070]">{item.caption}</figcaption>
+      <figcaption className="px-4 py-3 text-xs font-semibold leading-relaxed text-[#5F7480]">{item.caption}</figcaption>
     </figure>
   )
 }
@@ -189,10 +189,10 @@ function FundingPathTable({ section }: { section: C1PageData['sections'][number]
     return (
       <div className="my-7 grid gap-4 md:grid-cols-2">
         {section.table.rows.map((row) => (
-          <div key={row[0]} className="rounded-[22px] border border-[#D8EBDD] bg-white p-5 shadow-[0_10px_28px_rgba(3,33,27,0.06)]">
-            <h3 className="mb-2 text-lg font-black text-[#074C3E]">{row[0]}</h3>
-            <p className="mb-4 text-sm font-semibold leading-relaxed text-[#334155]">{row[1]}</p>
-            <a href="#funding-check" className="text-sm font-black text-[#0B6B57] no-underline">{row[2]}</a>
+          <div key={row[0]} className="rounded-[22px] border border-[#C9F3FF] bg-white p-5 shadow-[0_10px_28px_rgba(6,27,43,0.06)]">
+            <h3 className="mb-2 text-lg font-black text-[#389BDD]">{row[0]}</h3>
+            <p className="mb-4 text-sm font-semibold leading-relaxed text-[#36515F]">{row[1]}</p>
+            <a href="#funding-check" className="text-sm font-black text-[#236F9E] no-underline">{row[2]}</a>
           </div>
         ))}
       </div>
@@ -201,11 +201,11 @@ function FundingPathTable({ section }: { section: C1PageData['sections'][number]
   return (
     <div className="my-7 grid gap-4">
       {section.table.rows.map((row, rowIndex) => (
-        <div key={`${row[0]}-${rowIndex}`} className="rounded-[22px] border border-[#E5E7EB] bg-white p-5 shadow-[0_10px_26px_rgba(3,33,27,0.05)] md:grid md:grid-cols-2 md:gap-5">
+        <div key={`${row[0]}-${rowIndex}`} className="rounded-[22px] border border-[#EAF3F7] bg-white p-5 shadow-[0_10px_26px_rgba(6,27,43,0.05)] md:grid md:grid-cols-2 md:gap-5">
           {row.map((cell, cellIndex) => (
             <div key={`${cell}-${cellIndex}`} className={cellIndex > 0 ? 'mt-3 md:mt-0' : ''}>
-              <p className="mb-1 text-xs font-black uppercase tracking-[0.14em] text-[#0B6B57]">{section.table?.headers[cellIndex]}</p>
-              <p className="text-sm font-semibold leading-relaxed text-[#263244]">{cell}</p>
+              <p className="mb-1 text-xs font-black uppercase tracking-[0.14em] text-[#236F9E]">{section.table?.headers[cellIndex]}</p>
+              <p className="text-sm font-semibold leading-relaxed text-[#36515F]">{cell}</p>
             </div>
           ))}
         </div>
@@ -217,11 +217,11 @@ function FundingPathTable({ section }: { section: C1PageData['sections'][number]
 function FundingPathSection({ section }: { section: C1PageData['sections'][number] }) {
   const paragraphs = (section.body || '').split(/\n\n+/).map(cleanBody).filter(Boolean)
   return (
-    <section className="mt-11 border-t border-[#E5E7EB] pt-9 first:mt-8 first:border-t-0 first:pt-0">
-      <h2 className="mb-5 text-[1.75rem] font-black leading-tight tracking-[-0.035em] text-[#111827] md:text-[2.25rem]">{section.heading}</h2>
+    <section className="mt-11 border-t border-[#EAF3F7] pt-9 first:mt-8 first:border-t-0 first:pt-0">
+      <h2 className="mb-5 text-[1.75rem] font-black leading-tight tracking-[-0.035em] text-[#102633] md:text-[2.25rem]">{section.heading}</h2>
       <div className="space-y-5">
         {paragraphs.map((paragraph, index) => (
-          <p key={`${section.heading}-${index}`} className="text-[1.08rem] leading-[1.78] text-[#263244] md:text-[1.16rem]">
+          <p key={`${section.heading}-${index}`} className="text-[1.08rem] leading-[1.78] text-[#36515F] md:text-[1.16rem]">
             {richParagraph(paragraph)}
           </p>
         ))}
@@ -229,8 +229,8 @@ function FundingPathSection({ section }: { section: C1PageData['sections'][numbe
       {section.bullets && section.bullets.length > 0 && (
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {section.bullets.map((bullet) => (
-            <li key={bullet} className="rounded-[18px] border border-[#DDEBE4] bg-[#F6FAF7] px-4 py-3 text-sm font-bold leading-relaxed text-[#263244]">
-              <span className="mr-2 text-[#0B6B57]">•</span>{bullet}
+            <li key={bullet} className="rounded-[18px] border border-[#D6E3EA] bg-[#F3F9FC] px-4 py-3 text-sm font-bold leading-relaxed text-[#36515F]">
+              <span className="mr-2 text-[#236F9E]">•</span>{bullet}
             </li>
           ))}
         </ul>
@@ -248,55 +248,55 @@ function FundingPathAdvertorial({ page }: { page: C1PageData }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: page.headline, description: page.seoDescription, dateModified: page.lastReviewed, author: { '@type': 'Organization', name: 'Comparison One SME Finance Editorial Team' }, publisher: { '@type': 'Organization', name: 'Comparison One' } }) }} />
-      <main className="min-h-screen bg-white pb-24 text-[#111827] md:pb-0">
-        <header className="sticky top-0 z-30 border-b border-[#E5E7EB] bg-white/95 backdrop-blur">
+      <main className="min-h-screen bg-white pb-24 text-[#102633] md:pb-0">
+        <header className="sticky top-0 z-30 border-b border-[#EAF3F7] bg-white/95 backdrop-blur">
           <div className="mx-auto flex max-w-[1040px] items-center justify-between gap-4 px-4 py-3">
             <img src="/comparisonone/advertorial/logo-white-bg.png?v=1" alt="Comparison One" className="h-10 w-auto md:h-12" />
-            <a href="#funding-check" className="hidden rounded bg-[#0B6B57] px-4 py-2 text-sm font-black text-white no-underline sm:inline-flex">Check My Funding Path</a>
+            <a href="#funding-check" className="hidden rounded bg-[#236F9E] px-4 py-2 text-sm font-black text-white no-underline sm:inline-flex">Check My Funding Path</a>
           </div>
         </header>
         <article className="mx-auto max-w-[1040px] px-4 pb-14 pt-6 md:pt-10">
-          <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5B6473]">
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5F7480]">
             <span>{page.eyebrow}</span>
             <span>Updated {reviewedDate || 'May 2026'}</span>
             <span className="rounded-full bg-[#FFF7E6] px-3 py-1 text-[#8A5A00]">Funding fit first</span>
           </div>
-          <section className="grid items-center gap-8 border-b border-[#E5E7EB] pb-8 md:grid-cols-[1.08fr_0.92fr]">
+          <section className="grid items-center gap-8 border-b border-[#EAF3F7] pb-8 md:grid-cols-[1.08fr_0.92fr]">
             <div>
-              <h1 className="text-[2.35rem] font-black leading-[1.04] tracking-[-0.045em] text-[#111827] md:text-[4.15rem]">{page.headline}</h1>
+              <h1 className="text-[2.35rem] font-black leading-[1.04] tracking-[-0.045em] text-[#102633] md:text-[4.15rem]">{page.headline}</h1>
               <div className="mt-5 space-y-4">
-                {heroParagraphs.map((paragraph) => <p key={paragraph} className="text-[1.12rem] font-medium leading-[1.65] text-[#374151] md:text-[1.25rem]">{paragraph}</p>)}
+                {heroParagraphs.map((paragraph) => <p key={paragraph} className="text-[1.12rem] font-medium leading-[1.65] text-[#36515F] md:text-[1.25rem]">{paragraph}</p>)}
               </div>
               <FundingPathCTA cta={fundingPathCtas.hero} />
-              <p className="mt-4 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-4 text-xs font-semibold leading-relaxed text-[#526070]">Comparison One is not a lender, credit provider, government agency or financial adviser. Funding availability, approval, rates, fees, timing and eligibility depend on lender or partner assessment.</p>
+              <p className="mt-4 rounded-[18px] border border-[#EAF3F7] bg-[#F3F9FC] p-4 text-xs font-semibold leading-relaxed text-[#5F7480]">Comparison One is not a lender, credit provider, government agency or financial adviser. Funding availability, approval, rates, fees, timing and eligibility depend on lender or partner assessment.</p>
             </div>
             <FundingPathImage item={fundingPathImages.hero} />
           </section>
           {page.sections.map((section) => <FundingPathSection key={section.heading} section={section} />)}
-          <section id="funding-check" className="mt-12 scroll-mt-24 rounded-[28px] border border-[#CFE7D8] bg-[#F6FAF7] p-4 md:p-6">
-            <h2 className="mb-3 text-2xl font-black tracking-[-0.03em] text-[#03211B]">Start My 90-Second Funding Fit Check</h2>
-            <p className="mb-5 text-sm font-bold leading-relaxed text-[#0A6B55]">No credit pull to start · Secure partner form · No obligation · Partner terms may apply</p>
+          <section id="funding-check" className="mt-12 scroll-mt-24 rounded-[28px] border border-[#C9F3FF] bg-[#F3F9FC] p-4 md:p-6">
+            <h2 className="mb-3 text-2xl font-black tracking-[-0.03em] text-[#061B2B]">Start My 90-Second Funding Fit Check</h2>
+            <p className="mb-5 text-sm font-bold leading-relaxed text-[#236F9E]">No credit pull to start · Secure partner form · No obligation · Partner terms may apply</p>
             <C1EmbeddedQuoteFrame showDirectLink={false} />
           </section>
           {page.faqs && page.faqs.length > 0 && (
-            <section className="mt-10 rounded-[28px] bg-white p-5 shadow-[0_12px_38px_rgba(3,33,27,0.08)] md:p-7">
-              <h2 className="mb-4 text-[1.65rem] font-black tracking-[-0.03em] text-[#03211B]">Common questions before you start</h2>
-              <div className="divide-y divide-[#E5E7EB]">
+            <section className="mt-10 rounded-[28px] bg-white p-5 shadow-[0_12px_38px_rgba(6,27,43,0.08)] md:p-7">
+              <h2 className="mb-4 text-[1.65rem] font-black tracking-[-0.03em] text-[#061B2B]">Common questions before you start</h2>
+              <div className="divide-y divide-[#EAF3F7]">
                 {page.faqs.map((faq) => (
                   <details key={faq.question} className="group py-4">
-                    <summary className="cursor-pointer list-none text-base font-extrabold text-[#111827] [&::-webkit-details-marker]:hidden">{faq.question}</summary>
-                    <p className="mt-3 text-base leading-relaxed text-[#4B5563]">{faq.answer}</p>
+                    <summary className="cursor-pointer list-none text-base font-extrabold text-[#102633] [&::-webkit-details-marker]:hidden">{faq.question}</summary>
+                    <p className="mt-3 text-base leading-relaxed text-[#5F7480]">{faq.answer}</p>
                   </details>
                 ))}
               </div>
             </section>
           )}
         </article>
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#CFE7D8] bg-white p-3 shadow-[0_-8px_24px_rgba(3,33,27,0.12)] md:hidden">
-          <a href="#funding-check" className="flex min-h-[52px] items-center justify-center rounded bg-[#0B6B57] px-4 text-center text-base font-black text-white no-underline">Check My Funding Path</a>
-          <p className="mt-1 text-center text-xs font-bold text-[#0A6B55]">No credit pull to start</p>
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#C9F3FF] bg-white p-3 shadow-[0_-8px_24px_rgba(6,27,43,0.12)] md:hidden">
+          <a href="#funding-check" className="flex min-h-[52px] items-center justify-center rounded bg-[#236F9E] px-4 text-center text-base font-black text-white no-underline">Check My Funding Path</a>
+          <p className="mt-1 text-center text-xs font-bold text-[#236F9E]">No credit pull to start</p>
         </div>
-        <footer className="px-4 pb-8 text-center text-xs font-semibold leading-relaxed text-[#5B6473]">© {new Date().getFullYear()} Comparison One</footer>
+        <footer className="px-4 pb-8 text-center text-xs font-semibold leading-relaxed text-[#5F7480]">© {new Date().getFullYear()} Comparison One</footer>
       </main>
     </>
   )
@@ -337,28 +337,28 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
         })
       }} />
 
-      <main className="min-h-screen bg-white text-[#111827]">
-        <header className="bg-white shadow-[0_3px_18px_rgba(3,33,27,0.07)]">
+      <main className="min-h-screen bg-white text-[#102633]">
+        <header className="bg-white shadow-[0_3px_18px_rgba(6,27,43,0.07)]">
           <div className="mx-auto flex max-w-[900px] items-center justify-between gap-4 px-4 py-3">
             <img src="/comparisonone/advertorial/logo-white-bg.png?v=1" alt="Comparison One" className="h-10 w-auto md:h-12" />
-            <span className="hidden text-sm font-semibold text-[#6B7280] sm:inline">Business funding news</span>
+            <span className="hidden text-sm font-semibold text-[#5F7480] sm:inline">Business funding news</span>
           </div>
         </header>
 
         <article className="mx-auto max-w-[900px] px-4 pb-12 pt-5 md:pb-16 md:pt-8">
-          <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5B6473]">
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-bold text-[#5F7480]">
             <span>Updated {reviewedDate || 'May 2026'}</span>
-            <span className="rounded-full bg-white px-3 py-1 text-[#074C3E] shadow-sm">Business funding news</span>
+            <span className="rounded-full bg-white px-3 py-1 text-[#389BDD] shadow-sm">Business funding news</span>
           </div>
 
           <section className="pb-3">
-            <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#074C3E]">Revealed</p>
-            <h1 className="max-w-[760px] text-[2.35rem] font-black leading-[1.04] tracking-[-0.045em] text-[#111827] md:text-[4rem]">
+            <p className="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#389BDD]">Revealed</p>
+            <h1 className="max-w-[760px] text-[2.35rem] font-black leading-[1.04] tracking-[-0.045em] text-[#102633] md:text-[4rem]">
               {displayHeadline}
             </h1>
             <div className="mt-5 max-w-[720px] space-y-4">
               {heroParagraphs.map((paragraph) => (
-                <p key={paragraph} className="text-[1.15rem] font-medium leading-[1.6] text-[#374151] md:text-[1.28rem]">
+                <p key={paragraph} className="text-[1.15rem] font-medium leading-[1.6] text-[#36515F] md:text-[1.28rem]">
                   {paragraph}
                 </p>
               ))}
@@ -373,24 +373,24 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
 
           {isZeroInterest && (
             <>
-              <section className="mt-5 rounded-[18px] border border-[#E5E7EB] bg-[#F9FAFB] p-4 md:p-5">
-                <h2 className="mb-2 text-[1.6rem] font-black leading-tight tracking-[-0.03em] text-[#111827]">No time to read?</h2>
-                <p className="mb-3 text-base leading-relaxed text-[#374151]">The Program comes with strict industry and bank criteria.</p>
-                <p className="mb-4 text-base leading-relaxed text-[#374151]">Click below to match with non-bank lenders that may be more suitable for your business.</p>
-                <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#0B6B57] px-6 text-center text-base font-black text-white no-underline sm:w-auto">
+              <section className="mt-5 rounded-[18px] border border-[#EAF3F7] bg-[#F3F9FC] p-4 md:p-5">
+                <h2 className="mb-2 text-[1.6rem] font-black leading-tight tracking-[-0.03em] text-[#102633]">No time to read?</h2>
+                <p className="mb-3 text-base leading-relaxed text-[#36515F]">The Program comes with strict industry and bank criteria.</p>
+                <p className="mb-4 text-base leading-relaxed text-[#36515F]">Click below to match with non-bank lenders that may be more suitable for your business.</p>
+                <a href="#funding-check" className="inline-flex min-h-[54px] w-full items-center justify-center rounded bg-[#236F9E] px-6 text-center text-base font-black text-white no-underline sm:w-auto">
                   Start the funding-fit check
                 </a>
-                <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold text-[#0A6B55]">
+                <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold text-[#236F9E]">
                   {trustItems.map(item => <span key={item} className="rounded-full bg-white px-3 py-1 shadow-sm">{item}</span>)}
                 </div>
               </section>
 
-              <section className="mt-7 border-y border-[#E5E7EB] py-5">
-                <p className="mb-3 text-[1.08rem] font-bold text-[#263244]">In this article you’ll learn:</p>
+              <section className="mt-7 border-y border-[#EAF3F7] py-5">
+                <p className="mb-3 text-[1.08rem] font-bold text-[#36515F]">In this article you’ll learn:</p>
                 <ul className="grid gap-3 md:grid-cols-3">
                   {articleTakeaways.map(item => (
-                    <li key={item} className="border-l-4 border-[#FCB650] bg-[#FFFBEB] px-4 py-3 text-sm font-black leading-relaxed text-[#111827]">
-                      <span className="mr-2 text-[#074C3E]">•</span>{item}
+                    <li key={item} className="border-l-4 border-[#C9F3FF] bg-[#FFFBEB] px-4 py-3 text-sm font-black leading-relaxed text-[#102633]">
+                      <span className="mr-2 text-[#389BDD]">•</span>{item}
                     </li>
                   ))}
                 </ul>
@@ -407,15 +407,15 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
           </section>
 
           {page.faqs && page.faqs.length > 0 && (
-            <section className="mt-10 rounded-[28px] bg-white p-5 shadow-[0_12px_38px_rgba(3,33,27,0.08)] md:p-7">
-              <h2 className="mb-4 text-[1.55rem] font-black tracking-[-0.03em] text-[#03211B]">Common questions</h2>
-              <div className="divide-y divide-[#E5E7EB]">
+            <section className="mt-10 rounded-[28px] bg-white p-5 shadow-[0_12px_38px_rgba(6,27,43,0.08)] md:p-7">
+              <h2 className="mb-4 text-[1.55rem] font-black tracking-[-0.03em] text-[#061B2B]">Common questions</h2>
+              <div className="divide-y divide-[#EAF3F7]">
                 {page.faqs.map((faq) => (
                   <details key={faq.question} className="group py-4">
-                    <summary className="cursor-pointer list-none text-base font-extrabold text-[#111827] [&::-webkit-details-marker]:hidden">
+                    <summary className="cursor-pointer list-none text-base font-extrabold text-[#102633] [&::-webkit-details-marker]:hidden">
                       {faq.question}
                     </summary>
-                    <p className="mt-3 text-base leading-relaxed text-[#4B5563]">{faq.answer}</p>
+                    <p className="mt-3 text-base leading-relaxed text-[#5F7480]">{faq.answer}</p>
                   </details>
                 ))}
               </div>
@@ -423,7 +423,7 @@ export default function C1AdvertorialPage({ page }: { page: C1PageData }) {
           )}
         </article>
 
-        <footer className="px-4 pb-8 text-center text-xs font-semibold leading-relaxed text-[#5B6473]">
+        <footer className="px-4 pb-8 text-center text-xs font-semibold leading-relaxed text-[#5F7480]">
           © {new Date().getFullYear()} Comparison One
         </footer>
       </main>
