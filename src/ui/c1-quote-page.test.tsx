@@ -34,6 +34,7 @@ describe('Comparison One paid-traffic quiz page', () => {
 		assert.match(html, /What Are You Looking To Fund\?/)
 		assert.match(html, /A gap while waiting for invoices/)
 		assert.match(html, /lg:grid-cols-7/)
+		assert.doesNotMatch(html, /sm:last:col-span-2/)
 		assert.match(html, /What Happens Next\?/)
 		assert.match(html, /Who May Be Eligible\?/)
 		assert.match(html, /Approved businesses may be able to access funding within 24 hours\./)

@@ -75,7 +75,7 @@ export default function C1QuizProofSections() {
 					</div>
 					<ul className="mt-8 grid border-y border-[#D6E3EA] sm:grid-cols-2 lg:grid-cols-7">
 						{fundingUses.map(({ label, Icon }) => (
-							<li key={label} className="flex min-h-20 items-center gap-3 border-b border-[#D6E3EA] px-3 py-4 last:border-b-0 sm:border-r sm:even:border-r-0 sm:last:col-span-2 sm:last:border-r-0 lg:col-span-1 lg:border-b-0 lg:border-r lg:even:border-r lg:last:border-r-0">
+							<li key={label} className="flex min-h-20 items-center gap-3 border-b border-[#D6E3EA] px-3 py-4 last:border-b-0 sm:border-r sm:even:border-r-0 sm:last:border-r-0 lg:border-b-0 lg:border-r lg:even:border-r lg:last:border-r-0">
 								<span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#DDF2F9] text-[#236F9E]" aria-hidden="true"><Icon className="h-4 w-4" /></span>
 								<span className="text-sm font-black leading-5 text-[#173846]">{label}</span>
 							</li>
