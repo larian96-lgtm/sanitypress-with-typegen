@@ -330,10 +330,12 @@ export default function C1ContentPage({
 	page,
 	rateTable,
 	notice,
+	hideHero = false,
 }: {
 	page: C1PageData
 	rateTable?: C1RateTableData
 	notice?: ReactNode
+	hideHero?: boolean
 }) {
 	const activeRateTable = rateTable ?? c1FallbackRateTable
 	const editorSection = page.sections?.find(isEditorSection)
@@ -359,23 +361,25 @@ export default function C1ContentPage({
 			<C1Header compact />
 			{notice}
 
-			<section className="relative overflow-hidden bg-[#389BDD] py-16 md:py-20">
-				<div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#C9F3FF] opacity-10" />
-				<div className="absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#C9F3FF] opacity-10" />
-				<div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr]">
-					<div>
-						<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9F3FF]">{page.eyebrow || 'Business finance comparison'}</p>
-						<HeroHeading className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{displayHeadline(page)}</HeroHeading>
-						<p className="max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">{shortHero}</p>
-						<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Compare now'} />
-					</div>
-					<div className="hidden lg:block">
-						<div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.12)]">
-							<Image src={image} alt={`${page.title} guide`} width={620} height={420} className="h-auto w-full rounded-[1.5rem] object-cover" priority />
+			{!hideHero && (
+				<section className="relative overflow-hidden bg-[#389BDD] py-16 md:py-20">
+					<div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#C9F3FF] opacity-10" />
+					<div className="absolute -bottom-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#C9F3FF] opacity-10" />
+					<div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr]">
+						<div>
+							<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#C9F3FF]">{page.eyebrow || 'Business finance comparison'}</p>
+							<HeroHeading className="mb-5 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">{displayHeadline(page)}</HeroHeading>
+							<p className="max-w-2xl text-base leading-relaxed text-white/78 md:text-lg">{shortHero}</p>
+							<C1FundingWidget className="mt-6 max-w-xl" buttonLabel={page.primaryCtaLabel || 'Compare now'} />
+						</div>
+						<div className="hidden lg:block">
+							<div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.12)]">
+								<Image src={image} alt={`${page.title} guide`} width={620} height={420} className="h-auto w-full rounded-[1.5rem] object-cover" priority />
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			)}
 
 			<section className="bg-[#F3F9FC] py-12">
 				{page.rateSnapshot && page.rateSnapshot.length > 0 && (

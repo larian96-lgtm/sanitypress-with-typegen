@@ -23,5 +23,5 @@ function ApplicationReceivedNotice() {
 
 export default function C1ThanksPage() {
 	if (!guide) return null
-	return <C1ContentPage page={guide} notice={<ApplicationReceivedNotice />} />
+	return <C1ContentPage page={guide} notice={<ApplicationReceivedNotice />} hideHero />
 }

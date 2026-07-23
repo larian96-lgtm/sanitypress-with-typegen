@@ -25,6 +25,7 @@ describe('Comparison One post-submit page', () => {
 
 		assert.match(html, /Thanks for your application/)
 		assert.match(html, /One of our brokers will be in touch very soon/)
+		assert.doesNotMatch(html, />How business lenders assess applications<\/h2>/)
 		assert.match(html, /aria-label="Primary navigation"/)
 		assert.match(html, /href="\/business-loans"/)
 		assert.match(html, /How Business Lenders Assess Applications/)
