@@ -389,9 +389,15 @@ export default function C1MatchingEngine({ embedded = false }: { embedded?: bool
 					) : null}
 
 					<header className={styles.questionHeader} aria-live="polite">
-						<h1 id="matching-question-title" ref={headingRef} tabIndex={-1}>
-							{choiceQuestion?.title ?? fieldQuestion?.title}
-						</h1>
+						{embedded ? (
+							<h2 id="matching-question-title" ref={headingRef} tabIndex={-1}>
+								{choiceQuestion?.title ?? fieldQuestion?.title}
+							</h2>
+						) : (
+							<h1 id="matching-question-title" ref={headingRef} tabIndex={-1}>
+								{choiceQuestion?.title ?? fieldQuestion?.title}
+							</h1>
+						)}
 						{choiceQuestion?.helper || fieldQuestion?.helper ? (
 							<p>{choiceQuestion?.helper ?? fieldQuestion?.helper}</p>
 						) : null}

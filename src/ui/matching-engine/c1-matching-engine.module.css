@@ -55,7 +55,7 @@
 .embeddedCard .cardBody {
 	width: min(100%, 1080px);
 	margin: 0 auto;
-	padding: clamp(32px, 6vw, 72px) clamp(24px, 8vw, 96px);
+	padding: clamp(30px, 4vw, 48px) clamp(20px, 6vw, 64px);
 }
 
 .embeddedCard .cardFooter {
@@ -129,7 +129,8 @@
 	margin: 0 0 24px;
 }
 
-.questionHeader h1 {
+.questionHeader h1,
+.questionHeader h2 {
 	margin: 0;
 	color: rgba(14, 13, 15, 0.9);
 	font-size: 18px;
@@ -138,8 +139,22 @@
 	letter-spacing: -0.015em;
 }
 
-.questionHeader h1:focus {
+.questionHeader h1:focus,
+.questionHeader h2:focus {
 	outline: 0;
+}
+
+.embeddedCard .questionHeader {
+	margin-bottom: 28px;
+	text-align: center;
+}
+
+.embeddedCard .questionHeader h2 {
+	color: #061B2B;
+	font-size: clamp(24px, 3.4vw, 34px);
+	font-weight: 900;
+	line-height: 1.08;
+	letter-spacing: -0.035em;
 }
 
 .questionHeader p {
