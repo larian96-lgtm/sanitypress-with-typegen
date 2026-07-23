@@ -28,6 +28,7 @@ describe('matching-engine branching', () => {
 
 		const steps = journey as string[]
 		assert.ok(steps.includes('vehicle_type'))
+		assert.ok(steps.includes('vehicle_source'))
 		assert.ok(!steps.includes('equipment_type'))
 		assert.ok(!steps.includes('vehicle_found'))
 		assert.ok(!steps.includes('asset_purchase_source'))

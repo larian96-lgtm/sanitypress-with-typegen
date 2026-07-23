@@ -4,7 +4,13 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { LuArrowLeft, LuCheck, LuLockKeyhole, LuShieldCheck } from 'react-icons/lu'
 
 import type { LeadAttribution } from '@/lib/business-finance-lead'
+import { isQualifiedBusinessFinanceLead, pushQualifiedBusinessFinanceLead } from '@/lib/c1-tracking'
 
+import {
+	PRIVACY_POLICY_URL,
+	SUBMISSION_CONSENT_TEXT,
+	TERMS_OF_USE_URL,
+} from './consent-copy'
 import styles from './c1-matching-engine.module.css'
 import {
 	buildJourney,
@@ -19,7 +25,7 @@ import { choiceQuestions, fieldQuestionTitles } from './questions'
 const STORAGE_KEY = 'comparison-one-matching-engine'
 
 const answerKeysByPurpose = {
-	new_vehicle: ['vehicle_type'],
+	new_vehicle: ['vehicle_type', 'vehicle_source'],
 	new_equipment: ['equipment_type'],
 } as const
 
@@ -54,7 +60,7 @@ function FieldError({ message }: { message?: string }) {
 	)
 }
 
-export default function C1MatchingEngine() {
+export default function C1MatchingEngine({ embedded = false }: { embedded?: boolean }) {
 	const [answers, setAnswers] = useState<MatchingAnswers>({})
 	const [currentStepId, setCurrentStepId] = useState<StepId>('purpose')
 	const [errors, setErrors] = useState<Record<string, string>>({})
@@ -69,6 +75,8 @@ export default function C1MatchingEngine() {
 	const journey = useMemo(() => buildJourney(answers), [answers])
 	const progress = getProgress(currentStepId, answers)
 	const previousStepId = getPreviousStepId(currentStepId, answers)
+	const shellClassName = embedded ? `${styles.pageShell} ${styles.embeddedShell}` : styles.pageShell
+	const cardClassName = embedded ? `${styles.card} ${styles.embeddedCard}` : styles.card
 
 	useEffect(() => {
 		try {
@@ -145,7 +153,12 @@ export default function C1MatchingEngine() {
 		}
 
 		if (currentStepId === 'contact') {
-			if (!answers.full_name?.trim()) nextErrors.full_name = 'Enter your full name'
+			if (!answers.business_name?.trim()) nextErrors.business_name = 'Enter the business name'
+			if (!answers.full_name?.trim()) {
+				nextErrors.full_name = 'Enter your full name'
+			} else if (answers.full_name.trim().split(/\s+/).length < 2) {
+				nextErrors.full_name = 'Enter your first and last name'
+			}
 			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(answers.email ?? '')) {
 				nextErrors.email = 'Enter a valid email address'
 			}
@@ -153,7 +166,6 @@ export default function C1MatchingEngine() {
 			if (!/^(?:\+?61|0)[2-478]\d{8}$/.test(normalizedPhone)) {
 				nextErrors.phone = 'Enter a valid Australian phone number'
 			}
-			if (answers.consent !== 'yes') nextErrors.consent = 'Confirm your consent to continue'
 		}
 
 		setErrors(nextErrors)
@@ -186,7 +198,11 @@ export default function C1MatchingEngine() {
 			}
 
 			window.sessionStorage.removeItem(STORAGE_KEY)
-			setSubmitState('success')
+			const isQualified = isQualifiedBusinessFinanceLead(answers)
+			if (isQualified) {
+				pushQualifiedBusinessFinanceLead(answers, submissionIdRef.current)
+			}
+			window.setTimeout(() => window.location.assign('/thanks'), isQualified ? 500 : 0)
 		} catch (error) {
 			setSubmitState('error')
 			setSubmitMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.')
@@ -231,10 +247,15 @@ export default function C1MatchingEngine() {
 							onClick={() => selectChoice(option.value)}
 						>
 							{Icon ? <Icon className={styles.choiceIcon} aria-hidden="true" /> : null}
-							{isStateGrid && option.statePath ? (
-								<svg className={styles.stateSilhouette} viewBox="0 0 32 32" aria-hidden="true">
-									<path d={option.statePath} />
-								</svg>
+							{isStateGrid && option.stateImage ? (
+								<img
+									className={styles.stateSilhouette}
+									src={option.stateImage}
+									alt=""
+									width="96"
+									height="96"
+									aria-hidden="true"
+								/>
 							) : null}
 							<span>{option.label}</span>
 							{selected ? <LuCheck className={styles.selectionCheck} aria-hidden="true" /> : null}
@@ -269,9 +290,19 @@ export default function C1MatchingEngine() {
 			return (
 				<div className={styles.fieldStack}>
 					<label>
-						<span>Full name</span>
+						<span>Business name</span>
 						<input
 							autoFocus
+							autoComplete="organization"
+							value={answers.business_name ?? ''}
+							onChange={(event) => updateAnswer('business_name', event.target.value)}
+							aria-invalid={Boolean(errors.business_name)}
+						/>
+						<FieldError message={errors.business_name} />
+					</label>
+					<label>
+						<span>Full name</span>
+						<input
 							autoComplete="name"
 							value={answers.full_name ?? ''}
 							onChange={(event) => updateAnswer('full_name', event.target.value)}
@@ -303,18 +334,18 @@ export default function C1MatchingEngine() {
 						<FieldError message={errors.phone} />
 					</label>
 					<div className={styles.consentPanel}>
-						<label className={styles.consentCheck}>
-							<input
-								type="checkbox"
-								checked={answers.consent === 'yes'}
-								onChange={(event) => updateAnswer('consent', event.target.checked ? 'yes' : 'no')}
-							/>
-							<span>
-								I agree that Comparison One may use these details to identify and contact me about relevant
-								business-finance options. Approval is not guaranteed.
-							</span>
-						</label>
-						<FieldError message={errors.consent} />
+						<p className={styles.consentNotice} aria-label={SUBMISSION_CONSENT_TEXT}>
+							By submitting this form, you agree that Comparison One and its partners may contact you about
+							business loan opportunities, as outlined in the{' '}
+							<a href={TERMS_OF_USE_URL} target="_blank" rel="noopener noreferrer">
+								Terms of Use
+							</a>{' '}
+							and{' '}
+							<a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">
+								Privacy Policy
+							</a>
+							. Approval is not guaranteed.
+						</p>
 						{submitState === 'error' ? <p className={styles.submitError}>{submitMessage}</p> : null}
 					</div>
 				</div>
@@ -326,8 +357,8 @@ export default function C1MatchingEngine() {
 
 	if (submitState === 'success') {
 		return (
-			<div className={styles.pageShell}>
-				<section className={`${styles.card} ${styles.successCard}`} aria-labelledby="success-title">
+			<div className={shellClassName}>
+				<section className={`${cardClassName} ${styles.successCard}`} aria-labelledby="success-title">
 					<div className={styles.successIcon}><LuCheck aria-hidden="true" /></div>
 					<h1 id="success-title">Your details have been received</h1>
 					<p>We’ll review the information and contact you about relevant business-finance pathways.</p>
@@ -341,9 +372,9 @@ export default function C1MatchingEngine() {
 	const isManualStep = !choiceQuestion
 
 	return (
-		<div className={styles.pageShell}>
-			<div className={styles.ambientShape} aria-hidden="true" />
-			<form className={styles.card} onSubmit={handleContinue} noValidate>
+		<div className={shellClassName}>
+			{embedded ? null : <div className={styles.ambientShape} aria-hidden="true" />}
+			<form className={cardClassName} onSubmit={handleContinue} noValidate>
 				{currentStepId !== 'purpose' ? (
 					<div className={styles.progressTrack} aria-hidden="true">
 						<div className={styles.progressFill} style={{ width: `${progress}%` }} />

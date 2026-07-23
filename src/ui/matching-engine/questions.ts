@@ -24,7 +24,7 @@ export type ChoiceOption = {
 	value: string
 	label: string
 	icon?: IconType
-	statePath?: string
+	stateImage?: string
 }
 
 export type ChoiceQuestion = {
@@ -61,6 +61,15 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 			{ value: 'other', label: 'Other vehicle', icon: LuCircleCheck },
 		],
 	},
+	vehicle_source: {
+		title: 'Where are you buying the vehicle from?',
+		columns: 3,
+		options: [
+			{ value: 'used_from_dealer', label: 'Used from a dealer' },
+			{ value: 'private_sale', label: 'Private sale' },
+			{ value: 'unknown', label: 'Not sure yet' },
+		],
+	},
 	equipment_type: {
 		title: 'What type of equipment are you looking for?',
 		columns: 2,
@@ -74,20 +83,18 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 	},
 	trading_history: {
 		title: 'How long has the business been trading?',
-		columns: 3,
+		columns: 2,
 		options: [
-			{ value: 'not_trading', label: 'Not trading yet' },
-			{ value: 'under_six_months', label: 'Under 6 months' },
-			{ value: 'six_to_twelve_months', label: '6–12 months' },
+			{ value: 'under_12_months', label: 'Under 12 months' },
 			{ value: 'one_to_two_years', label: '1–2 years' },
-			{ value: 'two_plus_years', label: 'Over 2 years' },
+			{ value: 'two_to_five_years', label: '2–5 years' },
+			{ value: 'five_plus_years', label: '5 years+' },
 		],
 	},
 	monthly_revenue: {
 		title: 'What is the business’s average monthly revenue?',
 		columns: 2,
 		options: [
-			{ value: 'pre_revenue', label: 'Not trading yet / pre-revenue' },
 			{ value: 'under_10000', label: 'Under $10,000' },
 			{ value: '10000_25000', label: '$10,000–$25,000' },
 			{ value: '25000_50000', label: '$25,000–$50,000' },
@@ -118,14 +125,14 @@ export const choiceQuestions: Partial<Record<StepId, ChoiceQuestion>> = {
 		title: 'Which state or territory is the business in?',
 		columns: 3,
 		options: [
-			{ value: 'NSW', label: 'NSW', statePath: 'M7 6 23 8 24 18 18 25 10 23 8 15Z' },
-			{ value: 'VIC', label: 'VIC', statePath: 'M6 10 25 13 22 24 15 26 8 21Z' },
-			{ value: 'QLD', label: 'QLD', statePath: 'M10 4 22 5 24 24 13 22 8 14Z' },
-			{ value: 'WA', label: 'WA', statePath: 'M7 5 20 8 23 15 18 25 9 24 6 15Z' },
-			{ value: 'SA', label: 'SA', statePath: 'M9 7 22 7 24 21 17 25 8 21Z' },
-			{ value: 'TAS', label: 'TAS', statePath: 'M9 7 23 10 21 23 14 27 7 17Z' },
-			{ value: 'ACT', label: 'ACT', statePath: 'M10 8 22 9 24 20 17 25 9 21 7 14Z' },
-			{ value: 'NT', label: 'NT', statePath: 'M10 4 22 5 23 25 8 24 8 13Z' },
+			{ value: 'NSW', label: 'NSW', stateImage: '/comparisonone/matching-engine/state-icons/nsw.png' },
+			{ value: 'VIC', label: 'VIC', stateImage: '/comparisonone/matching-engine/state-icons/vic.png' },
+			{ value: 'QLD', label: 'QLD', stateImage: '/comparisonone/matching-engine/state-icons/qld.png' },
+			{ value: 'SA', label: 'SA', stateImage: '/comparisonone/matching-engine/state-icons/sa.png' },
+			{ value: 'WA', label: 'WA', stateImage: '/comparisonone/matching-engine/state-icons/wa.png' },
+			{ value: 'NT', label: 'NT', stateImage: '/comparisonone/matching-engine/state-icons/nt.png' },
+			{ value: 'ACT', label: 'ACT', stateImage: '/comparisonone/matching-engine/state-icons/act.png' },
+			{ value: 'TAS', label: 'TAS', stateImage: '/comparisonone/matching-engine/state-icons/tas.png' },
 		],
 	},
 }

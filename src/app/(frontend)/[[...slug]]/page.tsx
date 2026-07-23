@@ -22,6 +22,7 @@ import C1Homepage, { type C1HomepageData } from '@/ui/c1-homepage'
 import C1LegalPage from '@/ui/c1-legal-page'
 import C1QuotePage from '@/ui/c1-quote-page'
 import C1MatchingEngine from '@/ui/matching-engine/c1-matching-engine'
+import C1ThanksPage from '@/ui/c1-thanks-page'
 import ModulesResolver from '@/ui/modules'
 
 type Props = {
@@ -43,6 +44,7 @@ export default async function Page({ params }: Props) {
 	const specialRoute = getC1SpecialRoute(path)
 	if (specialRoute === 'quote') return <C1QuotePage />
 	if (specialRoute === 'matching-engine') return <C1MatchingEngine />
+	if (specialRoute === 'thanks') return <C1ThanksPage />
 	if (isLegalPath(path)) return <C1LegalPage path={path} />
 	const c1Page = c1PageLookup[path]
 	const cmsPath = getC1CmsLookupPath(path)
@@ -90,8 +92,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	if (
 		path === '/quiz' ||
 		path === '/funding-fit-check' ||
-		path === '/business-loans/matching-engine'
+		path === '/business-loans/matching-engine' ||
+		path === '/thanks'
 	) {
+		if (path === '/thanks') {
+			return buildC1Metadata({
+				path,
+				title: 'Thanks for your application | Comparison One',
+				description: 'Your Comparison One business funding application has been received.',
+				noIndex: true,
+			})
+		}
 		return buildC1Metadata({
 			path,
 			title: 'Business Funding Fit Check | Compare Non-Bank Business Finance | Comparison One',

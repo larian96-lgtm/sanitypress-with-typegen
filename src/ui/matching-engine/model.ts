@@ -3,6 +3,7 @@ export type MatchingAnswers = Record<string, string>
 export type StepId =
 	| 'purpose'
 	| 'vehicle_type'
+	| 'vehicle_source'
 	| 'equipment_type'
 	| 'amount'
 	| 'monthly_revenue'
@@ -25,7 +26,9 @@ const COMMON_FINAL_STEPS: StepId[] = [
 export function buildJourney(answers: MatchingAnswers): StepId[] {
 	const journey: StepId[] = ['purpose']
 
-	if (answers.purpose === 'new_vehicle') journey.push('vehicle_type')
+	if (answers.purpose === 'new_vehicle') {
+		journey.push('vehicle_type', 'vehicle_source')
+	}
 	if (answers.purpose === 'new_equipment') journey.push('equipment_type')
 
 	journey.push(...COMMON_FINAL_STEPS)

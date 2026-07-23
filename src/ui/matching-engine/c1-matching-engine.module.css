@@ -8,9 +8,17 @@
 	align-items: center;
 	justify-content: center;
 	padding: 32px 16px 24px;
-	background: #f5f4f5;
-	color: #1d252c;
+	background: #F3F9FC;
+	color: #102633;
 	font-family: Inter, Geist, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.embeddedShell {
+	min-height: 0;
+	justify-content: flex-start;
+	padding: 0;
+	background: transparent;
+	overflow: visible;
 }
 
 .ambientShape {
@@ -21,7 +29,7 @@
 	width: 70vw;
 	height: 62vh;
 	border-radius: 50%;
-	background: rgba(111, 79, 212, 0.055);
+	background: rgba(56, 155, 221, 0.08);
 	transform: rotate(-8deg);
 	pointer-events: none;
 }
@@ -38,17 +46,41 @@
 	box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.08), 0 10px 15px -3px rgba(0, 0, 0, 0.12);
 }
 
+.embeddedCard {
+	width: 100%;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.embeddedCard .cardBody {
+	width: min(100%, 1080px);
+	margin: 0 auto;
+	padding: clamp(32px, 6vw, 72px) clamp(24px, 8vw, 96px);
+}
+
+.embeddedCard .cardFooter {
+	width: min(100%, 1080px);
+	margin: 0 auto;
+	padding: 16px clamp(24px, 8vw, 96px) 28px;
+}
+
+.embeddedShell .trustLine {
+	width: min(100%, 1080px);
+	margin: 0 auto;
+	padding: 12px 24px 24px;
+}
+
 .progressTrack {
 	position: absolute;
 	z-index: 2;
 	inset: 0 0 auto;
 	height: 4px;
-	background: #ecebed;
+	background: #D6E3EA;
 }
 
 .progressFill {
 	height: 100%;
-	background: linear-gradient(90deg, #4426dc, #7c2fe4);
+	background: linear-gradient(90deg, #389BDD, #236F9E);
 	transition: width 200ms ease;
 }
 
@@ -72,7 +104,7 @@
 	padding: 4px 6px;
 	border: 0;
 	background: transparent;
-	color: #636069;
+	color: #5F7480;
 	font: inherit;
 	font-size: 13px;
 	font-weight: 600;
@@ -80,7 +112,7 @@
 }
 
 .backButton:hover {
-	color: #17151a;
+	color: #102633;
 }
 
 .backButton:focus-visible,
@@ -88,8 +120,8 @@
 .nextButton:focus-visible,
 .fieldStack input:focus-visible,
 .amountField input:focus-visible,
-.consentCheck input:focus-visible {
-	outline: 3px solid rgba(100, 71, 215, 0.28);
+.consentNotice a:focus-visible {
+	outline: 3px solid rgba(56, 155, 221, 0.28);
 	outline-offset: 2px;
 }
 
@@ -112,7 +144,7 @@
 
 .questionHeader p {
 	margin: 8px 0 0;
-	color: #6b6870;
+	color: #5F7480;
 	font-size: 13px;
 	line-height: 19px;
 }
@@ -142,10 +174,10 @@
 	justify-content: center;
 	gap: 10px;
 	padding: 14px;
-	background: #fcfcfc;
-	border: 1px solid #dcdcdc;
+	background: #FFFFFF;
+	border: 1px solid #D6E3EA;
 	border-radius: 10px;
-	color: #1d252c;
+	color: #102633;
 	font: inherit;
 	font-size: 13px;
 	font-weight: 600;
@@ -156,7 +188,7 @@
 }
 
 .choiceCard:hover {
-	border-color: #aaa7af;
+	border-color: #B4C8D3;
 	background: #fff;
 	box-shadow: 0 3px 8px rgba(20, 18, 24, 0.06);
 	transform: translateY(-1px);
@@ -179,13 +211,13 @@
 	height: 26px;
 	flex: none;
 	stroke-width: 1.65;
-	color: #111215;
+	color: #102633;
 }
 
 .selectedChoice {
-	border-color: #6447d7;
-	background: #f7f5ff;
-	box-shadow: 0 0 0 1px #6447d7;
+	border-color: #389BDD;
+	background: #E6F9FF;
+	box-shadow: 0 0 0 1px #389BDD;
 }
 
 .selectionCheck {
@@ -196,16 +228,16 @@
 	height: 15px;
 	padding: 2px;
 	border-radius: 50%;
-	background: #6447d7;
+	background: #389BDD;
 	color: #fff;
 	stroke-width: 3;
 }
 
 .stateGrid .choiceCard {
-	min-height: 82px;
+	min-height: 96px;
 	flex-direction: column;
 	gap: 6px;
-	padding: 12px 6px;
+	padding: 10px 6px;
 }
 
 .stateGrid .choiceCard > span:last-of-type {
@@ -213,9 +245,9 @@
 }
 
 .stateSilhouette {
-	width: 34px;
-	height: 34px;
-	fill: #17181b;
+	width: 46px;
+	height: 46px;
+	object-fit: contain;
 }
 
 .amountField {
@@ -226,7 +258,7 @@
 .fieldStack label > span {
 	display: block;
 	margin: 0 0 7px;
-	color: #4e4b53;
+	color: #5F7480;
 	font-size: 12px;
 	font-weight: 700;
 }
@@ -236,10 +268,10 @@
 	width: 100%;
 	height: 50px;
 	padding: 0 14px;
-	border: 1px solid #cbc9cf;
+	border: 1px solid #B4C8D3;
 	border-radius: 8px;
 	background: #fff;
-	color: #17151a;
+	color: #102633;
 	font: inherit;
 	font-size: 16px;
 	transition: border-color 150ms ease, box-shadow 150ms ease;
@@ -254,18 +286,18 @@
 
 .amountField input::placeholder,
 .fieldStack input::placeholder {
-	color: #aaa7ad;
+	color: #8CA3AF;
 }
 
 .amountField input:hover,
 .fieldStack input:hover {
-	border-color: #98959d;
+	border-color: #8CA3AF;
 }
 
 .amountField input:focus,
 .fieldStack input:focus {
-	border-color: #6447d7;
-	box-shadow: 0 0 0 3px rgba(100, 71, 215, 0.11);
+	border-color: #389BDD;
+	box-shadow: 0 0 0 3px rgba(56, 155, 221, 0.11);
 	outline: 0;
 }
 
@@ -295,60 +327,27 @@
 
 .consentPanel {
 	display: grid;
-	gap: 18px;
+	gap: 8px;
 }
 
-.summaryRows {
-	overflow: hidden;
-	border: 1px solid #e0dee3;
-	border-radius: 10px;
-	background: #fafafa;
+.consentNotice {
+	margin: 0;
+	color: #5F7480;
+	font-size: 11px;
+	line-height: 16px;
 }
 
-.summaryRows > div {
-	display: grid;
-	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-	gap: 12px;
-	padding: 12px 14px;
-	border-bottom: 1px solid #e9e7eb;
-	font-size: 12px;
-	line-height: 17px;
-}
-
-.summaryRows > div:last-child {
-	border-bottom: 0;
-}
-
-.summaryRows span {
-	color: #77737c;
-}
-
-.summaryRows strong {
-	overflow-wrap: anywhere;
-	color: #211f24;
+.consentNotice a {
+	color: #236F9E;
 	font-weight: 700;
-}
-
-.consentCheck {
-	display: grid;
-	grid-template-columns: 20px 1fr;
-	gap: 11px;
-	align-items: start;
-	color: #55515a;
-	font-size: 12px;
-	line-height: 18px;
-}
-
-.consentCheck input {
-	width: 20px;
-	height: 20px;
-	margin: 1px 0 0;
-	accent-color: #6447d7;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
 }
 
 .cardFooter {
 	padding: 14px 28px 22px;
-	border-top: 1px solid #f0eff1;
+	border-top: 1px solid #D6E3EA;
 	background: #fff;
 }
 
@@ -358,7 +357,7 @@
 	padding: 0 18px;
 	border: 0;
 	border-radius: 999px;
-	background: linear-gradient(90deg, #3c12e8, #7c15e8);
+	background: linear-gradient(90deg, #389BDD, #236F9E);
 	color: #fff;
 	font: inherit;
 	font-size: 14px;
@@ -368,7 +367,7 @@
 }
 
 .nextButton:hover:not(:disabled) {
-	background: linear-gradient(90deg, #3210c8, #6811cc);
+	background: linear-gradient(90deg, #236F9E, #1B5A82);
 	transform: translateY(-1px);
 }
 
@@ -377,15 +376,15 @@
 }
 
 .nextButton:disabled {
-	background: #e8e7e8;
-	color: #bbb9bd;
+	background: #D6E3EA;
+	color: #8CA3AF;
 	cursor: not-allowed;
 }
 
 .autoAdvanceText {
 	display: block;
 	margin-top: 9px;
-	color: #8a878e;
+	color: #8CA3AF;
 	font-size: 11px;
 	line-height: 14px;
 	text-align: center;
@@ -397,7 +396,7 @@
 	justify-content: center;
 	gap: 18px;
 	margin-top: 14px;
-	color: #77747b;
+	color: #5F7480;
 	font-size: 11px;
 	line-height: 16px;
 }
@@ -432,14 +431,14 @@
 
 .successCard h1 {
 	margin: 20px 0 10px;
-	color: #17151a;
+	color: #102633;
 	font-size: 25px;
 	line-height: 31px;
 }
 
 .successCard p {
 	margin: 0;
-	color: #68656d;
+	color: #5F7480;
 	font-size: 14px;
 	line-height: 21px;
 }
@@ -455,8 +454,8 @@
 	width: 54px;
 	height: 54px;
 	border-radius: 50%;
-	background: #f0ecff;
-	color: #6447d7;
+	background: #E6F9FF;
+	color: #389BDD;
 }
 
 .successIcon svg {
@@ -510,7 +509,7 @@
 	}
 
 	.stateGrid .choiceCard {
-		min-height: 78px;
+		min-height: 90px;
 	}
 
 	.cardFooter {

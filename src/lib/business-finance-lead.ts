@@ -36,6 +36,7 @@ const PURPOSES = new Set([
 const ANSWER_FIELDS = new Set([
 	'purpose',
 	'vehicle_type',
+	'vehicle_source',
 	'equipment_type',
 	'amount',
 	'monthly_revenue',
@@ -43,6 +44,7 @@ const ANSWER_FIELDS = new Set([
 	'living_situation',
 	'tax_debt',
 	'state',
+	'business_name',
 	'full_name',
 	'email',
 	'phone',
@@ -57,6 +59,7 @@ const REQUIRED_FIELDS = [
 	'living_situation',
 	'tax_debt',
 	'state',
+	'business_name',
 	'full_name',
 	'email',
 	'phone',
@@ -81,6 +84,7 @@ export function validateLeadPayload(payload: unknown): ValidationResult {
 
 	const source = payload as Record<string, unknown>
 	const answers = stringRecord(source.answers, ANSWER_FIELDS)
+	answers.consent = 'yes'
 	const attribution = stringRecord(source.attribution) as LeadAttribution
 	const errors: Record<string, string> = {}
 
@@ -106,12 +110,16 @@ export function validateLeadPayload(payload: unknown): ValidationResult {
 		errors.phone = 'Enter a valid Australian phone number'
 	}
 
-	if (answers.consent !== 'yes') {
-		errors.consent = 'Consent is required'
+	if (answers.full_name && answers.full_name.split(/\s+/).filter(Boolean).length < 2) {
+		errors.full_name = 'Enter your first and last name'
 	}
 
 	if (answers.purpose === 'new_vehicle' && !answers.vehicle_type) {
 		errors.vehicle_type = 'Select a vehicle type'
+	}
+
+	if (answers.purpose === 'new_vehicle' && !answers.vehicle_source) {
+		errors.vehicle_source = 'Select where you are buying the vehicle from'
 	}
 
 	if (answers.purpose === 'new_equipment' && !answers.equipment_type) {
