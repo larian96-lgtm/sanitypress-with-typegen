@@ -1,7 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react'
-import { LuArrowLeft, LuCheck, LuLockKeyhole, LuShieldCheck } from 'react-icons/lu'
+import { LuArrowLeft, LuCheck, LuLockKeyhole } from 'react-icons/lu'
 
 import type { LeadAttribution } from '@/lib/business-finance-lead'
 import { isQualifiedBusinessFinanceLead, pushQualifiedBusinessFinanceLead } from '@/lib/c1-tracking'
@@ -289,6 +289,7 @@ export default function C1MatchingEngine({ embedded = false }: { embedded?: bool
 		if (currentStepId === 'contact') {
 			return (
 				<div className={styles.fieldStack}>
+					<p className={styles.contactTrust}>Your broker will use these details to discuss your business and possible funding options.</p>
 					<label>
 						<span>Business name</span>
 						<input
@@ -415,8 +416,8 @@ export default function C1MatchingEngine({ embedded = false }: { embedded?: bool
 						{submitState === 'sending'
 							? 'Sending securely…'
 							: currentStepId === 'contact'
-								? 'See my options'
-								: 'Next'}
+								? 'Check My Funding Options'
+								: 'Continue'}
 					</button>
 					{choiceQuestion ? <span className={styles.autoAdvanceText}>Choose an option to continue</span> : null}
 				</footer>
@@ -424,7 +425,6 @@ export default function C1MatchingEngine({ embedded = false }: { embedded?: bool
 
 			<div className={styles.trustLine}>
 				<span><LuLockKeyhole aria-hidden="true" /> Secure form</span>
-				<span><LuShieldCheck aria-hidden="true" /> No impact on your credit score</span>
 			</div>
 			<span className={styles.stepCount} aria-label={`Step ${journey.indexOf(currentStepId) + 1} of ${journey.length}`}>
 				Step {journey.indexOf(currentStepId) + 1} of {journey.length}

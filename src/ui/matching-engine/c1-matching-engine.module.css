@@ -326,6 +326,17 @@
 	gap: 17px;
 }
 
+.contactTrust {
+	margin: 0;
+	padding: 13px 15px;
+	border-radius: 10px;
+	background: #EAF5FA;
+	color: #173846;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 19px;
+}
+
 .splitFields {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));

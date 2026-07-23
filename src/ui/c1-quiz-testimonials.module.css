@@ -1,0 +1,78 @@
+.scroller {
+	width: 100%;
+	overflow-x: auto;
+	padding: 4px 16px 18px;
+	scrollbar-color: rgba(35, 111, 158, 0.35) transparent;
+	scrollbar-width: thin;
+}
+
+.scroller:focus-visible {
+	outline: 3px solid rgba(56, 155, 221, 0.34);
+	outline-offset: -3px;
+}
+
+.track {
+	display: flex;
+	width: max-content;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.sequence {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.reviewCard {
+	width: min(82vw, 330px);
+	flex: 0 0 auto;
+	padding: 22px;
+	border: 1px solid #DCE8EE;
+	border-radius: 18px;
+	background: #F1F5F7;
+	box-shadow: 0 10px 24px rgba(6, 27, 43, 0.05);
+}
+
+.stars {
+	color: #2C9CC2;
+	font-size: 17px;
+	letter-spacing: 0.1em;
+}
+
+.reviewCard blockquote {
+	margin: 14px 0 0;
+	color: #173846;
+	font-size: 14px;
+	font-weight: 650;
+	line-height: 1.55;
+}
+
+.reviewCard p {
+	margin: 16px 0 0;
+	color: #657A85;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.reviewCard strong {
+	color: #061B2B;
+}
+
+@media (min-width: 768px) {
+	.scroller {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
+
+	.reviewCard {
+		width: 350px;
+		padding: 24px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.scroller {
+		scroll-behavior: auto;
+	}
+}
