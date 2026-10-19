@@ -16,7 +16,7 @@ export const c1_industry_tradies: C1PageData = {
   summary: "Tradies: electricians, plumbers, carpenters, builders, tilers, painters: often need funding that matches how trade businesses actually earn. Equipment purchases, ute or van finance, tool upgrades, mobilisation costs for new projects and cash flow between invoice payments all create timing gaps. Loan options vary from secured equipment finance (from 7.49% p.a.) to unsecured business loans (from 14.45% p.a.). The right path depends on asset type, repayment capacity and project pipeline.",
   seoTitle: "Finance for Tradies AU | Equipment, Vehicle & Cash Flow",
   seoDescription: "Compare finance for Australian tradies: equipment loans, ute and van finance, cash flow between jobs and tool upgrades. Starting rates from 7.49% p.a. for secured.",
-  primaryCtaLabel: "Check my funding fit",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   lastReviewed: "2026-05-14",
   proofPoints: [
@@ -175,7 +175,7 @@ export const c1_industry_transport_logistics: C1PageData = {
   summary: "Transport and logistics businesses: trucking, courier services, freight operators, last-mile delivery and fleet companies: face a unique cash flow problem: costs land before revenue arrives. Diesel, wages, maintenance, registration and insurance must be paid upfront, while freight invoices typically settle in 30 to 60 days. Finance options include vehicle and truck finance (from 7.99% p.a.), equipment finance (from 7.49% p.a.), invoice finance (from 2.5% of invoice amount), working capital loans and lines of credit for fuel and maintenance gaps.",
   seoTitle: "Transport Finance AU | Truck, Fleet & Invoice Funding",
   seoDescription: "Compare finance for Australian transport businesses. Truck finance from 7.99% p.a., equipment from 7.49% p.a., invoice finance from 2.5%. Fleet cash flow.",
-  primaryCtaLabel: "Check my funding fit",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   lastReviewed: "2026-05-14",
   proofPoints: [
@@ -337,7 +337,7 @@ export const c1_industry_construction_subcontractors: C1PageData = {
   summary: "Construction subcontractors: concreters, scaffolders, earthmovers, formworkers, crane operators and civil subs: face funding gaps that are different from other industries. Materials must be bought upfront, wages paid weekly, and equipment costs incurred before any progress claim is approved and settled. Added to that are retention holdbacks (typically 5, 10% per claim) and mobilisation costs for new projects. Finance options include equipment finance (from 7.49% p.a.), invoice finance / progress claim financing (from 2.5%), unsecured business loans (from 14.45% p.a.), and working capital for mobilisation and retention gaps.",
   seoTitle: "Construction Subcontractor Finance Australia | Plant, Materials and Progress Payments",
   seoDescription: "Compare finance for construction subcontractors in Australia. Equipment from 7.49% p.a., progress claim finance from 2.5%, unsecured from 14.45%. Mobilisation too.",
-  primaryCtaLabel: "Check my funding fit",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   lastReviewed: "2026-05-14",
   proofPoints: [
@@ -494,11 +494,11 @@ export const c1_industry_hospitality: C1PageData = {
   slug: "hospitality",
   path: "/business-loans/industry/hospitality",
   eyebrow: "Industry business finance",
-  headline: "Hospitality business finance in Australia: what to know before you apply",
+  headline: "Hospitality business loans in Australia: cafes, restaurants, bars and hotels",
   summary: "Cafes, restaurants, bars, catering, food trucks, hotels and motels have distinct cash-flow patterns that standard business loans do not always fit. Fitout costs, kitchen and refrigeration equipment, POS systems, seasonal revenue swings, stock purchasing and quiet-month working capital all create timing gaps that lenders assess differently. This page covers common hospitality funding scenarios, what lenders look for in venue-based businesses, and how to compare finance options before applying.",
-  seoTitle: "Hospitality Business Finance Australia | Cafes, Restaurants & Hotels | Comparison One",
-  seoDescription: "Finance for hospitality businesses in Australia. Compare funding for cafe fitouts, restaurant equipment, hotel renovation, seasonal working capital and more before you apply.",
-  primaryCtaLabel: "Start my funding-fit check",
+  seoTitle: "Hospitality & Cafe Business Loans Australia | Comparison One",
+  seoDescription: "Business loans for cafes, restaurants, bars and hotels in Australia. Compare fitout, kitchen equipment, hotel and seasonal working capital finance, plus what lenders ask for.",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   lastReviewed: "2026-05-14",
   proofPoints: [
@@ -529,6 +529,19 @@ export const c1_industry_hospitality: C1PageData = {
         "Food truck or catering vehicle purchase: A mobile catering business needs a fully fitted-out food truck with cooking equipment, refrigeration and generator. Cost $60,000, $150,000. Finance fit: Vehicle finance or equipment finance, with the vehicle or equipment as security. Rates from 7.99% p.a. for vehicle finance.",
         "Stock build before Christmas or event season: A venue needs $25,000, $50,000 in extra stock and casual staff wages before the December holiday trade. Finance fit: Unsecured business loan (fast approval based on recent bank statements, from 14.45% p.a.) or a working capital loan secured against future trading revenue."
       ]
+    },
+    {
+      heading: "Cafe business loans",
+      body: "Most cafe finance falls into three needs: the fitout, the coffee machine and kitchen equipment, and cash flow through quiet months. Equipment finance usually suits the coffee machine, grinders, ovens and refrigeration, because the equipment itself secures the loan. A fitout loan or commercial fitout finance suits the build. A short-term unsecured loan or line of credit suits stock, wages and quiet-season gaps.\n\nLenders look at how long the cafe has traded, monthly card and cash takings in your bank statements, the lease (length and options), and whether the owner has run a venue before. A new cafe with no trading history will find it harder to get unsecured finance and may need to rely on equipment finance, a secured loan or the owner's own funds.",
+      bullets: ["Coffee machine and kitchen equipment: equipment finance", "Fitout or refurbishment: commercial fitout finance", "Quiet months, stock and wages: line of credit or short-term working capital", "Buying an existing cafe: a secured business loan, usually needing financials and the lease"]
+    },
+    {
+      heading: "Restaurant and bar loans",
+      body: "Restaurants and bars usually borrow for kitchen equipment, a fitout or refurbishment, a liquor licence transfer when buying a venue, and working capital ahead of busy periods. Lenders weigh the lease, trading history, the gap between card takings and supplier bills, and seasonality. Venues with steady card takings in their bank statements are the easiest for online lenders to assess.",
+    },
+    {
+      heading: "Hotel and motel finance",
+      body: "Hotel, motel and pub finance is usually property-backed commercial lending rather than an online business loan, because the building or the freehold is the main security. Banks and specialist commercial lenders assess occupancy, revenue per room, the property valuation and the operator's experience. Short-term unsecured lenders are better suited to renovations, equipment or working capital than to buying the property.",
     },
     {
       heading: "Lender types that fit hospitality businesses",
@@ -646,7 +659,7 @@ export const c1_industry_retail_ecommerce: C1PageData = {
   summary: "Bricks-and-mortar retailers, online stores and omnichannel businesses all face a common challenge: cash has to leave before the sale comes in. Stock purchasing, seasonal inventory build, shop fitout, POS and ecommerce platform investment, marketing spend and cash-flow gaps between trading seasons create funding needs that standard business loans do not always fit. This page covers retail and ecommerce funding scenarios, what lenders assess differently for retail businesses, and how to compare finance options before applying.",
   seoTitle: "Retail & Ecommerce Business Finance Australia | Compare Funding Options | Comparison One",
   seoDescription: "Finance for retail and ecommerce businesses in Australia. Compare funding for stock purchasing, seasonal inventory, shop fitout, POS systems, ecommerce investment and more before you apply.",
-  primaryCtaLabel: "Start my funding-fit check",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   lastReviewed: "2026-05-14",
   proofPoints: [
@@ -800,7 +813,7 @@ export const c1_industry_medical_allied_health: C1PageData = {
   summary: "GP clinics, dentists, physiotherapists, chiropractors, optometrists, psychologists and allied health practices face capital-intensive needs: diagnostic and treatment equipment, practice fitout, acquisition of existing practices, working capital for payroll and overheads, and managing the timing gap between service delivery and Medicare or private health fund payment. This page covers medical and allied health funding scenarios, what lenders assess differently for healthcare businesses, and how to compare finance options before applying.",
   seoTitle: "Medical & Allied Health Finance Australia | Clinic Funding Options | Comparison One",
   seoDescription: "Finance for medical and allied health clinics in Australia. Compare funding for equipment, practice fitout, practice acquisition, working capital and more before you apply.",
-  primaryCtaLabel: "Start my funding-fit check",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   lastReviewed: "2026-05-14",
   proofPoints: [
@@ -954,7 +967,7 @@ export const c1_industry_manufacturing: C1PageData = {
   summary: "Manufacturing finance is not one product. It spans equipment finance for plant and machinery, working capital for raw materials, trade finance for supply chains, invoice finance for slow-paying customers, and funding for export contracts, production line expansion, warehousing and R&D. With input costs at a 3.5-year high and the manufacturing PMI contracting in March 2026, the right facility structure and sequencing matters more than chasing the lowest rate. This guide covers the funding scenarios, lender types, assessment criteria, documents and indicative rates that Australian manufacturers need to compare before applying.",
   seoTitle: "Manufacturing Business Loans & Finance Australia | Comparison One",
   seoDescription: "Compare manufacturing finance options in Australia. Equipment finance, working capital, trade finance and invoice funding for food, metal fabrication, textiles and more. See indicative rates from 7.49%.",
-  primaryCtaLabel: "Start my funding-fit check",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   rateSnapshot: [
     { label: "Equipment finance from", rate: "7.49%", sublabel: "Per annum", linkHref: "/business-loans/equipment-finance", linkLabel: "View equipment finance" },
@@ -1112,7 +1125,7 @@ export const c1_industry_professional_services: C1PageData = {
   summary: "Professional services firms: accountants, lawyers, consultants, architects, engineers, marketing agencies, IT services and recruiters: face a funding dynamic that is different from product businesses. Revenue is in the billable hour, yet invoices often sit unpaid for 30-90 days while wages, rent and technology costs run weekly. Practice acquisition, fitout, partner buy-ins, technology investment and debtor finance are common funding needs. Professional services was identified as one of Australia's most resilient SME sectors in 2025-2026, but growth still requires capital that the firm's own cash flow cannot always provide ahead of revenue. This guide covers the funding scenarios, products, lender criteria, documents and indicative rates for Australian professional services firms.",
   seoTitle: "Professional Services Business Loans & Finance Australia | Comparison One",
   seoDescription: "Compare professional services finance in Australia. Debtor finance, unsecured loans, lines of credit and practice acquisition funding for accountants, lawyers, consultants, architects, engineers and IT firms.",
-  primaryCtaLabel: "Start my funding-fit check",
+  primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   rateSnapshot: [
     { label: "Unsecured loans from", rate: "14.45%", sublabel: "Per annum", linkHref: "/business-loans/unsecured-business-loans", linkLabel: "View unsecured loans" },

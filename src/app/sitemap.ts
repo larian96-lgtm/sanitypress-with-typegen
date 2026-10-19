@@ -8,7 +8,8 @@ export const dynamic = 'force-dynamic'
 
 const CANONICAL_BASE_URL = 'https://www.comparisonone.com'
 
-const STATIC_C1_PATHS = ['/', '/quiz', '/privacy-policy', '/terms-and-conditions', '/editorial-policy']
+// /quiz and advertorial routes are noindex, so they stay out of the sitemap.
+const STATIC_C1_PATHS = ['/', '/about', '/contact', '/editorial-policy', '/privacy-policy', '/terms-and-conditions', '/blog', '/compare']
 const STATIC_LAST_MODIFIED = new Date('2026-05-13T00:00:00.000Z')
 
 function normaliseLastModified(value?: string) {
@@ -21,6 +22,7 @@ function normaliseLastModified(value?: string) {
 function c1Priority(path: string) {
 	if (path === '/') return 1
 	if (path === '/business-loans' || path === '/lenders') return 0.9
+	if (path.startsWith('/lenders/')) return 0.8
 	if (path.startsWith('/business-loans') || path.startsWith('/compare') || path.startsWith('/lenders')) return 0.7
 	return 0.5
 }
@@ -77,7 +79,7 @@ export default async function (): Promise<MetadataRoute.Sitemap> {
 		lastModified: STATIC_LAST_MODIFIED,
 		priority: c1Priority(path),
 	}))
-	const c1Urls: MetadataRoute.Sitemap = c1AllPages.map((page) => ({
+	const c1Urls: MetadataRoute.Sitemap = c1AllPages.filter((page) => page.type !== 'advertorial').map((page) => ({
 		url: `${baseUrl}${page.path}`,
 		lastModified: normaliseLastModified(page.lastReviewed),
 		priority: c1Priority(page.path),

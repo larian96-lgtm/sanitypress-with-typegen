@@ -2,6 +2,55 @@
 
 import { C1Header, C1Footer } from '@/ui/c1-brand'
 
+// Real business identity details shown on /about and /contact. Search engines and users
+// look for these on finance sites; empty fields are hidden, so fill them in as they are confirmed.
+export const c1BusinessDetails = {
+	legalName: '',
+	abn: '',
+	address: '',
+	email: '',
+	creditLicenceStatus: '',
+	editors: [] as { name: string; role: string; credentials?: string }[],
+}
+
+function BusinessDetailsCard() {
+	const d = c1BusinessDetails
+	const rows = [
+		['Legal entity', d.legalName],
+		['ABN', d.abn],
+		['Address', d.address],
+		['Email', d.email],
+		['Credit licensing', d.creditLicenceStatus],
+	].filter(([, value]) => value)
+	if (!rows.length && !d.editors.length) return null
+	return (
+		<section className="rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-8">
+			<h2 className="mb-3 text-xl font-bold text-[#222E48]">Business details</h2>
+			<dl className="grid gap-2 text-[#404A60] md:grid-cols-[12rem_1fr]">
+				{rows.map(([label, value]) => (
+					<div key={label} className="contents">
+						<dt className="font-semibold text-[#222E48]">{label}</dt>
+						<dd>{label === 'Email' ? <a href={`mailto:${value}`}>{value}</a> : value}</dd>
+					</div>
+				))}
+			</dl>
+			{d.editors.length > 0 && (
+				<>
+					<h3 className="mb-2 mt-6 text-lg font-bold text-[#222E48]">Who reviews our content</h3>
+					<ul className="space-y-1 text-[#404A60]">
+						{d.editors.map((editor) => (
+							<li key={editor.name}>
+								<strong>{editor.name}</strong>, {editor.role}
+								{editor.credentials ? ` (${editor.credentials})` : ''}
+							</li>
+						))}
+					</ul>
+				</>
+			)}
+		</section>
+	)
+}
+
 const legalCopy = {
 	'/privacy-policy': {
 		title: 'Privacy Policy',
@@ -74,6 +123,7 @@ export default function C1LegalPage({ path }: { path: keyof typeof legalCopy }) 
 				</section>
 				<section className="py-12 md:py-16">
 					<div className="mx-auto max-w-4xl space-y-5 px-4">
+						{(path === '/about' || path === '/contact') && <BusinessDetailsCard />}
 						{page.sections.map(([heading, body]) => (
 							<section key={heading} className="rounded-2xl bg-white p-6 shadow-[0px_6px_30px_0px_rgba(0,0,0,0.04)] md:p-8">
 								<h2 className="mb-3 text-xl font-bold text-[#222E48]">{heading}</h2>

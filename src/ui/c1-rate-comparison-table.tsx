@@ -13,13 +13,21 @@ function formatAmount(amount: number) {
 }
 
 function formatRate(row: C1LenderRateRow) {
+	if (typeof row.rateFrom !== 'number') return 'Not published'
 	if (typeof row.rateTo === 'number' && row.rateTo > row.rateFrom) {
 		return `${row.rateFrom.toFixed(2)}% - ${row.rateTo.toFixed(2)}%`
 	}
 	return `${row.rateFrom.toFixed(2)}%`
 }
 
+function formatAmountRange(row: C1LenderRateRow) {
+	if (!row.minAmount) return `Up to ${formatAmount(row.maxAmount)}`
+	return `${formatAmount(row.minAmount)} - ${formatAmount(row.maxAmount)}`
+}
+
 function formatTerm(row: C1LenderRateRow) {
+	if (!row.maxTermMonths) return 'Not published'
+	if (!row.minTermMonths) return `Up to ${(row.maxTermMonths / 12).toFixed(1).replace(/\.0$/, '')} years`
 	const minYears = (row.minTermMonths / 12).toFixed(1).replace(/\.0$/, '')
 	const maxYears = (row.maxTermMonths / 12).toFixed(1).replace(/\.0$/, '')
 	if (minYears === maxYears) return `${minYears} years`
@@ -65,7 +73,7 @@ export function C1RateComparisonTable({ rows, amountForCta }: Props) {
 										{row.bestFor && <div className="mt-1 text-xs text-[#6A7283]">{row.bestFor}</div>}
 									</td>
 									<td className="px-4 py-4 text-sm font-semibold text-[#222E48]">{formatRate(row)}</td>
-									<td className="px-4 py-4 text-sm text-[#364156]">{formatAmount(row.minAmount)} - {formatAmount(row.maxAmount)}</td>
+									<td className="px-4 py-4 text-sm text-[#364156]">{formatAmountRange(row)}</td>
 									<td className="px-4 py-4 text-sm text-[#364156]">{formatTerm(row)}</td>
 									<td className="px-4 py-4 text-sm text-[#364156]">{row.fundingSpeed}</td>
 									<td className="px-4 py-4 text-sm">
@@ -94,7 +102,7 @@ export function C1RateComparisonTable({ rows, amountForCta }: Props) {
 							<p className="text-sm font-semibold text-[#074C3E]">{row.lenderName}</p>
 							<p className="mt-1 text-sm text-[#222E48]">{row.productName}</p>
 							<p className="mt-2 text-sm font-semibold text-[#222E48]">{formatRate(row)}</p>
-							<p className="mt-1 text-xs text-[#6A7283]">{formatAmount(row.minAmount)} - {formatAmount(row.maxAmount)} • {formatTerm(row)}</p>
+							<p className="mt-1 text-xs text-[#6A7283]">{formatAmountRange(row)} • {formatTerm(row)}</p>
 							<p className="mt-1 text-xs text-[#6A7283]">{row.fundingSpeed}</p>
 							{row.bestFor && <p className="mt-1 text-xs text-[#6A7283]">Best for: {row.bestFor}</p>}
 							<Link href={quizHref} className="mt-3 inline-flex items-center rounded-full bg-[#FCB650] px-3 py-1.5 text-xs font-semibold text-[#03211B] no-underline">

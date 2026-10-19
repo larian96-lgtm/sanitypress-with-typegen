@@ -82,14 +82,14 @@ export function C1RateComparisonWidget({
 		sorted.sort((a, b) => {
 			switch (sortKey) {
 				case 'rateDesc':
-					return b.rateFrom - a.rateFrom
+					return (b.rateFrom ?? -1) - (a.rateFrom ?? -1)
 				case 'amountAsc':
 					return a.minAmount - b.minAmount
 				case 'amountDesc':
 					return b.maxAmount - a.maxAmount
 				case 'rateAsc':
 				default:
-					return a.rateFrom - b.rateFrom
+					return (a.rateFrom ?? Infinity) - (b.rateFrom ?? Infinity)
 			}
 		})
 		return sorted

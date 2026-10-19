@@ -18,6 +18,7 @@ import type { PAGE_QUERY_RESULT } from '@/sanity/types'
 import C1AdvertorialPage from '@/ui/c1-advertorial-page'
 import C1ContentPage from '@/ui/c1-content-page'
 import C1Homepage, { type C1HomepageData } from '@/ui/c1-homepage'
+import C1HubPage, { c1Hubs, isC1HubPath } from '@/ui/c1-hub-page'
 import C1LegalPage from '@/ui/c1-legal-page'
 import C1QuotePage from '@/ui/c1-quote-page'
 import ModulesResolver from '@/ui/modules'
@@ -40,6 +41,7 @@ export default async function Page({ params }: Props) {
 	const path = slugStr === 'index' ? '/' : `/${slugStr}`
 	if (path === '/quiz' || path === '/funding-fit-check') return <C1QuotePage />
 	if (isLegalPath(path)) return <C1LegalPage path={path} />
+	if (isC1HubPath(path)) return <C1HubPage path={path} />
 	const c1Page = c1PageLookup[path]
 	const cmsPath = getC1CmsLookupPath(path)
 	const cmsC1Page = await getC1CmsPage(cmsPath)
@@ -101,7 +103,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 					: path === '/contact'
 						? 'Contact'
 						: 'About'
-		return buildC1Metadata({ path, title: `${title} | Comparison One`, description: `${title} for Comparison One.` })
+		return buildC1Metadata({ path, title: `${title} | Comparison One`, description: c1LegalDescriptions[path] })
+	}
+	if (isC1HubPath(path)) {
+		return buildC1Metadata({ path, title: c1Hubs[path].seoTitle, description: c1Hubs[path].seoDescription })
 	}
 	const c1Page = c1PageLookup[path]
 	const cmsC1Page = await getC1CmsPage(getC1CmsLookupPath(path))
@@ -179,6 +184,7 @@ export async function generateStaticParams() {
 		{ slug: ['editorial-policy'] },
 		{ slug: ['about'] },
 		{ slug: ['contact'] },
+		{ slug: ['compare'] },
 	]
 
 	try {
@@ -203,6 +209,14 @@ async function getPage(slug?: string[]) {
 		query: PAGE_QUERY,
 		params: { slug: slug ? slug.join('/') : 'index' },
 	})
+}
+
+const c1LegalDescriptions: Record<LegalPath, string> = {
+	'/about': 'Who runs Comparison One, how the site makes money and how we compare Australian business lenders and funding options.',
+	'/contact': 'How to contact Comparison One about site content, corrections, privacy requests or complaints.',
+	'/editorial-policy': 'How Comparison One researches, checks and updates lender profiles, rates and business finance guides.',
+	'/privacy-policy': 'How Comparison One collects, uses and shares personal and business information submitted through the site.',
+	'/terms-and-conditions': 'Terms of use for Comparison One, an Australian business finance comparison and information site.',
 }
 
 type LegalPath = '/privacy-policy' | '/terms-and-conditions' | '/editorial-policy' | '/about' | '/contact'

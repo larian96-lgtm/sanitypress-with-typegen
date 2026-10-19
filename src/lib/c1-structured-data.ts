@@ -17,7 +17,7 @@ function asTitle(part: string) {
 		.join(' ')
 }
 
-function rateLabel(row: C1LenderRateRow) {
+function rateLabel(row: C1LenderRateRow & { rateFrom: number }) {
 	return typeof row.rateTo === 'number' && row.rateTo > row.rateFrom
 		? `${row.rateFrom.toFixed(2)}% - ${row.rateTo.toFixed(2)}%`
 		: `${row.rateFrom.toFixed(2)}%`
@@ -37,9 +37,11 @@ export function buildC1StructuredData(page: C1PageData, rateRows: C1LenderRateRo
 		})),
 	]
 
-	const financialProducts = rateRows.map((row) => ({
+	const financialProducts = rateRows
+		.filter((row): row is C1LenderRateRow & { rateFrom: number } => typeof row.rateFrom === 'number')
+		.map((row) => ({
 		'@type': 'FinancialProduct',
-		name: `${row.lenderName} ${row.productName}`,
+		name: row.productName,
 		brand: { '@type': 'Brand', name: row.lenderName },
 		category: row.productType,
 		annualPercentageRate: rateLabel(row),

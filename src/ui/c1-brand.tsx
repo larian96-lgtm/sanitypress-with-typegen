@@ -87,7 +87,7 @@ const navGroups: NavGroup[] = [
 			{ label: 'Secured vs Unsecured', href: '/blog/secured-vs-unsecured-business-loans' },
 			{ label: 'Bank vs Non-bank Guide', href: '/blog/bank-vs-non-bank-business-lenders' },
 			{ label: 'Rise of Non-bank Lending', href: '/blog/rise-of-non-bank-lending-australia' },
-			{ label: 'Zero-interest Loan Access Gap', href: '/advertorial/zero-interest-loan-access-gap' },
+			{ label: 'Zero-interest Loan Access Gap', href: '/zero-interest-loan-access-gap' },
 		],
 	},
 	{ label: 'Calculator', href: '/#calculator' },
@@ -179,7 +179,7 @@ const footerGroups = [
 			{ label: 'Secured vs Unsecured', href: '/blog/secured-vs-unsecured-business-loans' },
 			{ label: 'Bank vs Non-bank Guide', href: '/blog/bank-vs-non-bank-business-lenders' },
 			{ label: 'Rise of Non-bank Lending', href: '/blog/rise-of-non-bank-lending-australia' },
-			{ label: 'Zero-interest Loan Access Gap', href: '/advertorial/zero-interest-loan-access-gap' },
+			{ label: 'Zero-interest Loan Access Gap', href: '/zero-interest-loan-access-gap' },
 		],
 	},
 ]

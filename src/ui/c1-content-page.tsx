@@ -160,10 +160,11 @@ function comparisonRows(path: string) {
 function directAnswer(page: C1PageData) {
 	const title = page.title.replace(/\s+\|\s+Comparison One$/i, '')
 	if (page.type === 'lender') {
-		return `${title} is profiled as an Australian business finance option. It may be relevant when its product type, amount range, documents, repayment rhythm and security settings match the business need. It may not suit businesses that need a different product structure, cannot evidence repayment capacity, or need terms the lender does not currently offer.`
+		const lender = title.replace(/\s+business loans:.*$/i, '')
+		return `Use this profile to check what ${lender} offers Australian businesses, how it prices loans, what it asks for and how customers rate it. ${lender} may suit a business when its product type, loan amount, repayment rhythm and security settings match the need. Compare it with other lenders and check current terms before you apply.`
 	}
 	if (page.type === 'compare') {
-		return `${title} is a funding-fit comparison, not a single recommendation. The better starting point depends on product type, funding amount, repayment rhythm, eligibility signals, speed, documents and total cost. Compare the situation first, then check current lender terms before applying.`
+		return `This page compares ${title.replace(/\s+compared$/i, '').replace(/:.*$/, '')} on loan amount, cost, speed and eligibility. No lender is the best choice for every business, so match the option to your loan purpose and check current terms before you apply.`
 	}
 	if (page.path.includes('/industry/')) {
 		return `${title} helps Australian business owners compare finance options around the cash-flow cycle, documents and lender questions common to this industry. It may suit specific timing gaps or asset needs. It may not suit ongoing losses, disputed revenue or unclear repayment sources.`

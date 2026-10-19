@@ -65,28 +65,8 @@ const PATHWAY_ICONS: Record<number, string> = {
   5: '↔',   // ↔ line of credit
 }
 
-const DEFAULT_TESTIMONIALS: Testimonial[] = [
-  {
-    quote: 'Had a clear view of what lenders would ask before I applied. That alone saved me from firing off applications that would have gone nowhere.',
-    author: 'Sarah M.',
-    role: 'Wholesale distributor, VIC',
-  },
-  {
-    quote: 'Most comparison sites just list rates. This one asks what the money is for and whether you actually have the documents. That is the conversation lenders are having anyway.',
-    author: 'James T.',
-    role: 'Manufacturing, NSW',
-  },
-  {
-    quote: 'Knocked back by the bank, had no idea why. The guide on what to check after a decline was more useful than three phone calls to the lender.',
-    author: 'Priya K.',
-    role: 'Hospitality, QLD',
-  },
-  {
-    quote: 'Applied for equipment finance knowing what documents to have ready. The whole thing took days instead of weeks.',
-    author: 'Michael R.',
-    role: 'Transport, WA',
-  },
-]
+// Unattributed testimonials were removed: only add real customer quotes that can be verified.
+const DEFAULT_TESTIMONIALS: Testimonial[] = []
 
 export const c1HomepageFallback: Required<C1HomepageData> = {
   title: 'Comparison One Homepage',

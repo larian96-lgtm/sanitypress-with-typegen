@@ -77,11 +77,11 @@ export function buildC1OrganizationSchema() {
 
 export function buildC1AuthorSchema() {
 	return {
-		'@type': 'Person',
+		// A team, not a person: marking it as Person misrepresents authorship to search engines.
+		'@type': 'Organization',
 		'@id': C1_AUTHOR_ID,
 		name: 'Comparison One SME Finance Editorial Team',
-		jobTitle: 'SME finance editorial team',
-		affiliation: { '@id': C1_ORGANIZATION_ID },
+		parentOrganization: { '@id': C1_ORGANIZATION_ID },
 		description: 'Finance editors reviewing Australian SME funding pathways, lender criteria, document readiness and cash-flow use cases.',
 	}
 }

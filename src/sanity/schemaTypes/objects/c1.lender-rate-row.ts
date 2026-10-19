@@ -32,13 +32,13 @@ export default defineType({
 			options: {list: productTypeOptions},
 			validation: (Rule) => Rule.required(),
 		}),
-		defineField({name: 'rateFrom', type: 'number', validation: (Rule) => Rule.required().min(0)}),
+		defineField({name: 'rateFrom', type: 'number', description: 'Leave empty if the lender does not publish a rate.', validation: (Rule) => Rule.min(0)}),
 		defineField({name: 'rateTo', type: 'number', validation: (Rule) => Rule.min(0)}),
 		defineField({name: 'comparisonRate', type: 'number', validation: (Rule) => Rule.min(0)}),
 		defineField({name: 'minAmount', type: 'number', validation: (Rule) => Rule.required().min(0)}),
 		defineField({name: 'maxAmount', type: 'number', validation: (Rule) => Rule.required().min(0)}),
-		defineField({name: 'minTermMonths', type: 'number', validation: (Rule) => Rule.required().min(1)}),
-		defineField({name: 'maxTermMonths', type: 'number', validation: (Rule) => Rule.required().min(1)}),
+		defineField({name: 'minTermMonths', type: 'number', validation: (Rule) => Rule.min(1)}),
+		defineField({name: 'maxTermMonths', type: 'number', validation: (Rule) => Rule.min(1)}),
 		defineField({name: 'fundingSpeed', type: 'string', validation: (Rule) => Rule.required()}),
 		defineField({
 			name: 'securityType',
@@ -64,7 +64,7 @@ export default defineType({
 				rateFrom?: number
 				rateTo?: number
 			}
-			const rateLabel = rateTo ? `${rateFrom}% - ${rateTo}%` : `${rateFrom}%`
+			const rateLabel = rateFrom == null ? 'Rate not published' : rateTo ? `${rateFrom}% - ${rateTo}%` : `${rateFrom}%`
 			return {title: title || 'Rate row', subtitle: `${subtitle || ''} • ${rateLabel}`}
 		},
 	},
