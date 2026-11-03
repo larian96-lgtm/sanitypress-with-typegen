@@ -87,7 +87,7 @@ export function C1EmbeddedQuoteFrame({
 	const amount = searchParams.get('amount') ?? ''
 	const iframeUrl = useMemo(() => buildC1QuoteUrl(amount, true), [amount])
 	const directUrl = useMemo(() => buildC1QuoteUrl(amount, false), [amount])
-	const baseIframeHeight = compact ? 690 : 760
+	const baseIframeHeight = compact ? 900 : 960
 
 	return (
 		<div className={compact ? "overflow-hidden bg-white" : "overflow-hidden rounded-3xl bg-white shadow-[0px_6px_30px_0px_rgba(0,0,0,0.08)]"}>
@@ -106,7 +106,7 @@ export function C1EmbeddedQuoteFrame({
 				)}
 				</div>
 			)}
-			<div style={cropIframeTop ? { height: `calc(${baseIframeHeight}px - ${cropIframeTop}px)` } : undefined} className={cropIframeTop ? 'overflow-hidden md:h-[calc(780px-84px)]' : undefined}>
+			<div style={cropIframeTop ? { height: `calc(${baseIframeHeight}px - ${cropIframeTop}px)` } : undefined} className={cropIframeTop ? 'overflow-hidden' : undefined}>
 				<iframe
 					src={iframeUrl}
 					title="Comparison One funding quote application"
