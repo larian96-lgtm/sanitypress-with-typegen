@@ -44,47 +44,46 @@ const c1_business_loans: C1PageData = {
   path: "/business-loans",
   eyebrow: "Business finance comparison",
   headline: "Avoid applying blind for business funding",
-  summary: "Before you compare lenders, check what funding path fits the business problem. A business loan is not one product. See current rates from 7.49% p.a. for secured finance, compare real lenders, then use the funding-fit check to find the right path before you apply.",
-  seoTitle: "Compare Business Loans Australia | Real Rates & Lender Comparison | Comparison One",
-  seoDescription: "Compare business loans in Australia. See current rates starting from 7.49% p.a. (secured) and compare real lenders side by side. Use the funding-fit check to find the right path before you apply.",
+  summary: "Before you compare lenders, check what funding structure fits the business problem. A business loan is not one product: pricing, terms and approval criteria vary significantly between asset-backed facilities, revolving lines of credit and unsecured cash-flow loans. Compare lender models and cost structures, then check funding fit before you apply.",
+  seoTitle: "Compare Business Loans Australia | Funding Options & Lender Guide | Comparison One",
+  seoDescription: "Compare business loans in Australia. Compare secured, unsecured and cash-flow finance options side by side. Understand lender assessment criteria, total borrowing costs and product fit before applying.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
   rateSnapshot: [
-    { label: "Secured finance from", rate: "7.49%", sublabel: "Per annum", linkHref: "/business-loans/equipment-finance", linkLabel: "View equipment finance" },
-    { label: "Unsecured loans from", rate: "14.45%", sublabel: "Per annum", linkHref: "/business-loans/unsecured-business-loans", linkLabel: "View unsecured loans" },
-    { label: "Line of credit from", rate: "14.55%", sublabel: "Per annum", linkHref: "/business-loans/line-of-credit", linkLabel: "View line of credit" },
-    { label: "Equipment loans from", rate: "7.49%", sublabel: "Per annum", linkHref: "/business-loans/equipment-finance", linkLabel: "View equipment finance" },
-    { label: "Invoice finance from", rate: "2.5%", sublabel: "Of invoice amount", linkHref: "/business-loans/invoice-finance", linkLabel: "View invoice finance" },
-    { label: "Vehicle finance from", rate: "7.99%", sublabel: "Per annum", linkHref: "/business-loans/vehicle-finance", linkLabel: "View vehicle finance" },
+    { label: "Secured business finance", rate: "Asset-backed", sublabel: "Lower margin; secured against property or business assets", linkHref: "/business-loans/equipment-finance", linkLabel: "View equipment finance" },
+    { label: "Unsecured business loans", rate: "Cash-flow", sublabel: "Assessment based on bank trading history without property collateral", linkHref: "/business-loans/unsecured-business-loans", linkLabel: "View unsecured loans" },
+    { label: "Business line of credit", rate: "Revolving", sublabel: "Interest charged on drawn funds only; ongoing liquidity buffer", linkHref: "/business-loans/line-of-credit", linkLabel: "View line of credit" },
+    { label: "Equipment & machinery loans", rate: "Asset-tied", sublabel: "Secured directly against productive business assets", linkHref: "/business-loans/equipment-finance", linkLabel: "View equipment finance" },
+    { label: "Invoice & debtor finance", rate: "Receivables", sublabel: "Advances against eligible commercial debtor ledgers", linkHref: "/business-loans/invoice-finance", linkLabel: "View invoice finance" },
+    { label: "Commercial vehicle finance", rate: "Chattel mortgage", sublabel: "Structured against commercial utes, vans and transport fleet", linkHref: "/business-loans/vehicle-finance", linkLabel: "View vehicle finance" },
   ],
   rateComparisonTable: {
-    headline: "Compare business loans and rates in Australia",
-    updatedAt: "2026-05-10",
+    headline: "Compare business loan structures and lender categories",
     rateTableSlug: "business-loans-rates",
     showFilters: true,
     sortable: true,
-    methodologyNote: "Rates shown are advertised starting rates from public lender information. Your actual rate depends on lender assessment and product fit.",
+    methodologyNote: "Lender pricing models, terms and borrowing limits vary by security position, trading history and cash-flow profile. Specific terms are determined upon individual lender credit assessment.",
   },
-  lastReviewed: "2026-05-10",
-  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Rates updated 10 May 2026", "General information only"],
+  lastReviewed: "2026-11-02",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Product fit and total cost guide", "General information only"],
   sections: [
     {
-      heading: "Current business loan rates, May 2026",
-      body: "Business loan rates vary widely by lender, product type and business profile. Below is a snapshot of indicative starting rates across common funding categories.\n\nRates updated 10 May 2026.\n\n> Secured finance from 7.49% p.a.\n> Unsecured loans from 14.45% p.a.\n> Line of credit from 14.55% p.a.\n> Equipment loans from 7.49% p.a.\n> Invoice finance from 2.5% of invoice amount\n> Vehicle finance from 7.99% p.a.\n\nThese are starting rates from lender panels as of 10 May 2026. Your actual rate depends on the lender, the product, and your business circumstances. Use the funding-fit check below to see which products and lenders may suit your situation.",
+      heading: "How Australian business loan pricing is structured",
+      body: "Business loan pricing in Australia is risk-based and asset-dependent rather than a single fixed rate. The cost of borrowing reflects whether the loan is secured against real estate or commercial assets, the trading history of the business, and the underwriting model of the lender.\n\n> Secured asset & equipment finance: Generally carries the lowest margin above lender cost of funds because physical collateral mitigates lender risk.\n> Commercial vehicle finance: Typically structured as a chattel mortgage or lease with pricing between equipment finance and unsecured lending.\n> Business line of credit: Flexible revolving facility where interest is charged only on drawn funds, accompanied by monthly or annual facility fees.\n> Unsecured cash-flow loans: Faster turnaround and bank-statement assessment without property security, balanced by higher risk margins and shorter terms.\n> Invoice & debtor finance: Cost calculated as a discount fee on drawn receivables plus an administration service fee, scaling with debtor credit quality.\n\nHeadline interest rates rarely tell the full story. Borrowers must evaluate total cost of capital—including establishment fees, line fees, and repayment frequency—before committing to any facility.",
     },
     {
       heading: "Compare business lenders side by side",
-      body: "The table below shows current business loan offerings from active lenders in the Australian SME market. Compare rates, amounts and terms before deciding where to apply.",
+      body: "The table below outlines common business loan offerings across active lenders in the Australian SME market. Compare pricing models, loan amounts and terms before deciding where to apply.",
       table: {
-        headers: ["Lender", "Interest rate (p.a.)", "Loan amount", "Term", "Best for"],
+        headers: ["Lender", "Pricing model", "Loan amount", "Term", "Best for"],
         rows: [
-          ["BOQ Business Loan", "7.50%", "Up to $250,000", "Quoted on application", "Established businesses, strong financials"],
-          ["Liberty Business Loan", "7.95% - 17.45%", "Up to $350,000", "1 - 7 years", "Sole traders, flexible criteria"],
-          ["Moneytech Business Loan", "7.99% - 9.56%", "$25,000 - $2,000,000", "Quoted on application", "Larger equipment or asset finance"],
-          ["Dynamoney Business Loan", "8.10% - 19.40%", "$2,000 - $1,000,000", "6 months - 7 years", "Smaller amounts, fast access"],
-          ["Group And General", "8.29% - 8.89%", "$10,000 - $350,000", "1 - 5 years", "Medium-term business lending"],
-          ["Multipli Business Loan", "8.49%", "$30,000 - $1,000,000", "Quoted on application", "Digital-first, streamlined process"],
-          ["TruePillars Business Loan", "9.90% - 20.90%", "$25,000 - $300,000", "1 - 7 years", "Broader criteria, most SME profiles"],
+          ["BOQ Business Loan", "Risk-based, secured margin", "Up to $250,000", "Quoted on application", "Established businesses, strong financials"],
+          ["Liberty Business Loan", "Tiered risk-based pricing", "Up to $350,000", "1 - 7 years", "Sole traders, flexible criteria"],
+          ["Moneytech Business Loan", "Asset & receivables-linked", "$25,000 - $2,000,000", "Quoted on application", "Larger equipment or asset finance"],
+          ["Dynamoney Business Loan", "Risk-based cash flow pricing", "$2,000 - $1,000,000", "6 months - 7 years", "Smaller amounts, fast access"],
+          ["Group And General", "Fixed/variable secured margin", "$10,000 - $350,000", "1 - 5 years", "Medium-term business lending"],
+          ["Multipli Business Loan", "Digital risk-based pricing", "$30,000 - $1,000,000", "Quoted on application", "Digital-first, streamlined process"],
+          ["TruePillars Business Loan", "Marketplace risk-tiered", "$25,000 - $300,000", "1 - 7 years", "Broader criteria, most SME profiles"],
         ],
       },
     },
@@ -98,8 +97,8 @@ const c1_business_loans: C1PageData = {
     { heading: "Rates, fees and repayment terms", body: "Business loan cost is not only the interest rate.\n\nCheck:\n\nA lower advertised rate may not be the best fit if the facility is too slow, too rigid or mismatched to cash flow. A faster facility may not be suitable if frequent repayments strain the account.", bullets: ["interest rate or factor rate;", "establishment fee;", "monthly fee;", "line fee;", "drawdown fee;", "early repayment rules;", "late payment fee;", "default interest;", "broker or referral fees;", "repayment frequency;"] },
     { heading: "When a business loan may not be the right fit", body: "Borrowing is not always the right answer.\n\nA business loan may be risky if:\n\nDebt should never feel casual. Good funding supports a specific business move. Bad funding can turn a temporary gap into a heavier problem.", bullets: ["there is no clear repayment path;", "the funding is only covering ongoing losses;", "the loan has no specific business purpose;", "repayments depend on unrealistic future revenue;", "tax, legal or insolvency issues need professional advice first;", "the owner is using debt to avoid making a hard business decision;", "the funding product is mismatched to the use of funds."] },
     { heading: "How Comparison One helps", body: "Comparison One helps business owners narrow the starting point.\n\nInstead of applying lender by lender, use the funding-fit check to identify which category may fit:\n\nThen you can move forward with a clearer view of what to compare and what to avoid.", bullets: ["working capital;", "invoice finance;", "equipment finance;", "unsecured business loan;", "bank pathway;", "non-bank pathway;", "bank-decline alternative;", "government-program alternative;", "preparation before applying."] },
-    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Choose your funding.", "RBA: Small Business Economic and Financial Conditions, October 2025.", "Money.com.au: Business loans comparison panel rates, May 2026.", "ABA: 2025 Banking Code of Practice.", "AFIA: Online Small Business Lenders Code.", "ASIC: Unfair contract term protections for small businesses."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 10 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Rates and loan terms are indicative and sourced from publicly available lender information as of May 2026. They are subject to change without notice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed." },
+    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Choose your funding.", "RBA: Small Business Economic and Financial Conditions, October 2025.", "ABA: 2025 Banking Code of Practice.", "AFIA: Online Small Business Lenders Code.", "ASIC: Unfair contract term protections for small businesses."] },
+    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Rates and loan terms are indicative and sourced from publicly available lender information. They are subject to change without notice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed." },
   ],
   faqs: [
     { question: "What is the easiest business loan to get in Australia?", answer: "There is no single easiest loan for every business. Some lenders may offer faster or simpler assessment for established businesses with strong revenue and clean bank statements, while other products depend on invoices, assets or security. Suitability depends on lender criteria." },
@@ -361,41 +360,84 @@ const c1_knocked_back_by_bank: C1PageData = {
 
 const c1_bank_vs_non_bank_business_lenders: C1PageData = {
   type: "blog",
-  title: "Bank vs Non-Bank Business Lenders",
+  title: "Bank vs Non-Bank Business Lenders in Australia",
   slug: "bank-vs-non-bank-business-lenders",
   path: "/blog/bank-vs-non-bank-business-lenders",
   eyebrow: "Business finance guide",
-  headline: "Bank vs non-bank business lenders in Australia",
-  summary: "A bank is not always the wrong place to start. A non-bank lender is not always the right shortcut. The better question is whether the lender type fits the business situation, documentation, timing, security, loan purpose and repayment capacity. For some SMEs, a bank may offer the right structure, relationship and price. For others, a bank process may be too slow, too security-heavy or too rigid for the cash-flow problem in front of them. This guide explains how to compare bank and non-bank business lenders before applying blindly.",
-  seoTitle: "Bank vs Non-Bank Business Lenders Australia | Comparison One Guide",
-  seoDescription: "Compare bank and non-bank business lenders in Australia, including speed, criteria, documentation, security, pricing, protections and when each may fit.",
+  headline: "Bank vs non-bank business lenders: how to choose the right funding path",
+  summary: "A major commercial bank is not always the right starting point, and an online non-bank lender is not always an easy shortcut. Choosing the right borrowing pathway comes down to documentation readiness, turnaround speed, collateral, borrowing purpose and cash-flow repayment rhythms. For established Australian businesses with property security and clean financials, a bank facility often provides the lowest cost of capital. For businesses facing tight deadlines, seasonal volatility or unencumbered asset needs, specialist non-bank lenders offer practical flexibility. This guide compares bank and non-bank SME lenders side by side.",
+  seoTitle: "Bank vs Non-Bank Business Lenders Australia | SME Comparison Guide",
+  seoDescription: "Compare Australian bank and non-bank business lenders. Understand turnaround speed, documentation, security, pricing differences, codes of practice and funding fit.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-05",
-  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a government agency"],
+  lastReviewed: "2026-11-02",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Independent lender comparison"],
   sections: [
-    { heading: "What is a bank business lender?", body: "A bank business lender is a deposit-taking institution that offers business banking and lending products.\n\nBanks may provide:\n\nBanks are often familiar and trusted because many businesses already hold transaction accounts with them.\n\nThey may be a good fit when the business has time, documentation and security.", bullets: ["business term loans;", "overdrafts;", "equipment finance;", "vehicle finance;", "credit cards;", "trade finance;", "invoice-related products;", "commercial property loans;", "government-administered program loans;", "relationship banking."] },
-    { heading: "What is a non-bank business lender?", body: "A non-bank business lender provides business finance but is not a traditional bank.\n\nNon-bank lenders may include fintech lenders, specialist invoice financiers, equipment financiers, private lenders, online SME lenders and alternative finance providers.\n\nThey may focus on:\n\nSome online small business lenders are members of industry codes such as AFIA\u2019s Online Small Business Lenders Code, which includes pricing disclosure tools such as SMART Box.", bullets: ["faster assessment;", "bank statement data;", "unsecured loans;", "short-term working capital;", "invoice finance;", "flexible criteria;", "niche industries;", "businesses that do not fit bank appetite."] },
-    { heading: "Why this choice matters", body: "The lender path can shape the outcome.\n\nIf a business applies to a lender that does not fit the scenario, it may lose days or weeks. If the lender requires property security and the owner does not want to provide it, the process may stall. If the lender needs full financial statements and the owner only has urgent bank-statement evidence, the timeline may not work. If the lender offers fast funding but the repayments are too frequent, the solution may create a new cash-flow issue.\n\nThe goal is not more applications.\n\nThe goal is fewer wrong turns." },
-    { heading: "Main differences", body: "Speed:\n\nBanks may take longer, especially for larger, secured or complex facilities. They may require more documentation, internal approvals, valuations and security checks.\n\nNon-bank lenders may assess some applications faster, especially where they rely on recent bank statements or simpler online processes.\n\nSpeed is useful only if the product is suitable.\n\nDocumentation:\n\nBanks may ask for:\n\nNon-bank lenders may sometimes rely on:\n\nRequirements vary widely.\n\nSecurity:\n\nBanks often prefer secured lending, especially for larger amounts or longer terms. Security may include property, business assets, vehicles, equipment or guarantees.\n\nNon-bank lenders may offer unsecured products or lend against invoices, equipment, merchant receipts or other business data.\n\nUnsecured does not mean no risk. Guarantees and contract terms still matter.\n\nPricing:\n\nBanks may offer lower pricing for strong borrowers and secured loans.\n\nNon-bank lenders may charge more for speed, flexibility, unsecured risk or shorter terms.\n\nCompare total cost, not just interest rate.\n\nCriteria and risk appetite:\n\nBanks may have stricter policy rules around trading history, financial statements, security, industry and tax position.\n\nNon-bank lenders may have more flexible criteria but still assess affordability and risk.\n\nA bank decline may not mean the business is unfundable. It may mean the bank\u2019s policy did not match.", bullets: ["financial statements;", "tax returns;", "business plan;", "cash-flow forecasts;", "BAS;", "ATO information;", "asset details;", "security documents;", "director and guarantor information.", "bank statements;"] },
-    { heading: "When a bank may fit", body: "A bank may fit when:\n\nBanks can be excellent partners for the right borrower and purpose.", bullets: ["the business has strong financial statements;", "there is sufficient trading history;", "security is available;", "the owner wants a longer-term facility;", "speed is not the main issue;", "the business wants a broader banking relationship;", "the loan amount is larger;", "pricing is a priority and the business meets criteria;", "the product is bank-administered, such as some government program loans."] },
-    { heading: "When a non-bank lender may fit", body: "A non-bank lender may fit when:\n\nThe trade-off is that cost and repayment structure must be checked carefully.", bullets: ["timing is tight;", "recent trading performance is stronger than old financials;", "the owner wants unsecured options;", "the business has B2B invoices suitable for invoice finance;", "the loan amount is moderate;", "the bank has declined or delayed the application;", "the use of funds is specific and short-term;", "a specialist lender understands the industry or product type."] },
-    { heading: "The role of regulation and codes", body: "Bank and non-bank lenders are not all covered by the same obligations in the same way.\n\nThe 2025 Banking Code of Practice provides standards for subscribing banks, including protections for small business customers and guarantors.\n\nAFIA\u2019s Online Small Business Lenders Code is a voluntary industry code for participating online small business lenders, with disclosure tools designed to help compare pricing and product terms.\n\nASIC\u2019s unfair contract term protections can apply to standard form contracts for financial products and services used by small businesses, including business loans, where the legal criteria are met.\n\nThese protections do not replace the need to read contracts and seek advice." },
-    { heading: "What to compare before applying", body: "Compare:", bullets: ["lender type;", "product type;", "amount available;", "use of funds;", "approval speed;", "information required;", "security requirements;", "guarantee requirements;", "total cost;", "repayment frequency;"] },
-    { heading: "Bank decline does not always mean no", body: "A bank can decline for reasons such as:\n\nSome of these issues may also affect non-bank lending. Others may not.\n\nThe next step should be to understand the decline reason, not immediately apply everywhere else.", bullets: ["insufficient security;", "short trading history;", "weak financial statements;", "tax debt;", "industry risk;", "low serviceability;", "inconsistent cash flow;", "poor bank account conduct;", "documentation gaps;", "loan purpose outside appetite."] },
-    { heading: "Comparison One lender-fit framework", body: "Use this framework before choosing a lender path:\n\n1. Purpose: What is the funding for? 2. Timing: How quickly is the money needed? 3. Evidence: What documents are available now? 4. Security: Is property, asset or invoice security available? 5. Cash flow: What repayment rhythm can the business support? 6. Risk: What happens if revenue arrives late? 7. Cost: What is the total cost, not just the advertised rate? 8. Fit: Which lender type is most likely to assess the scenario fairly?" },
-    { heading: "Sources", body: "", bullets: ["RBA: Small Business Economic and Financial Conditions, October 2025.", "ABA: 2025 Banking Code of Practice.", "AFIA: Online Small Business Lenders Code.", "ASIC: Unfair contract term protections.", "business.gov.au: Apply for a business loan."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 5 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed." },
+    {
+      heading: "Understanding bank vs non-bank business lenders",
+      body: "Australian business lending is divided between traditional banking institutions and a growing non-bank commercial finance sector.\n\nBanks are authorised deposit-taking institutions (ADIs) regulated by the Australian Prudential Regulation Authority (APRA). They fund commercial loans primarily through customer deposits and wholesale capital, operating under conservative risk frameworks that prioritize multi-year trading history, full financial accounts and tangible real estate security.\n\nNon-bank lenders operate outside the ADI regulatory perimeter, funding facilities through wholesale warehouse lines, institutional credit funds or private investment. The non-bank sector includes fintech cash-flow lenders, debtor finance companies, equipment finance specialists and private commercial lenders. Because non-banks do not hold retail deposits, they evaluate applications through automated bank-feed analysis, merchant turnover or specific asset collateral rather than rigid APRA balance-sheet benchmarks.",
+      bullets: [
+        "Banks: ADI-regulated institutions offering term loans, commercial mortgages, overdrafts and trade facilities backed by full financials and property security.",
+        "Non-banks: Specialist commercial financiers offering cash-flow loans, equipment leases, invoice discounting and lines of credit based on trading performance."
+      ]
+    },
+    {
+      heading: "Turnaround speed and approval timelines",
+      body: "Assessment timeframes differ substantially based on underwriting requirements.\n\nMajor bank business loan applications generally involve extensive financial reviews, credit committee assessments, tax portal verifications, and property valuations. For long-term capital investments or commercial property acquisitions where timing is flexible, this thorough assessment process is standard practice.\n\nOnline non-bank lenders typically focus on recent bank-statement cash flow and automated verification to reach faster conditional decisions. However, faster turnaround represents a commercial trade-off: non-bank lenders price for automated underwriting and uncollateralised risk by charging higher risk margins.",
+    },
+    {
+      heading: "Documentation: full-doc vs bank-statement lending",
+      body: "The administrative burden of preparing an application varies substantially across the two pathways.\n\nBank full-doc requirements:\nBanks typically mandate two full financial years of accountant-prepared profit and loss statements, balance sheets, company tax returns, individual director tax returns and ATO Notices of Assessment, alongside current Business Activity Statements (BAS) and aged debtor/creditor ledgers. If tax lodgements are delayed or financials are not finalised, bank assessment cannot proceed.\n\nNon-bank low-doc and bank-statement pathways:\nMany non-bank lenders assess eligibility using 6 to 12 months of electronic business bank statements accessed via secure read-only digital feeds. Underwriters examine real-time turnover, operating margins and account conduct. This structure benefits profitable businesses whose trading performance has accelerated since their last formal tax return.",
+    },
+    {
+      heading: "Security and personal guarantees: what is at stake?",
+      body: "Understanding what collateral is pledged is essential before accepting commercial debt.\n\nReal property security:\nBanks heavily favor registered first or second mortgages over residential or commercial property. Pledging property allows banks to offer lower interest margins and longer loan terms, but it places the family home or commercial premises directly at risk if trading conditions deteriorate.\n\nAsset security and PPSR charges:\nNon-bank asset financiers secure loans directly against the acquired vehicle, plant or equipment via the Personal Property Securities Register (PPSR). Invoice financiers take a charge over the business debtor ledger.\n\nThe reality of unsecured loans:\nWhere non-banks offer unsecured cash-flow loans, no specific physical asset is mortgaged. However, some lenders require a Director's Guarantee. If the borrowing entity fails to meet repayments, the lender holds legal recourse against the directors personally.",
+    },
+    {
+      heading: "Pricing structures and the total cost of capital",
+      body: "Evaluating loan cost requires looking beyond the headline interest rate to understand how pricing is structured.\n\nBank pricing:\nBanks generally price facilities as a margin above the RBA cash rate or the Bank Bill Swap Rate (BBSW), or provide fixed commercial rates amortised over 3 to 15 years with monthly repayments. Annual review fees and line fees may apply.\n\nNon-bank pricing:\nNon-banks employ risk-based pricing tailored to trading volatility. Facilities may be quoted as an annual percentage rate (APR), a monthly fee, or a fixed factor rate (where total interest is calculated upfront). On short-term loans repaid via daily or weekly debit sweeps, factor rates can result in a substantially higher effective annual borrowing cost than a standard amortising bank loan.",
+    },
+    {
+      heading: "Industry regulation and voluntary codes",
+      body: "Regulatory protections differ across bank and non-bank commercial contracts.\n\nAustralian Banking Association (ABA) Banking Code of Practice:\nSubscribing member banks commit to standards covering small business customer protections, communication, notice periods for enforcement, and loan disclosure.\n\nAFIA Online Small Business Lenders Code:\nA voluntary industry code established by the Australian Finance Industry Association for participating online lenders, introducing standardized pricing presentation through the SMART Box tool.\n\nASIC Unfair Contract Term (UCT) protections:\nCommercial business loans are generally exempt from the National Consumer Credit Protection Act 2009. However, under the ASIC Act, standard-form small business contracts for loans and financial services are protected from unfair contract terms, restricting lenders from enforcing unfair unilateral variations or disproportionate indemnity clauses.",
+    },
+    {
+      heading: "Concrete Australian SME scenarios",
+      body: "How the choice between bank and non-bank plays out across typical Australian business situations:",
+      bullets: [
+        "Commercial premises acquisition: An established civil contractor purchasing a $1.2M industrial workshop. A commercial bank facility is the natural fit, offering a long-term amortisation period, competitive margins and mortgage security suited to a permanent asset.",
+        "Urgent fleet repair: A transport operator needing $65,000 to rebuild a prime mover engine to service a contracted freight route. A non-bank cash-flow loan or equipment facility fits because missing delivery deadlines would cost more in lost contract revenue than the financing cost.",
+        "Managing 60-day customer payment terms: A wholesale food distributor carrying $280,000 in outstanding trade invoices from supermarkets. A specialist non-bank invoice finance facility unlocks cash against verified invoices, funding supplier orders without encumbering real estate.",
+        "Tax timing and inventory purchasing: A retail importer needing $50,000 to clear a shipping container ahead of peak holiday trade while managing an active BAS schedule. A non-bank revolving line of credit provides draw-and-repay flexibility matched to sales receipts."
+      ]
+    },
+    {
+      heading: "What to do after a bank decline",
+      body: "A decline from a major bank does not mean a business is unviable. Banks operate within narrow underwriting mandates restricted by rigid debt-service ratios, industry exclusions and collateral policies.\n\nCommon reasons for bank rejection include insufficient property equity, trading history under two years, minor ATO payment arrangements, or fluctuating seasonal cash flow.\n\nBefore applying elsewhere, avoid submitting simultaneous online applications to multiple non-bank lenders. Rapid consecutive credit checks generate hard enquiries on Equifax and Illion commercial files, which credit scoring models treat as a signal of financial distress. Identify the specific reason for the bank decline and match your scenario to an asset-backed, debtor finance or cash-flow specialist with relevant appetite.",
+    },
+    {
+      heading: "Sources",
+      body: "",
+      bullets: [
+        "Reserve Bank of Australia: Small Business Economic and Financial Conditions, October 2025 Bulletin.",
+        "Australian Banking Association: Banking Code of Practice.",
+        "Australian Finance Industry Association: Online Small Business Lenders Code.",
+        "Australian Securities and Investments Commission: Unfair Contract Term Protections for Small Businesses.",
+        "business.gov.au: Guide to Business Loans and Funding Options."
+      ]
+    },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "Are non-bank business lenders safe?", answer: "Some non-bank lenders are established and reputable, while others require caution. Check licensing, code membership, disclosures, reviews, complaint processes and contract terms before proceeding." },
-    { question: "Are banks cheaper than non-bank lenders?", answer: "Banks may be cheaper for strong borrowers with security and documentation, but not always. Compare total cost, repayment structure and suitability." },
-    { question: "Why would a bank decline a business loan?", answer: "Reasons can include security, serviceability, trading history, tax debt, credit history, industry risk, documentation gaps or loan purpose." },
-    { question: "Can a non-bank lender approve me after a bank says no?", answer: "Possibly, depending on why the bank declined and whether the business fits the non-bank lender\u2019s criteria. Approval is not guaranteed." },
-    { question: "Do non-bank lenders require security?", answer: "Some do and some do not. Some lend unsecured, while others use invoices, equipment, vehicles or other assets." },
-    { question: "Should I apply to multiple lenders at once?", answer: "Applying blindly can waste time and may create unnecessary enquiries. It is better to understand lender fit first." },
-    { question: "Is Comparison One a lender?", answer: "No. Comparison One is not a lender and does not make credit decisions. It helps Australian business owners compare possible funding pathways and move toward a realistic next step." },
-    { question: "Does Comparison One guarantee approval?", answer: "No. Approval, rates, terms, fees and timing depend on lender criteria and the business circumstances. The site provides General information only." },
+    { question: "Are non-bank business lenders legal and regulated in Australia?", answer: "Yes. While commercial loans are generally exempt from the National Consumer Credit Protection Act 2009 (which regulates consumer credit), non-bank lenders operate under Australian corporate and commercial law, misleading and deceptive conduct provisions, and the ASIC Act's unfair contract term protections. Established non-banks may also subscribe to voluntary industry standards such as the AFIA Online Small Business Lenders Code." },
+    { question: "Why do major commercial banks decline profitable small businesses?", answer: "Banks adhere to strict policy rules that mandate multi-year financial statements, real property security, and rigid debt-service coverage ratios. If an SME has strong trading turnover but lacks real estate equity, has traded for under two years, or operates in a cyclical sector, a bank may decline even if cash flow is positive." },
+    { question: "Does an unsecured non-bank loan put my personal assets at risk?", answer: "Yes. While an unsecured business loan does not place a mortgage over property, some lenders require a Director's Guarantee. If the business fails to repay, the lender can take legal action against company directors personally." },
+    { question: "What is the AFIA SMART Box and how does it help compare loans?", answer: "The SMART Box is a standardized disclosure tool developed under AFIA's Online Small Business Lenders Code. It breaks down pricing into transparent metrics: Total Cost of Credit, Average Monthly Repayment, and Effective Annual Rate, helping borrowers compare non-bank facilities directly." },
+    { question: "Can a business start with a non-bank lender and refinance with a bank later?", answer: "Yes. Many Australian businesses use non-bank facilities or equipment finance to bridge timing gaps, fund expansion, or build trading performance. Once the company establishes two years of strong financial statements and balance-sheet equity, it can refinance into lower-cost bank facilities." },
+    { question: "How does applying to multiple online lenders affect a business credit score?", answer: "Submitting formal applications to multiple lenders within a short window creates hard credit enquiries on your Equifax and Illion commercial files. Credit decision engines treat multiple rapid enquiries as a sign of liquidity distress, which can lower your credit rating and trigger automatic declines." },
   ],
   relatedLinks: [
     { label: "Business loans hub", href: "/business-loans" },
@@ -1062,38 +1104,88 @@ const c1_commercial_fitout: C1PageData = {
 
 const c1_business_loan_requirements: C1PageData = {
   type: "guide",
-  title: "Business Loan Requirements in Australia",
+  title: "Business Loan Requirements in Australia: Complete SME Checklist",
   slug: "business-loan-requirements-australia",
   path: "/blog/business-loan-requirements-australia",
   eyebrow: "SME funding guide",
-  headline: "Business loan requirements in Australia",
-  summary: "Business loan requirements vary by lender, product and business situation. Most lenders look for a clear use of funds, trading evidence, repayment capacity, credit conduct, identity checks and documents that support the amount requested.",
-  seoTitle: "Business Loan Requirements Australia | Documents and Lender Checks | Comparison One",
-  seoDescription: "Business loan requirements vary by lender, product and business situation. Most lenders look for a clear use of funds, trading evidence, repayment capacity",
+  headline: "Business loan requirements in Australia: documents, criteria and eligibility",
+  summary: "Australian business loan requirements differ substantially depending on whether you apply to a major bank, an online fintech or an asset finance specialist. While banks require two years of audited financials, tax returns and real estate security, non-bank lenders frequently assess applications using recent bank-statement cash flow, merchant receipts or asset collateral. This guide breaks down the core eligibility benchmarks, documentation requirements, account conduct standards and tax compliance checks Australian SMEs need to prepare before applying.",
+  seoTitle: "Business Loan Requirements Australia | SME Eligibility Checklist | Comparison One",
+  seoDescription: "What do Australian lenders require for a business loan? Compare eligibility criteria, bank-statement checks, full-doc vs low-doc requirements and ATO rules.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-05",
+  lastReviewed: "2026-11-02",
   proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a lender"],
   sections: [
-    { heading: "What business loan requirements in australia is", body: "Business Loan Requirements in Australia is a funding-fit question, not just a product label. The useful question is whether this pathway matches the asset, cash-flow timing, documentation, security position and repayment capacity of the business.\n\nFor Australian SMEs, business loan requirements in australia may sit beside bank loans, non-bank loans, specialist facilities and preparation-only pathways. The right starting point depends on why the money is needed and what evidence can support the application." },
-    { heading: "When it may fit", body: "Business Loan Requirements in Australia may fit when the purpose is clear and the business can show a realistic repayment path. It is most relevant when the funding need is connected to a specific timing or growth problem rather than a vague cash buffer.", bullets: ["the owner wants to prepare before applying", "the business needs to understand why one lender may ask for more documents than another", "the application has a clear use of funds", "documents can support revenue, affordability and trading history"] },
-    { heading: "When it may not fit", body: "Funding can create a second problem if it is used to cover a structural issue that needs advice, renegotiation or a different operating decision. A fit-first check should rule out mismatched borrowing before comparing lenders.", bullets: ["the owner wants a promise of approval", "the business has unresolved tax, legal or insolvency issues that need advice first", "the amount requested does not match revenue or repayment capacity", "documents are missing or inconsistent"] },
-    { heading: "How lenders may assess the application", body: "Lenders and brokers may assess different products in different ways, but the same broad logic usually applies: purpose, trading evidence, affordability, risk and documentation all matter.", bullets: ["ABN, ACN and identity checks", "trading history and GST registration", "bank statements and account conduct", "revenue and cash flow", "profit and loss, balance sheet or tax returns for larger loans", "credit history and existing debts"] },
-    { heading: "Costs, fees and repayment structure", body: "The headline rate is only one part of cost. Compare the full repayment rhythm and total cost before choosing a pathway. A lower-rate facility can still be the wrong fit if it is too slow, too rigid or mismatched to the business cycle.", bullets: ["interest and fees", "security and guarantee requirements", "repayment frequency", "documentation cost and time", "opportunity cost of waiting", "cost of wrong-fit applications"] },
-    { heading: "What to prepare before applying", body: "Preparation improves the quality of the enquiry and helps avoid blind applications. Bring the use case into focus before asking a lender for a decision.", bullets: ["ABN and business details", "bank statements", "BAS or financials", "tax returns where required", "loan purpose and amount", "asset quote, invoices or contracts"] },
-    { heading: "Comparison One fit-first checklist", body: "Before applying, ask these questions. The aim is not to make debt feel easy. The aim is to identify whether this funding path deserves a closer look.", bullets: ["What exact cash-flow gap or asset need are we solving?", "Is the need urgent, seasonal, asset-backed, invoice-backed or repeatable?", "Can the business service repayments without weakening the account?", "Would a bank, non-bank or specialist facility assess this more naturally?", "Is there a safer non-debt or advice-first pathway?", "What documents will make the application credible?", "What could make a lender say no?"] },
-    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Choose your funding.", "business.gov.au: Key financial terms.", "ASIC: Unfair contract term protections for small businesses.", "AFCA: Approach to Appropriate Lending to Small Business.", "Australian Banking Association: 2025 Banking Code of Practice."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 5 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not promised." }
+    {
+      heading: "Core eligibility criteria for Australian SMEs",
+      body: "Before assessing documents, commercial lenders test whether an application meets baseline operational thresholds.\n\nMinimum trading tenure:\nMost non-bank lenders require at least 6 months of active trading under an Australian Business Number (ABN). Traditional banks generally require a minimum of 24 months of trading history supported by lodged tax returns. Early-stage businesses with under 6 months of trading usually need asset security, a commercial guarantor or personal funds.\n\nRevenue and turnover thresholds:\nUnsecured business loans and lines of credit typically require minimum monthly turnover between $5,000 and $10,000 (roughly $60,000 to $120,000 in annual gross receipts). Secured asset facilities evaluate the resale value of the underlying equipment alongside operating cash flow.\n\nEntity structure and residency:\nApplicants must hold an active ABN or ACN, be registered for GST (where turnover exceeds $75,000), and have company directors who are Australian citizens or permanent residents with verifiable residential addresses.",
+      bullets: [
+        "Active ABN/ACN with verified trading history (6+ months for non-banks, 24+ months for banks).",
+        "GST registration where annual turnover exceeds $75,000.",
+        "Demonstrated minimum monthly turnover (commonly $5,000 to $10,000+).",
+        "Australian citizenship or permanent residency for primary directors."
+      ]
+    },
+    {
+      heading: "Full-doc vs low-doc: what documents are required?",
+      body: "The documentation required depends on whether a lender operates under a full-documentation or bank-statement (low-doc) policy.\n\nFull-documentation requirements (standard for commercial banks and large facilities):\nLenders examine formal accounting records prepared by a registered tax agent. Typical requirements include:\n- 2 full financial years of company tax returns and financial statements (profit and loss statement, balance sheet).\n- 2 years of individual tax returns and ATO Notices of Assessment for all directors and major shareholders.\n- Recent Business Activity Statements (BAS) covering the past 2 to 4 quarters.\n- Current aged debtor and creditor ledgers and a schedule of existing commercial debts.\n\nLow-doc and bank-statement pathways (common among fintechs and asset lenders):\nDesigned for SMEs that have strong current trading performance but whose historical tax returns are not yet finalised. Requirements typically include:\n- 6 to 12 months of electronic business bank statements accessed via secure digital bank-feed integrations.\n- Verified business identity, driver's licences and ASIC corporate extracts.\n- Invoice, quote or purchase agreement for specific equipment, vehicle or inventory funding.",
+    },
+    {
+      heading: "Bank statement conduct: red flags underwriters check",
+      body: "Modern commercial underwriters and automated decision engines analyze bank statement data within minutes. Beyond total revenue, lenders examine account conduct for behavioural risk indicators.\n\nKey conduct flags include:\n- Account dishonours and negative balances: More than one or two dishonoured direct debits or unarranged overdraft events in a 90-day window can lead to an automated credit decline.\n- Loan stacking and micro-lenders: Existing daily or weekly debits to high-cost merchant cash advance or short-term fintech lenders signal severe cash-flow strain.\n- Excessive personal drawings: Significant or irregular director cash withdrawals that deplete working capital buffers.\n- Gambling or non-business transactions: Frequent personal or speculative gambling activity on the primary business trading account.\n\nMaintaining clean account conduct for at least 90 days prior to application significantly strengthens approval terms.",
+    },
+    {
+      heading: "ATO compliance and tax debt considerations",
+      body: "Tax compliance is one of the strictest hurdles in Australian SME lending. Lenders routinely require an ATO Integrated Client Account (ICA) statement to confirm the business's tax position.\n\nLodgement currency:\nAll Business Activity Statements (BAS), PAYG withholdings and superannuation guarantee obligations must be lodged up to date. Unlodged statements are an immediate barrier across all major lenders.\n\nManaging existing tax arrears:\nAn outstanding ATO tax balance does not automatically disqualify an SME, provided it is managed. Several non-bank lenders will consider applications where the business has a formal, written ATO payment arrangement in good standing and can demonstrate cash-flow serviceability for both the loan repayments and the ATO instalments.",
+    },
+    {
+      heading: "Security, collateral and director guarantees",
+      body: "Understanding the distinction between secured and unsecured debt determines what assets are exposed.\n\nSecured business lending:\nSecured facilities require collateral—typically registered first or second mortgages over residential equity, commercial property, or specific vehicles and machinery registered on the Personal Property Securities Register (PPSR). Asset backing unlocks higher borrowing limits, lower interest margins and longer loan terms.\n\nUnsecured loans and Director's Guarantees:\nUnsecured business loans do not require registered property mortgages. However, they are not risk-free. Some lenders ask company directors to provide a personal guarantee. Under Australian commercial law, this enables the lender to pursue company directors personally if the corporate entity defaults.",
+    },
+    {
+      heading: "Practical Australian SME scenarios",
+      body: "Real-world examples of how Australian businesses prepare for loan requirements:",
+      bullets: [
+        "Trade contractor purchasing machinery: An electrical contractor trading for 18 months wins a substantial commercial contract and needs $55,000 for a new work van and tooling. Lacking two years of lodged tax returns, the business qualifies for an equipment chattel mortgage using 12 months of business bank statements, current BAS and the vehicle dealer invoice.",
+        "Wholesale distributor managing payment gaps: An established food distributor with $1.5M annual revenue faces 60-day payment terms from supermarket accounts. By providing up-to-date aged debtor ledgers and 6 months of bank statements, the business accesses an invoice finance facility that advances capital against eligible outstanding invoices without property security.",
+        "Retailer expanding inventory: A suburban homewares store requires $35,000 in working capital before the Christmas trading surge. By connecting 6 months of bank and EFTPOS merchant terminal statements showing consistent turnover and zero dishonours, the business secures a flexible line of credit to smooth purchasing."
+      ]
+    },
+    {
+      heading: "Application preparation checklist",
+      body: "Follow these practical preparation steps before submitting a loan application:",
+      bullets: [
+        "1. Confirm business details: Ensure your ABN, GST registration and ASIC company records are completely up to date.",
+        "2. Retrieve bank statements: Download 6 to 12 months of PDF statements for all primary trading accounts, or prepare digital bank-feed credentials.",
+        "3. Review tax standing: Check your ATO portal to ensure all BAS lodgements are current and obtain an Integrated Client Account statement.",
+        "4. Clarify purpose and quotes: Gather dealer quotes, supplier invoices or purchase orders that clearly document how funds will be deployed.",
+        "5. Clean account conduct: Avoid overdrafts, dishonours or irregular personal cash withdrawals for at least 90 days before applying."
+      ]
+    },
+    {
+      heading: "Sources",
+      body: "",
+      bullets: [
+        "business.gov.au: Apply for a business loan and business finance checklist.",
+        "Australian Taxation Office: Small Business Portal and Tax Compliance Guidelines.",
+        "Australian Financial Complaints Authority: Approach to Appropriate Lending to Small Business.",
+        "Australian Banking Association: 2025 Banking Code of Practice standards.",
+        "Australian Securities and Investments Commission: Small business credit and contract regulations."
+      ]
+    },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "What is Business Loan Requirements in Australia?", answer: "Business Loan Requirements in Australia is a funding pathway that may suit some Australian SMEs when the purpose, timing, documentation and repayment capacity fit lender criteria." },
-    { question: "When might business loan requirements in australia suit an Australian small business?", answer: "It may suit when the funding need is specific, the repayment source is clear and the business can provide evidence that supports the application." },
-    { question: "When might business loan requirements in australia be the wrong fit?", answer: "It may be the wrong fit where the business lacks a clear repayment path, needs professional tax/legal/insolvency advice first, or the product structure does not match the use of funds." },
-    { question: "What documents might lenders ask for?", answer: "Lenders may ask for ABN details, bank statements, financials, BAS or tax information, invoices, asset quotes, purchase orders, identification and details of existing debts. Requirements vary." },
-    { question: "Can Comparison One tell me which lender will approve me?", answer: "No. Comparison One is not a lender and does not make credit decisions. It can help narrow the funding pathway before a lender or broker assesses the business." },
-    { question: "Is this financial advice?", answer: "No. Comparison One provides general information only. Speak with qualified financial, credit, legal or tax advisers before making decisions." },
-    { question: "How should I compare offers?", answer: "Compare total cost, repayment frequency, fees, security, speed, lender criteria, documentation burden, flexibility and whether the repayments match the cash-flow cycle." },
-    { question: "Where should I go next?", answer: "Start with the funding-fit check or read the related Comparison One guides linked on this page." }
+    { question: "What is the minimum trading history required for an Australian business loan?", answer: "Most online non-bank lenders require a minimum of 6 months of active trading under an ABN with consistent bank turnover. Traditional commercial banks typically require at least 24 months of trading supported by two full years of lodged tax returns." },
+    { question: "Can I get an Australian business loan without complete tax returns?", answer: "Yes. Low-doc or bank-statement business loans allow eligible SMEs to qualify based on 6 to 12 months of electronic bank statements and BAS lodgements rather than complete company tax packs. These facilities are common among fintech lenders and equipment finance providers." },
+    { question: "Will having an existing ATO tax debt prevent me from getting approved?", answer: "An active ATO tax debt will not automatically disqualify your application with specialist non-bank lenders, provided you have a formal, written ATO payment plan in good standing. However, unlodged BAS or unmanaged tax arrears will lead to immediate rejection by mainstream lenders." },
+    { question: "What turnover do I need to qualify for small business finance?", answer: "Unsecured online business loans generally require minimum monthly turnover between $5,000 and $10,000 ($60,000 to $120,000 annually). Secured facilities or bank term loans evaluate net operating margins and debt service coverage ratios rather than revenue alone." },
+    { question: "Why do lenders require a personal guarantee on an unsecured loan?", answer: "A Director's Guarantee ensures company directors remain personally liable for business borrowing. If the proprietary limited company defaults or enters liquidation, the lender has legal rights to recover outstanding debt from the guarantor's personal assets." },
+    { question: "What bank account red flags can cause an instant decline?", answer: "Underwriters and automated decision engines look for recent payment dishonours, unarranged overdrafts, gambling transactions, excessive director cash drawings, and ongoing daily debits to multiple short-term micro-lenders." },
   ],
   relatedLinks: [
     { label: "Business loans hub", href: "/business-loans" },
@@ -1109,38 +1201,80 @@ const c1_business_loan_requirements: C1PageData = {
 
 const c1_lender_assessment: C1PageData = {
   type: "guide",
-  title: "How Business Lenders Assess Applications",
+  title: "How Business Lenders Assess Applications in Australia: Credit Underwriting Explained",
   slug: "how-business-lenders-assess-applications",
   path: "/blog/how-business-lenders-assess-applications",
   eyebrow: "SME funding guide",
-  headline: "How business lenders assess applications",
-  summary: "Business lenders assess more than a credit score. They may consider trading history, bank-statement conduct, cash flow, affordability, industry, security, purpose of funds, tax position and whether the product fits the use case.",
-  seoTitle: "How Business Lenders Assess Applications Australia | Funding Fit Guide | Comparison One",
-  seoDescription: "Business lenders assess more than a credit score. They may consider trading history, bank-statement conduct, cash flow, affordability, industry, security, ",
+  headline: "How business lenders assess loan applications: inside the credit decision",
+  summary: "Commercial lenders evaluate far more than a simple credit score when reviewing an Australian SME loan application. Underwriters and automated decision engines analyze cash-flow volatility, debt service coverage ratios, bank-statement conduct, debtor concentration, tax portal compliance and director credit history. Understanding how credit assessors evaluate risk helps business owners address red flags and position their application effectively.",
+  seoTitle: "How Business Lenders Assess Loan Applications Australia | Comparison One",
+  seoDescription: "Inside Australian business loan assessment: how lenders analyze bank statements, calculate DSCR serviceability, evaluate credit scores and review tax compliance.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-05",
+  lastReviewed: "2026-11-02",
   proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a lender"],
   sections: [
-    { heading: "What how business lenders assess applications is", body: "How Business Lenders Assess Applications is a funding-fit question, not just a product label. The useful question is whether this pathway matches the asset, cash-flow timing, documentation, security position and repayment capacity of the business.\n\nFor Australian SMEs, how business lenders assess applications may sit beside bank loans, non-bank loans, specialist facilities and preparation-only pathways. The right starting point depends on why the money is needed and what evidence can support the application." },
-    { heading: "When it may fit", body: "How Business Lenders Assess Applications may fit when the purpose is clear and the business can show a realistic repayment path. It is most relevant when the funding need is connected to a specific timing or growth problem rather than a vague cash buffer.", bullets: ["the owner wants to understand bank vs non-bank assessment", "the application needs a stronger funding story", "a previous decline needs to be interpreted", "the business wants to avoid applying blindly"] },
-    { heading: "When it may not fit", body: "Funding can create a second problem if it is used to cover a structural issue that needs advice, renegotiation or a different operating decision. A fit-first check should rule out mismatched borrowing before comparing lenders.", bullets: ["the owner expects every lender to assess the same way", "the business ignores affordability", "credit or tax issues are hidden rather than explained", "the product is mismatched to the funding purpose"] },
-    { heading: "How lenders may assess the application", body: "Lenders and brokers may assess different products in different ways, but the same broad logic usually applies: purpose, trading evidence, affordability, risk and documentation all matter.", bullets: ["identity and ABN checks", "trading history", "revenue and bank conduct", "affordability and existing debts", "credit history", "tax position", "security or asset quality", "industry and use of funds"] },
-    { heading: "Costs, fees and repayment structure", body: "The headline rate is only one part of cost. Compare the full repayment rhythm and total cost before choosing a pathway. A lower-rate facility can still be the wrong fit if it is too slow, too rigid or mismatched to the business cycle.", bullets: ["interest rate and fees", "pricing for risk", "security and guarantee consequences", "time to approval", "document burden", "repayment frequency"] },
-    { heading: "What to prepare before applying", body: "Preparation improves the quality of the enquiry and helps avoid blind applications. Bring the use case into focus before asking a lender for a decision.", bullets: ["bank statements", "financials or BAS", "ATO position", "loan purpose notes", "contracts, invoices or quotes", "existing debt schedule"] },
-    { heading: "Comparison One fit-first checklist", body: "Before applying, ask these questions. The aim is not to make debt feel easy. The aim is to identify whether this funding path deserves a closer look.", bullets: ["What exact cash-flow gap or asset need are we solving?", "Is the need urgent, seasonal, asset-backed, invoice-backed or repeatable?", "Can the business service repayments without weakening the account?", "Would a bank, non-bank or specialist facility assess this more naturally?", "Is there a safer non-debt or advice-first pathway?", "What documents will make the application credible?", "What could make a lender say no?"] },
-    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Choose your funding.", "AFCA: Approach to Appropriate Lending to Small Business.", "Australian Banking Association: 2025 Banking Code of Practice.", "AFIA: Online Small Business Lenders Code.", "RBA: Small Business Economic and Financial Conditions, October 2025 Bulletin.", "ASIC: Unfair contract term protections for small businesses."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 5 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not promised." }
+    {
+      heading: "The core underwriting framework: the 5 Cs of commercial credit",
+      body: "Whether an application is reviewed by a commercial bank credit committee or a non-bank algorithmic decision engine, commercial credit underwriting in Australia evaluates five fundamental dimensions:\n\nCharacter and management capability:\nTrading tenure under the current ABN, industry experience of the principals, and credit reporting history across both company and personal director files.\n\nCapacity and cash-flow serviceability:\nOperating cash flow and the business's demonstrated ability to comfortably service debt repayments out of ongoing trading revenue without depleting working capital reserves.\n\nCapital and balance sheet strength:\nNet asset position, retained equity, working capital ratios, and existing commercial liabilities or equipment encumbrances.\n\nCollateral and security:\nThe quality, liquidity and enforceability of pledged collateral, ranging from residential equity and commercial real estate mortgages to PPSR asset charges and debtor books.\n\nConditions and commercial purpose:\nBroader macroeconomic conditions, industry sector risk, and whether the proposed borrowing supports a viable commercial outcome that generates sufficient return to repay the debt.",
+    },
+    {
+      heading: "How automated underwriting engines analyze bank statements",
+      body: "In modern Australian SME lending, financial assessment increasingly occurs via secure digital bank-feed integrations. Underwriting algorithms scan 6 to 12 months of transactional data in seconds, evaluating metrics that traditional annual tax returns conceal.\n\nKey cash-flow metrics examined include:\n- Net monthly cash buffer: The surplus remaining after recurring operational expenses, payroll, and debt servicing.\n- Inflow consistency and deposit frequency: Regular, predictable revenue deposits from diverse customers indicate a resilient trading base.\n- Negative balance frequency: Days where the operating account ends with an overdrawn or near-zero balance.\n- Volatility and seasonality: Sharp revenue fluctuations that may create liquidity gaps during scheduled repayment dates.",
+    },
+    {
+      heading: "Serviceability metrics: Debt Service Coverage Ratio (DSCR)",
+      body: "Lenders test whether business earnings can withstand unexpected revenue drops while continuing to service debt.\n\nCalculating DSCR:\nBanks and commercial term lenders commonly use the Debt Service Coverage Ratio: Net Operating Income divided by Total Annual Debt Commitments (principal and interest payments across existing and proposed loans). Commercial banks typically look for a minimum DSCR of 1.25x to 1.50x, ensuring that operating earnings exceed debt obligations by at least 25% to 50%.\n\nUncommitted monthly cash flow (UMCF):\nNon-bank working capital lenders frequently assess uncommitted monthly cash flow. If a business generates $15,000 in monthly net surplus after expenses, a loan requiring $8,000 in monthly repayments leaves a viable safety buffer. If repayments consume $14,000, underwriters will reduce the approved facility limit to avoid triggering default.",
+    },
+    {
+      heading: "Credit bureaus: commercial scores vs director personal files",
+      body: "Lenders assess both business and individual credit profiles through Australia's major credit reporting agencies: Equifax, Illion and CreditorWatch.\n\nCommercial credit files:\nRecord commercial payment defaults from trade suppliers (such as wholesale distributors, fuel cards, and equipment hirers), court writs, judgements, and formal credit enquiries from other financiers.\n\nDirector personal credit files:\nBecause small business performance is closely tied to ownership, lenders review directors' personal credit conduct, mortgage history, and consumer debt default records.\n\nThe enquiry impact:\nEvery formal finance application logs a hard credit enquiry. Submitting multiple loan applications to online lenders within a 30-day window generates multiple enquiries, which scoring algorithms interpret as a sign of acute liquidity distress.",
+    },
+    {
+      heading: "Industry risk matrices and lender sector appetite",
+      body: "All commercial lenders maintain internal risk matrices that dictate sector appetite.\n\nSectors subject to tighter scrutiny:\nIndustries characterized by high failure rates, thin operating margins, or long payment chains—including hospitality, residential construction subcontracting, and discretionary retail—face stricter borrowing limits, higher risk margins, and shorter repayment terms.\n\nSectors with broader lender appetite:\nIndustries with recurring revenue contracts, defensive demand, or high-value physical assets—such as healthcare and medical clinics, professional services, essential logistics, and precision manufacturing—consistently experience broader credit availability.",
+    },
+    {
+      heading: "Illustrative credit assessment scenario",
+      body: "This fictional example shows the information a lender might request; it does not describe an actual approval:",
+      bullets: [
+        "Scenario: A regional civil excavation contractor with $1.4M turnover applied for a $120,000 revolving working capital line of credit.",
+        "Underwriting hurdles: The business had an active $28,000 ATO payment plan and one major civil construction client accounting for 42% of revenue (debtor concentration).",
+        "What the lender may assess: Bank transaction history, BAS lodgements, ATO payment plan conduct, customer concentration and whether repayments remain affordable. Approval would depend on the lender's criteria."
+      ]
+    },
+    {
+      heading: "Checklist to strengthen your application before submission",
+      body: "Steps to optimize your borrowing profile before submitting documents to underwriters:",
+      bullets: [
+        "1. Confirm tax currency: Ensure all BAS statements and superannuation guarantee payments are lodged and up to date.",
+        "2. Clean banking conduct: Avoid account dishonours, unarranged overdrafts, or irregular director drawings for at least 90 days.",
+        "3. Document specific purpose: Supply supplier invoices, plant quotes, or contract mobilisation milestones showing exactly how funds generate return.",
+        "4. Prepare a complete debt schedule: List all active vehicle leases, chattel mortgages, and working capital lines to demonstrate transparency."
+      ]
+    },
+    {
+      heading: "Sources",
+      body: "",
+      bullets: [
+        "Australian Financial Complaints Authority: Approach to Appropriate Lending to Small Business.",
+        "Reserve Bank of Australia: Small Business Economic and Financial Conditions Bulletin.",
+        "Australian Banking Association: 2025 Banking Code of Practice standards.",
+        "Australian Finance Industry Association: Online Small Business Lenders Code.",
+        "business.gov.au: Applying for finance and business loan readiness."
+      ]
+    },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "What is How Business Lenders Assess Applications?", answer: "How Business Lenders Assess Applications is a funding pathway that may suit some Australian SMEs when the purpose, timing, documentation and repayment capacity fit lender criteria." },
-    { question: "When might how business lenders assess applications suit an Australian small business?", answer: "It may suit when the funding need is specific, the repayment source is clear and the business can provide evidence that supports the application." },
-    { question: "When might how business lenders assess applications be the wrong fit?", answer: "It may be the wrong fit where the business lacks a clear repayment path, needs professional tax/legal/insolvency advice first, or the product structure does not match the use of funds." },
-    { question: "What documents might lenders ask for?", answer: "Lenders may ask for ABN details, bank statements, financials, BAS or tax information, invoices, asset quotes, purchase orders, identification and details of existing debts. Requirements vary." },
-    { question: "Can Comparison One tell me which lender will approve me?", answer: "No. Comparison One is not a lender and does not make credit decisions. It can help narrow the funding pathway before a lender or broker assesses the business." },
-    { question: "Is this financial advice?", answer: "No. Comparison One provides general information only. Speak with qualified financial, credit, legal or tax advisers before making decisions." },
-    { question: "How should I compare offers?", answer: "Compare total cost, repayment frequency, fees, security, speed, lender criteria, documentation burden, flexibility and whether the repayments match the cash-flow cycle." },
-    { question: "Where should I go next?", answer: "Start with the funding-fit check or read the related Comparison One guides linked on this page." }
+    { question: "How do Australian business lenders calculate debt serviceability?", answer: "Lenders calculate serviceability by comparing net operating cash flow against total debt repayment commitments. Traditional banks use Debt Service Coverage Ratios (DSCR), typically requiring net operating income to exceed total debt obligations by 1.25x to 1.50x. Non-bank lenders assess uncommitted monthly cash flow against proposed daily or weekly debits." },
+    { question: "What credit score is required for an Australian business loan?", answer: "While minimum scores vary, a commercial credit score above 600 (out of 1,000 or 1,200 depending on the bureau) is generally considered acceptable for mainstream lenders. Scores above 750 unlock the most competitive terms. Non-bank cash-flow lenders may approve applications with lower credit scores if recent bank-statement revenue and cash flow are strong." },
+    { question: "Why do multiple loan applications hurt my credit score?", answer: "Every formal commercial loan application generates a recorded credit enquiry on your Equifax or Illion credit file. Multiple enquiries in a short timeframe signal to credit scoring engines that the business is shopping urgently for capital or being declined elsewhere, which lowers your credit rating." },
+    { question: "What is debtor concentration risk and why do lenders care?", answer: "Debtor concentration occurs when a substantial portion of business revenue relies on a single customer or small group of clients. Lenders evaluate this as a credit risk because a payment dispute, delayed settlement or insolvency affecting that primary account could immediately impair the borrower's ability to service loan commitments." },
+    { question: "How do lenders assess fluctuating or seasonal business income?", answer: "Lenders evaluate seasonal revenue by reviewing 12 months of trading data rather than a single quarter. Underwriters look for predictable annual cycles (such as peak summer or holiday trade) and assess whether the business maintains adequate cash reserves or lines of credit during off-peak periods." },
   ],
   relatedLinks: [
     { label: "Business loans hub", href: "/business-loans" },
@@ -1156,38 +1290,78 @@ const c1_lender_assessment: C1PageData = {
 
 const c1_interest_rates_fees: C1PageData = {
   type: "guide",
-  title: "Business Loan Interest Rates and Fees",
+  title: "Business Loan Interest Rates and Fees: Calculating the True Cost of Borrowing",
   slug: "business-loan-interest-rates-and-fees",
   path: "/blog/business-loan-interest-rates-and-fees",
   eyebrow: "SME funding guide",
-  headline: "Business loan interest rates and fees in Australia",
-  summary: "Business loan cost is more than the interest rate. Australian SMEs should compare interest, factor rates, establishment fees, monthly fees, line fees, drawdown fees, early repayment rules, default charges and repayment frequency.",
-  seoTitle: "Business Loan Interest Rates and Fees Australia | Funding Fit Guide | Comparison One",
-  seoDescription: "Business loan cost is more than the interest rate. Australian SMEs should compare interest, factor rates, establishment fees, monthly fees, line fees, draw",
+  headline: "Business loan interest rates and fees in Australia: how to calculate total cost",
+  summary: "Comparing Australian commercial finance options solely on advertised interest rates is one of the most expensive mistakes an SME owner can make. Unlike consumer lending, business finance is exempt from mandatory comparison rate disclosure, meaning lenders quote costs using APRs, factor rates, monthly margins, facility fees and establishment charges. This guide demystifies Australian commercial borrowing structures, explains how factor rates translate into annual percentage rates (APR), and shows how to calculate the total cost of capital before signing.",
+  seoTitle: "Business Loan Rates and Fees Australia | Total Cost Guide | Comparison One",
+  seoDescription: "How are Australian business loans priced? Compare APR vs factor rates, establishment fees, line fees, repayment frequency and the AFIA SMART Box.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-05",
+  lastReviewed: "2026-11-02",
   proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a lender"],
   sections: [
-    { heading: "What business loan interest rates and fees is", body: "Business Loan Interest Rates and Fees is a funding-fit question, not just a product label. The useful question is whether this pathway matches the asset, cash-flow timing, documentation, security position and repayment capacity of the business.\n\nFor Australian SMEs, business loan interest rates and fees may sit beside bank loans, non-bank loans, specialist facilities and preparation-only pathways. The right starting point depends on why the money is needed and what evidence can support the application." },
-    { heading: "When it may fit", body: "Business Loan Interest Rates and Fees may fit when the purpose is clear and the business can show a realistic repayment path. It is most relevant when the funding need is connected to a specific timing or growth problem rather than a vague cash buffer.", bullets: ["the owner needs to compare total cost before choosing a loan", "different offers use different pricing language", "repayment rhythm may matter as much as the headline rate", "fees could change the real cost of a facility"] },
-    { heading: "When it may not fit", body: "Funding can create a second problem if it is used to cover a structural issue that needs advice, renegotiation or a different operating decision. A fit-first check should rule out mismatched borrowing before comparing lenders.", bullets: ["the owner compares only the lowest advertised rate", "repayments do not match cash-flow timing", "factor-rate style pricing is misunderstood", "fees or early payout rules are ignored"] },
-    { heading: "How lenders may assess the application", body: "Lenders and brokers may assess different products in different ways, but the same broad logic usually applies: purpose, trading evidence, affordability, risk and documentation all matter.", bullets: ["risk profile and credit conduct", "security and guarantees", "trading history and revenue consistency", "industry risk", "loan amount, term and purpose", "bank vs non-bank product type"] },
-    { heading: "Costs, fees and repayment structure", body: "The headline rate is only one part of cost. Compare the full repayment rhythm and total cost before choosing a pathway. A lower-rate facility can still be the wrong fit if it is too slow, too rigid or mismatched to the business cycle.", bullets: ["interest rate", "factor rate", "establishment fee", "monthly or account fees", "line and drawdown fees", "late payment and default charges", "early repayment terms", "broker or referral fees"] },
-    { heading: "What to prepare before applying", body: "Preparation improves the quality of the enquiry and helps avoid blind applications. Bring the use case into focus before asking a lender for a decision.", bullets: ["offer documents", "repayment schedule", "fee schedule", "cash-flow forecast", "existing debt details", "questions for adviser or broker"] },
-    { heading: "Comparison One fit-first checklist", body: "Before applying, ask these questions. The aim is not to make debt feel easy. The aim is to identify whether this funding path deserves a closer look.", bullets: ["What exact cash-flow gap or asset need are we solving?", "Is the need urgent, seasonal, asset-backed, invoice-backed or repeatable?", "Can the business service repayments without weakening the account?", "Would a bank, non-bank or specialist facility assess this more naturally?", "Is there a safer non-debt or advice-first pathway?", "What documents will make the application credible?", "What could make a lender say no?"] },
-    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Choose your funding.", "business.gov.au: Key financial terms.", "AFIA: Online Small Business Lenders Code.", "ASIC: Unfair contract term protections for small businesses.", "AFCA: Approach to Appropriate Lending to Small Business.", "RBA: Small Business Economic and Financial Conditions, October 2025 Bulletin."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 5 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not promised." }
+    {
+      heading: "Why comparison rates do not exist in business lending",
+      body: "Comparison rates are generally required for certain regulated consumer credit products, such as home loans and personal loans. Credit provided wholly or predominantly for business purposes generally falls outside those consumer credit rules. Business lenders may quote pricing using different structures, including annual rates, fixed fees and factor rates. Comparing two business loan quotes on the headline percentage alone is unreliable; check total dollar repayments, fees and repayment timing.",
+    },
+    {
+      heading: "APR vs Factor Rates: understanding short-term loan pricing",
+      body: "One of the most critical distinctions in commercial lending is the difference between an Annual Percentage Rate (APR) and a factor rate.\n\nAnnual Percentage Rate (APR):\nUnder an APR structure, interest is charged only on the reducing principal balance. As you make principal repayments over the term, the interest portion of each instalment declines.\n\nFactor Rates (Fixed Cost Multipliers):\nMany online fintech lenders, short-term cash-flow financiers and merchant cash advance providers quote pricing as a decimal factor rate (for example, 1.15). To determine total repayment, the borrowed principal is multiplied by the factor rate:\n$50,000 borrowed × 1.15 factor rate = $57,500 total repayment ($7,500 borrowing cost).\n\nThe effective rate trap:\nWhile a $7,500 cost on $50,000 appears to be a 15% charge, the true annualised borrowing cost depends directly on the repayment schedule and loan duration. Because the borrower repays principal continuously over the term while the finance charge remains fixed on the initial gross advance, you need the full repayment schedule and all fees to calculate a comparable annualised cost. Request those figures before comparing offers.",
+    },
+    {
+      heading: "Commercial loan fees: the complete breakdown",
+      body: "Commercial loan contracts often include multiple ancillary fees that alter the true cost of credit:\n\nEstablishment and origination fees:\nTypically between 1% and 3% of the gross facility amount. Lenders frequently deduct this fee directly from the loan advance at settlement, reducing the net cash received by the business.\n\nOngoing facility and line fees:\nCommon on revolving lines of credit and overdrafts. A line fee (often 1% to 2% per annum) is charged on the total approved limit, regardless of whether funds are drawn, alongside monthly account management fees ($10 to $50/month).\n\nDrawdown and transfer fees:\nSome credit line providers charge a transaction fee ($15 to $50) each time funds are transferred from the credit facility to the operating bank account.\n\nValuation and legal documentation fees:\nSecured facilities involving real property mortgages or complex Personal Property Securities Register (PPSR) charges incur direct third-party costs for property valuations and conveyancing documentation ($500 to $3,500+).\n\nEarly repayment penalties vs early payout discounts:\nFixed-rate commercial contracts often require full payment of all contracted term interest even if the loan is settled early. Conversely, lenders operating under fair disclosure codes offer early payout fee reductions.",
+    },
+    {
+      heading: "Repayment rhythm: the impact of daily vs weekly vs monthly debits",
+      body: "Repayment frequency has an immediate impact on working capital stability.\n\nMonthly repayments:\nStandard for bank commercial loans and equipment chattel mortgages. Monthly cycles align naturally with customer billing, invoice collections, and BAS payment cycles.\n\nDaily and weekly debit sweeps:\nStandard for unsecured online business loans and merchant advances. Lenders automatically debit business accounts Monday to Friday. While a daily debit of $350 appears manageable on paper, automated daily withdrawals continue during public holiday weekends, seasonal dips, or client payment delays, potentially pushing operating accounts into unarranged overdrafts.",
+    },
+    {
+      heading: "Transparency standards: the AFIA SMART Box",
+      body: "To improve disclosure in the non-bank commercial sector, the Australian Finance Industry Association (AFIA) introduced the Online Small Business Lenders Code.\n\nParticipating lenders provide a standardized SMART Box disclosure sheet prior to loan execution, presenting four uniform metrics:\n- Total Cost of Credit (TCC): The exact dollar amount of interest and fees charged across the facility.\n- Effective Annual Rate (EAR): The true annualised percentage rate reflecting repayment cadence and compounding fees.\n- Average Monthly Repayment (AMR): The standardized monthly cash outflow required to service the facility.\n- Total Repayment Amount: The gross dollar sum the business will pay over the full loan term.",
+    },
+    {
+      heading: "Real Australian SME pricing comparison",
+      body: "How pricing structure impacts the cash flow of an Australian manufacturing business borrowing $60,000:",
+      bullets: [
+        "Option A: 3-Year Secured Equipment Chattel Mortgage. Borrowing $60,000 for precision tooling. Monthly amortising payments over 36 months, asset security registered on PPSR. Lower risk margin, interest charged on reducing balance, predictable monthly cash outflow.",
+        "Option B: 9-Month Unsecured Working Capital Loan. Borrowing $60,000 at a 1.14 factor rate ($68,400 total repayment). Unsecured approval based on bank-feed turnover without physical collateral, requiring weekly debits of $1,754 over 39 weeks. Suited only if the incoming project generates rapid gross cash margins to absorb the weekly debit rhythm."
+      ]
+    },
+    {
+      heading: "Checklist for evaluating a commercial loan offer",
+      body: "Before signing a commercial loan contract, verify these four essential figures:",
+      bullets: [
+        "1. Total dollar cost: What is the exact total dollar figure repayable (Principal + Interest + All Mandatory Fees)?",
+        "2. Net settlement proceeds: Will establishment or origination fees be deducted from the advance, reducing net available funds?",
+        "3. Early settlement terms: Does early payout reduce remaining interest charges, or is the full interest fee locked for the term?",
+        "4. Debit schedule: Are repayments daily, weekly, or monthly, and does the account maintain sufficient buffer to prevent dishonours?"
+      ]
+    },
+    {
+      heading: "Sources",
+      body: "",
+      bullets: [
+        "Australian Finance Industry Association: Online Small Business Lenders Code and SMART Box Disclosure Guidelines.",
+        "Australian Securities and Investments Commission: Small business loan pricing and contract information.",
+        "Australian Banking Association: 2025 Banking Code of Practice standards.",
+        "business.gov.au: Understanding business loan terms, interest and fees."
+      ]
+    },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "What is Business Loan Interest Rates and Fees?", answer: "Business Loan Interest Rates and Fees is a funding pathway that may suit some Australian SMEs when the purpose, timing, documentation and repayment capacity fit lender criteria." },
-    { question: "When might business loan interest rates and fees suit an Australian small business?", answer: "It may suit when the funding need is specific, the repayment source is clear and the business can provide evidence that supports the application." },
-    { question: "When might business loan interest rates and fees be the wrong fit?", answer: "It may be the wrong fit where the business lacks a clear repayment path, needs professional tax/legal/insolvency advice first, or the product structure does not match the use of funds." },
-    { question: "What documents might lenders ask for?", answer: "Lenders may ask for ABN details, bank statements, financials, BAS or tax information, invoices, asset quotes, purchase orders, identification and details of existing debts. Requirements vary." },
-    { question: "Can Comparison One tell me which lender will approve me?", answer: "No. Comparison One is not a lender and does not make credit decisions. It can help narrow the funding pathway before a lender or broker assesses the business." },
-    { question: "Is this financial advice?", answer: "No. Comparison One provides general information only. Speak with qualified financial, credit, legal or tax advisers before making decisions." },
-    { question: "How should I compare offers?", answer: "Compare total cost, repayment frequency, fees, security, speed, lender criteria, documentation burden, flexibility and whether the repayments match the cash-flow cycle." },
-    { question: "Where should I go next?", answer: "Start with the funding-fit check or read the related Comparison One guides linked on this page." }
+    { question: "What is a factor rate and how does it differ from an APR?", answer: "A factor rate is expressed as a simple decimal (e.g. 1.15) multiplied by the original loan amount to determine total payback ($50,000 × 1.15 = $57,500). An Annual Percentage Rate (APR) calculates interest on the reducing principal balance. The factor rate alone does not tell you the annualised borrowing cost. You also need the term, repayment schedule and fees." },
+    { question: "Why don't Australian business loans have comparison rates?", answer: "Credit provided wholly or predominantly for business purposes generally falls outside the consumer credit rules that require comparison rates for certain regulated products. Compare the total cost, fees and repayment schedule for each business loan quote." },
+    { question: "What is a line fee on a business line of credit?", answer: "A line fee (or facility fee) is an ongoing administrative charge, typically between 1% and 2% per annum of the total approved limit, billed monthly or quarterly regardless of whether funds are drawn. It compensates the lender for keeping capital on standby for your business." },
+    { question: "Can I save money on interest by paying off a business loan early?", answer: "It depends entirely on the lender contract. Some non-bank facilities charge fixed interest upfront, meaning the full repayment amount is owed regardless of early settlement. Other lenders calculate interest on reducing daily balances or offer early payout discounts under voluntary codes of practice." },
+    { question: "What is the AFIA SMART Box?", answer: "The SMART Box is a standardized pricing disclosure model developed under the AFIA Online Small Business Lenders Code. It breaks down total repayments into four clear metrics: Total Cost of Credit, Average Monthly Repayment, Effective Annual Rate, and Total Repayment Amount, allowing borrowers to compare non-bank facilities transparently." },
   ],
   relatedLinks: [
     { label: "Business loans hub", href: "/business-loans" },
@@ -1203,38 +1377,86 @@ const c1_interest_rates_fees: C1PageData = {
 
 const c1_secured_vs_unsecured: C1PageData = {
   type: "guide",
-  title: "Secured vs Unsecured Business Loans",
+  title: "Secured vs Unsecured Business Loans in Australia: Comparing Risk, Cost and Security",
   slug: "secured-vs-unsecured-business-loans",
   path: "/blog/secured-vs-unsecured-business-loans",
   eyebrow: "SME funding guide",
-  headline: "Secured vs unsecured business loans in Australia",
-  summary: "Secured and unsecured business loans solve different funding problems. Secured loans may use property, vehicles, equipment, invoices or other assets. Unsecured loans may be faster or simpler, but guarantees, pricing and repayment pressure still matter.",
-  seoTitle: "Secured vs Unsecured Business Loans Australia | Funding Fit Guide | Comparison One",
-  seoDescription: "Secured and unsecured business loans solve different funding problems. Secured loans may use property, vehicles, equipment, invoices or other assets. Unsec",
+  headline: "Secured vs unsecured business loans: how collateral impacts terms, rates and speed",
+  summary: "Choosing between a secured and unsecured commercial loan is one of the foundational decisions in Australian SME financing. A secured loan pledges real estate equity, commercial premises, vehicles or equipment, unlocking lower interest margins, larger borrowing amounts and longer repayment terms. An unsecured loan provides rapid digital approval without encumbering property, but relies on personal director guarantees, shorter repayment windows and higher risk-based borrowing costs. This guide details how collateral works, what lenders can claim in default, and how to protect business assets.",
+  seoTitle: "Secured vs Unsecured Business Loans Australia | SME Risk Guide | Comparison One",
+  seoDescription: "Compare secured vs unsecured business loans in Australia. Understand property collateral, PPSR asset charges, director guarantees and loan terms.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-05",
+  lastReviewed: "2026-11-02",
   proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a lender"],
   sections: [
-    { heading: "What secured vs unsecured business loans is", body: "Secured vs Unsecured Business Loans is a funding-fit question, not just a product label. The useful question is whether this pathway matches the asset, cash-flow timing, documentation, security position and repayment capacity of the business.\n\nFor Australian SMEs, secured vs unsecured business loans may sit beside bank loans, non-bank loans, specialist facilities and preparation-only pathways. The right starting point depends on why the money is needed and what evidence can support the application." },
-    { heading: "When it may fit", body: "Secured vs Unsecured Business Loans may fit when the purpose is clear and the business can show a realistic repayment path. It is most relevant when the funding need is connected to a specific timing or growth problem rather than a vague cash buffer.", bullets: ["the owner needs to compare security trade-offs", "the business has an asset that may support funding", "speed and documentation need to be weighed against cost", "director guarantees and security need careful review"] },
-    { heading: "When it may not fit", body: "Funding can create a second problem if it is used to cover a structural issue that needs advice, renegotiation or a different operating decision. A fit-first check should rule out mismatched borrowing before comparing lenders.", bullets: ["the owner thinks unsecured means no risk", "the business pledges an asset it cannot afford to lose", "security slows the process beyond the opportunity window", "repayments are unaffordable regardless of security"] },
-    { heading: "How lenders may assess the application", body: "Lenders and brokers may assess different products in different ways, but the same broad logic usually applies: purpose, trading evidence, affordability, risk and documentation all matter.", bullets: ["asset type and value", "property, vehicle, equipment or invoice security", "business and director credit conduct", "cash flow and affordability", "trading history", "loan purpose and amount"] },
-    { heading: "Costs, fees and repayment structure", body: "The headline rate is only one part of cost. Compare the full repayment rhythm and total cost before choosing a pathway. A lower-rate facility can still be the wrong fit if it is too slow, too rigid or mismatched to the business cycle.", bullets: ["interest and fees", "valuation costs", "registration or security fees", "guarantee risk", "repossession or enforcement consequences", "repayment frequency"] },
-    { heading: "What to prepare before applying", body: "Preparation improves the quality of the enquiry and helps avoid blind applications. Bring the use case into focus before asking a lender for a decision.", bullets: ["asset details or valuation", "bank statements", "financials or BAS", "identity and ABN details", "security documents", "loan purpose"] },
-    { heading: "Comparison One fit-first checklist", body: "Before applying, ask these questions. The aim is not to make debt feel easy. The aim is to identify whether this funding path deserves a closer look.", bullets: ["What exact cash-flow gap or asset need are we solving?", "Is the need urgent, seasonal, asset-backed, invoice-backed or repeatable?", "Can the business service repayments without weakening the account?", "Would a bank, non-bank or specialist facility assess this more naturally?", "Is there a safer non-debt or advice-first pathway?", "What documents will make the application credible?", "What could make a lender say no?"] },
-    { heading: "Sources", body: "", bullets: ["business.gov.au: Apply for a business loan.", "business.gov.au: Leasing or buying vehicles and equipment.", "business.gov.au: Key financial terms.", "ASIC: Unfair contract term protections for small businesses.", "Australian Banking Association: 2025 Banking Code of Practice.", "AFCA: Approach to Appropriate Lending to Small Business."] },
-    { heading: "Editorial review and compliance", body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 5 May 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not promised." }
+    {
+      heading: "Understanding secured business loans in Australia",
+      body: "A secured business loan requires the borrowing business or its directors to pledge tangible collateral to back the debt.\n\nForms of security accepted by Australian lenders:\n- Real property mortgages: First or second registered mortgages over residential property, commercial premises, or industrial land.\n- Asset-specific charges (Chattel Mortgages): Commercial vehicles, excavators, manufacturing machinery, or healthcare technology registered on the Personal Property Securities Register (PPSR).\n- Circulating asset security (General Security Agreement): A general fixed and floating charge over the company's entire asset pool, including trade debtor ledgers and inventory.\n\nCommercial benefits:\nBecause the lender holds legal recourse to recover capital by selling the underlying asset if repayments cease, secured facilities offer lower interest margins, extended terms (commonly 3 to 15 years), and substantial borrowing limits based on loan-to-value ratios (LVR).",
+    },
+    {
+      heading: "The reality of unsecured business lending",
+      body: "An unsecured commercial loan does not require a mortgage over real estate or a registered charge over a specific piece of machinery.\n\nSome lenders still require directors to provide personal guarantees. A guarantee can expose a director to personal liability if the business defaults, so check the contract before accepting an offer.\n\nSome unsecured lenders assess digital bank statements without a property valuation. Assessment and funding times vary by lender and application.",
+    },
+    {
+      heading: "Side-by-side comparison: key commercial metrics",
+      body: "Comparing the core structural differences between secured and unsecured debt:",
+      bullets: [
+        "Collateral required: Secured loans require registered property mortgages or PPSR asset charges; unsecured loans require no physical asset pledge but mandate personal director guarantees.",
+        "Turnaround timeline: Property-secured bank facilities typically require extended underwriting for independent valuations and mortgage registrations; unsecured facilities rely on automated bank transaction analysis to achieve faster conditional turnaround.",
+        "Repayment horizons: Secured loans amortise over 2 to 15 years; unsecured facilities typically run over 3 to 24 months.",
+        "Cost of capital: Secured facilities offer lower interest margins due to asset backing; unsecured facilities carry higher risk-based margins or fixed factor rates.",
+        "Borrowing capacity: Secured facilities lend up to 70%-80% of property or asset valuation; unsecured limits are constrained by recent monthly turnover (commonly 10% to 20% of annual revenue)."
+      ]
+    },
+    {
+      heading: "What happens in default? Recovery and enforcement",
+      body: "Default enforcement differs fundamentally between secured and unsecured facilities under Australian law.\n\nSecured loan default:\nIf an event of default is not rectified following statutory notice, the secured lender can exercise rights under the mortgage deed or PPSR security agreement. The lender may appoint an external receiver or repossess and auction the secured vehicle, equipment or property to recover unpaid principal and costs.\n\nUnsecured loan default:\nBecause the lender holds no direct claim over specific assets, they must issue formal demand letters followed by commercial debt litigation. The lender can obtain a court judgement, issue a Creditor's Statutory Demand against the company, and enforce the Director's Guarantee against the guarantors personally.",
+    },
+    {
+      heading: "Asset-backed finance: the practical middle ground",
+      body: "For many Australian SMEs, asset finance represents the optimal compromise between tying up the family home and paying high unsecured rates.\n\nWith equipment finance, vehicle chattel mortgages, and plant leasing, the acquired commercial asset itself acts as security via a PPSR registration. If a contractor buys a $90,000 work vehicle, the vehicle secures the loan. The business owner avoids putting a mortgage over their residential property, while securing significantly lower interest margins and longer repayment terms than an unsecured cash-flow loan could provide.",
+    },
+    {
+      heading: "Concrete Australian SME decision scenarios",
+      body: "How Australian business owners match loan structure to commercial needs:",
+      bullets: [
+        "Civil contractor purchasing machinery: A civil drainage subcontractor needing a $150,000 excavator. Taking an unsecured loan would require unsustainable weekly debits over a 12-month term. An equipment chattel mortgage secures the loan against the machine itself over 5 years with a 20% balloon, matching monthly repayments to billable machine hours.",
+        "Digital marketing agency funding expansion: An agency with $700,000 annual turnover lands a 12-month corporate contract and needs $45,000 immediately to recruit two developers. The firm owns no heavy machinery and the director rents. An unsecured working capital facility or line of credit allows faster settlement based on operating turnover, repaid steadily from monthly retainer fees.",
+        "Wholesale distributor refinancing: An established importer with a $1.5M commercial warehouse uses equity in the premises to secure a 10-year commercial bank facility, consolidating short-term debts into a low-rate structure."
+      ]
+    },
+    {
+      heading: "Checklist: choosing the right structure",
+      body: "Evaluate these four operational questions before choosing between secured and unsecured debt:",
+      bullets: [
+        "1. Collateral availability: Does the business or director possess unencumbered property or equipment willing to be pledged?",
+        "2. Cost of delay: Will waiting 3 to 4 weeks for property valuations and bank mortgage settlement cost more in lost opportunity than the higher rate of an unsecured loan?",
+        "3. Repayment capacity: Can the business support the higher monthly or weekly cash drain of a short-term unsecured loan, or does it require multi-year amortisation?",
+        "4. Guarantee implications: Have directors reviewed personal guarantee clauses and considered cross-collateralisation risks?"
+      ]
+    },
+    {
+      heading: "Sources",
+      body: "",
+      bullets: [
+        "business.gov.au: Apply for a business loan and business finance checklist.",
+        "Australian Securities and Investments Commission: Personal Property Securities Register (PPSR) guides.",
+        "Australian Banking Association: 2025 Banking Code of Practice standards.",
+        "Australian Financial Complaints Authority: Small business lending and security enforcement."
+      ]
+    },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "What is Secured vs Unsecured Business Loans?", answer: "Secured vs Unsecured Business Loans is a funding pathway that may suit some Australian SMEs when the purpose, timing, documentation and repayment capacity fit lender criteria." },
-    { question: "When might secured vs unsecured business loans suit an Australian small business?", answer: "It may suit when the funding need is specific, the repayment source is clear and the business can provide evidence that supports the application." },
-    { question: "When might secured vs unsecured business loans be the wrong fit?", answer: "It may be the wrong fit where the business lacks a clear repayment path, needs professional tax/legal/insolvency advice first, or the product structure does not match the use of funds." },
-    { question: "What documents might lenders ask for?", answer: "Lenders may ask for ABN details, bank statements, financials, BAS or tax information, invoices, asset quotes, purchase orders, identification and details of existing debts. Requirements vary." },
-    { question: "Can Comparison One tell me which lender will approve me?", answer: "No. Comparison One is not a lender and does not make credit decisions. It can help narrow the funding pathway before a lender or broker assesses the business." },
-    { question: "Is this financial advice?", answer: "No. Comparison One provides general information only. Speak with qualified financial, credit, legal or tax advisers before making decisions." },
-    { question: "How should I compare offers?", answer: "Compare total cost, repayment frequency, fees, security, speed, lender criteria, documentation burden, flexibility and whether the repayments match the cash-flow cycle." },
-    { question: "Where should I go next?", answer: "Start with the funding-fit check or read the related Comparison One guides linked on this page." }
+    { question: "Does an unsecured business loan in Australia require personal collateral?", answer: "While an unsecured business loan does not place a formal mortgage over property or equipment, virtually all lenders mandate a Director's Guarantee. If the business defaults, you remain personally liable, meaning personal assets can be targeted through legal recovery." },
+    { question: "Can a lender seize my family home if I take an unsecured business loan?", answer: "Not directly via a mortgage. However, if the business defaults and the lender enforces your personal guarantee through the courts, a legal judgement debt can lead to bankruptcy proceedings, which can ultimately put personal property and home equity at risk." },
+    { question: "What is the PPSR and how does it relate to secured business loans?", answer: "The Personal Property Securities Register (PPSR) is the Australian Government's register of security interests in personal property. Lenders register charges over specific assets (such as trucks, plant machinery, or debtor ledgers) or take a General Security Agreement (GSA) over all company assets to secure their loan." },
+    { question: "Why are secured business loans generally cheaper than unsecured loans?", answer: "Lenders price commercial loans based on risk. Because secured loans are backed by tangible assets that can be repossessed and liquidated if default occurs, the lender faces lower risk of loss and passes that on through lower borrowing margins and longer terms." },
+    { question: "How quickly can a secured loan be funded compared to an unsecured loan?", answer: "Secured loans involving real estate take longer due to required independent property valuations, title searches and mortgage registrations. Unsecured business loans assessed on digital bank statements can be approved more quickly, provided account conduct is clean." },
   ],
   relatedLinks: [
     { label: "Business loans hub", href: "/business-loans" },
@@ -1285,80 +1507,84 @@ const c1_business_loan_calculator: C1PageData = {
 
 const c1_rise_of_non_bank_lending: C1PageData = {
   type: "blog",
-  title: "Rise of Non-bank Lending in Australia",
+  title: "Rise of Non-bank Lending in Australia: Market Trends and SME Guide",
   slug: "rise-of-non-bank-lending-australia",
   path: "/blog/rise-of-non-bank-lending-australia",
   eyebrow: "SME finance trends",
-  headline: "Why more Australian SMEs are looking beyond banks",
-  summary: "Australian SME finance is shifting. ScotPac's SME Growth Index points to access to finance as the biggest growth barrier for nearly 40% of SMEs, while more than half now intend to use non-bank finance for new investment. This guide explains why the market has moved, which products are rising, and how to compare funding fit before applying.",
-  seoTitle: "Rise of Non-bank Lending in Australia | SME Finance Guide",
-  seoDescription: "Why Australian SMEs are moving to non-bank lending, asset finance and working capital options, with key ScotPac SME Growth Index stats.",
+  headline: "The rise of non-bank lending in Australia: why SMEs are moving beyond traditional banks",
+  summary: "The Australian small business finance landscape is undergoing a structural realignment. According to the ScotPac SME Growth Index (Round 24), access to credit and finance is a primary hurdle to growth for 39% of Australian SMEs. Among businesses planning to finance new investment and growth, more than half intend to use non-bank lenders rather than traditional banks. This shift reflects growing demand for asset-based facilities, automated cash-flow assessment and flexible working capital. This guide examines market trends, product mechanics and risk factors shaping modern non-bank borrowing.",
+  seoTitle: "Rise of Non-bank Lending Australia | SME Market Trends | Comparison One",
+  seoDescription: "Why Australian SMEs are choosing non-bank lenders. Market analysis covering ScotPac SME Growth Index findings, asset-based lending, and working capital.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-26",
-  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Sources reviewed 26 May 2026", "General information only"],
+  lastReviewed: "2026-11-02",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "ScotPac SME Growth Index data", "General information only"],
   sections: [
     {
-      heading: "The shift in one sentence",
-      body: "Australian SMEs are not only comparing banks anymore. More business owners are looking at non-bank lenders because access to finance has become a growth constraint, and the market has adapted with faster, more specialised funding products.",
+      heading: "The structural shift in Australian SME finance",
+      body: "Non-bank commercial finance has transitioned from an emergency alternative into a primary pillar of Australian business lending. Historically, Australian business owners turned to non-banks only after receiving a formal decline from their primary trading bank. Today, SMEs actively compare non-bank options at the outset of their financing journey, prioritizing speed of execution, asset-specific facilities, and underwriting that evaluates live cash-flow momentum rather than historical tax archives.",
     },
     {
-      heading: "Key numbers from the SME lending shift",
-      body: "These figures show why non-bank lending has moved from alternative pathway to mainstream funding conversation.",
+      heading: "Key empirical findings from the ScotPac SME Growth Index",
+      body: "Empirical survey data from Round 24 of the ScotPac SME Growth Index illustrates the scale of this structural change across the Australian small-to-medium enterprise sector:",
       table: {
-        headers: ["Signal", "What recent SME research says", "Why it matters"],
+        headers: ["Market Signal", "ScotPac SME Growth Index Data", "Commercial Impact"],
         rows: [
-          ["Finance barrier", "Nearly 40% of SMEs identify access to finance as the single biggest barrier to growth", "Funding access is now a growth issue, not only a survival issue"],
-          ["Non-bank demand", "Around 55% to 57% of SMEs plan to use non-bank finance for new investment", "More than half the market is considering lender options outside traditional banks"],
-          ["Bank borrowing", "Bank borrowing intentions sit closer to 28% to 30% in the same research", "The bank-first default is weaker than it used to be"],
-          ["Asset-based lending", "49% of Australian SMEs are already using asset-based lending", "Receivables, inventory, equipment and other business assets are becoming funding tools"],
+          ["Access to credit hurdle", "39% of Australian SMEs identify access to credit/finance as a key hurdle to growth (ScotPac SME Growth Index Round 24)", "Financing friction directly restricts business capacity and project investment across the economy."],
+          ["Non-bank borrowing intentions", "55% to 57% of SMEs intending to finance new investment plan to use non-bank financiers", "More than half of growth-focused SMEs actively incorporate non-bank lenders into their capital strategy."],
+          ["Traditional bank borrowing", "Traditional bank borrowing intentions for new growth have contracted to approximately 28% to 30%", "The traditional bank-first monopoly for funding new business investment has diminished."],
+          ["Asset-based lending adoption", "49% of surveyed SMEs report active utilization of asset-based lending facilities", "Balance-sheet receivables, plant, and inventory are increasingly used as direct collateral instead of real estate."],
         ],
       },
     },
     {
-      heading: "Why SMEs are moving beyond banks",
-      body: "The move is not only about bank declines. A bank can still be the right fit for some businesses, especially where the owner has strong documents, time, security and a larger long-term need. The shift is happening because many business problems are more specific than a general business loan application.\n\nA cafe may need working capital before a busy season. A transport operator may need vehicle finance. A builder may need equipment before a job starts. A wholesaler may need cash unlocked from unpaid invoices or stock. A manufacturer may need to fund machinery without draining cash reserves.\n\nThose scenarios do not all need the same product. They need lender fit, product fit and repayment timing that match the business problem.",
+      heading: "Why Australian SMEs are bypassing major banks",
+      body: "The migration toward non-bank lending is driven by underwriting friction within traditional commercial banking.\n\nMajor Australian banks generally require extensive financial accounts, multi-year trading history and tangible real estate security. For an SME managing real-time commercial opportunities—such as securing wholesale inventory ahead of peak retail demand, tendering for a major civil project, or funding materials while waiting on 60-day commercial debtors—lengthy bank application and valuation processes can result in lost contracts.\n\nNon-bank lenders leverage automated digital bank-feed integrations, specialized credit engines, and asset-specific valuations to assess applications and reach conditional decisions significantly faster than traditional mortgage-backed bank processes.",
     },
     {
-      heading: "What non-bank lenders are solving",
-      body: "Non-bank lending has grown because specialist lenders often focus on practical funding moments. The business may have recent revenue but not perfect financial statements. The need may be tied to an invoice, a vehicle, a machine, stock, a contract or a short-term cash-flow gap. The owner may want to avoid pledging the family home where possible, or may need a faster path than a bank assessment.\n\nThis does not make non-bank lending automatically better. It means the comparison starts with the use of funds and the repayment source, not the lender name.",
+      heading: "The rapid expansion of asset-based lending",
+      body: "A central catalyst in non-bank growth is the expansion of asset-based lending (ABL). Traditional commercial lending frequently forces all borrowing needs into a mortgage-secured business term loan. Asset-based lending structures debt around specific, identifiable business value.\n\nKey asset-based mechanisms include:\n- Debtor and invoice discounting: Advancing cash against verified commercial customer invoices, unlocking working capital without waiting 30 to 90 days for client payment.\n- Equipment and machinery chattel mortgages: Securing the loan directly against the acquired revenue-generating plant, vehicle, or diagnostic machine on the Personal Property Securities Register (PPSR).\n- Inventory and supply chain finance: Financing raw materials or finished stock before customer delivery.\n\nBy pledging commercial assets, SMEs can protect residential equity while securing lower interest margins than unsecured debt.",
     },
     {
-      heading: "The rise of asset-based lending",
-      body: "Asset-based lending is part of the same shift. Instead of relying only on property security or a broad business loan assessment, some facilities look at business assets that already exist or are being purchased.\n\nThat can include receivables, inventory, equipment, vehicles or machinery. It can also include product structures connected to assets, such as equipment finance, vehicle finance and lease-style arrangements.\n\nFor an SME, the appeal is simple: the funding structure can be tied to the asset or cash-flow source, rather than forcing every need into one generic loan category.",
-    },
-    {
-      heading: "Products driving the change",
-      body: "The non-bank market is broad, but the main growth areas are easy to understand when viewed through business use cases.",
+      heading: "Core non-bank commercial products driving growth",
+      body: "Non-bank commercial finance is divided into tailored product categories designed for specific operational timing gaps:",
       bullets: [
-        "Working capital: used for payroll timing, supplier payments, stock, tax timing or seasonal gaps.",
-        "Asset finance: used when a business needs equipment, machinery or productive assets.",
-        "Vehicle finance: used by transport, trade, delivery and service businesses that rely on utes, vans, trucks or fleet vehicles.",
-        "Invoice finance: used where unpaid B2B invoices create a timing gap between work completed and cash received.",
-        "Line of credit: used when the business needs reusable access for repeat timing gaps rather than one lump sum.",
-        "Lease-style structures: used where access to an asset may matter more than owning it outright from day one.",
-      ],
+        "Revolving lines of credit: Flexible liquidity reserves that allow businesses to draw down, repay, and redraw funds, paying interest only on active balances.",
+        "Equipment and plant finance: Chattel mortgages, commercial hire purchase, and finance leases tailored to the productive lifespan of commercial assets.",
+        "Commercial vehicle and fleet finance: Structured funding for work utes, light delivery vans, prime movers, and transport trailers.",
+        "Selective invoice discounting: Cash-flow acceleration against specific, high-value commercial debtor invoices without locking up the entire sales ledger.",
+        "Short-term working capital loans: Fixed-term funding for discrete commercial moves such as tax timing, bulk trade inventory discounts, or project mobilisation."
+      ]
     },
     {
-      heading: "What SMEs should compare before applying",
-      body: "The risk is not just choosing a high-cost lender. The risk is choosing the wrong structure. A short-term working capital loan may not suit a long-life asset. Asset finance may not solve a payroll timing gap. Invoice finance may not fit if invoices are disputed, consumer-facing or concentrated with one debtor.\n\nBefore applying, compare the funding purpose, timing, documents, security, repayment rhythm and exit plan. The better question is not whether non-bank lending is good or bad. The better question is which funding path fits the business situation.",
+      heading: "Managing the commercial risks of non-bank borrowing",
+      body: "While non-bank lending delivers operational agility, business owners must evaluate commercial risk factors before executing agreements.\n\nKey risk considerations include:\n- Total cost of capital: Shorter-term non-bank loans often employ factor-rate pricing rather than standard APRs. When paired with daily or weekly debit sweeps, the effective annual borrowing cost can be substantial.\n- Cash-flow strain from high-frequency debits: Automated daily repayments require constant account buffers to prevent costly dishonours during seasonal or billing dips.\n- Personal director guarantees: Some unsecured non-bank loans require director guarantees, which can expose directors to personal liability if the business defaults.",
     },
     {
-      heading: "How Comparison One fits into the shift",
-      body: "Comparison One specialises in helping Australian businesses compare non-bank lender options before applying. The funding-fit check starts with what the business needs the money for, then helps map the situation to possible pathways such as working capital, asset finance, equipment finance, vehicle finance, invoice-backed funding and business loans.\n\nComparison One is not a lender and does not make credit decisions. The goal is to help business owners avoid applying blind and move toward lender options that may suit their business circumstances.",
+      heading: "How Comparison One assists SME borrowers",
+      body: "Comparison One assists Australian business owners in navigating the expanding non-bank market without applying blindly. By matching the business's specific commercial gap—whether equipment purchase, payroll timing, invoice delay, or working capital expansion—to lender underwriting criteria, Comparison One helps businesses identify the right product structure before submitting credit documentation.",
     },
     {
       heading: "Sources reviewed",
-      body: "This guide references ScotPac SME Growth Index findings on access to finance, non-bank lending intentions and asset-based lending use, plus public commentary on Australian SME finance trends. Last reviewed 26 May 2026.",
-      bullets: ["ScotPac SME Growth Index Round 24, March 2026.", "ScotPac SME Growth Index Round 23, September 2025.", "Productivity Commission research on small business access to finance.", "Public market commentary on SME asset finance, working capital and broker demand trends."],
+      body: "This market analysis references empirical research from the ScotPac SME Growth Index (Round 24, March 2026; Round 23, September 2025), Productivity Commission reports on small business financing access, and Reserve Bank of Australia bulletin reviews. Last reviewed 2 November 2026.",
+      bullets: [
+        "ScotPac SME Growth Index: Round 24 (March 2026) and Round 23 (September 2025).",
+        "Productivity Commission: Research reports on small business access to finance in Australia.",
+        "Reserve Bank of Australia: Small Business Economic and Financial Conditions, October 2025 Bulletin.",
+        "Australian Finance Industry Association: Online Small Business Lenders Code."
+      ]
     },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "Why are Australian SMEs using non-bank lenders?", answer: "Many SMEs compare non-bank lenders because they need speed, flexible criteria, asset-backed structures, working capital options or specialist products that may match their situation better than a traditional bank process." },
-    { question: "Are non-bank business lenders replacing banks?", answer: "No. Banks can still fit many businesses. The change is that more SMEs now compare non-bank options as part of the normal funding process rather than treating them as a last resort." },
-    { question: "What is asset-based lending?", answer: "Asset-based lending uses business assets, receivables, inventory, equipment, vehicles or similar business value as part of the funding structure. The exact product and criteria depend on the lender." },
-    { question: "Is non-bank finance more expensive than bank finance?", answer: "It can be, especially where speed, unsecured risk or flexible criteria are involved. Compare total cost, fees, repayment frequency and product fit before applying." },
-    { question: "What products does Comparison One help compare?", answer: "Comparison One helps Australian businesses compare funding pathways such as working capital, asset finance, equipment finance, vehicle finance, invoice finance, line of credit and business loans." },
+    { question: "Why are Australian SMEs increasingly choosing non-bank lenders?", answer: "SMEs choose non-bank lenders primarily for faster conditional approval, flexible assessment based on live bank-statement cash flow rather than multi-year tax archives, and specialist asset-based products that do not require mortgaging the family home." },
+    { question: "Are non-bank business lenders replacing traditional Australian banks?", answer: "No. Traditional banks remain central for large, long-term borrowing such as commercial property acquisitions and major secured term facilities. Non-bank lenders have emerged alongside banks to service agile working capital, invoice finance, equipment leasing, and scenarios where bank assessment timelines are too slow." },
+    { question: "What is asset-based lending and which business assets qualify?", answer: "Asset-based lending uses tangible business assets to secure financing. Common qualifying assets include outstanding commercial B2B invoices (debtor finance), manufacturing machinery, commercial vehicles, transport trailers, medical equipment, and warehouse inventory." },
+    { question: "Is non-bank commercial borrowing more expensive than bank debt?", answer: "Generally, yes. Non-bank lenders absorb higher credit risk and provide accelerated settlement times without requiring residential real estate mortgages. In exchange, they charge higher risk margins or factor rates compared to conservative commercial bank loans." },
+    { question: "How does Comparison One help evaluate non-bank lenders?", answer: "Comparison One allows business owners to compare product categories, pricing structures, documentation requirements, and lender eligibility benchmarks independently before lodging an application, helping prevent unnecessary credit enquiries." }
   ],
   relatedLinks: [
     { label: "Compare non-bank business lenders", href: "/compare/non-bank-business-lenders" },
@@ -1373,51 +1599,81 @@ const c1_rise_of_non_bank_lending: C1PageData = {
 
 const c1_payday_super_changes_sme_funding: C1PageData = {
   type: "blog",
-  title: "Payday Super Changes and SME Funding",
+  title: "Payday Super Changes and SME Funding: Managing the Cash-Flow Impact",
   slug: "payday-super-changes-sme-funding",
   path: "/blog/payday-super-changes-sme-funding",
   eyebrow: "SME cash-flow guide",
-  headline: "Payday Super is now law: how Australian SMEs can manage the cash-flow gap",
-  summary: "Payday Super started on 1 July 2026. Employers now pay super on the same cycle as wages, and the contribution must reach the employee's fund within seven business days of payday. The contribution itself is not new, but the quarterly buffer many SMEs relied on is gone. This guide explains what to check before using working capital, invoice finance, a line of credit or another funding path to manage the timing shift.",
-  seoTitle: "Payday Super 2026: Cash Flow and Funding for SMEs | Comparison One",
-  seoDescription: "Payday Super began on 1 July 2026: super must reach the fund within 7 business days of payday. How SMEs can manage the cash-flow gap and which funding options fit.",
+  headline: "Payday Super is in effect: how Australian employers manage the payroll liquidity gap",
+  summary: "Under the Treasury Laws Amendment (Payday Superannuation) Act 2025, Australian employers must pay Superannuation Guarantee (SG) contributions concurrently with salary and wages, ensuring contributions reach employees' funds within seven business days of payday (subject to statutory exceptions). While the 12% SG rate is unchanged, the elimination of the traditional quarterly payment buffer creates immediate cash-flow compression for SMEs waiting on 30-to-90-day debtor cycles. This guide details statutory compliance rules, the reformed SGC tax deductibility rules, cash-flow implications, and when commercial finance facilities can legitimately bridge the gap.",
+  seoTitle: "Payday Super 2026: Cash Flow Rules and Funding Guide for SMEs | Comparison One",
+  seoDescription: "Payday Super is now law: SG contributions must reach super funds within 7 business days of payday. Understand cash-flow impacts, SGC deductibility rules, and funding options.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-10-20",
-  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a lender"],
+  lastReviewed: "2026-11-02",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Verified ATO & Treasury sources", "General information only"],
   sections: [
     {
-      heading: "The change is about timing",
-      body: "Since 1 July 2026, employers must pay super guarantee contributions on the same cycle as wages. The contribution has to reach the employee's super fund within seven business days of payday, or the employer can be liable for the superannuation guarantee charge. The change comes from the Treasury Laws Amendment (Payday Superannuation) Act 2025.\n\nUnder the old quarterly rhythm, some businesses held the super amount in the business until the quarterly due date. That buffer is now gone.\n\nThe super obligation is not new. What changes is when cash needs to be ready. That matters for businesses that already manage uneven income, late invoices, supplier payments, payroll, tax timing, stock purchases or seasonal demand."
+      heading: "The statutory change: why the cash-flow float has ended",
+      body: "Commencing 1 July 2026 under the Treasury Laws Amendment (Payday Superannuation) Act 2025, Australian employers are legally required to pay Superannuation Guarantee contributions at the same time they pay salary and wages.\n\nGenerally, contributions must be received by the employee's nominated superannuation fund within seven business days of payday. The ATO describes extended timeframes for some circumstances, including new employees. Superannuation is calculated on Qualifying Earnings (QE) at the statutory 12% rate.\n\nUnder the previous quarterly regime, employers could retain cash until the quarterly super deadline. That timing has changed, so employers should plan for super payments with each payroll cycle.",
     },
     {
-      heading: "Which SMEs may feel the pressure first",
-      body: "The businesses most exposed are often those where cash arrives after wages go out. That can include transport operators, construction subcontractors, hospitality venues, retail businesses, labour hire, manufacturers and service firms with delayed client payments.\n\nGrowth can also create pressure. Hiring staff may support future revenue, but wages and super need to be funded now. A business can be profitable and still feel tight if the cash arrives after payroll.\n\nBefore applying for finance, identify the cause of the gap. A late invoice problem may point to invoice finance. A repeat timing problem may point to a line of credit. A one-off stock or supplier gap may need working capital. Equipment pressure may point to asset finance instead of a general loan."
+      heading: "Penalties for non-compliance: the reformed Superannuation Guarantee Charge",
+      body: "Missing the applicable receipt deadline can trigger the reformed Superannuation Guarantee Charge (SGC) framework administered by the Australian Taxation Office (ATO). The charge can include a shortfall, notional earnings and an administrative uplift. Tax treatment under the reformed rules differs from the previous SGC regime; employers should check the ATO's current guidance or obtain tax advice for their circumstances.",
     },
     {
-      heading: "Funding options for the Payday Super cash-flow gap",
-      body: "Do not treat Payday Super pressure as one generic loan problem. The right funding path depends on whether the gap is temporary, repeated, invoice-led, seasonal, tax-related or caused by growth.\n\nA working capital loan can help some short-term timing gaps, but fixed repayments may create pressure if revenue is uneven. A line of credit may suit repeated cash-flow swings, but limit fees and discipline matter. Invoice finance may suit B2B businesses waiting on eligible invoices. Equipment finance may be better if the real pressure is an asset purchase rather than payroll timing.",
-      table: { headers: ["Cash-flow issue", "Funding path to compare", "What to check"], rows: [["Late B2B invoices", "Invoice finance", "Debtor quality, advance rate, fees and customer notification"], ["Repeated payroll timing gaps", "Line of credit", "Limit, fees, redraw rules and repayment discipline"], ["Short-term supplier or stock pressure", "Working capital", "Repayment rhythm, total cost and clear use of funds"], ["Equipment or vehicle purchase", "Equipment or vehicle finance", "Asset value, term, balloon payments and security"], ["Tax or BAS pressure", "Tax funding or adviser-led plan", "ATO options, accountant advice and whether debt solves the cause"]] }
+      heading: "Which Australian SME sectors face the greatest liquidity pressure?",
+      body: "Payday Super affects all employers, but liquidity compression falls disproportionately on businesses operating with long debtor terms:\n\n- Construction subcontractors: Paying apprentices and trades weekly while head contractors certify and pay progress claims on 45-to-60-day cycles.\n- Labour-hire and recruitment firms: Funding weekly wages and super for on-hired staff while commercial clients pay on 30-to-60-day invoices.\n- Transport and logistics: Absorbing weekly driver payroll and diesel costs while freight customers operate on standard end-of-month terms.\n- Hospitality and retail: Managing variable customer revenues during seasonal dips while fixed wage and super liabilities clear weekly.",
     },
     {
-      heading: "What to prepare before applying",
-      body: "A stronger finance enquiry starts with evidence. Lenders may want to understand revenue, bank-statement conduct, trading history, payroll rhythm, existing debts and the reason for funding.\n\nFor Payday Super planning, prepare the current payroll cycle, average super amount, invoice timing, upcoming supplier payments and the expected first months of the new payment rhythm. The clearer the timing gap, the easier it is to compare product fit."
+      heading: "Commercial funding options for payroll timing gaps",
+      body: "Borrowing to cover statutory employee superannuation requires strict commercial discipline. Financing should only bridge verified timing gaps where incoming customer revenue is confirmed, rather than masking structural operating losses.",
+      table: {
+        headers: ["Operational Cash-Flow Gap", "Commercial Funding Mechanism", "Key Underwriting Checks"],
+        rows: [
+          ["Unpaid B2B client invoices (30-60 day terms)", "Selective Invoice Finance / Debtor Discounting", "Advances capital against verified commercial invoices, subject to debtor credit assessment."],
+          ["Recurring payroll timing volatility", "Revolving Business Line of Credit", "Draw down funds during payroll runs, repay when debtor payments clear. Interest charged on drawn funds."],
+          ["Seasonal inventory purchases competing with payroll", "Short-Term Working Capital Facility", "Fixed-term loan matched to inventory liquidation cycle. Requires predictable cash conversion."],
+          ["Capital equipment purchases draining cash reserves", "Asset Finance / Chattel Mortgage", "Refinance unencumbered plant or vehicles to release operating cash for working capital buffers."],
+          ["Pre-existing ATO liabilities or back-tax", "Specialist ATO Refinancing / Payment Arrangement", "Formal ATO payment plan or structured commercial tax debt facility negotiated with an accountant."],
+        ],
+      },
     },
     {
-      heading: "Comparison One view",
-      body: "The risk is applying for the fastest funding before checking whether the repayment structure fits the payroll cycle. A product that solves one pay run can create another cash-flow squeeze if repayments land at the wrong time.\n\nComparison One helps Australian SMEs start with funding fit: purpose, timing, documents, repayment source, security and lender type. Payday Super planning should start with the cash-flow gap, not the lender name."
+      heading: "Simplified hypothetical scenario: cash-flow timing vs statutory liability",
+      body: "The following simplified hypothetical illustrates how payroll timing interacts with working capital (assuming a business with 16 employees, a $32,000 weekly gross payroll, and approximately $3,840 in weekly super obligations, with customer payments on 45-day progress claims):\n\n- The cash-flow friction: Under quarterly remittance, super accumulated in trading accounts, allowing cash to buffer supplier and inventory expenses between debtor payment cycles. Under Payday Super, cash must leave the business every pay run.\n- The financing approach: To manage this recurring timing gap, a business might utilize a selective invoice finance or revolving credit facility against verified trade invoices to maintain liquidity.\n- Important legal boundary: Commercial finance provides liquidity to fund pay runs, but it does not eliminate statutory employer obligations. Employers and directors remain personally accountable for ensuring superannuation contributions reach complying funds within the statutory timeframe.",
+    },
+    {
+      heading: "What to prepare before reviewing finance options",
+      body: "If your business requires a liquidity buffer to navigate Payday Super cycles, prepare the following evidence before applying to lenders:",
+      bullets: [
+        "1. Payroll summary: Weekly or fortnightly wages and super obligations across all entities.",
+        "2. Single Touch Payroll (STP) and clearing house records: Evidence of compliant super processing systems.",
+        "3. Aged debtor ledger: Detailed invoice breakdown showing payment terms and credit quality of key commercial debtors.",
+        "4. ATO Integrated Client Account statement: Confirmation that existing BAS and tax lodgements are up to date."
+      ]
     },
     {
       heading: "Sources reviewed",
-      body: "This guide references public ATO and Treasury information on Payday Super and general SME finance assessment considerations. Updated 20 October 2026 to reflect that Payday Super is in effect.",
-      bullets: ["Australian Taxation Office public Payday Super guidance.", "Treasury Payday Super policy material.", "business.gov.au guidance on business finance and cash-flow planning.", "Public lender information on working capital, invoice finance and line of credit products."]
+      body: "This regulatory guide is grounded in verified statutory legislation and official guidance from the Australian Taxation Office, the Department of the Treasury, and Parliamentary Bills Digest. Last reviewed 2 November 2026.",
+      bullets: [
+        "Treasury Laws Amendment (Payday Superannuation) Act 2025 (Cth).",
+        "Parliament of Australia: Bills Digest No. 25, 2025-26 (Treasury Laws Amendment (Payday Superannuation) Bill 2025).",
+        "Australian Taxation Office: Payday Super employer guidance and Superannuation Guarantee Charge rules.",
+        "Australian Department of the Treasury: Payday Superannuation implementation framework.",
+        "business.gov.au: Employer superannuation obligations and cash-flow management."
+      ]
     },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "Does Payday Super create a new super cost?", answer: "The super guarantee obligation already exists. The issue for many SMEs is timing: payments may need to be made much closer to payday rather than quarterly." },
-    { question: "Should SMEs borrow to cover Payday Super?", answer: "Not automatically. First check whether the pressure is a timing gap, a structural cash-flow issue, late invoices, tax pressure or another problem. Funding should match the cause." },
-    { question: "Which finance product may fit a payroll timing gap?", answer: "It depends on the business. Working capital, line of credit or invoice finance may be relevant in different situations. Compare repayment rhythm and total cost before applying." },
-    { question: "Is Comparison One a lender?", answer: "No. Comparison One is not a lender and does not make credit decisions. It helps Australian SMEs compare funding pathways before applying." },
+    { question: "When did Payday Super become mandatory in Australia?", answer: "Payday Super officially commenced on 1 July 2026 under the Treasury Laws Amendment (Payday Superannuation) Act 2025, following passage through Parliament in late 2025. Employers must pay superannuation contributions alongside each wage payment." },
+    { question: "How quickly must super contributions reach an employee's fund?", answer: "Generally, within seven business days of payday. The ATO describes extended timeframes in some circumstances, including new employees; check its current guidance for your situation." },
+    { question: "What are the tax implications if an employer misses the Payday Super deadline?", answer: "A late payment can trigger the reformed Superannuation Guarantee Charge. Its tax treatment differs from the previous rules. Check current ATO guidance or speak with a tax adviser about your circumstances." },
+    { question: "Should an SME borrow money to pay Payday Super obligations?", answer: "Debt should never be used to cover persistent operating losses or unviable business models. However, where a profitable business experiences a timing gap between weekly payroll and 30-to-60-day customer invoice payments, selective invoice finance or a revolving line of credit can provide a legitimate liquidity buffer." },
+    { question: "How is superannuation calculated under Payday Super?", answer: "Under the enacted legislation, superannuation is calculated at the statutory 12% rate based on an employee's Qualifying Earnings (QE) for the relevant pay period, aligning super contributions directly with each wage event." },
   ],
   relatedLinks: [
     { label: "Rise of non-bank lending", href: "/blog/rise-of-non-bank-lending-australia" },
@@ -1430,56 +1686,74 @@ const c1_payday_super_changes_sme_funding: C1PageData = {
 
 const c1_economic_resilience_plan_sme_funding: C1PageData = {
   type: "blog",
-  title: "Economic Resilience Plan and SME Funding",
+  title: "Economic Resilience Program and SME Funding: What Australian Businesses Should Check",
   slug: "economic-resilience-plan-sme-funding",
   path: "/blog/economic-resilience-plan-sme-funding",
   eyebrow: "SME funding policy guide",
-  headline: "Economic Resilience Plan: what SMEs should check before chasing government-backed funding",
-  summary: "The Economic Resilience Program has drawn attention because of its zero-interest loan pathway for eligible businesses in selected supply-chain, manufacturing, logistics and related sectors. The headline is attractive, but the pathway is not a general funding solution for every SME. This guide explains what to check before applying and how to compare other funding paths if the program does not fit.",
-  seoTitle: "Economic Resilience Plan and SME Funding | Comparison One",
-  seoDescription: "Learn how the Economic Resilience Program may affect SME funding choices and what Australian businesses should compare before applying for government-backed or alternative finance.",
+  headline: "Economic Resilience Program: reality check on government-backed zero-interest loans",
+  summary: "The Australian Government's Economic Resilience Program (ERP), administered via the National Reconstruction Fund Corporation (NRFC), generated intense interest through its zero-interest loan pathway. However, the program is targeted at critical industrial supply chains and national economic resilience—not standard commercial borrowing. The initial bank-administered stream closed to new applications on 20 October 2026, while the NRFC direct stream remains open for major proposals over $5 million. This guide clarifies program streams, eligibility criteria, and commercial finance alternatives for SMEs that do not qualify.",
+  seoTitle: "Economic Resilience Program Australia | Government SME Funding Guide | Comparison One",
+  seoDescription: "Understand the Australian Economic Resilience Program and NRFC loans: eligibility criteria, zero-interest terms, stream status, and commercial alternatives.",
   primaryCtaLabel: "Compare business loans",
   primaryCtaHref: "/quiz",
-  lastReviewed: "2026-05-27",
-  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "General information only", "Comparison One is not a government agency"],
+  lastReviewed: "2026-11-02",
+  proofPoints: ["Written by Comparison One SME Finance Editorial Team", "Verified NRFC & business.gov.au sources", "General information only"],
   sections: [
     {
-      heading: "What the program is trying to solve",
-      body: "The Economic Resilience Program is aimed at strengthening selected parts of Australia’s productive and supply-chain capacity. It has been discussed in connection with businesses affected by disruption, input costs, logistics pressure and critical sector needs.\n\nFor eligible businesses, the zero-interest pathway may be worth checking. But eligibility, sector fit, documentation, use of funds, repayment capacity and delivery pathway still matter. A government-backed headline does not remove the need for assessment."
+      heading: "What the Economic Resilience Program funds",
+      body: "Administered through the National Reconstruction Fund Corporation (NRFC), the Economic Resilience Program was established to support Australian businesses navigating severe supply-chain vulnerabilities and to strengthen sovereign industrial resilience.\n\nThe program focuses on critical supply chains and national resilience priorities. In the bank-administered stream, targeted areas included manufacturing and logistics capabilities, highlighting sectors such as freight, fuel, fertiliser and plastics. For direct investments over $5 million, the NRFC assesses proposals case by case against national economic resilience criteria.",
     },
     {
-      heading: "Why the pathway may be narrower than the headline",
-      body: "Many SMEs hear zero interest and assume the first step is to apply. That can be a mistake if the business is outside the target sectors, needs funding faster than the program pathway can move, lacks required documents or is solving a cash-flow problem that another product handles better.\n\nThe key question is not only whether the program exists. The key question is whether the business fits the program purpose and assessment path."
+      heading: "Program streams and current availability",
+      body: "The Economic Resilience Program was structured into two operational streams with distinct borrowing criteria:\n\n1. Bank-administered stream (loans up to $5 million):\nDelivered through participating commercial banks offering zero-interest facilities to eligible businesses addressing acute supply-chain vulnerabilities. This initial bank-administered stream closed to new applications on 20 October 2026.\n\n2. NRFC direct investment stream (proposals over $5 million):\nDirectly assessed and managed by the National Reconstruction Fund Corporation for larger strategic supply-chain capability projects. This stream remains open, with proposals evaluated individually on a case-by-case basis without a published upper dollar cap.",
     },
     {
-      heading: "What SMEs should check first",
-      body: "Before applying, check sector fit, funding purpose, documents, urgency, repayment source and whether a bank-administered pathway is realistic. If any of those points are unclear, compare alternatives before spending days on the wrong route.",
-      bullets: ["Is the business in a targeted sector or supply chain?", "Is the use of funds connected to the program purpose?", "Are financials, bank statements, BAS and identity documents ready?", "Can the business evidence repayment capacity?", "Is the timing compatible with a government-backed or bank-administered pathway?", "Would a product such as invoice finance, equipment finance, working capital or a line of credit fit better?"]
+      heading: "Zero-interest is not a grant: understanding loan terms",
+      body: "A frequent misconception among business owners is conflating zero-interest government loans with non-repayable grants.\n\nKey structural realities:\n- Full principal repayment: Borrowed funds must be repaid in full in accordance with contracted facility schedules.\n- Credit and serviceability underwriting: Applicants must demonstrate ongoing commercial viability and a verified repayment source. Lenders and the NRFC do not provide capital to unviable operations.\n- Security and reporting requirements: Facility terms, security requirements and covenants vary by participating lender and facility structure, depending on credit assessment and program guidelines.",
     },
     {
-      heading: "Alternative funding paths if the program does not fit",
-      body: "Not fitting the Economic Resilience Program does not automatically mean the business is unfundable. It may mean the official route is not the right route.\n\nA logistics business waiting on invoices may need invoice finance. A manufacturer buying machinery may need equipment finance. A retailer facing stock timing pressure may need working capital. A business with repeated cash-flow swings may need a line of credit. A bank-ready business may still compare a traditional bank pathway.",
-      table: { headers: ["Business need", "Possible path", "What to compare"], rows: [["Unpaid B2B invoices", "Invoice finance", "Debtor quality, invoice age, fees and advance rate"], ["Machinery or productive asset", "Equipment finance", "Asset value, term, balloon and security"], ["Supplier, payroll or stock timing", "Working capital", "Repayment rhythm, total cost and use of funds"], ["Repeated seasonal gaps", "Line of credit", "Limit, redraw rules, fees and discipline"], ["Strong docs and time", "Bank pathway", "Rate, security, processing time and criteria"]] }
+      heading: "Eligibility criteria and common misconceptions",
+      body: "Many small business owners sought out the program after seeing headlines regarding zero-interest finance. Understanding the targeted criteria prevents wasted application effort:\n\n- Targeted supply-chain scope: The bank-administered stream specifically targeted manufacturing and logistics supply chains (such as freight, fuel, fertiliser and plastics), rather than general consumer trading.\n- Purpose of funds: Under NRFC customer guidance, working capital facilities can be eligible where directly required to manage qualifying supply-chain disruptions. However, the program does not serve as unconditional general working capital, passive investment or tax refinancing.\n- Assessment rigor: Government-backed programs require detailed supply-chain justification and technical viability assessments, making them unsuitable for emergency liquidity needs requiring immediate settlement.",
     },
     {
-      heading: "How to avoid the apply-blind trap",
-      body: "The apply-blind trap happens when a business applies to a promising headline before checking whether the path matches the problem. That can waste time, create frustration and leave the owner no clearer about the next move.\n\nStart with the funding problem: what is the money for, when is it needed, what evidence is available, what will repay it and what structure fits the cash-flow cycle. Then compare the official pathway against commercial alternatives."
+      heading: "Commercial finance alternatives when government programs do not fit",
+      body: "If your business falls outside the targeted scope of the Economic Resilience Program, commercial finance provides practical, accessible alternatives tailored to specific balance-sheet needs:",
+      table: {
+        headers: ["Operational Need", "Commercial Funding Alternative", "Key Features to Compare"],
+        rows: [
+          ["Manufacturing machinery or industrial equipment", "Equipment Finance / Chattel Mortgage", "Secured directly against the acquired plant. Terms up to 5-7 years with competitive asset-backed margins."],
+          ["Cash locked in 30-90 day supply-chain debtors", "Selective Debtor / Invoice Finance", "Advances funds against verified B2B trade invoices to unlock working capital without property security."],
+          ["Raw material and inventory purchasing", "Trade & Supply Chain Finance", "Financier pays suppliers directly on delivery terms, bridging the cycle until inventory is manufactured and sold."],
+          ["Ongoing operational cash-flow volatility", "Revolving Business Line of Credit", "Draw down funds when required; pay interest only on drawn balances."],
+          ["Long-term facility expansion or warehouse build", "Commercial Property Bank Loan", "Standard bank mortgages offering 10-15 year amortisation for established businesses with property collateral."],
+        ],
+      },
     },
     {
-      heading: "Comparison One view",
-      body: "Comparison One is not a government agency and does not decide eligibility for government programs. The site helps SMEs compare funding pathways before applying. For Economic Resilience Program searches, that means checking whether the official pathway is realistic and what alternatives may fit if it is not."
+      heading: "How to avoid the headline trap",
+      body: "Chasing government-backed grant or loan announcements without reviewing statutory eligibility guidelines wastes valuable management time and delays practical funding solutions.\n\nBefore exploring government finance programs, ask:\n- Does my ABN operate directly within a designated national priority sector?\n- Do I have the months required to navigate federal policy underwriting?\n- Can my funding need be solved more quickly and realistically by asset-backed commercial finance?\n\nIf the answers point away from government policy criteria, focus your efforts on commercial lenders with active appetite for your industry.",
     },
     {
       heading: "Sources reviewed",
-      body: "This guide references public information about the Economic Resilience Program, National Reconstruction Fund policy material and general SME finance comparison sources. Last reviewed 27 May 2026.",
-      bullets: ["National Reconstruction Fund public program material.", "Australian Government public Economic Resilience Program information.", "business.gov.au guidance on business grants, loans and finance.", "Public lender information on working capital, invoice finance, equipment finance and bank lending pathways."]
+      body: "This policy guide is based on official program material from the National Reconstruction Fund Corporation (NRFC) and public guidelines from business.gov.au. Last reviewed 2 November 2026.",
+      bullets: [
+        "National Reconstruction Fund Corporation: Economic Resilience Program (nrf.gov.au/what-we-do/investment-sub-funds/economic-resilience-program).",
+        "business.gov.au: Economic Resilience Program guidelines and eligibility criteria.",
+        "NRFC: Bank-Administered Loans Customer Guidance (May 2026).",
+        "Department of Industry, Science and Resources: National Reconstruction Fund framework."
+      ]
     },
+    {
+      heading: "Editorial review and compliance",
+      body: "Written by Comparison One SME Finance Editorial Team. Last reviewed 2 November 2026. Comparison One is not a lender. Comparison One is not a government agency. General information only. This page does not provide financial, credit, legal, tax or accounting advice. Funding options depend on lender criteria, business performance, affordability, credit history, security, industry, loan purpose and other factors. Approval is not guaranteed."
+    }
   ],
   faqs: [
-    { question: "Is the Economic Resilience Program available to every SME?", answer: "No. Public information indicates the pathway is targeted. Sector fit, purpose, documents and assessment criteria matter." },
-    { question: "Does zero interest mean no repayment risk?", answer: "No. Principal still needs to be repaid and fees, terms or conditions may apply depending on the pathway." },
-    { question: "What if my business does not fit the program?", answer: "Other funding pathways may still be worth comparing, including working capital, invoice finance, equipment finance, line of credit, unsecured business loans or bank funding." },
-    { question: "Is Comparison One a government agency?", answer: "No. Comparison One is not a government agency and does not decide program eligibility." },
+    { question: "Is the Economic Resilience Program open to all Australian small businesses?", answer: "No. The program is targeted at critical national supply chains. The bank-administered stream focused on manufacturing and logistics supply chains (such as freight, fuel, fertiliser and plastics). Direct proposals over $5 million are assessed case by case by the NRFC based on economic resilience criteria." },
+    { question: "Does a zero-interest government loan mean the funds do not have to be repaid?", answer: "No. The Economic Resilience Program provides loans, not grants. The full principal amount must be repaid according to the loan terms. Borrowers must demonstrate clear serviceability and repayment capacity to be approved." },
+    { question: "What is the current status of the Economic Resilience Program streams?", answer: "The bank-administered stream (loans up to $5 million) closed to new applications on 20 October 2026. The direct NRFC stream remains open for larger strategic proposals exceeding $5 million." },
+    { question: "Can Economic Resilience funding be used for working capital?", answer: "Under NRFC customer guidance, working capital facilities can be eligible where directly required to manage qualifying supply-chain disruptions. However, facilities are not available for unrelated trading expenses, passive investments or tax debt refinancing." },
+    { question: "What commercial alternatives exist if my business is ineligible?", answer: "Commercial options include equipment finance for machinery, selective invoice finance for B2B trade debtors, commercial trade finance for inventory procurement, and revolving lines of credit for general operational liquidity." },
   ],
   relatedLinks: [
     { label: "Rise of non-bank lending", href: "/blog/rise-of-non-bank-lending-australia" },

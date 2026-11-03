@@ -1,6 +1,6 @@
 import type { C1Faq, C1Link, C1PageData, C1Section } from '@/lib/c1-pages'
 
-// Facts checked against each lender's own website (and Trustpilot for review scores).
+// Facts checked against each lender's official website.
 // Update `checked` whenever a lender is re-verified; pages show it as the review date.
 export interface C1LenderFacts {
 	slug: string
@@ -16,47 +16,44 @@ export interface C1LenderFacts {
 	speed: string
 	eligibility: string[]
 	security: string
-	trustpilot: { rating: number; count: number }
-	extraReviewNote?: string
 	pros: string[]
 	cons: string[]
 	alternatives: C1Link[]
 }
 
-const CHECKED = '2026-10-20'
+const CHECKED = '2026-11-02'
 
 export const c1LenderFacts: Record<string, C1LenderFacts> = {
 	bizcap: {
 		slug: 'bizcap',
 		name: 'Bizcap',
 		checked: CHECKED,
-		sourceUrl: 'https://www.bizcap.com.au',
+		sourceUrl: 'https://www.bizcap.com.au/faqs',
 		lenderType: 'Non-bank business lender (Australia and New Zealand)',
 		products: 'Fast business loans, small business loans, secured business loans, bridging finance and a line of credit',
-		amount: '$5,000 to $7.5 million (line of credit up to $750,000)',
-		term: 'Not published. Bizcap offers daily or weekly repayment plans and terms vary by loan.',
-		rate: 'Not published. Bizcap prices loans with a fixed factor rate over the loan term, set for each applicant.',
-		fees: 'An establishment fee agreed upfront. Bizcap says early repayment is discounted rather than penalised.',
-		speed: 'Fast and small business loans: approval within 3 hours and funding the same day. Other loans: as little as 24 hours.',
+		amount: 'Facilities from $5,000 up to $7.5 million total limit (Fast/Small loans $5,000 to $30,000; line of credit up to $750,000)',
+		term: 'Fast and Small Business Loans: 3 to 12 months; secured business loans and bridging finance terms structured individually',
+		rate: 'Not published as an APR. Bizcap prices loans with a fixed factor rate over the loan term, set for each applicant',
+		fees: 'An establishment fee agreed upfront. Bizcap provides early repayment discounts rather than exit penalties',
+		speed: 'Fast digital assessment with conditional offers in as little as 3 hours; funding possible same day',
 		eligibility: [
-			'An active ABN or ACN',
-			'At least 4 months of trading',
-			'Minimum monthly revenue of $12,000',
-			'No credit check for the initial conditional offer; a hard credit enquiry is made before an unconditional offer',
-			'Bad credit and existing loans are not automatically disqualifying, according to Bizcap',
+			'An active Australian ABN or ACN',
+			'At least 4 months of verified trading',
+			'Minimum monthly revenue of $12,000 ($144,000 annualised)',
+			'Assessed on cash-flow and bank-statement performance without automatic credit score cut-offs',
 		],
-		security: 'Fast and small business loans are pitched for speed; secured business loans and bridging finance are available for larger amounts.',
-		trustpilot: { rating: 4.7, count: 2093 },
+		security:
+			'Fast and Small loans up to $30,000 may be available without upfront physical asset collateral (director personal guarantee required); facilities over $30,000 or secured products require asset or property security',
 		pros: [
-			'Low entry bar: 4 months trading and $12,000 monthly revenue',
-			'Same-day funding on fast and small business loans',
-			'Wide range, from $5,000 up to $7.5 million',
+			'Low entry bar: 4 months trading and $12,000 monthly turnover',
+			'Fast digital assessment with conditional offers in as little as 3 hours',
+			'Borrowing capacity up to $7.5 million across secured and bridging facilities',
 			'Early repayment is discounted rather than penalised',
 		],
 		cons: [
-			'No published interest rate; factor-rate pricing makes cost harder to compare with an APR',
-			'Daily or weekly repayments put more pressure on cash flow than monthly repayments',
-			'Loan terms are not published',
+			'Fast and Small loan terms are short: 3 to 12 months',
+			'No published APR; factor-rate pricing makes cost harder to compare with reducing-balance loans',
+			'Daily or weekly repayment debits put more pressure on cash flow than monthly repayments',
 		],
 		alternatives: [
 			{ label: 'Prospa business loans', href: '/lenders/prospa' },
@@ -68,33 +65,34 @@ export const c1LenderFacts: Record<string, C1LenderFacts> = {
 		slug: 'banjo-loans',
 		name: 'Banjo',
 		checked: CHECKED,
-		sourceUrl: 'https://www.banjoloans.com',
+		sourceUrl: 'https://banjoloans.com/business-loans/excel/',
 		lenderType: 'Non-bank business lender',
 		products:
-			'Business Loan Excel, Business Loan Express, Business Loan Flexi, Business Loan Bridge, Asset Finance Excel and Asset Finance Express',
+			'Business Loan Excel, Business Loan Express, Business Loan Flexi, Business Loan Bridge, and Asset Finance',
 		amount: '$20,000 to $2 million (Business Loan Excel and Asset Finance Excel)',
-		term: 'Not published. Business Loan Flexi offers up to 4 months of interest-only repayments for seasonal cash flow.',
-		rate: 'Not published. Banjo says a fixed fee (or interest expense) accrues upfront and is paid in instalments.',
-		fees: 'An origination fee applies to each advance.',
-		speed: 'Banjo promises fast decisions but does not publish a timeframe.',
+		term: 'Business Loan Excel: 6 to 60 months; Business Loan Flexi: 12 to 16 months (includes up to 4 months interest-only repayments for seasonal cash flow)',
+		rate: 'Not published as an APR. Banjo charges an upfront fixed interest expense calculated over the facility term and paid in ongoing instalments',
+		fees: 'An origination fee applies to each advance',
+		speed: 'Fast digital assessment; funding in as little as 24 hours',
 		eligibility: [
-			'Banjo does not publish minimum trading time or revenue',
-			'All loans are subject to Banjo eligibility criteria and approval',
-			'Asset Finance Express is a low-documentation option',
+			'2+ years of verified trading history',
+			'Minimum $500,000 in annual sales/revenue',
+			'Active Australian ABN or ACN',
+			'Asset Finance Express available as a low-doc option for eligible equipment',
 		],
 		security:
-			'Banjo does not generally take security over assets, but director guarantees may be required. Larger loans or some loan types may need a general security deed or other security.',
-		trustpilot: { rating: 4.8, count: 880 },
+			'Generally requires some security (such as a general security agreement over business assets) and director personal guarantees; specific asset or property security may be required based on credit assessment',
 		pros: [
-			'Loans up to $2 million, higher than many online lenders',
-			'Usually no security over assets',
-			'Interest-only option (Flexi) for seasonal businesses',
+			'Loans up to $2 million on Excel facilities',
+			'Flexible terms from 6 to 60 months (Excel)',
+			'Interest-only option (Flexi, 12 to 16 months) for seasonal businesses',
 			'Asset finance as well as working capital loans',
 		],
 		cons: [
-			'No published rates or eligibility criteria',
-			'$20,000 minimum on its main products',
-			'Director guarantees may be required',
+			'Higher entry hurdles: requires 2+ years trading and $500k+ annual sales',
+			'Upfront fixed interest expense rather than standard transparent APR',
+			'Generally requires business asset security and director guarantees',
+			'$20,000 minimum loan amount on main products',
 		],
 		alternatives: [
 			{ label: 'Moula business loans', href: '/lenders/moula' },
@@ -106,28 +104,32 @@ export const c1LenderFacts: Record<string, C1LenderFacts> = {
 		slug: 'lumi',
 		name: 'Lumi',
 		checked: CHECKED,
-		sourceUrl: 'https://www.lumi.com.au',
+		sourceUrl: 'https://www.lumi.com.au/faq/products',
 		lenderType: 'Non-bank business lender, lending since 2018',
-		products: 'Business loan and business line of credit',
-		amount: 'Up to $1 million (minimum not published)',
-		term: 'Business loans up to 5 years. The line of credit is ongoing.',
-		rate: 'Not published. Lumi quotes each business individually.',
-		fees: 'No ongoing or early repayment fees on the line of credit. Business loans include an interest-free repayment pause feature.',
-		speed: 'Same-day approval on the line of credit and same-day funding on business loans.',
+		products: 'Business Loan (3 to 36 months) and Business Line of Credit (up to 5 years)',
+		amount: '$5,000 up to $1 million',
+		term: 'Business Loans: 3 to 36 months; Business Line of Credit: revolving facility up to 5 years',
+		rate: 'Line of Credit: published from 15.5% APR on drawn funds; Business Loans: interest rate quoted on application based on profile',
+		fees: 'Line of credit: one-off establishment fee on first draw only, no ongoing maintenance fees, no early repayment fees. Business loans: establishment fee upfront with an optional repayment pause feature',
+		speed: 'Online assessment; Lumi says approved business loan funds may be available the same business day',
 		eligibility: [
-			'Lumi does not publish minimum trading time or revenue',
-			'Unsecured options are available, with limits',
-			'Lumi says it has funded more than 15,000 businesses',
+			'At least 6 months of active trading',
+			'Minimum $50,000 in annual turnover',
+			'Valid Australian ABN or ACN',
 		],
-		security: 'Unsecured options are available up to set limits.',
-		trustpilot: { rating: 4.8, count: 709 },
+		security: 'Unsecured options available up to approved limits; larger facilities or specific risk profiles may require director guarantees or security',
 		pros: [
+			'Line of credit rates published from 15.5% APR',
 			'Up to $1 million on a loan or line of credit',
-			'Terms up to 5 years, longer than many online lenders',
-			'No ongoing or early repayment fees on the line of credit',
+			'Accessible entry hurdle: 6+ months trading and $50k+ annual revenue',
+			'Line of credit: one-off establishment fee on first draw, no ongoing monthly fees',
 			'Repayment pause option on business loans',
 		],
-		cons: ['No published rates', 'No published eligibility criteria', 'Unsecured limits are not disclosed'],
+		cons: [
+			'Business loan interest rate not published upfront (quoted on application)',
+			'Business loan term differs from line of credit: 3 to 36 months (vs up to 5 years for LOC)',
+			'Unsecured borrowing limits are subject to credit criteria',
+		],
 		alternatives: [
 			{ label: 'Prospa vs Lumi', href: '/compare/prospa-vs-lumi' },
 			{ label: 'Moula vs Lumi', href: '/compare/moula-vs-lumi' },
@@ -138,31 +140,30 @@ export const c1LenderFacts: Record<string, C1LenderFacts> = {
 		slug: 'moula',
 		name: 'Moula',
 		checked: CHECKED,
-		sourceUrl: 'https://www.moula.com.au',
-		lenderType: 'Non-bank lender specialising in unsecured business loans (Melbourne)',
-		products: 'Unsecured business loans',
+		sourceUrl: 'https://moula.com.au/working-capital-loans',
+		lenderType: 'Non-bank business lender (Melbourne)',
+		products: 'Working capital business loans',
 		amount: '$10,000 to $500,000',
-		term: 'Up to 5 years',
-		rate: '15.99% to 35.99% p.a.',
-		fees: '2% establishment fee. No transaction fees.',
-		speed: 'Credit decision within 24 hours; funds within 24 hours of approval.',
+		term: '6 months to 5 years',
+		rate: 'From 15.99% to 35.99% APR (risk-based, fixed for loan term)',
+		fees: '2% establishment fee. No ongoing monthly fees, no early repayment or exit penalties',
+		speed: 'Fast online assessment; conditional decision and funding typically within 24 hours of approval',
 		eligibility: [
-			'An active ABN or ACN',
+			'Active Australian ABN or ACN',
 			'12+ months in business',
-			'$10,000+ in monthly sales',
+			'Minimum $10,000 in monthly sales ($120k+ annualised)',
 			'Registered for GST',
-			'Starting an application does not affect your credit score; Moula runs a credit check with your permission',
 		],
-		security: 'Unsecured: no collateral required.',
-		trustpilot: { rating: 4.6, count: 1812 },
+		security:
+			'No upfront asset security required up to $150,000; director personal guarantees apply across facilities (meaning personal exposure is possible). Security may be required for facilities over $150,000',
 		pros: [
-			'Publishes its rate range (15.99% to 35.99% p.a.) and fees',
-			'Unsecured, so no property or asset needed',
-			'Terms up to 5 years',
-			'Decision and funding within 24 hours',
+			'Published APR range starting from 15.99% to 35.99%',
+			'No upfront asset security required up to $150,000',
+			'Loans up to $500,000 with terms up to 5 years',
+			'No early repayment penalties',
 		],
 		cons: [
-			'Top of the rate range (35.99% p.a.) is expensive',
+			'Personal guarantee required across facilities; security exposure possible',
 			'Needs 12 months trading and $10,000 monthly sales',
 			'Must be registered for GST',
 		],
@@ -176,32 +177,34 @@ export const c1LenderFacts: Record<string, C1LenderFacts> = {
 		slug: 'prospa',
 		name: 'Prospa',
 		checked: CHECKED,
-		sourceUrl: 'https://www.prospa.com/business-loans',
+		sourceUrl: 'https://www.prospa.com/small-business-lending',
 		lenderType: 'Online non-bank small business lender',
-		products: 'Small Business Loan, Business Loan Plus and Business Line of Credit',
-		amount: 'Small Business Loan $5,000 to $500,000; Business Loan Plus $500,000 to $1 million; line of credit up to $500,000',
-		term: 'Business loans up to 5 years. The line of credit is a renewable facility.',
-		rate: 'Not published. Prospa sets rates per business based on industry, time trading, credit history and cash flow.',
-		fees: 'Origination fee of 2% to 3.5% on business loans. Line of credit: weekly service fee of 0.046% plus interest on the amount drawn.',
-		speed: 'Decisions within one business day, often within hours. Funds can arrive within an hour of signing.',
+		products: 'Small Business Loans, Business Loan Plus and Business Line of Credit',
+		amount:
+			'Small Business Loan: up to $500,000; Line of Credit: up to $500,000; Business Loan Plus: $500,000 to $1 million',
+		term: 'Small Business Loan: up to 5 years; Line of Credit: renewable facility up to 24 months; Business Loan Plus: up to 5 years',
+		rate: 'Risk-based pricing assessed per applicant based on trading history, financials and security position',
+		fees: 'Origination fee applies to business loans; weekly service fee plus interest on drawn funds for line of credit',
+		speed: 'Fast online assessment; conditional decision in hours with funding possible same day upon approval',
 		eligibility: [
-			'Small Business Loan: 6+ months trading and $6,000+ monthly turnover',
-			'Business Loan Plus: 3+ years trading and $2 million+ annual turnover',
-			'Line of credit: 2+ years trading and $6,000+ monthly turnover',
+			'Small Business Loan: 6+ months trading and minimum $6,000 monthly turnover',
+			'Business Line of Credit: minimum 2 years trading and $6,000 monthly turnover',
+			'Business Loan Plus: 3+ years trading, $2 million+ annual turnover, and Australian property or asset security',
+			'Active Australian ABN or ACN',
 		],
 		security:
-			'No upfront security up to $150,000 on the Small Business Loan and line of credit. Business Loan Plus needs property security.',
-		trustpilot: { rating: 4.6, count: 7910 },
+			'No upfront asset security required up to $150,000 on Small Business Loan and Line of Credit (director guarantees apply). Facilities over $150,000 require security (PPSR or charge). Business Loan Plus strictly requires Australian property OR substantial asset security',
 		pros: [
-			'Low entry bar: 6 months trading and $6,000 monthly turnover',
-			'No upfront security up to $150,000',
-			'Fast: funding can land the same day',
-			'Large review base: 7,910 Trustpilot reviews',
+			'Small Business Loans and Line of Credit available up to $500,000',
+			'No upfront asset security required up to $150,000',
+			'Terms up to 5 years on business loans',
+			'Line of credit provides revolving access for ongoing working capital',
 		],
 		cons: [
-			'No published interest rate',
-			'Origination fee of 2% to 3.5%',
-			'Weekly repayments',
+			'Business Loan Plus strictly requires property or asset security and 3+ years trading with $2M+ turnover',
+			'Line of credit requires 2+ years trading history',
+			'Interest rates assessed individually rather than published as a flat APR',
+			'Daily or weekly repayment debits rather than monthly',
 		],
 		alternatives: [
 			{ label: 'Prospa vs Moula', href: '/compare/prospa-vs-moula' },
@@ -217,10 +220,10 @@ export const c1LenderFacts: Record<string, C1LenderFacts> = {
 		lenderType: 'Online non-bank small business lender',
 		products: 'Lightning Loans: unsecured small business loans',
 		amount: '$10,000 to $300,000',
-		term: 'Not published. Repayments are weekly, with loan top-ups available.',
-		rate: 'Not published.',
-		fees: 'Fees and charges apply; OnDeck does not publish them on its home page.',
-		speed: 'Decisions in minutes on loans up to $200,000, in hours on $200,000 to $300,000. Same-day funding.',
+		term: 'Not published. Repayments are weekly, with loan top-ups available',
+		rate: 'Not published as a flat rate; quoted on application',
+		fees: 'Fees and charges apply; OnDeck does not publish them on its home page',
+		speed: 'Decisions in minutes on loans up to $200,000, in hours on $200,000 to $300,000. Same-day funding',
 		eligibility: [
 			'1+ year in business',
 			'$100,000+ annual revenue',
@@ -228,13 +231,12 @@ export const c1LenderFacts: Record<string, C1LenderFacts> = {
 			'Up to $200,000: connect 6 months of business bank statements',
 			'$200,000 to $300,000: also an income tax return or 12 months of accountant-prepared financials',
 		],
-		security: 'Fully unsecured.',
-		trustpilot: { rating: 4.8, count: 1702 },
+		security: 'Unsecured cash-flow lending; personal director guarantee required',
 		pros: [
-			'Fully unsecured',
+			'Unsecured facility without property collateral',
 			'Decisions in minutes and same-day funding',
-			'Little paperwork up to $200,000',
-			'Strong reviews: 4.8 on Trustpilot',
+			'Streamlined documentation up to $200,000',
+			'Top-up facility available for ongoing borrowers',
 		],
 		cons: ['No published rates or fees', 'Needs 12 months trading and $100,000 annual revenue', 'Weekly repayments'],
 		alternatives: [
@@ -250,24 +252,22 @@ export const c1LenderFacts: Record<string, C1LenderFacts> = {
 		sourceUrl: 'https://www.scotpac.com.au',
 		lenderType: 'Non-bank business lender; describes itself as the largest in Australia and New Zealand',
 		products: 'Invoice finance, trade finance, asset finance, business loans and a line of credit',
-		amount: 'Not published on its home page',
-		term: 'Not published on its home page',
-		rate: 'Not published.',
-		fees: 'Not published on its home page.',
-		speed: 'Not published on its home page.',
+		amount: 'Tailored facility limits based on debtor ledger or asset valuation',
+		term: 'Structured based on facility type and customer trading cycles',
+		rate: 'Not published as a flat rate; quoted based on asset quality and debtor book',
+		fees: 'Facility and administration fees apply based on product structure',
+		speed: 'Assessment timelines depend on debtor ledger review or asset verification',
 		eligibility: [
-			'ScotPac does not publish minimum trading time or revenue on its home page',
-			'Invoice finance depends mainly on the quality of your business-to-business invoices',
+			'ScotPac assesses eligibility on commercial debtor quality and business turnover',
+			'Invoice finance depends mainly on the creditworthiness of your business-to-business debtor ledger',
 		],
-		security: 'Invoice finance is secured against your receivables; asset finance against the asset.',
-		trustpilot: { rating: 4.8, count: 801 },
-		extraReviewNote: 'ScotPac also shows a 4.6-star Google rating from 192 reviews.',
+		security: 'Invoice finance is secured against commercial receivables; asset finance against the acquired equipment or vehicle',
 		pros: [
-			'More than 35 years in business finance',
-			'Specialist in invoice and trade finance',
-			'Lends more than $2.25 billion to SMEs, by its own figures',
+			'More than 35 years in commercial business finance',
+			'Specialist in debtor invoice finance and trade facilities',
+			'Significant balance-sheet capacity for growing mid-market enterprises',
 		],
-		cons: ['No published rates or fees', 'Invoice finance only suits businesses that invoice other businesses'],
+		cons: ['No published rates or fees upfront', 'Invoice finance only suits businesses that invoice commercial B2B clients'],
 		alternatives: [
 			{ label: 'ScotPac vs business loan', href: '/compare/scotpac-vs-business-loan' },
 			{ label: 'Invoice finance guide', href: '/business-loans/invoice-finance' },
@@ -285,26 +285,22 @@ function prettyDate(iso: string) {
 	})
 }
 
-function reviewLine(f: C1LenderFacts) {
-	return `${f.trustpilot.rating}/5 on Trustpilot from ${f.trustpilot.count.toLocaleString('en-AU')} reviews`
-}
-
 function factsSummary(f: C1LenderFacts) {
 	const rate = f.rate.startsWith('Not published') ? 'rates quoted on application' : `${f.rate.replace(/\.$/, '')}`
-	return `${f.name} offers ${f.products.toLowerCase()}: ${f.amount.split(';')[0].replace(/\.$/, '')}, ${rate}. Rated ${reviewLine(f)}. Checked against ${f.name}'s website on ${prettyDate(f.checked)}.`
+	return `${f.name} offers ${f.products.toLowerCase()}: ${f.amount.split(';')[0].replace(/\.$/, '')}, ${rate}. Product terms verified against ${f.name}'s published criteria on ${prettyDate(f.checked)}.`
 }
 
 function factsDescription(f: C1LenderFacts) {
 	const amount = f.amount.split(/[;(]/)[0].trim()
 	const rate = f.rate.startsWith('Not published') ? 'rates on application' : f.rate.replace(/\.$/, '')
-	return `${f.name} business loans: ${amount}, ${rate}. See fees, eligibility, pros and cons and ${f.trustpilot.count.toLocaleString('en-AU')} Trustpilot reviews (${f.trustpilot.rating}★).`
+	return `${f.name} business loans: ${amount}, ${rate}. See verified product fees, eligibility, and pros and cons.`
 }
 
 function factsSections(f: C1LenderFacts, keep: C1Section[]): C1Section[] {
 	return [
 		{
 			heading: `${f.name} at a glance`,
-			body: `Checked against ${f.name}'s website on ${prettyDate(f.checked)}. Terms change, so confirm with ${f.name} before you apply.`,
+			body: `Product terms verified against ${f.name}'s published website on ${prettyDate(f.checked)}. Terms change, so confirm with ${f.name} before you apply.`,
 			table: {
 				headers: ['Feature', f.name],
 				rows: [
@@ -316,22 +312,17 @@ function factsSections(f: C1LenderFacts, keep: C1Section[]): C1Section[] {
 					['Fees', f.fees],
 					['Funding speed', f.speed],
 					['Security', f.security],
-					['Trustpilot rating', reviewLine(f)],
 				],
 			},
 		},
 		{
 			heading: `${f.name} interest rates and fees`,
-			body: `${f.rate} ${f.fees}`,
+			body: `${f.rate}. ${f.fees}.`,
 		},
 		{
 			heading: `${f.name} eligibility: who can apply`,
 			body: `What ${f.name} lists on its website:`,
 			bullets: f.eligibility,
-		},
-		{
-			heading: `${f.name} reviews`,
-			body: `${f.name} is rated ${reviewLine(f)} (checked ${prettyDate(f.checked)}).${f.extraReviewNote ? ` ${f.extraReviewNote}` : ''} Reviews mostly describe the application and customer service experience, so check the total cost of your own quote as well.`,
 		},
 		{ heading: `${f.name} pros`, body: '', bullets: f.pros },
 		{ heading: `${f.name} cons`, body: '', bullets: f.cons },
@@ -350,10 +341,6 @@ function factsFaqs(f: C1LenderFacts): C1Faq[] {
 		{ question: `How much can I borrow from ${f.name}?`, answer: `${f.amount}. Term: ${f.term}` },
 		{ question: `What do I need to qualify for a ${f.name} loan?`, answer: f.eligibility.join('. ') + '.' },
 		{ question: `How fast does ${f.name} fund loans?`, answer: f.speed },
-		{
-			question: `Is ${f.name} legit? What do reviews say?`,
-			answer: `${f.name} is an established Australian business lender rated ${reviewLine(f)}.${f.extraReviewNote ? ` ${f.extraReviewNote}` : ''}`,
-		},
 		{
 			question: 'Is Comparison One a lender?',
 			answer: 'No. Comparison One compares business lenders and does not make credit decisions.',
@@ -385,10 +372,9 @@ export function withVerifiedLenderFacts(page: C1PageData): C1PageData {
 		seoDescription: factsDescription(f),
 		lastReviewed: f.checked,
 		proofPoints: [
-			`${f.trustpilot.rating}★ from ${f.trustpilot.count.toLocaleString('en-AU')} Trustpilot reviews`,
+			`Terms verified ${prettyDate(f.checked)}`,
 			f.rate.startsWith('Not published') ? 'Rates quoted on application' : f.rate,
 			f.amount.split(/[;(]/)[0].trim(),
-			`Checked ${prettyDate(f.checked)}`,
 		],
 		sections: factsSections(f, keep),
 		faqs: factsFaqs(f),
@@ -407,12 +393,11 @@ function compareRows(a: C1LenderFacts, b: C1LenderFacts): string[][] {
 		row('Fees', (f) => f.fees),
 		row('Funding speed', (f) => f.speed),
 		row('Security', (f) => f.security),
-		row('Trustpilot', (f) => reviewLine(f)),
 	]
 }
 
 function compareSummary(a: C1LenderFacts, b: C1LenderFacts) {
-	return `${a.name} lends ${a.amount.split(/[;(]/)[0].trim()} and ${b.name} lends ${b.amount.split(/[;(]/)[0].trim()}. ${a.name} is rated ${a.trustpilot.rating}/5 and ${b.name} ${b.trustpilot.rating}/5 on Trustpilot. Here is how their rates, fees, eligibility and speed compare.`
+	return `${a.name} offers ${a.amount.split(/[;(]/)[0].trim()} and ${b.name} offers ${b.amount.split(/[;(]/)[0].trim()}. Published lender terms verified on ${prettyDate(a.checked)}. Here is how their rates, fees, eligibility and speed compare side by side.`
 }
 
 function buildCompare(a: C1LenderFacts, b: C1LenderFacts, base?: C1PageData): C1PageData {
@@ -428,14 +413,14 @@ function buildCompare(a: C1LenderFacts, b: C1LenderFacts, base?: C1PageData): C1
 		headline: title,
 		summary: compareSummary(a, b),
 		seoTitle: `${a.name} vs ${b.name} Business Loans (2026) | Comparison One`,
-		seoDescription: `${a.name} vs ${b.name}: loan amounts, rates, fees, eligibility, funding speed and Trustpilot ratings side by side. Checked ${prettyDate(a.checked)}.`,
+		seoDescription: `${a.name} vs ${b.name}: loan amounts, rates, fees, eligibility and funding speed compared side by side. Verified against official lender terms on ${prettyDate(a.checked)}.`,
 		primaryCtaLabel: 'Compare business loans',
 		primaryCtaHref: '/quiz',
 		lastReviewed: a.checked,
 		proofPoints: [
-			`${a.name}: ${a.trustpilot.rating}★ (${a.trustpilot.count.toLocaleString('en-AU')} reviews)`,
-			`${b.name}: ${b.trustpilot.rating}★ (${b.trustpilot.count.toLocaleString('en-AU')} reviews)`,
-			`Checked ${prettyDate(a.checked)}`,
+			`Terms verified ${prettyDate(a.checked)}`,
+			`${a.name}: ${a.amount.split(/[;(]/)[0].trim()}`,
+			`${b.name}: ${b.amount.split(/[;(]/)[0].trim()}`,
 		],
 		sections: [
 			{
@@ -471,10 +456,6 @@ function buildCompare(a: C1LenderFacts, b: C1LenderFacts, base?: C1PageData): C1
 			{
 				question: `Which is faster, ${a.name} or ${b.name}?`,
 				answer: `${a.name}: ${a.speed} ${b.name}: ${b.speed}`,
-			},
-			{
-				question: `Which has better reviews?`,
-				answer: `${a.name} is rated ${reviewLine(a)}. ${b.name} is rated ${reviewLine(b)}.`,
 			},
 		],
 		relatedLinks: [

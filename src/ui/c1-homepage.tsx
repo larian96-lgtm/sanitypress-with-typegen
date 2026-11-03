@@ -150,7 +150,7 @@ function mergeHomepage(data?: C1HomepageData | null) {
     pathwayCards: data?.pathwayCards?.length ? data.pathwayCards : c1HomepageFallback.pathwayCards,
     guideCards: data?.guideCards?.length ? data.guideCards : c1HomepageFallback.guideCards,
     faqs: data?.faqs?.length ? data.faqs : c1HomepageFallback.faqs,
-    testimonials: data?.testimonials?.length ? data.testimonials : c1HomepageFallback.testimonials,
+    testimonials: [],
   }
 }
 

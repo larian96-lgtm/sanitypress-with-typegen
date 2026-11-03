@@ -1,0 +1,785 @@
+{
+  "sitemap_count": 65,
+  "pages": [
+    {
+      "url": "https://www.comparisonone.com",
+      "status": 200,
+      "final": "https://www.comparisonone.com",
+      "title": "Business Loan Comparison Australia | Funding Fit Check | Comparison One",
+      "h1": [
+        "Business loan comparison for Australian SMEs"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com",
+      "bytes": 76210
+    },
+    {
+      "url": "https://www.comparisonone.com/quiz",
+      "status": 200,
+      "final": "https://www.comparisonone.com/quiz",
+      "title": "Business Funding Fit Check | Compare Non-Bank Business Finance | Comparison One",
+      "h1": [
+        "Match With The Right Funding For Your Business"
+      ],
+      "robots": "noindex, follow",
+      "canonical": "https://www.comparisonone.com/quiz",
+      "bytes": 48714
+    },
+    {
+      "url": "https://www.comparisonone.com/privacy-policy",
+      "status": 200,
+      "final": "https://www.comparisonone.com/privacy-policy",
+      "title": "Privacy Policy | Comparison One",
+      "h1": [
+        "Privacy Policy"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/privacy-policy",
+      "bytes": 51720
+    },
+    {
+      "url": "https://www.comparisonone.com/terms-and-conditions",
+      "status": 200,
+      "final": "https://www.comparisonone.com/terms-and-conditions",
+      "title": "Terms & Conditions | Comparison One",
+      "h1": [
+        "Terms & Conditions"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/terms-and-conditions",
+      "bytes": 51464
+    },
+    {
+      "url": "https://www.comparisonone.com/editorial-policy",
+      "status": 200,
+      "final": "https://www.comparisonone.com/editorial-policy",
+      "title": "Editorial Policy | Comparison One",
+      "h1": [
+        "Editorial Policy"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/editorial-policy",
+      "bytes": 51238
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans",
+      "title": "Compare Business Loans Australia | Real Rates & Lender Comparison | Comparison One",
+      "h1": [
+        "Compare business loans in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans",
+      "bytes": 156757
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loan-calculator",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loan-calculator",
+      "title": "Business Loan Calculator Australia | Estimate Repayments | Comparison One",
+      "h1": [
+        "Business loan repayment calculator"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loan-calculator",
+      "bytes": 85748
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loan-faq",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loan-faq",
+      "title": "Business Loan FAQs Australia | SME Funding Questions | Comparison One",
+      "h1": [
+        "Business loan FAQs for Australian SMEs"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loan-faq",
+      "bytes": 87746
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/working-capital",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/working-capital",
+      "title": "Working Capital Finance Australia | Compare Funding Fit",
+      "h1": [
+        "Working capital finance for Australian SMEs"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/working-capital",
+      "bytes": 112625
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/invoice-finance",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/invoice-finance",
+      "title": "Invoice Finance Australia | Compare Invoice Funding Options",
+      "h1": [
+        "Invoice finance in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/invoice-finance",
+      "bytes": 112473
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/equipment-finance",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/equipment-finance",
+      "title": "Equipment Finance Australia | Compare Equipment Funding Fit",
+      "h1": [
+        "Equipment finance for Australian businesses"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/equipment-finance",
+      "bytes": 120278
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/unsecured-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/unsecured-business-loans",
+      "title": "Unsecured Business Loans Australia | Compare Funding Fit",
+      "h1": [
+        "Unsecured business loans in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/unsecured-business-loans",
+      "bytes": 113242
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/knocked-back-by-bank",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/knocked-back-by-bank",
+      "title": "Business Loan Declined by Bank? What to Do Next | Comparison One",
+      "h1": [
+        "Knocked back by a bank for a business loan?"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/knocked-back-by-bank",
+      "bytes": 115380
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/bank-vs-non-bank-business-lenders",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/bank-vs-non-bank-business-lenders",
+      "title": "Bank vs Non-Bank Business Lenders Australia | Comparison One Guide",
+      "h1": [
+        "Bank vs non-bank business lenders in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/bank-vs-non-bank-business-lenders",
+      "bytes": 100692
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders",
+      "title": "Business Loan Lenders Australia | Compare Lender Fit | Comparison One",
+      "h1": [
+        "Business loan lenders in Australia: compare lender fit before applying"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders",
+      "bytes": 96087
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/prospa",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/prospa",
+      "title": "Prospa Business Loans Australia | Comparison One",
+      "h1": [
+        "Prospa Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/prospa",
+      "bytes": 127289
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/moula",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/moula",
+      "title": "Moula Business Loans Australia | Comparison One",
+      "h1": [
+        "Moula Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/moula",
+      "bytes": 126736
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/ondeck",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/ondeck",
+      "title": "OnDeck business loans: products, rates and fit checks | Comparison One",
+      "h1": [
+        "OnDeck Australia Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/ondeck",
+      "bytes": 127758
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/judo-bank",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/judo-bank",
+      "title": "Judo Bank Business Loans Australia | Comparison One",
+      "h1": [
+        "Judo Bank Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/judo-bank",
+      "bytes": 128348
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/scotpac",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/scotpac",
+      "title": "ScotPac Business Loans Australia | Comparison One",
+      "h1": [
+        "ScotPac Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/scotpac",
+      "bytes": 128555
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/vehicle-finance",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/vehicle-finance",
+      "title": "Vehicle Finance Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "Vehicle finance in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/vehicle-finance",
+      "bytes": 112354
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/tax-debt",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/tax-debt",
+      "title": "ATO and Tax Debt Funding Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "ATO and tax debt funding in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/tax-debt",
+      "bytes": 112242
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/line-of-credit",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/line-of-credit",
+      "title": "Business Line of Credit Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "Business line of credit in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/line-of-credit",
+      "bytes": 102014
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/trade-finance",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/trade-finance",
+      "title": "Trade Finance Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "Trade finance in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/trade-finance",
+      "bytes": 108165
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/commercial-fitout",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/commercial-fitout",
+      "title": "Commercial Fitout Funding Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "Commercial fitout funding in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/commercial-fitout",
+      "bytes": 116537
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/business-loan-requirements-australia",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/business-loan-requirements-australia",
+      "title": "Business Loan Requirements Australia | Documents and Lender Checks | Comparison One",
+      "h1": [
+        "Business loan requirements in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/business-loan-requirements-australia",
+      "bytes": 91992
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/how-business-lenders-assess-applications",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/how-business-lenders-assess-applications",
+      "title": "How Business Lenders Assess Applications Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "How business lenders assess applications"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/how-business-lenders-assess-applications",
+      "bytes": 91976
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/business-loan-interest-rates-and-fees",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/business-loan-interest-rates-and-fees",
+      "title": "Business Loan Interest Rates and Fees Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "Business loan interest rates and fees in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/business-loan-interest-rates-and-fees",
+      "bytes": 91897
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/secured-vs-unsecured-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/secured-vs-unsecured-business-loans",
+      "title": "Secured vs Unsecured Business Loans Australia | Funding Fit Guide | Comparison One",
+      "h1": [
+        "Secured vs unsecured business loans in Australia"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/secured-vs-unsecured-business-loans",
+      "bytes": 87176
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/rise-of-non-bank-lending-australia",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/rise-of-non-bank-lending-australia",
+      "title": "Rise of Non-bank Lending in Australia | SME Finance Guide",
+      "h1": [
+        "Why more Australian SMEs are looking beyond banks"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/rise-of-non-bank-lending-australia",
+      "bytes": 92235
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/payday-super-changes-sme-funding",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/payday-super-changes-sme-funding",
+      "title": "Payday Super Changes and SME Funding | Comparison One",
+      "h1": [
+        "Payday Super changes: what Australian SMEs should check before funding a cash-flow gap"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/payday-super-changes-sme-funding",
+      "bytes": 86453
+    },
+    {
+      "url": "https://www.comparisonone.com/blog/economic-resilience-plan-sme-funding",
+      "status": 200,
+      "final": "https://www.comparisonone.com/blog/economic-resilience-plan-sme-funding",
+      "title": "Economic Resilience Plan and SME Funding | Comparison One",
+      "h1": [
+        "Economic Resilience Plan: what SMEs should check before chasing government-backed funding"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/blog/economic-resilience-plan-sme-funding",
+      "bytes": 87458
+    },
+    {
+      "url": "https://www.comparisonone.com/payday-super-cash-flow-gap",
+      "status": 200,
+      "final": "https://www.comparisonone.com/payday-super-cash-flow-gap",
+      "title": "Payday Super Cash Flow Gap | Compare Working Capital Options | Comparison One",
+      "h1": [
+        "The Payroll Change That Could Squeeze SME Cash Flow"
+      ],
+      "robots": "noindex, follow",
+      "canonical": "https://www.comparisonone.com/payday-super-cash-flow-gap",
+      "bytes": 28928
+    },
+    {
+      "url": "https://www.comparisonone.com/advertorial/funding-path-check-zero-interest-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/advertorial/funding-path-check-zero-interest-business-loans",
+      "title": "Zero-Interest Business Loans Funding Path Check | Comparison One",
+      "h1": [
+        "Zero-interest business loans are open \u2014 but not every Australian business will qualify"
+      ],
+      "robots": "noindex, follow",
+      "canonical": "https://www.comparisonone.com/advertorial/funding-path-check-zero-interest-business-loans",
+      "bytes": 90061
+    },
+    {
+      "url": "https://www.comparisonone.com/zero-interest-loan-scheme",
+      "status": 200,
+      "final": "https://www.comparisonone.com/zero-interest-loan-scheme",
+      "title": "Is Your Business Eligible For An Interest-Free Loan? | Comparison One",
+      "h1": [
+        "Is Your Business Eligible For An Interest-Free Loan?"
+      ],
+      "robots": "noindex, follow",
+      "canonical": "https://www.comparisonone.com/zero-interest-loan-scheme",
+      "bytes": 32367
+    },
+    {
+      "url": "https://www.comparisonone.com/advertorial/zero-interest-business-loans-australia",
+      "status": 200,
+      "final": "https://www.comparisonone.com/advertorial/zero-interest-business-loans-australia",
+      "title": "Government-Backed Zero-Interest Business Loans Australia | Comparison One",
+      "h1": [
+        "Are you eligible for Australia\u2019s government-backed zero-interest business loans?"
+      ],
+      "robots": "noindex, follow",
+      "canonical": "https://www.comparisonone.com/advertorial/zero-interest-business-loans-australia",
+      "bytes": 49691
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/moneytech",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/moneytech",
+      "title": "Moneytech Business Loans Australia | Comparison One",
+      "h1": [
+        "Moneytech Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/moneytech",
+      "bytes": 128143
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/banjo-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/banjo-loans",
+      "title": "Banjo Loans Business Loans Australia | Comparison One",
+      "h1": [
+        "Banjo Loans Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/banjo-loans",
+      "bytes": 124430
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/capify",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/capify",
+      "title": "Capify Business Loans Australia | Comparison One",
+      "h1": [
+        "Capify Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/capify",
+      "bytes": 128157
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/lumi",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/lumi",
+      "title": "Lumi Business Loans Australia | Comparison One",
+      "h1": [
+        "Lumi Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/lumi",
+      "bytes": 127352
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/shift-getcapital",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/shift-getcapital",
+      "title": "Shift / GetCapital Business Loans Australia | Comparison One",
+      "h1": [
+        "Shift / GetCapital Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/shift-getcapital",
+      "bytes": 125366
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/liberty-business-finance",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/liberty-business-finance",
+      "title": "Liberty business finance: products and fit checks | Comparison One",
+      "h1": [
+        "Liberty Business Finance Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/liberty-business-finance",
+      "bytes": 126089
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/westpac-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/westpac-business-loans",
+      "title": "Westpac Business Loans Business Loans Australia | Comparison One",
+      "h1": [
+        "Westpac Business Loans Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/westpac-business-loans",
+      "bytes": 126062
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/commbank-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/commbank-business-loans",
+      "title": "CommBank Business Loans Business Loans Australia | Comparison One",
+      "h1": [
+        "CommBank Business Loans Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/commbank-business-loans",
+      "bytes": 125258
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/nab-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/nab-business-loans",
+      "title": "NAB Business Loans Business Loans Australia | Comparison One",
+      "h1": [
+        "NAB Business Loans Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/nab-business-loans",
+      "bytes": 126223
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/anz-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/anz-business-loans",
+      "title": "ANZ Business Loans Business Loans Australia | Comparison One",
+      "h1": [
+        "ANZ Business Loans Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/anz-business-loans",
+      "bytes": 126348
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/bizcap",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/bizcap",
+      "title": "Bizcap Business Loans Australia | Comparison One",
+      "h1": [
+        "Bizcap Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/bizcap",
+      "bytes": 97907
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/boost-business-loans",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/boost-business-loans",
+      "title": "Boost Business Loans Australia | Comparison One",
+      "h1": [
+        "Boost Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/boost-business-loans",
+      "bytes": 98720
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/fifo-capital",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/fifo-capital",
+      "title": "Fifo Capital Business Loans Australia | Comparison One",
+      "h1": [
+        "Fifo Capital Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/fifo-capital",
+      "bytes": 98562
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/pepper-money-commercial",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/pepper-money-commercial",
+      "title": "Pepper Money Commercial Business Loans Australia | Comparison One",
+      "h1": [
+        "Pepper Money Commercial Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/pepper-money-commercial",
+      "bytes": 99773
+    },
+    {
+      "url": "https://www.comparisonone.com/lenders/plenti-commercial",
+      "status": 200,
+      "final": "https://www.comparisonone.com/lenders/plenti-commercial",
+      "title": "Plenti Commercial Business Loans Australia | Comparison One",
+      "h1": [
+        "Plenti Commercial Business Loans Profile"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/lenders/plenti-commercial",
+      "bytes": 98965
+    },
+    {
+      "url": "https://www.comparisonone.com/compare/non-bank-business-lenders",
+      "status": 200,
+      "final": "https://www.comparisonone.com/compare/non-bank-business-lenders",
+      "title": "Non-Bank Business Lenders Australia | Compare Fit | Comparison One",
+      "h1": [
+        "Non-bank business lenders in Australia: compare fit before applying"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/compare/non-bank-business-lenders",
+      "bytes": 98509
+    },
+    {
+      "url": "https://www.comparisonone.com/compare/prospa-vs-moula",
+      "status": 200,
+      "final": "https://www.comparisonone.com/compare/prospa-vs-moula",
+      "title": "Prospa vs Moula Business Loans | Compare Lender Fit | Comparison One",
+      "h1": [
+        "Prospa vs Moula: compare business loan fit before applying"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/compare/prospa-vs-moula",
+      "bytes": 104909
+    },
+    {
+      "url": "https://www.comparisonone.com/compare/prospa-vs-ondeck",
+      "status": 200,
+      "final": "https://www.comparisonone.com/compare/prospa-vs-ondeck",
+      "title": "Prospa vs OnDeck Business Loans | Compare Lender Fit | Comparison One",
+      "h1": [
+        "Prospa vs OnDeck: compare business loan fit before applying"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/compare/prospa-vs-ondeck",
+      "bytes": 104449
+    },
+    {
+      "url": "https://www.comparisonone.com/compare/moula-vs-lumi",
+      "status": 200,
+      "final": "https://www.comparisonone.com/compare/moula-vs-lumi",
+      "title": "Moula vs Lumi Business Loans | Compare Lender Fit | Comparison One",
+      "h1": [
+        "Moula vs Lumi: compare business loan fit before applying"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/compare/moula-vs-lumi",
+      "bytes": 104264
+    },
+    {
+      "url": "https://www.comparisonone.com/compare/judo-bank-vs-non-bank-business-lenders",
+      "status": 200,
+      "final": "https://www.comparisonone.com/compare/judo-bank-vs-non-bank-business-lenders",
+      "title": "Judo Bank vs Non-Bank Business Lenders | Compare Fit | Comparison One",
+      "h1": [
+        "Judo Bank vs non-bank business lenders: compare fit before applying"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/compare/judo-bank-vs-non-bank-business-lenders",
+      "bytes": 95524
+    },
+    {
+      "url": "https://www.comparisonone.com/compare/scotpac-vs-business-loan",
+      "status": 200,
+      "final": "https://www.comparisonone.com/compare/scotpac-vs-business-loan",
+      "title": "ScotPac vs Business Loan | Compare Invoice & Asset Finance Fit | Comparison One",
+      "h1": [
+        "ScotPac vs business loan: compare invoice and asset finance fit"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/compare/scotpac-vs-business-loan",
+      "bytes": 105107
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/tradies",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/tradies",
+      "title": "Finance for Tradies AU | Equipment, Vehicle & Cash Flow",
+      "h1": [
+        "Finance for tradies: equipment, vehicles and cash flow between jobs"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/tradies",
+      "bytes": 153050
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/transport-logistics",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/transport-logistics",
+      "title": "Transport Finance AU | Truck, Fleet & Invoice Funding",
+      "h1": [
+        "Finance for transport and logistics: trucks, fleet and cash flow on the road"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/transport-logistics",
+      "bytes": 153084
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/construction-subcontractors",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/construction-subcontractors",
+      "title": "Construction Subcontractor Finance Australia | Plant, Materials and Progress Payments",
+      "h1": [
+        "Finance for construction subcontractors: plant, mobilisation and progress payments"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/construction-subcontractors",
+      "bytes": 157363
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/hospitality",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/hospitality",
+      "title": "Hospitality Business Finance Australia | Cafes, Restaurants & Hotels | Comparison One",
+      "h1": [
+        "Hospitality business finance in Australia: what to know before you apply"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/hospitality",
+      "bytes": 144292
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/retail-ecommerce",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/retail-ecommerce",
+      "title": "Retail & Ecommerce Business Finance Australia | Compare Funding Options | Comparison One",
+      "h1": [
+        "Retail and ecommerce finance in Australia: what to know before you apply"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/retail-ecommerce",
+      "bytes": 148704
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/medical-allied-health",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/medical-allied-health",
+      "title": "Medical & Allied Health Finance Australia | Clinic Funding Options | Comparison One",
+      "h1": [
+        "Medical and allied health finance in Australia: what to know before you apply"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/medical-allied-health",
+      "bytes": 153321
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/manufacturing",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/manufacturing",
+      "title": "Manufacturing Business Loans & Finance Australia | Comparison One",
+      "h1": [
+        "Finance for Australian manufacturing businesses"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/manufacturing",
+      "bytes": 162152
+    },
+    {
+      "url": "https://www.comparisonone.com/business-loans/industry/professional-services",
+      "status": 200,
+      "final": "https://www.comparisonone.com/business-loans/industry/professional-services",
+      "title": "Professional Services Business Loans & Finance Australia | Comparison One",
+      "h1": [
+        "Finance for Australian professional services firms"
+      ],
+      "robots": "",
+      "canonical": "https://www.comparisonone.com/business-loans/industry/professional-services",
+      "bytes": 167077
+    }
+  ]
+}
